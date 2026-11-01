@@ -23,23 +23,93 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="PostPress · 印推：把推文排成卡片" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PostPress · 印推：把 X 推文排印成卡片" />
+    <meta
+      name="twitter:description"
+      content="十二套材质、四种画幅、十四种界面语言。排版与导出全部在本机完成，不登录、不上传。"
+    />
     <meta name="twitter:image" content="https://shirolin.github.io/postpress/assets/cards/og.jpg" />
+    <meta name="twitter:image:alt" content="PostPress · 印推：把推文排成卡片" />
     <link rel="canonical" href="https://shirolin.github.io/postpress/" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:locale:alternate" content="en_US" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "PostPress · 印推",
-        "applicationCategory": "DesignApplication",
-        "operatingSystem": "Chrome, Edge",
-        "url": "https://shirolin.github.io/postpress/",
-        "downloadUrl": "https://github.com/Shirolin/postpress",
-        "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-        "image": "https://shirolin.github.io/postpress/assets/cards/og.jpg",
-        "description": "把 X 的推文与同作者长串排印成 3× 高清卡片，十二套材质，全程在本机渲染。",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" }
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "PostPress · 印推",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Chrome, Edge",
+            "url": "https://shirolin.github.io/postpress/",
+            "downloadUrl": "https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai",
+            "sameAs": "https://github.com/Shirolin/postpress",
+            "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+            "softwareVersion": "1.0.1",
+            "author": {
+              "@type": "Person",
+              "name": "Shirolin",
+              "url": "https://github.com/Shirolin"
+            },
+            "image": "https://shirolin.github.io/postpress/assets/cards/og.jpg",
+            "description": "把 X 的推文与同作者长串排印成 3× 高清卡片，十二套材质，全程在本机渲染。",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "为什么不直接截屏？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "截屏跟着屏幕 DPI 走，还夹带浏览器界面。卡片是在隔离环境里按材质规范重新排版、再以 3× 光栅化的，输出干净，缩到信息流宽度依然锐利。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "长串发到信息流会被压糊吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "单条按 3× 导出。超长串默认 2× 以躲开尺寸上限；缩进信息流会小到难读时，面板会提示并建议分段。要极清可以在导出设置里强制 3×。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "需要登录或绑定 X 吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不需要。没有账号体系，只读当前页面已经渲染出来的内容和宿主自己的缓存，不碰任何凭据。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "导出的东西会被上传吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不会。图片只写到剪贴板和你的硬盘；关掉预览即释放内存，不在本地保存推文内容。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "能商用吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "软件本身是 GPL-3.0-or-later，可以商用。卡片里的文字与配图仍属于原作者，公开可见不等于可以随意商用，分发前请自己确认。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "能装在哪些浏览器上？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Chrome 与 Edge，Chrome 111 起（Manifest V3）。Firefox 与 Safari 还没适配——扩展用的是 Chromium 的扩展接口。"
+                }
+              }
+            ]
+          }
+        ]
       }
     </script>
     <link rel="icon" href="./assets/favicon.png" />
@@ -128,46 +198,48 @@
               alt="夜幕材质的卡片：PostPress 印推的一条推文，正文下方引用排版样张的一句短推。"
               width="1280"
               height="766"
+              decoding="async"
+              fetchpriority="high"
             />
           </figure>
           <div class="rack">
             <p class="rack-label" id="rack-label" data-i18n="spec.pick">挑一种材质</p>
             <div class="rack-list" role="group" aria-labelledby="rack-label">
               <button class="material" type="button" data-material="minimal" aria-pressed="false">
-                <img src="./assets/cards/thumb-minimal.webp" alt="" width="320" height="192" /><span data-i18n="theme.minimal">极简</span>
+                <img src="./assets/cards/thumb-minimal.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.minimal">极简</span>
               </button>
               <button class="material" type="button" data-material="midnight" aria-pressed="true">
-                <img src="./assets/cards/thumb-midnight.webp" alt="" width="320" height="192" /><span data-i18n="theme.midnight">夜幕</span>
+                <img src="./assets/cards/thumb-midnight.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.midnight">夜幕</span>
               </button>
               <button class="material" type="button" data-material="glass" aria-pressed="false">
-                <img src="./assets/cards/thumb-glass.webp" alt="" width="320" height="192" /><span data-i18n="theme.glass">液态玻璃</span>
+                <img src="./assets/cards/thumb-glass.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.glass">液态玻璃</span>
               </button>
               <button class="material" type="button" data-material="material" aria-pressed="false">
-                <img src="./assets/cards/thumb-material.webp" alt="" width="320" height="192" /><span data-i18n="theme.material">质感</span>
+                <img src="./assets/cards/thumb-material.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.material">质感</span>
               </button>
               <button class="material" type="button" data-material="gallery" aria-pressed="false">
-                <img src="./assets/cards/thumb-gallery.webp" alt="" width="320" height="192" /><span data-i18n="theme.gallery">画廊</span>
+                <img src="./assets/cards/thumb-gallery.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.gallery">画廊</span>
               </button>
               <button class="material" type="button" data-material="darkroom" aria-pressed="false">
-                <img src="./assets/cards/thumb-darkroom.webp" alt="" width="320" height="192" /><span data-i18n="theme.darkroom">暗房</span>
+                <img src="./assets/cards/thumb-darkroom.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.darkroom">暗房</span>
               </button>
               <button class="material" type="button" data-material="riso" aria-pressed="false">
-                <img src="./assets/cards/thumb-riso.webp" alt="" width="320" height="192" /><span data-i18n="theme.riso">孔版</span>
+                <img src="./assets/cards/thumb-riso.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.riso">孔版</span>
               </button>
               <button class="material" type="button" data-material="sumi" aria-pressed="false">
-                <img src="./assets/cards/thumb-sumi.webp" alt="" width="320" height="192" /><span data-i18n="theme.sumi">水墨</span>
+                <img src="./assets/cards/thumb-sumi.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.sumi">水墨</span>
               </button>
               <button class="material" type="button" data-material="clay" aria-pressed="false">
-                <img src="./assets/cards/thumb-clay.webp" alt="" width="320" height="192" /><span data-i18n="theme.clay">软陶</span>
+                <img src="./assets/cards/thumb-clay.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.clay">软陶</span>
               </button>
               <button class="material" type="button" data-material="terminal" aria-pressed="false">
-                <img src="./assets/cards/thumb-terminal.webp" alt="" width="320" height="192" /><span data-i18n="theme.terminal">终端</span>
+                <img src="./assets/cards/thumb-terminal.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.terminal">终端</span>
               </button>
               <button class="material" type="button" data-material="receipt" aria-pressed="false">
-                <img src="./assets/cards/thumb-receipt.webp" alt="" width="320" height="192" /><span data-i18n="theme.receipt">小票</span>
+                <img src="./assets/cards/thumb-receipt.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.receipt">小票</span>
               </button>
               <button class="material" type="button" data-material="brutalist" aria-pressed="false">
-                <img src="./assets/cards/thumb-brutalist.webp" alt="" width="320" height="192" /><span data-i18n="theme.brutalist">粗野派</span>
+                <img src="./assets/cards/thumb-brutalist.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.brutalist">粗野派</span>
               </button>
             </div>
           </div>
@@ -200,6 +272,8 @@
             alt="示例卡片：三条同作者推文，前两条各带一张配图，第三条引用另一条推文。"
             width="900"
             height="1863"
+            loading="lazy"
+            decoding="async"
           />
           <figcaption data-i18n="thread.cap">三条同作者推文，其中一条带引用，导出的就是这一整张长卡片。</figcaption>
         </figure>
@@ -231,6 +305,8 @@
               alt="示例卡片：一条带 X 长文的推文，上方是横版封面照片，下方是长文标题与导语。"
               width="1100"
               height="1176"
+              loading="lazy"
+              decoding="async"
             />
           </figure>
           <div class="article-side">
@@ -271,26 +347,28 @@
               alt="PostPress 的控制面板：材质网格、画幅与背景、页脚三个开关、作者隐私脱敏，底部是复制与保存。"
               width="680"
               height="1906"
+              loading="lazy"
+              decoding="async"
             />
             <figcaption data-i18n="switch.panelCap">面板本体，1:1 大小。</figcaption>
           </figure>
           <div class="switch-list">
             <figure>
-              <img data-card="switch-full" src="./assets/cards/switch-full-midnight.webp" alt="示例卡片：页脚带二维码、互动数据、发布时间与署名。" width="900" height="539" />
+              <img data-card="switch-full" src="./assets/cards/switch-full-midnight.webp" alt="示例卡片：页脚带二维码、互动数据、发布时间与署名。" width="900" height="539" loading="lazy" decoding="async" />
               <figcaption>
                 <span class="tag" data-i18n="switch.cap1">全开</span>
                 <span data-i18n="switch.cap1b">二维码、数据、时间、署名。</span>
               </figcaption>
             </figure>
             <figure>
-              <img data-card="switch-plain" src="./assets/cards/switch-plain-midnight.webp" alt="示例卡片：页脚只留正文，二维码、数据与时间已关闭。" width="900" height="436" />
+              <img data-card="switch-plain" src="./assets/cards/switch-plain-midnight.webp" alt="示例卡片：页脚只留正文，二维码、数据与时间已关闭。" width="900" height="436" loading="lazy" decoding="async" />
               <figcaption>
                 <span class="tag" data-i18n="switch.cap2">关页脚</span>
                 <span data-i18n="switch.cap2b">只剩正文。</span>
               </figcaption>
             </figure>
             <figure>
-              <img data-card="switch-blur" src="./assets/cards/switch-blur-midnight.webp" alt="示例卡片：作者与引用作者的头像、昵称、账号都被高斯模糊。" width="900" height="436" />
+              <img data-card="switch-blur" src="./assets/cards/switch-blur-midnight.webp" alt="示例卡片：作者与引用作者的头像、昵称、账号都被高斯模糊。" width="900" height="436" loading="lazy" decoding="async" />
               <figcaption>
                 <span class="tag" data-i18n="switch.cap3">打码</span>
                 <span data-i18n="switch.cap3b">作者与引用作者一起模糊。</span>
