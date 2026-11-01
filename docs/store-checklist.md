@@ -101,5 +101,7 @@ pnpm exec vite --config dev/vite.harness.config.ts
 
 ## 7. 发布之后
 
+- 已上架：<https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai>
+  （条目 ID `mfmldbbkajimckojjgceehiackjpakai`，2026-11-01 通过审核）。
 - 版本号按 semver 递增，`CHANGELOG.md` 同步记一条。
 - 商店页的「详细说明」与 `docs/store-listing.md` 是两份副本，改一边记得改另一边。

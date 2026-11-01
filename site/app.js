@@ -171,9 +171,9 @@ const EN = {
   'privacy.p1': 'Puts the finished image on your clipboard, only when you press Copy.',
   'privacy.p2': 'Remembers your material, canvas and switches; stored locally.',
   'privacy.p3': "Fetches the card's pictures. A canvas cannot read cross-origin images without it.",
-  'install.h2': 'Three steps into your browser.',
+  'install.h2': 'Into your browser.',
   'install.lead':
-    'Source install for now: build once with Node 24 and pnpm 10, and it lives in the action bar of every post.',
+    'Install from the Chrome Web Store in one click, or build from source with the three steps below.',
   'install.s1t': 'Build',
   'install.s1':
     'Clone the source, install and build. The output lands in <code>dist/</code>.',
@@ -184,6 +184,7 @@ const EN = {
   'install.s3': 'Press the card button on any post, or hover a post and hit <kbd>Alt</kbd> + <kbd>C</kbd>.',
   'install.note': 'Released under GPL-3.0-or-later: redistribute your changes under the same licence.',
   'install.cta': 'Open the repository',
+  'install.store': 'Add from the Chrome Web Store',
   'faq.h2': 'Asked most',
   'faq.lead': 'Six real questions, answers on the right.',
   'faq.q1': 'Why not just screenshot?',

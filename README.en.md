@@ -83,6 +83,12 @@ Every step—parsing, layout, and rasterization—runs 100% locally in your brow
 
 ## 📦 Getting Started
 
+### Install from the Chrome Web Store
+
+<https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai>
+
+Click **Add to Chrome**, then reload any open `x.com` tab. The store build is the same extension as the two options below.
+
 ### Download
 
 Grab `postpress-1.0.0.zip` from [Releases](https://github.com/Shirolin/post-to-card/releases/latest), unzip it somewhere permanent, then skip to the two "Load unpacked" steps below.

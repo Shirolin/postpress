@@ -83,6 +83,12 @@
 
 ## 📦 安装与使用
 
+### 从 Chrome 应用商店安装
+
+<https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai>
+
+点「添加至 Chrome」即可，装好后刷新已经打开的 `x.com` 页面。商店版本与下面两种方式装的是同一个扩展。
+
 ### 直接下载
 
 从 [Releases](https://github.com/Shirolin/post-to-card/releases/latest) 下载 `postpress-1.0.0.zip`，解压到一个固定目录（不要删），然后直接跳到下面的「加载至 Chrome」两步。
