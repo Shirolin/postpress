@@ -1038,7 +1038,7 @@ export function Controls({
               <div class="support-links">
                 <a
                   class="support-link"
-                  href="https://github.com/Shirolin/post-to-card"
+                  href="https://github.com/Shirolin/postpress"
                   target="_blank"
                   rel="noopener noreferrer"
                   title="GitHub"
@@ -1175,34 +1175,34 @@ export function Controls({
         <div class="export-buttons">
           <button
             type="button"
-            class="btn-primary"
+            class={`btn-primary${pendingAction === 'copy' ? ' is-pending' : flash === 'copy' ? ' is-flashing' : ''}`}
             ref={primaryButtonRef}
             onClick={onExportCopy}
             disabled={isExporting || exportSize?.impossible === true}
           >
-            {/* Three icons, one label. The label never changes -- swapping it
-                for "正在导出…" re-laid the button out mid-press -- and the icon
-                carries all three states: idle, working, and the tick that says
-                the copy landed. The tick is the whole success message now; there
-                is no sentence under the bar repeating it. */}
+            {/* Three distinct button surfaces (idle, dimmed-pending, bright-flash)
+                plus a short result label (`copiedButton`, never the full status
+                sentence `copiedSuccess` which wraps in ja/ru/pt-BR) on success, so
+                peripheral vision reads the transition without staring at the 16px
+                icon. */}
             {isExporting && pendingAction === 'copy'
               ? <span class="spinner" aria-hidden="true" />
               : flash === 'copy'
                 ? <Check size={16} strokeWidth={2.5} aria-hidden="true" />
                 : <Copy size={16} strokeWidth={2} aria-hidden="true" />}
-            <span>{t.copyImage}</span>
+            <span>{flash === 'copy' ? t.copiedButton : t.copyImage}</span>
           </button>
           <button
             type="button"
-            class="btn-secondary"
+            class={`btn-secondary${pendingAction === 'download' ? ' is-pending' : flash === 'download' ? ' is-flashing' : ''}`}
             onClick={onExportDownload}
             disabled={isExporting || exportSize?.impossible === true}
-            aria-label={t.downloadPng}
-            title={t.downloadPng}
+            aria-label={flash === 'download' ? t.downloadSuccess : t.downloadPng}
+            title={flash === 'download' ? t.downloadSuccess : t.downloadPng}
           >
-            {/* This button's only label is its icon, so it is the one place the
-                spinner has to stand in for the glyph rather than sit beside it.
-                Exactly one button is in a working state: the one that was
+            {/* This button's only label is its icon, so the surface tint and border
+                join the tick on completion to make the confirmation readable at a
+                glance. Exactly one button is in a working state: the one that was
                 pressed. */}
             {isExporting && pendingAction === 'download'
               ? <span class="spinner spinner-on-panel" aria-hidden="true" />

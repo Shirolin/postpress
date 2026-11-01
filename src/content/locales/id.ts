@@ -109,6 +109,7 @@ export const id: Translations = {
   theme_brutalist: 'Brutalis',
 
   copyImage: 'Salin gambar',
+  copiedButton: 'Disalin',
   downloadPng: 'Unduh PNG',
   copying: 'Menyalin ke papan klip...',
   generatingPng: 'Membuat gambar resolusi tinggi...',

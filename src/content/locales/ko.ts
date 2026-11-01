@@ -110,6 +110,7 @@ export const ko: Translations = {
   theme_brutalist: '브루탈리즘',
 
   copyImage: '이미지 복사',
+  copiedButton: '복사됨',
   downloadPng: 'PNG 저장',
   copying: '클립보드에 복사하는 중...',
   generatingPng: '고해상도 이미지를 만드는 중...',

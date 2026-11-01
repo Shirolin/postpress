@@ -110,6 +110,7 @@ export const ja: Translations = {
   theme_brutalist: 'ブルータリズム',
 
   copyImage: '画像をコピー',
+  copiedButton: 'コピー完了',
   downloadPng: 'PNG を保存',
   copying: 'クリップボードにコピー中...',
   generatingPng: '高解像度画像を生成中...',

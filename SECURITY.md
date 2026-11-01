@@ -8,7 +8,7 @@
 ## 报告方式
 
 **请不要用公开 issue 报告安全问题。** 用 GitHub 的
-[Private vulnerability reporting](https://github.com/Shirolin/post-to-card/security/advisories/new)
+[Private vulnerability reporting](https://github.com/Shirolin/postpress/security/advisories/new)
 （仓库 Security 标签页里的 "Report a vulnerability"）提交，那里只有维护者能看见。
 
 如果那个入口不可用，就开一个**不含细节**的公开 issue，只写「有安全问题需要私下沟通」，

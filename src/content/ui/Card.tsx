@@ -1299,7 +1299,7 @@ export function Card({
                       version the picture came from. */}
                   <a
                     class="card-credit"
-                    href="https://github.com/Shirolin/post-to-card"
+                    href="https://github.com/Shirolin/postpress"
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Source code — GPL-3.0"

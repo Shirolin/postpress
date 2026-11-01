@@ -115,6 +115,7 @@ export const enUS: Translations = {
   theme_brutalist: 'Brutalist',
 
   copyImage: 'Copy Image',
+  copiedButton: 'Copied',
   downloadPng: 'Download PNG',
   copying: 'Copying to clipboard...',
   generatingPng: 'Generating PNG...',

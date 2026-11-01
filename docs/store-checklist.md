@@ -19,11 +19,11 @@
 
 ```bash
 pnpm run build
-Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.0.0.zip'
+Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.0.1.zip'
 ```
 
 - `manifest.json` 必须在 zip **根目录**，不能是 `dist/manifest.json`。
-- 版本号取 `manifest.json` 的 `version`（当前 `1.0.0`）。商店不接受重复版本号，**每次上传都要改**。
+- 版本号取 `manifest.json` 的 `version`（当前 `1.0.1`）。商店不接受重复版本号，**每次上传都要改**。
 - zip 里只有运行时文件：`manifest.json`、四个 JS 入口、`popup.html`、`icons/`、`_locales/`。
   源码、`node_modules/`、`site/` 都不进去。
 
@@ -58,9 +58,9 @@ pnpm exec vite --config dev/vite.harness.config.ts
 | 详细说明 | 英文 / 中文两版 | `docs/store-listing.md` |
 | 类别 | **Social & Communication** | 与 X 相关的工具集中在这里；类别改一次要重新审一次 |
 | 语言 | English；其余 13 种可在「翻译」里逐个添加 | `_locales/` |
-| 隐私政策 URL | `https://github.com/Shirolin/post-to-card/blob/main/PRIVACY.md` | `PRIVACY.md` |
-| 主页 | `https://shirolin.github.io/post-to-card/` | 已部署 |
-| 支持 URL | `https://github.com/Shirolin/post-to-card/issues` | |
+| 隐私政策 URL | `https://github.com/Shirolin/postpress/blob/main/PRIVACY.md` | `PRIVACY.md` |
+| 主页 | `https://shirolin.github.io/postpress/` | 已部署 |
+| 支持 URL | `https://github.com/Shirolin/postpress/issues` | |
 | 权限理由（逐项） | 三行现成英文 | `docs/store-listing.md` §单项权限理由 |
 
 **单一用途说明**（后台必填，建议照抄）：

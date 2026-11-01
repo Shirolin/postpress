@@ -109,6 +109,7 @@ export const uk: Translations = {
   theme_brutalist: 'Бруталізм',
 
   copyImage: 'Копіювати зображення',
+  copiedButton: 'Скопійовано',
   downloadPng: 'Зберегти PNG',
   copying: 'Копіювання до буфера обміну...',
   generatingPng: 'Створення зображення у високій роздільності...',

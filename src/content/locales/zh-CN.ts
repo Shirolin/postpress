@@ -111,6 +111,7 @@ export const zhCN: Translations = {
   theme_brutalist: '粗野派',
 
   copyImage: '复制图片',
+  copiedButton: '已复制',
   downloadPng: '保存 PNG',
   copying: '正在复制到剪贴板...',
   generatingPng: '正在生成高清图...',

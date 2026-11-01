@@ -109,6 +109,7 @@ export const fr: Translations = {
   theme_brutalist: 'Brutaliste',
 
   copyImage: 'Copier l’image',
+  copiedButton: 'Copié',
   downloadPng: 'Télécharger le PNG',
   copying: 'Copie dans le presse-papiers...',
   generatingPng: 'Génération de l’image haute résolution...',

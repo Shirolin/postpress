@@ -110,6 +110,7 @@ export const tr: Translations = {
   theme_brutalist: 'Brütalist',
 
   copyImage: 'Görseli kopyala',
+  copiedButton: 'Kopyalandı',
   downloadPng: 'PNG indir',
   copying: 'Panoya kopyalanıyor...',
   generatingPng: 'Yüksek çözünürlüklü görsel oluşturuluyor...',

@@ -7,6 +7,7 @@ dist/
 dist-harness/
 build/
 *.tsbuildinfo
+*.zip
 # Vite's own cache directory, when it is not inside node_modules
 .vite/
 

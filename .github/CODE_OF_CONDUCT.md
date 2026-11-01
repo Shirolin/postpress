@@ -20,7 +20,7 @@ discussion，以及任何代表本项目进行的公开交流。
 
 请不要用公开 issue 报告违规行为。通过 GitHub 直接联系维护者
 [@Shirolin](https://github.com/Shirolin)，或使用仓库 Security 标签页里的
-[Private vulnerability reporting](https://github.com/Shirolin/post-to-card/security/advisories/new)
+[Private vulnerability reporting](https://github.com/Shirolin/postpress/security/advisories/new)
 作为私密渠道。维护者会尽快回复，并只在处理所需的最小范围内共享细节。
 
 ## 处理

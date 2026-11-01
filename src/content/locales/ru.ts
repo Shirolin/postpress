@@ -111,6 +111,7 @@ export const ru: Translations = {
   theme_brutalist: 'Брутализм',
 
   copyImage: 'Копировать изображение',
+  copiedButton: 'Скопировано',
   downloadPng: 'Скачать PNG',
   copying: 'Копирование в буфер обмена...',
   generatingPng: 'Создание изображения в высоком разрешении...',

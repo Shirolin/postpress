@@ -152,6 +152,7 @@ export interface Translations {
 
   // Export Actions & Status
   copyImage: string;
+  copiedButton: string;
   downloadPng: string;
   copying: string;
   generatingPng: string;

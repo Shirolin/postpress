@@ -5232,8 +5232,15 @@ test('F35.2: an export that succeeds with grey squares says so, and offers a ret
       { success: true, method: 'clipboard', filename: 'a.png', degradedImageCount: 2 },
       { success: true, method: 'clipboard', filename: 'a.png' },
     ];
+    let releaseThird: (() => void) | null = null;
     const container = openCardModal(EXPORT_THREAD, async () => {
-      const outcome = outcomes[calls++];
+      const idx = calls++;
+      const outcome = outcomes[idx];
+      if (idx === 2) {
+        await new Promise<void>((resolve) => {
+          releaseThird = resolve;
+        });
+      }
       return outcome as any;
     });
     await flushEffects();
@@ -5273,10 +5280,22 @@ test('F35.2: an export that succeeds with grey squares says so, and offers a ret
       'the warning has to stay until the next export'
     );
 
+    const t = getTranslation(resolveLocale(DEFAULT_CARD_CONFIG.locale));
+    const primaryBtn = container.shadow.querySelector('.export-actions .btn-primary') as any;
+    assert.equal(primaryBtn.textContent, t.copyImage, 'idle button shows the action label');
+    assert.ok(!primaryBtn.className.includes('is-pending') && !primaryBtn.className.includes('is-flashing'));
+
     (container.shadow.querySelector('.status-retry') as any).click();
-    // A clean result says nothing under the buttons: the tick on the button that
-    // was pressed is the whole confirmation. So this waits for that tick rather
-    // than for a sentence -- and for the sentence to be gone.
+    await flushEffects();
+    const pendingBtn = container.shadow.querySelector('.export-actions .btn-primary') as any;
+    assert.ok(pendingBtn.className.includes('is-pending'), 'working button carries the pending surface state');
+    assert.equal(pendingBtn.textContent, t.copyImage, 'working button keeps the action label so press does not shift');
+    if (releaseThird) (releaseThird as () => void)();
+
+    // A clean result says nothing under the buttons: the surface shift, the
+    // result label and the tick on the button that was pressed are the whole
+    // confirmation. So this waits for that confirmation rather than for a
+    // sentence -- and for the sentence to be gone.
     for (let i = 0; i < 40; i++) {
       await flushEffects();
       if (
@@ -5293,9 +5312,19 @@ test('F35.2: an export that succeeds with grey squares says so, and offers a ret
       !container.shadow.querySelector('.status-message'),
       'a clean export said something, when the button already answered it'
     );
+    const confirmedBtn = container.shadow.querySelector('.export-actions .btn-primary') as any;
     assert.ok(
-      container.shadow.querySelector('.export-actions .btn-primary .lucide-check'),
+      confirmedBtn.querySelector('.lucide-check'),
       'the button that was pressed never confirmed that it worked'
+    );
+    assert.ok(
+      confirmedBtn.className.includes('is-flashing'),
+      'the button surface marks the completed state for peripheral vision'
+    );
+    assert.equal(
+      confirmedBtn.textContent,
+      t.copiedButton,
+      'the button label switches to the short result wording while flashing'
     );
   });
 });
@@ -5546,7 +5575,7 @@ test('F35.9: the support and sponsor links are in the settings disclosure with s
     assert.equal(links.length, 3, 'there must be exactly three support links');
     const hrefs = links.map((link) => link.getAttribute('href'));
     assert.deepEqual(hrefs, [
-      'https://github.com/Shirolin/post-to-card',
+      'https://github.com/Shirolin/postpress',
       'https://ifdian.net/a/shirolin',
       'https://ko-fi.com/shirolin',
     ]);

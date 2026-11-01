@@ -2,7 +2,7 @@
 
 最后更新：2026-10-29
 
-Post-to-Card（下称「本扩展」）是一个**完全在本机运行**的 Chrome 扩展。
+PostPress · 印推（下称「本扩展」）是一个**完全在本机运行**的 Chrome 扩展。
 本页说明它会碰到哪些数据、碰到之后去了哪里。
 
 ## 一句话
@@ -46,5 +46,5 @@ Post-to-Card（下称「本扩展」）是一个**完全在本机运行**的 Chr
 
 ## 联系
 
-问题请通过 <https://github.com/Shirolin/post-to-card/issues> 提出。
+问题请通过 <https://github.com/Shirolin/postpress/issues> 提出。
 安全相关问题请按 [SECURITY.md](SECURITY.md) 的渠道私下报告。

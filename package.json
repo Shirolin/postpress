@@ -1,17 +1,17 @@
 {
-  "name": "post-to-card",
-  "version": "1.0.0",
+  "name": "postpress",
+  "version": "1.0.1",
   "description": "Press X posts and threads into print-grade cards. 12 themes, custom canvas mats, 100% local rendering.",
   "private": true,
   "license": "GPL-3.0-or-later",
   "author": "Shirolin",
-  "homepage": "https://shirolin.github.io/post-to-card/",
+  "homepage": "https://shirolin.github.io/postpress/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shirolin/post-to-card.git"
+    "url": "git+https://github.com/Shirolin/postpress.git"
   },
   "bugs": {
-    "url": "https://github.com/Shirolin/post-to-card/issues"
+    "url": "https://github.com/Shirolin/postpress/issues"
   },
   "keywords": [
     "chrome-extension",

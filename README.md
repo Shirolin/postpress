@@ -7,11 +7,11 @@
   </p>
 
   <p>
-    简体中文 | <a href="README.en.md">English</a> · <a href="https://shirolin.github.io/post-to-card/">在线体验与交互图集 ↗</a>
+    简体中文 | <a href="README.en.md">English</a> · <a href="https://shirolin.github.io/postpress/">在线体验与交互图集 ↗</a>
   </p>
 
   <p>
-    <a href="https://github.com/Shirolin/post-to-card/actions/workflows/ci.yml"><img src="https://github.com/Shirolin/post-to-card/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+    <a href="https://github.com/Shirolin/postpress/actions/workflows/ci.yml"><img src="https://github.com/Shirolin/postpress/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   </p>
 
   <p>
@@ -31,7 +31,7 @@
 
 ## 📸 效果预览
 
-> 更多交互式切换与 12 套全量材质预览请访问产品页：<https://shirolin.github.io/post-to-card/>（源码位于 [`site/`](site/)）。
+> 更多交互式切换与 12 套全量材质预览请访问产品页：<https://shirolin.github.io/postpress/>（源码位于 [`site/`](site/)）。
 
 ### 材质主题样张（12 选 6 展示）
 
@@ -91,7 +91,7 @@
 
 ### 直接下载
 
-从 [Releases](https://github.com/Shirolin/post-to-card/releases/latest) 下载 `postpress-1.0.0.zip`，解压到一个固定目录（不要删），然后直接跳到下面的「加载至 Chrome」两步。
+从 [Releases](https://github.com/Shirolin/postpress/releases/latest) 下载 `postpress-1.0.1.zip`，解压到一个固定目录（不要删），然后直接跳到下面的「加载至 Chrome」两步。
 
 ### 从源码构建安装
 
@@ -99,8 +99,8 @@
 
 ```bash
 # 1. 克隆仓库并安装依赖
-git clone https://github.com/Shirolin/post-to-card.git
-cd post-to-card
+git clone https://github.com/Shirolin/postpress.git
+cd postpress
 pnpm install
 
 # 2. 执行生产构建（产物输出至 dist/）
@@ -219,7 +219,7 @@ pnpm exec vite --config dev/vite.harness.config.ts
 
 - **爱发电 (Afdian)**：<https://ifdian.net/a/shirolin>
 - **Ko-fi**：<https://ko-fi.com/shirolin>
-- **GitHub Star**：在 [Shirolin/post-to-card](https://github.com/Shirolin/post-to-card) 点亮右上角 ⭐ Star，帮助更多人发现它。
+- **GitHub Star**：在 [Shirolin/postpress](https://github.com/Shirolin/postpress) 点亮右上角 ⭐ Star，帮助更多人发现它。
 
 欢迎提交 Issue 或 Pull Request 参与贡献！提交前请参阅 [CONTRIBUTING.md](CONTRIBUTING.md)。
 

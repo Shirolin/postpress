@@ -110,6 +110,7 @@ export const zhTW: Translations = {
   theme_brutalist: '粗野派',
 
   copyImage: '複製圖片',
+  copiedButton: '已複製',
   downloadPng: '儲存 PNG',
   copying: '正在複製到剪貼簿...',
   generatingPng: '正在產生高解析圖...',

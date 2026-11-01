@@ -7,11 +7,11 @@
   </p>
 
   <p>
-    <a href="README.md">简体中文</a> | English · <a href="https://shirolin.github.io/post-to-card/">Interactive Showcase & Gallery ↗</a>
+    <a href="README.md">简体中文</a> | English · <a href="https://shirolin.github.io/postpress/">Interactive Showcase & Gallery ↗</a>
   </p>
 
   <p>
-    <a href="https://github.com/Shirolin/post-to-card/actions/workflows/ci.yml"><img src="https://github.com/Shirolin/post-to-card/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+    <a href="https://github.com/Shirolin/postpress/actions/workflows/ci.yml"><img src="https://github.com/Shirolin/postpress/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
   </p>
 
   <p>
@@ -31,7 +31,7 @@ Every step—parsing, layout, and rasterization—runs 100% locally in your brow
 
 ## 📸 Preview
 
-> Explore interactive theme switching and all 12 materials on the product page: <https://shirolin.github.io/post-to-card/> (source in [`site/`](site/)).
+> Explore interactive theme switching and all 12 materials on the product page: <https://shirolin.github.io/postpress/> (source in [`site/`](site/)).
 
 ### Material Themes (6 of 12 Shown)
 
@@ -91,7 +91,7 @@ Click **Add to Chrome**, then reload any open `x.com` tab. The store build is th
 
 ### Download
 
-Grab `postpress-1.0.0.zip` from [Releases](https://github.com/Shirolin/post-to-card/releases/latest), unzip it somewhere permanent, then skip to the two "Load unpacked" steps below.
+Grab `postpress-1.0.1.zip` from [Releases](https://github.com/Shirolin/postpress/releases/latest), unzip it somewhere permanent, then skip to the two "Load unpacked" steps below.
 
 ### Build from Source
 
@@ -99,8 +99,8 @@ Prerequisites: **Node.js >= 24**, **pnpm >= 10**.
 
 ```bash
 # 1. Clone the repository and install dependencies
-git clone https://github.com/Shirolin/post-to-card.git
-cd post-to-card
+git clone https://github.com/Shirolin/postpress.git
+cd postpress
 pnpm install
 
 # 2. Build the production extension into dist/
@@ -219,7 +219,7 @@ If PostPress helps your workflow, consider supporting its ongoing development:
 
 - **Afdian (爱发电)**: <https://ifdian.net/a/shirolin>
 - **Ko-fi**: <https://ko-fi.com/shirolin>
-- **GitHub Star**: Star [Shirolin/post-to-card](https://github.com/Shirolin/post-to-card) to help others discover it!
+- **GitHub Star**: Star [Shirolin/postpress](https://github.com/Shirolin/postpress) to help others discover it!
 
 Pull Requests and bug reports are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
 
