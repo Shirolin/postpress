@@ -11,7 +11,10 @@
   </p>
 
   <p>
+    <a href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai"><img src="https://img.shields.io/badge/Chrome_Web_Store-Install_Extension-4285F4?logo=googlechrome&logoColor=white" alt="Chrome Web Store" /></a>
+    <a href="https://github.com/Shirolin/postpress/releases/latest"><img src="https://img.shields.io/github/v/release/Shirolin/postpress?color=success&label=Release" alt="Release" /></a>
     <a href="https://github.com/Shirolin/postpress/actions/workflows/ci.yml"><img src="https://github.com/Shirolin/postpress/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+    <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="License" /></a>
   </p>
 
   <p>
