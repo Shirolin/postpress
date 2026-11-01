@@ -33,6 +33,8 @@ export const ja: Translations = {
   canvasShadow: 'カードの影',
 
   exportSettings: '書き出し設定',
+  support: 'サポート',
+  supportAfdian: 'Afdian で支援する',
   canvasBg_none: '背景なし',
   canvasBg_theme: 'テーマに合わせる',
   canvasBg_paper: '紙白',

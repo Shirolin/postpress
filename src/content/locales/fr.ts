@@ -32,6 +32,8 @@ export const fr: Translations = {
   canvasShadow: 'Ombre de la carte',
 
   exportSettings: 'Export',
+  support: 'Soutien',
+  supportAfdian: 'Soutenez-moi sur Afdian',
   canvasBg_none: 'Aucun',
   canvasBg_theme: 'Comme le thème',
   canvasBg_paper: 'Papier',

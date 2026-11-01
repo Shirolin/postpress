@@ -32,6 +32,8 @@ export const id: Translations = {
   canvasShadow: 'Bayangan kartu',
 
   exportSettings: 'Ekspor',
+  support: 'Dukungan',
+  supportAfdian: 'Dukung saya di Afdian',
   canvasBg_none: 'Tanpa latar',
   canvasBg_theme: 'Ikuti tema',
   canvasBg_paper: 'Kertas',

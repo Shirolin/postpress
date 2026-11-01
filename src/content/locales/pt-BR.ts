@@ -33,6 +33,8 @@ export const ptBR: Translations = {
   canvasShadow: 'Sombra do cartão',
 
   exportSettings: 'Exportar',
+  support: 'Suporte',
+  supportAfdian: 'Apoie-me no Afdian',
   canvasBg_none: 'Sem fundo',
   canvasBg_theme: 'Seguir o tema',
   canvasBg_paper: 'Papel',

@@ -32,6 +32,8 @@ export const it: Translations = {
   canvasShadow: 'Ombra della card',
 
   exportSettings: 'Esporta',
+  support: 'Supporto',
+  supportAfdian: 'Sostienimi su Afdian',
   canvasBg_none: 'Nessuno',
   canvasBg_theme: 'Come il tema',
   canvasBg_paper: 'Carta',

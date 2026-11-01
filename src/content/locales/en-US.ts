@@ -33,6 +33,8 @@ export const enUS: Translations = {
   canvasShadow: 'Card shadow',
 
   exportSettings: 'Export',
+  support: 'Support',
+  supportAfdian: 'Support me on Afdian',
   canvasBg_none: 'None',
   canvasBg_theme: 'Theme',
   canvasBg_paper: 'Paper',

@@ -34,6 +34,8 @@ export const ru: Translations = {
   canvasShadow: 'Тень карточки',
 
   exportSettings: 'Экспорт',
+  support: 'Поддержка',
+  supportAfdian: 'Поддержать на Afdian',
   canvasBg_none: 'Без фона',
   canvasBg_theme: 'Как тема',
   canvasBg_paper: 'Бумага',

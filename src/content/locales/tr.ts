@@ -33,6 +33,8 @@ export const tr: Translations = {
   canvasShadow: 'Kart gölgesi',
 
   exportSettings: 'Dışa aktar',
+  support: 'Destek',
+  supportAfdian: 'Afdian’da destek ol',
   canvasBg_none: 'Arka plansız',
   canvasBg_theme: 'Temayı izle',
   canvasBg_paper: 'Kâğıt',

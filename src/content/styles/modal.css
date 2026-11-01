@@ -1045,6 +1045,41 @@
 }
 
 /* -------------------------------------------------------------
+   Sponsor and Support Links (under More Settings)
+   ------------------------------------------------------------- */
+.control-section.support-row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.support-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.support-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: var(--ptc-bg-raised);
+  border: 1px solid var(--ptc-border);
+  border-radius: var(--ptc-radius-sm);
+  color: var(--ptc-text);
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.support-link:hover {
+  background: var(--ptc-bg-hover);
+  border-color: var(--ptc-accent);
+  color: var(--ptc-accent);
+}
+
+/* -------------------------------------------------------------
    Sticky Export Action Bar
    ------------------------------------------------------------- */
 .export-actions {

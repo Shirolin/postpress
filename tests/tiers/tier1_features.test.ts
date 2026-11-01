@@ -5531,6 +5531,33 @@ test('F35.8: an export is made from the resolution the panel is showing, not a s
   });
 });
 
+test('F35.9: the support and sponsor links are in the settings disclosure with safe external attributes', async () => {
+  await withContainerEnv(async ({ openCardModal, flushEffects }) => {
+    const container = openCardModal(EXPORT_THREAD, async () => ({ success: true, method: 'clipboard' } as any));
+    await flushEffects();
+
+    (container.shadow.querySelector('.more-section .more-toggle') as any).click();
+    await flushEffects();
+
+    const links = Array.from(
+      container.shadow.querySelectorAll('.more-body .support-link')
+    ) as Array<{ getAttribute(name: string): string | null }>;
+
+    assert.equal(links.length, 3, 'there must be exactly three support links');
+    const hrefs = links.map((link) => link.getAttribute('href'));
+    assert.deepEqual(hrefs, [
+      'https://github.com/Shirolin/post-to-card',
+      'https://ifdian.net/a/shirolin',
+      'https://ko-fi.com/shirolin',
+    ]);
+
+    for (const link of links) {
+      assert.equal(link.getAttribute('target'), '_blank', 'external support link must open in new tab');
+      assert.equal(link.getAttribute('rel'), 'noopener noreferrer', 'external support link must protect opener');
+    }
+  });
+});
+
 // -------------------------------------------------------------
 // F36: The canvas the card is exported on
 // -------------------------------------------------------------

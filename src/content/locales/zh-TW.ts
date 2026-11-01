@@ -33,6 +33,8 @@ export const zhTW: Translations = {
   canvasShadow: '卡片陰影',
 
   exportSettings: '匯出設定',
+  support: '支持專案',
+  supportAfdian: '在愛發電支持我',
   canvasBg_none: '無背景',
   canvasBg_theme: '跟隨主題',
   canvasBg_paper: '紙白',

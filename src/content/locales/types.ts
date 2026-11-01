@@ -57,6 +57,8 @@ export interface Translations {
 
   // The export's own settings, which change the file and not the card
   exportSettings: string;
+  support: string;
+  supportAfdian: string;
   canvasBg_none: string;
   canvasBg_theme: string;
   canvasBg_paper: string;

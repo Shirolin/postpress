@@ -33,6 +33,8 @@ export const ko: Translations = {
   canvasShadow: '카드 그림자',
 
   exportSettings: '내보내기 설정',
+  support: '후원',
+  supportAfdian: 'Afdian에서 후원하기',
   canvasBg_none: '배경 없음',
   canvasBg_theme: '테마 따르기',
   canvasBg_paper: '종이색',

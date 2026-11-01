@@ -27,6 +27,9 @@ import {
   ChevronUp,
   Check,
   LayoutGrid,
+  Zap,
+  Coffee,
+  Icon,
 } from 'lucide-preact';
 
 /**
@@ -1025,6 +1028,57 @@ export function Controls({
                     updateConfig({ preferHighResolution: config.preferHighResolution !== true })
                   }
                 />
+              </div>
+            </div>
+
+            <div class="control-section support-row">
+              <span class="control-label">
+                <span>{t.support}</span>
+              </span>
+              <div class="support-links">
+                <a
+                  class="support-link"
+                  href="https://github.com/Shirolin/post-to-card"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                  aria-label="GitHub"
+                >
+                  <Icon
+                    size={15}
+                    aria-hidden="true"
+                    iconNode={[
+                      [
+                        'path',
+                        {
+                          d: 'M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4',
+                          key: 'tonef',
+                        },
+                      ],
+                      ['path', { d: 'M9 18c-4.51 2-5-2-7-2', key: '9comsn' }],
+                    ]}
+                  />
+                </a>
+                <a
+                  class="support-link"
+                  href="https://ifdian.net/a/shirolin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={t.supportAfdian}
+                  aria-label={t.supportAfdian}
+                >
+                  <Zap size={15} aria-hidden="true" />
+                </a>
+                <a
+                  class="support-link"
+                  href="https://ko-fi.com/shirolin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Ko-fi"
+                  aria-label="Ko-fi"
+                >
+                  <Coffee size={15} aria-hidden="true" />
+                </a>
               </div>
             </div>
           </div>

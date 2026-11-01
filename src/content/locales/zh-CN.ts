@@ -34,6 +34,8 @@ export const zhCN: Translations = {
   canvasShadow: '卡片投影',
 
   exportSettings: '导出设置',
+  support: '支持项目',
+  supportAfdian: '在爱发电支持我',
   canvasBg_none: '无背景',
   canvasBg_theme: '跟随主题',
   canvasBg_paper: '纸白',

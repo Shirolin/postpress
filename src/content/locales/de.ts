@@ -34,6 +34,8 @@ export const de: Translations = {
   canvasShadow: 'Kartenschatten',
 
   exportSettings: 'Export',
+  support: 'Support',
+  supportAfdian: 'Unterstütze mich auf Afdian',
   canvasBg_none: 'Ohne',
   canvasBg_theme: 'Wie Design',
   canvasBg_paper: 'Papier',

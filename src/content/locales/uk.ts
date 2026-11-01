@@ -32,6 +32,8 @@ export const uk: Translations = {
   canvasShadow: 'Тінь картки',
 
   exportSettings: 'Експорт',
+  support: 'Підтримка',
+  supportAfdian: 'Підтримати на Afdian',
   canvasBg_none: 'Без тла',
   canvasBg_theme: 'Як тема',
   canvasBg_paper: 'Папір',
