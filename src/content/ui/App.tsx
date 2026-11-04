@@ -168,6 +168,15 @@ export function App({ threadData, onClose, onExport, initialConfig }: AppProps):
    * failure -- which is what lets it claim no height at all the rest of the time.
    */
   const [flash, setFlash] = useState<ExportAction | null>(null);
+  /**
+   * The action whose export just failed, or null.
+   *
+   * `isErrorStatus` says *that* something went wrong; this says *where*. The
+   * outcome line is shared by both actions, so without it a failed download
+   * would paint the copy button red, and the button the user actually pressed
+   * would look untouched -- the one surface their eye is on.
+   */
+  const [failedAction, setFailedAction] = useState<ExportAction | null>(null);
   const [isErrorStatus, setIsErrorStatus] = useState<boolean>(false);
   const [isWarningStatus, setIsWarningStatus] = useState<boolean>(false);
   /**
@@ -723,6 +732,7 @@ export function App({ threadData, onClose, onExport, initialConfig }: AppProps):
       statusTimerRef.current = null;
       setStatusMessage('');
       setFlash(null);
+      setFailedAction(null);
     }, delayMs);
   };
 
@@ -806,6 +816,7 @@ export function App({ threadData, onClose, onExport, initialConfig }: AppProps):
     // their own line back.
     setStatusMessage('');
     setFlash(null);
+    setFailedAction(null);
     setIsErrorStatus(false);
     setIsWarningStatus(false);
     setRetry(null);
@@ -836,6 +847,7 @@ export function App({ threadData, onClose, onExport, initialConfig }: AppProps):
           outcome.degradedImageCount || outcome.scaleReduced || outcome.clipboardFailure
         );
         setIsErrorStatus(!outcome.success);
+        setFailedAction(outcome.success ? null : action);
         setIsWarningStatus(outcome.success && degraded);
         // Anything short of a clean copy/download can be worth another try --
         // except a clipboard this browser simply does not have. Retrying that
@@ -872,6 +884,7 @@ export function App({ threadData, onClose, onExport, initialConfig }: AppProps):
             ? t.exportTooTall
             : err.message;
       setStatusMessage(msg);
+      setFailedAction(action);
       setIsErrorStatus(true);
       setIsWarningStatus(false);
       // An empty image is the one failure a second attempt can plausibly fix
@@ -1121,6 +1134,7 @@ export function App({ threadData, onClose, onExport, initialConfig }: AppProps):
         onExportDownload={() => handleExport('download')}
         pendingAction={pendingAction}
         flash={flash}
+        failedAction={failedAction}
         statusMessage={statusMessage}
         isErrorStatus={isErrorStatus}
         isWarningStatus={isWarningStatus}

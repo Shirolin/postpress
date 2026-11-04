@@ -5389,6 +5389,14 @@ test('F35.4: an empty image reaches the user as actionable text with a retry', a
     );
     assert.ok(status.className.includes('is-error'));
     assert.ok(container.shadow.querySelector('.status-retry'), 'an empty image is worth one more try');
+    assert.ok(
+      container.shadow.querySelector('.export-actions .btn-primary')?.className.includes('is-failed'),
+      'the button that failed wears the failure surface, not the idle one'
+    );
+    assert.ok(
+      !container.shadow.querySelector('.export-actions .btn-secondary')?.className.includes('is-failed'),
+      'the action that was not pressed must not wear it'
+    );
   });
 });
 

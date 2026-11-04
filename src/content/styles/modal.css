@@ -57,9 +57,19 @@
   /* Two surface steps for the primary export button so peripheral vision can
      tell idle, working and done apart without reading the 16px icon: working
      settles into the panel while keeping `--ptc-on-accent` above 4.5:1, and
-     done brightens past hover with a crisp inner ring. */
-  --ptc-accent-pending: color-mix(in oklch, var(--ptc-accent), var(--ptc-bg-panel) 22%);
-  --ptc-accent-flash: color-mix(in oklch, var(--ptc-accent), white 24%);
+     done flashes to near-paper, the largest luminance step the fill can take
+     without leaving the mint.
+
+     The working step is 14%, not more: at 22% the label and the spinner sat at
+     3.82:1, under AA for 14px bold, so the one state that has to be read while
+     it is happening was the least legible one on the bar. 14% is the deepest
+     step that still clears 4.5:1.
+
+     The done step is 52% white, not 24%: at 24% the idle-to-done distance was
+     smaller than idle-to-working, so the state a user is waiting for was the
+     least visible one in the bar. */
+  --ptc-accent-pending: color-mix(in oklch, var(--ptc-accent), var(--ptc-bg-panel) 14%);
+  --ptc-accent-flash: color-mix(in oklch, var(--ptc-accent), white 52%);
   --ptc-accent-soft: color-mix(in srgb, var(--ptc-accent) 15%, transparent);
   /* 6.11:1 on the panel and 5.55:1 on a hovered row. `#f4212e` was X's own
      danger red and measured 4.35:1 / 3.96:1, so the export-failure line was the
@@ -1237,6 +1247,8 @@
 }
 
 .btn-primary {
+  position: relative;
+  overflow: hidden;
   flex: 1;
   min-width: 0;
   display: flex;
@@ -1307,18 +1319,40 @@
   cursor: progress;
 }
 
-/* Completion snap: a bright surface step and a spring pop on the tick so a
-   habitual user's peripheral vision catches the transition from working to done
-   without having to inspect the glyph. */
+/* Completion: the sheet feeds through. A solid paper-tone wipe crosses the
+   button in 260ms and the tick is drawn as a stroke, so the change is carried
+   by area and motion -- which peripheral vision reads -- rather than by a tint
+   the eye may not be on. The 24%-white step this replaced was a ~6 L* lift,
+   smaller than the working step it followed, and its white inner ring sat at
+   1.1:1 on its own fill.
+
+   The wipe layer carries the ink ring as well as the fill: an inset shadow on
+   the button itself is painted under its children, so this pseudo-element would
+   have covered it. `both` also means the final state holds without the button
+   itself having to declare the paper fill -- and a browser that drops the
+   animation still lands on the full paper surface, because the pseudo-element's
+   unanimated transform is `none`. */
 .btn-primary.is-flashing:not(:disabled) {
-  background: var(--ptc-accent-flash);
-  box-shadow:
-    inset 0 0 0 1.5px rgba(255, 255, 255, 0.45),
-    0 0 16px color-mix(in srgb, var(--ptc-accent) 38%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--ptc-accent) 42%, transparent);
 }
 
-.btn-primary.is-flashing:hover:not(:disabled) {
+.btn-primary.is-flashing:not(:disabled)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   background: var(--ptc-accent-flash);
+  box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ptc-on-accent) 42%, transparent);
+  transform-origin: left center;
+  animation: ptc-wipe 0.26s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  pointer-events: none;
+}
+
+/* The label and the tick ride above the wipe. */
+.btn-primary.is-flashing > svg,
+.btn-primary.is-flashing > span {
+  position: relative;
+  z-index: 1;
 }
 
 .btn-secondary.is-flashing:not(:disabled) {
@@ -1332,9 +1366,64 @@
   border-color: var(--ptc-accent);
 }
 
-.btn-primary.is-flashing > svg,
-.btn-secondary.is-flashing > svg {
-  animation: ptc-check-pop 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+/* The tick is written rather than popped: a 0.3s stroke on the path reads as
+   "done" at a glance and needs no colour of its own. The path is the lucide
+   check, whose length is ~21.5; 24 leaves a little margin so the first frame is
+   fully hidden. */
+.btn-primary.is-flashing > svg path,
+.btn-secondary.is-flashing > svg path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: ptc-check-draw 0.3s 0.06s cubic-bezier(0.3, 0.6, 0.3, 1) forwards;
+}
+
+@keyframes ptc-wipe {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes ptc-check-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* A failure is not another phase of the same action: the outcome line says what
+   went wrong, and the button that produced it says "this one" in the dialog's
+   danger ink, for exactly as long as that line is up. The fill is the panel with
+   the same 16% danger tint the outcome pill uses, not a solid red: a saturated
+   red slab turns a still-pressable action into a warning sign, and the button
+   is the one to press again when the outcome is retryable.
+
+   The ink is the danger token at 4.8:1 on that tint, above the 4.5:1 the 14px
+   bold label needs; the pill's icon and text are what carry the meaning, so
+   this surface is a second, peripheral signal rather than the only one. */
+.btn-primary.is-failed:not(:disabled) {
+  background: color-mix(in srgb, var(--ptc-danger) 16%, var(--ptc-bg-panel));
+  color: var(--ptc-danger);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ptc-danger) 45%, transparent);
+}
+
+.btn-primary.is-failed:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--ptc-danger) 22%, var(--ptc-bg-panel));
+}
+
+/* The download button carries no label, so its failure state is the border and
+   the icon colour: the same danger ink, one step lighter, because a 46px square
+   has less area to say it with. */
+.btn-secondary.is-failed:not(:disabled) {
+  background: color-mix(in srgb, var(--ptc-danger) 12%, var(--ptc-bg-panel));
+  border-color: color-mix(in srgb, var(--ptc-danger) 55%, transparent);
+  color: var(--ptc-danger);
+}
+
+.btn-secondary.is-failed:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--ptc-danger) 18%, var(--ptc-bg-panel));
+  border-color: color-mix(in srgb, var(--ptc-danger) 70%, transparent);
 }
 
 @keyframes ptc-check-pop {

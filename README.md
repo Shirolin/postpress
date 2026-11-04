@@ -94,7 +94,7 @@
 
 ### 直接下载
 
-从 [Releases](https://github.com/Shirolin/postpress/releases/latest) 下载 `postpress-1.0.1.zip`，解压到一个固定目录（不要删），然后直接跳到下面的「加载至 Chrome」两步。
+从 [Releases](https://github.com/Shirolin/postpress/releases/latest) 下载 `postpress-1.0.2.zip`，解压到一个固定目录（不要删），然后直接跳到下面的「加载至 Chrome」两步。
 
 ### 从源码构建安装
 

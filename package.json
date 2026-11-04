@@ -1,6 +1,6 @@
 {
   "name": "postpress",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Press X posts and threads into print-grade cards. 12 themes, custom canvas mats, 100% local rendering.",
   "private": true,
   "license": "GPL-3.0-or-later",

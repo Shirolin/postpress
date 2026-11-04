@@ -74,6 +74,14 @@ export interface ControlsProps {
    * the common outcome no longer needs one.
    */
   flash?: ExportAction | null;
+  /**
+   * The action whose export just failed, or null.
+   *
+   * Kept apart from `isErrorStatus`, which is shared by both buttons: the
+   * outcome line says what went wrong, this says which button earned it. The
+   * state lasts exactly as long as that line.
+   */
+  failedAction?: ExportAction | null;
   statusMessage?: string;
   isErrorStatus?: boolean;
   /**
@@ -305,6 +313,7 @@ export function Controls({
   onExportDownload,
   pendingAction = null,
   flash = null,
+  failedAction = null,
   statusMessage = '',
   isErrorStatus = false,
   isWarningStatus = false,
@@ -1175,7 +1184,7 @@ export function Controls({
         <div class="export-buttons">
           <button
             type="button"
-            class={`btn-primary${pendingAction === 'copy' ? ' is-pending' : flash === 'copy' ? ' is-flashing' : ''}`}
+            class={`btn-primary${pendingAction === 'copy' ? ' is-pending' : flash === 'copy' ? ' is-flashing' : failedAction === 'copy' ? ' is-failed' : ''}`}
             ref={primaryButtonRef}
             onClick={onExportCopy}
             disabled={isExporting || exportSize?.impossible === true}
@@ -1194,7 +1203,7 @@ export function Controls({
           </button>
           <button
             type="button"
-            class={`btn-secondary${pendingAction === 'download' ? ' is-pending' : flash === 'download' ? ' is-flashing' : ''}`}
+            class={`btn-secondary${pendingAction === 'download' ? ' is-pending' : flash === 'download' ? ' is-flashing' : failedAction === 'download' ? ' is-failed' : ''}`}
             onClick={onExportDownload}
             disabled={isExporting || exportSize?.impossible === true}
             aria-label={flash === 'download' ? t.downloadSuccess : t.downloadPng}
