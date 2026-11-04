@@ -358,10 +358,16 @@
    ------------------------------------------------------------- */
 .post-to-card-body-content {
   position: relative;
-  /* The rule's own thickness plus its breathing room, so it never sits on the
-     first line of the body. */
-  padding-top: calc(var(--signature-height, 0px) + 16px);
   gap: var(--rhythm-gap, 16px);
+}
+
+/* A material that draws a signature reserves the rule's own thickness plus its
+   breathing room above it. Only those materials get the row: the padding used
+   to be unconditional, so a material with no signature still spent its height
+   (16px) above the author header and its top inset stood taller than its sides
+   and bottom. */
+.post-to-card-target[data-signature] .post-to-card-body-content {
+  padding-top: calc(var(--signature-height, 0px) + 16px);
 }
 
 .post-to-card-target[data-signature] .post-to-card-body-content::before,
