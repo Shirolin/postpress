@@ -513,6 +513,89 @@ if (offParts.has('time') || offParts.has('timestamp')) harnessConfig.showTimesta
 if (offParts.has('wm') || offParts.has('watermark')) harnessConfig.showWatermark = false;
 
 /**
+ * Whether this URL is a review state rather than a plain opening.
+ *
+ * A review URL has to win over anything stored, or a bookmark would stop
+ * reaching the state it names the second time it is opened. The parameter is
+ * what makes it a review URL, not whether it differs from the shipped default:
+ * `?padding=16px` is a deliberate state even though 16px is also the default.
+ * A plain URL is the opposite case: the panel's own edits should survive a
+ * reload, so it goes through the same load/save seam the extension uses (see
+ * below).
+ */
+const CONFIG_PARAMS = [
+  'theme',
+  'ratio',
+  'padding',
+  'radius',
+  'fit',
+  'layout',
+  'canvas',
+  'bg',
+  'shadow',
+  'locale',
+  'no',
+];
+const hasOverrides = CONFIG_PARAMS.some((key) => params.has(key));
+
+/**
+ * The harness used to render with `initialConfig`, which skips the read, and a
+ * page has no `chrome.storage.local` for the write to reach. A setting changed
+ * here therefore lived only until the next reload and then vanished -- the one
+ * surface in the repo where the panel remembers nothing, which reads as a
+ * product bug when it is only the harness.
+ *
+ * This gives the modal a `localStorage`-backed storage area, so the panel's
+ * load/save path runs exactly as it does in the extension. Only installed when
+ * the page has no real extension storage (a normal page has `chrome`, but no
+ * `chrome.storage`), so an extension page keeps its own.
+ */
+function installPreviewStorage(): void {
+  const host = window as unknown as { chrome?: { storage?: unknown } };
+  if (host.chrome?.storage) return;
+
+  const PREVIEW_KEY = 'postpress-preview-preferences';
+  const readStore = (): Record<string, unknown> => {
+    try {
+      const raw = localStorage.getItem(PREVIEW_KEY);
+      const parsed = raw ? JSON.parse(raw) : null;
+      return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch {
+      return {};
+    }
+  };
+  const writeStore = (store: Record<string, unknown>): void => {
+    try {
+      localStorage.setItem(PREVIEW_KEY, JSON.stringify(store));
+    } catch {
+      // A profile that refuses local storage still previews; it just forgets.
+    }
+  };
+
+  const local = {
+    get(keys: string | string[], callback: (items: Record<string, unknown>) => void): void {
+      const store = readStore();
+      const out: Record<string, unknown> = {};
+      for (const key of Array.isArray(keys) ? keys : [keys]) {
+        if (key in store) out[key] = JSON.parse(JSON.stringify(store[key]));
+      }
+      callback(out);
+    },
+    set(items: Record<string, unknown>, callback?: () => void): void {
+      const store = readStore();
+      Object.assign(store, JSON.parse(JSON.stringify(items)));
+      writeStore(store);
+      callback?.();
+    },
+  };
+
+  host.chrome = host.chrome ?? {};
+  host.chrome.storage = { local };
+}
+
+installPreviewStorage();
+
+/**
  * A single image in each of the three grid shapes, so a material's media
  * rhythm can be reviewed without a live thread. ?grid=3 is the left/right hero
  * case where a wrong corner or gutter is most obvious.
@@ -790,7 +873,7 @@ if (auditMode === '1' || auditMode === 'radio') {
     h(App, {
       threadData: activeThreadData,
       onClose: () => {},
-      initialConfig: harnessConfig,
+      initialConfig: hasOverrides ? harnessConfig : undefined,
       onExport: harnessOnExport,
     }),
     container.mountPoint
@@ -846,7 +929,7 @@ if (auditMode === '1' || auditMode === 'radio') {
       h(App, {
         threadData: activeThreadData,
         onClose: () => {},
-        initialConfig: harnessConfig,
+        initialConfig: hasOverrides ? harnessConfig : undefined,
         onExport: harnessOnExport,
       })
     ),
@@ -857,7 +940,7 @@ if (auditMode === '1' || auditMode === 'radio') {
     h(App, {
       threadData: activeThreadData,
       onClose: () => {},
-      initialConfig: harnessConfig,
+      initialConfig: hasOverrides ? harnessConfig : undefined,
       onExport: harnessOnExport,
     }),
     container.mountPoint
