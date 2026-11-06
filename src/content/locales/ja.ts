@@ -143,6 +143,7 @@ export const ja: Translations = {
   retweetedBy: 'リポスト元',
   unavailablePost: 'このポストは表示できません',
   truncatedContent: '内容が一部省略されています',
+  communityNote: 'コミュニティノート',
   verified: '認証済みアカウント',
   articleKicker: '長文',
   articleAlt: '記事のカバー',

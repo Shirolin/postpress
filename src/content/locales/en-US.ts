@@ -150,6 +150,7 @@ export const enUS: Translations = {
   retweetedBy: 'Retweeted by',
   unavailablePost: 'This post is unavailable',
   truncatedContent: 'Content truncated',
+  communityNote: 'Community note',
   verified: 'Verified',
   articleKicker: 'Article',
   articleAlt: 'Article cover',

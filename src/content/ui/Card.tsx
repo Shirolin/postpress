@@ -30,6 +30,7 @@ import {
   Bookmark,
   Languages,
   ImageOff,
+  Info,
 } from 'lucide-preact';
 import { brandMarkSvg } from './brandMark.ts';
 import { CARD_BUILD } from '../build.ts';
@@ -564,6 +565,30 @@ function renderTranslationNotice(tweet: TweetData) {
 }
 
 /**
+ * The community note attached to a post, when X shows one.
+ *
+ * Only the note's words are printed. X's block also carries a status line and
+ * a rating control; both describe the note's current review state rather than
+ * the context it adds, and a static card can neither refresh nor accept a vote.
+ * The card supplies its own localized kicker, so the block reads as one thing
+ * whatever language the page was in.
+ */
+function renderCommunityNote(tweet: TweetData, t: ReturnType<typeof getTranslation>) {
+  if (!tweet.communityNote) return null;
+  return (
+    <div class="community-note">
+      <div class="community-note-label">
+        <Info size={14} strokeWidth={1.8} aria-hidden="true" />
+        <span>{t.communityNote}</span>
+      </div>
+      <div class="community-note-text">
+        {renderTextWithParagraphBreaks(tweet.communityNote, 'community-note')}
+      </div>
+    </div>
+  );
+}
+
+/**
  * True when a stats object would render at least one metric. Kept separate so
  * the card footer can decide whether it has content without duplicating the
  * formatting rules.
@@ -887,6 +912,7 @@ function renderSingleTweet(
         config.blurAuthor,
         quoteToggle
       )}
+      {renderCommunityNote(tweet, t)}
     </div>
   );
 }
@@ -957,6 +983,7 @@ function renderThreadTweet(
           config.blurAuthor,
           quoteToggle
         )}
+        {renderCommunityNote(tweet, t)}
       </div>
     </div>
   );

@@ -143,6 +143,7 @@ export const zhTW: Translations = {
   retweetedBy: '轉推自',
   unavailablePost: '此推文無法使用',
   truncatedContent: '內容未完整顯示',
+  communityNote: '社群筆記',
   verified: '已驗證帳號',
   articleKicker: '長文',
   articleAlt: '文章封面',

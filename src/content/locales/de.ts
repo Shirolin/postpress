@@ -145,6 +145,7 @@ export const de: Translations = {
   retweetedBy: 'Repostet von',
   unavailablePost: 'Dieser Post ist nicht verfügbar',
   truncatedContent: 'Inhalt gekürzt',
+  communityNote: 'Community-Hinweis',
   verified: 'Verifiziert',
   articleKicker: 'Artikel',
   articleAlt: 'Artikelbild',

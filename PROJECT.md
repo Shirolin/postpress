@@ -98,8 +98,8 @@ Post-to-Card（PostPress · 印推）是一个基于 Manifest V3 的纯本地 Ch
 
 ### 1. Extracted Tweet Data Model
 
-见 `src/types/tweet.ts`。`TweetData` 随功能增长（`retweetedBy`、`translatedFrom`、`truncated`、
-`diagnostics`，以及 `richTokens` 的 `cashtag`），`ThreadData` 另有 `targetTweetIndex`；
+见 `src/types/tweet.ts`。`TweetData` 随功能增长（`retweetedBy`、`translatedFrom`、`communityNote`、
+`truncated`、`diagnostics`，以及 `richTokens` 的 `cashtag`），`ThreadData` 另有 `targetTweetIndex`；
 字段语义与「为什么这么设计」写在类型自身的注释里，那才是唯一来源。
 
 ### 2. Card Customization Configuration

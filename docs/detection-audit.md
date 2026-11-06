@@ -42,6 +42,11 @@
   这个状态下 GIF 与视频仍然由**徽标文本**区分（容器内有 `<span>GIF</span>`），
   容器自身的 `aria-label` 是本地化的 `嵌入式视频`，所以 `div[aria-label="Embedded video"]` 那条精确匹配
   在 zh-CN 页面上匹配不到。见 `docs/observed-dom-2026-10-10-authenticated.md`
+- `div[data-testid="birdwatch-pivot"]` —— **2026-11-06 新增**：社区笔记的容器，时间线与详情页
+  一致。容器内除 `icon-birdwatch-fill` / `icon-birdwatch-level` 两个图标外没有正文 testid，
+  正文按「排除状态行、翻译行与评分页脚」定位（`button` 与 `div[role="link"]` 是后两者的
+  结构标记，笔记自己的链接是 `<a>`）。见 `docs/observed-dom-2026-11-06-community-note.md`，
+  真实标记锁在 `tests/fixtures/community-note.ts`。
 - **串的判据在 API，不在 DOM** —— **2026-10-10 实测**：X 自己的「这是同一串的下一节」条件是
   `legacy.in_reply_to_status_id_str === 上一条的 id_str`（同时 `in_reply_to_screen_name` 等于上一条作者，
   所以「同作者」是它的推论而不是独立条件），`conversation_id_str` 把整串绑在一起。

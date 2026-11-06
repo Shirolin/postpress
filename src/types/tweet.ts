@@ -155,6 +155,21 @@ export interface TweetData {
    */
   translatedFrom?: string;
   /**
+   * The body of a community note attached to this post, when X shows one.
+   *
+   * Only the note's words: the status header ("readers proposed context",
+   * "ratings being collected") and the rating control are X's live UI, not
+   * context worth printing on a card. The card labels the block itself, so the
+   * field carries no title either.
+   *
+   * Both channels fill it: the DOM channel reads the rendered body (which X may
+   * have machine-translated, exactly as it may translate the post), and the
+   * GraphQL channel reads `birdwatch_pivot.subtitle.text`. `applyDomTranslation`
+   * lets the rendered form win when both answer, so the card never reverts a
+   * translated note to its source language.
+   */
+  communityNote?: string;
+  /**
    * X rendered only a preview of this post in the DOM, with its "Show more"
    * affordance beside it. The complete body is not in the markup at all — it
    * lives in the GraphQL `note_tweet` field — so the DOM channel cannot print

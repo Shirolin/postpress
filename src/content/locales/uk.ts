@@ -143,6 +143,7 @@ export const uk: Translations = {
   retweetedBy: 'Репост від',
   unavailablePost: 'Цей пост недоступний',
   truncatedContent: 'Вміст обрізано',
+  communityNote: 'Нотатка спільноти',
   verified: 'Підтверджений акаунт',
   articleKicker: 'Стаття',
   articleAlt: 'Обкладинка статті',

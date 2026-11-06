@@ -143,6 +143,7 @@ export const ko: Translations = {
   retweetedBy: '리포스트한 사람',
   unavailablePost: '이 게시물은 볼 수 없습니다',
   truncatedContent: '내용이 일부 생략되었습니다',
+  communityNote: '커뮤니티 노트',
   verified: '인증된 계정',
   articleKicker: '장문',
   articleAlt: '글 표지',
