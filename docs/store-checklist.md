@@ -19,11 +19,11 @@
 
 ```bash
 pnpm run build
-Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.0.2.zip'
+Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.1.0.zip'
 ```
 
 - `manifest.json` 必须在 zip **根目录**，不能是 `dist/manifest.json`。
-- 版本号取 `manifest.json` 的 `version`（当前 `1.0.2`）。商店不接受重复版本号，**每次上传都要改**。
+- 版本号取 `manifest.json` 的 `version`（当前 `1.1.0`）。商店不接受重复版本号，**每次上传都要改**。
 - zip 里只有运行时文件：`manifest.json`、四个 JS 入口、`popup.html`、`icons/`、`_locales/`。
   源码、`node_modules/`、`site/` 都不进去。
 

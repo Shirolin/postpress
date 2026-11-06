@@ -94,7 +94,7 @@ Click **Add to Chrome**, then reload any open `x.com` tab. The store build is th
 
 ### Download
 
-Grab `postpress-1.0.2.zip` from [Releases](https://github.com/Shirolin/postpress/releases/latest), unzip it somewhere permanent, then skip to the two "Load unpacked" steps below.
+Grab `postpress-1.1.0.zip` from [Releases](https://github.com/Shirolin/postpress/releases/latest), unzip it somewhere permanent, then skip to the two "Load unpacked" steps below.
 
 ### Build from Source
 
