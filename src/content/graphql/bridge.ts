@@ -191,23 +191,34 @@ export function lookupFromGraphQL(targetTweetId?: string): GraphQLLookup {
 }
 
 /**
- * Folds the page's translation into a GraphQL result.
+ * Folds the page's rendered form into a GraphQL result.
  *
- * X translates client-side, so the translated body and its "translated from"
- * notice exist only in the rendered DOM; the GraphQL payload carries the
- * original body. When GraphQL answers, copy the visible body over the target
- * tweet so the card does not silently revert to the original language.
+ * X translates client-side, so the translated body, its "translated from"
+ * notice and a translated community note exist only in the rendered DOM; the
+ * GraphQL payload carries the source text. When GraphQL answers, copy what the
+ * page actually showed over the target tweet so the card does not silently
+ * revert to the original language.
+ *
+ * The note is copied whenever the DOM has one, not only when the post's body
+ * was translated: a note can be translated on its own, and the note X rendered
+ * is also the one whose shape the user saw. A DOM that has no note leaves the
+ * payload's note in place.
  */
 export function applyDomTranslation(graphqlThread: ThreadData, domThread: ThreadData): void {
   const domTarget = domThread.tweets[domThread.targetTweetIndex ?? 0];
-  if (!domTarget?.translatedFrom) return;
+  if (!domTarget?.translatedFrom && !domTarget?.communityNote) return;
 
   const target =
     graphqlThread.tweets.find((tweet) => tweet.id === domTarget.id) ??
     graphqlThread.tweets[graphqlThread.targetTweetIndex ?? 0];
   if (!target) return;
 
-  target.text = domTarget.text;
-  target.richTokens = domTarget.richTokens;
-  target.translatedFrom = domTarget.translatedFrom;
+  if (domTarget.translatedFrom) {
+    target.text = domTarget.text;
+    target.richTokens = domTarget.richTokens;
+    target.translatedFrom = domTarget.translatedFrom;
+  }
+  if (domTarget.communityNote) {
+    target.communityNote = domTarget.communityNote;
+  }
 }

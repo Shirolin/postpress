@@ -144,15 +144,15 @@ export function resolveThread(
       };
     }
 
-    // Client-side translation only exists in the rendered DOM.
-    // If an article element is present, fold in its translation
+    // Client-side translation (of the body and of a community note) only
+    // exists in the rendered DOM. If an article element is present, fold it in
     // without doing expensive full-timeline thread traversal.
     // A single-article extract is cheap; the traversal below is not.
     if (articleElement) {
       try {
         const domTweet = extractTweetData(articleElement);
         if (domTweet) {
-          if (domTweet.translatedFrom) {
+          if (domTweet.translatedFrom || domTweet.communityNote) {
             const domWrapper: ThreadData = {
               author: domTweet.author,
               tweets: [domTweet],

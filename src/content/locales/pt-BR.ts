@@ -144,6 +144,7 @@ export const ptBR: Translations = {
   retweetedBy: 'Repostado por',
   unavailablePost: 'Este post não está disponível',
   truncatedContent: 'Conteúdo truncado',
+  communityNote: 'Nota da comunidade',
   verified: 'Conta verificada',
   articleKicker: 'Artigo',
   articleAlt: 'Capa do artigo',

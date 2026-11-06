@@ -36,6 +36,7 @@ import { NESTED_QUOTE_VIDEO_HTML } from '../fixtures/nested-quote-video.ts';
 import { SINGLE_TWEET_HTML } from '../fixtures/single-tweet.ts';
 import { RETWEET_HTML } from '../fixtures/retweet.ts';
 import { PINNED_HTML } from '../fixtures/pinned.ts';
+import { COMMUNITY_NOTE_HTML } from '../fixtures/community-note.ts';
 import { withoutTestIds } from '../fixtures/strip-testids.ts';
 import { loadUserPreferences, saveUserPreferences, subscribePreferences, STORAGE_KEY } from '../../src/content/prefs.ts';
 import { DEFAULT_CARD_CONFIG } from '../../src/content/ui/themes.ts';
@@ -944,6 +945,37 @@ test('Tier 2.41: an untranslated post has no translation notice', () => {
   `);
 
   assert.equal(extractTweetData(article)?.translatedFrom, undefined);
+});
+
+test('Tier 2.41b: a community note’s body reaches the card, without X’s status header or rating control', async () => {
+  // Real markup: `tests/fixtures/community-note.ts`. The note block has one
+  // testid (`birdwatch-pivot`) and hashed classes inside, so the body is found
+  // by excluding the three blocks that are visibly something else: the status
+  // header (birdwatch icon), the translation row (buttons), and the rating
+  // footer (a `div[role="link"]`).
+  const article = createDomElement(COMMUNITY_NOTE_HTML);
+  const data = extractTweetData(article);
+
+  assert.ok(data, 'the real article must still extract');
+  assert.ok(data!.communityNote, 'the note was not found');
+  assert.ok(data!.communityNote!.includes('实际大小仍约为 50GB'), 'the note body is missing');
+  assert.ok(data!.communityNote!.includes('videogameschronicle.com'), 'the note’s own links are part of the note');
+  assert.ok(!data!.communityNote!.includes('读者已提议补充背景信息'), 'the status header leaked into the note');
+  assert.ok(!data!.communityNote!.includes('正在收集评分'), 'the rating state leaked into the note');
+  assert.ok(!data!.communityNote!.includes('你觉得此信息是否有帮助'), 'the rating control leaked into the note');
+
+  assert.ok(data!.text.includes('《尼尔：机械纪元》'), 'the note displaced the post body');
+  assert.equal(data!.translatedFrom, '翻译自 英语', 'the note took the post’s translation notice');
+
+  const html = await renderCard({ data });
+  assert.ok(html.includes('class="community-note"'), 'the card did not draw the note');
+  assert.ok(html.includes('Community note'), 'the card did not label the note');
+  assert.ok(html.includes('实际大小仍约为 50GB'), 'the note body did not reach the card');
+  assert.ok(!html.includes('你觉得此信息是否有帮助'), 'the rating control reached the card');
+
+  // The control: a post with no note draws no block.
+  const plain = await renderCard({ data: MEDIA_ONLY_TWEET });
+  assert.ok(!plain.includes('class="community-note"'), 'a post without a note grew one');
 });
 
 test('Tier 2.42: a self-labelled link is tokenized, not dropped as a media permalink', () => {

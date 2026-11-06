@@ -188,6 +188,36 @@ const translatedThreadData: ThreadData = {
 };
 
 /**
+ * A post carrying a community note (?note=1).
+ *
+ * The note body is the one X rendered for the captured 2026-11-06 sample, in
+ * the language the page showed it in. X's status header and rating footer are
+ * deliberately not in the model, so this fixture is exactly what the card can
+ * draw from a real note. The post body is translated, which is the common case
+ * where a note appears: the reader is reading a machine translation.
+ */
+const noteThreadData: ThreadData = {
+  author: { name: 'VGC', handle: '@VGC_News', avatarUrl: avatar, verified: true },
+  isSingle: true,
+  targetTweetIndex: 0,
+  tweets: [
+    {
+      id: '6001',
+      url: 'https://x.com/VGC_News/status/6001',
+      author: { name: 'VGC', handle: '@VGC_News', avatarUrl: avatar, verified: true },
+      timestamp: '2026-11-05T19:55:20.000Z',
+      text: '《尼尔：机械纪元》的最新更新将游戏大小从 50GB 增加到 366GB。\n\nhttps://videogameschronicle.com/news/nier-automatas-latest-update-increases-game-size-from-50gb-to-366gb/…',
+      translatedFrom: '翻译自 英语',
+      communityNote:
+        '声称的游戏大小增加到 366GB 是由于 Steam 错误地将完整游戏文件复制到了 DLC 要求中；此次更新仅添加了语言支持，实际大小仍约为 50GB。\n\n' +
+        'videogameschronicle.com/news/nier-auto…\nrpgsite.net/news/21708-new…\nsteamdb.info/patchnotes/259…',
+      media: [{ type: 'image', url: photo3, aspectRatio: 1.538 }],
+      stats: { replies: '189', reposts: '812', likes: '1万', views: '89.6万' },
+    },
+  ],
+};
+
+/**
  * A post with a Chinese display name, handle and body. The two serif themes
  * set a Song face for the author line, and CJK glyph fallback is the one part
  * of the type stack a Latin-only fixture cannot review (?cjk=1).
@@ -637,6 +667,7 @@ const FIXTURE_BY_PARAM: Record<string, ThreadData> = {
   translated: translatedThreadData,
   truncated: truncatedThreadData,
   video: videoThreadData,
+  note: noteThreadData,
   cjk: cjkThreadData,
   wrap: wrappedThreadData,
 };

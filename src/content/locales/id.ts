@@ -143,6 +143,7 @@ export const id: Translations = {
   retweetedBy: 'Diposting ulang oleh',
   unavailablePost: 'Postingan ini tidak tersedia',
   truncatedContent: 'Konten terpotong',
+  communityNote: 'Catatan komunitas',
   verified: 'Akun terverifikasi',
   articleKicker: 'Artikel',
   articleAlt: 'Sampul artikel',

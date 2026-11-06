@@ -230,6 +230,23 @@ function firstParagraph(value: string | undefined): string | undefined {
 }
 
 /**
+ * The community note X attached to a post, when it has one.
+ *
+ * `birdwatch_pivot.subtitle.text` is the note's own words. The rest of the
+ * pivot is deliberately not read: `shorttitle` / `footer.text` are X's live
+ * status ("readers proposed context", "ratings being collected"), localized by
+ * X and true only at the moment of the capture, and `callToAction` is a rating
+ * control a card cannot offer. `subtitle.text` is the source language; the
+ * rendered translation, when there is one, arrives through
+ * `applyDomTranslation`, exactly as the post's body does.
+ */
+function parseCommunityNote(tweet: Json): string | undefined {
+  const pivot = isObject(tweet.birdwatch_pivot) ? tweet.birdwatch_pivot : undefined;
+  const subtitle = pivot && isObject(pivot.subtitle) ? pivot.subtitle : undefined;
+  return str(subtitle?.text);
+}
+
+/**
  * Parses the article attached to a long-form post, or undefined.
  *
  * The article rides on the tweet as `article.article_results.result`, an
@@ -585,6 +602,7 @@ function parseTweet(entry: Json, fallbackId: string): TweetData | null {
     media: parseMedia(tweet, Boolean(article)),
     quotePost: parseQuote(tweet),
     article,
+    communityNote: parseCommunityNote(tweet),
     isThreadPart: false,
   };
 
@@ -612,6 +630,9 @@ function parseTweet(entry: Json, fallbackId: string): TweetData | null {
     data.media = parseMedia(original, Boolean(originalBody.article)) || data.media;
     data.stats = parseStats(original) || data.stats;
     data.article = originalBody.article || data.article;
+    // A note belongs to the post it explains, which for a retweet is the
+    // nested original rather than the reposting account's entry.
+    data.communityNote = parseCommunityNote(original) || data.communityNote;
     data.retweetedBy = reposter || undefined;
   }
 

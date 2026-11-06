@@ -41,6 +41,13 @@ function childNodesOf(node: Node): ArrayLike<Node> {
 const SHOW_MORE_TESTID = 'tweet-text-show-more-link';
 const SHOW_MORE_MARKER = `[data-testid="${SHOW_MORE_TESTID}"]`;
 
+/**
+ * X's community-note block. The testid was measured on a live, logged-in page
+ * on 2026-11-06 and is stable across the timeline and the post's own page; the
+ * block's internals have no testids of their own except the two icons.
+ */
+const COMMUNITY_NOTE_MARKER = '[data-testid="birdwatch-pivot"]';
+
 function isShowMoreMarker(el: Element): boolean {
   return el.getAttribute('data-testid') === SHOW_MORE_TESTID;
 }
@@ -1312,6 +1319,54 @@ function extractTranslationNotice(tweetTextEl: Element | null | undefined): stri
 }
 
 /**
+ * The body of one community note, or null when the block is not the shape this
+ * build knows.
+ *
+ * The block is, in order: a status header, a spacer, an optional "translated
+ * from" row, the note body, a spacer, and the rating footer. The body has no
+ * testid of its own and every class name is hashed, so it is found by what the
+ * other three blocks are, not by position: the header carries a birdwatch icon,
+ * the translation row carries buttons, and the footer's rating control is a
+ * `div[role="link"]` (the note's own links are `<a>` elements). What remains is
+ * the body. Position alone would be one row short on an untranslated note,
+ * which has one block fewer.
+ */
+function findCommunityNoteBody(pivot: Element): Element | null {
+  const children = childNodesOf(pivot);
+  for (let i = 0; i < children.length; i++) {
+    const child = children[i];
+    if (child.nodeType !== 1) continue;
+    const el = child as Element;
+    if ((el.tagName || '').toUpperCase() !== 'DIV') continue;
+    if (el.querySelector('[data-testid="icon-birdwatch-fill"], [data-testid="icon-birdwatch-level"]')) continue;
+    if (el.querySelector('button')) continue;
+    if (el.querySelector('div[role="link"]')) continue;
+    return el;
+  }
+  return null;
+}
+
+/**
+ * The community note attached to this tweet, or undefined when it has none.
+ *
+ * A quoted post can carry a note too, and that note is the quoted post's — the
+ * media and stats passes draw the same boundary. The post's own block is the
+ * one whose owner is the tweet.
+ */
+function extractCommunityNote(article: Element, ownership: TweetOwnership): string | undefined {
+  const pivots = article.querySelectorAll(COMMUNITY_NOTE_MARKER);
+  for (let i = 0; i < pivots.length; i++) {
+    const pivot = pivots[i];
+    if (ownerOf(pivot, ownership).post !== 'tweet') continue;
+    const body = findCommunityNoteBody(pivot);
+    if (!body) continue;
+    const text = cleanTweetText(body).trim();
+    if (text) return text;
+  }
+  return undefined;
+}
+
+/**
  * The "Show more" marker that belongs to this tweet, or null.
  *
  * A quoted post can carry a truncated body of its own, and that marker is not
@@ -1374,6 +1429,7 @@ export function extractTweetData(article: Element): TweetData | null {
   const quotePost = extractQuoteTweet(ownership);
   const retweetedBy = getRetweetedBy(article);
   const translatedFrom = validTextEl ? extractTranslationNotice(validTextEl) : undefined;
+  const communityNote = extractCommunityNote(article, ownership);
   // X showed a preview with its "Show more" control; the rest of the body is not
   // in the DOM. The card states the cut rather than inventing an ending.
   const truncated = Boolean(findTruncationMarker(article, ownership));
@@ -1391,6 +1447,7 @@ export function extractTweetData(article: Element): TweetData | null {
     article: articleData,
     retweetedBy: retweetedBy || undefined,
     translatedFrom,
+    communityNote,
     truncated: truncated || undefined,
     isThreadPart: false,
     // Diagnostic only. A rise in `none` is the early signal that X changed its

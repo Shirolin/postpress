@@ -144,6 +144,7 @@ export const tr: Translations = {
   retweetedBy: 'Yeniden paylaşan',
   unavailablePost: 'Bu gönderi kullanılamıyor',
   truncatedContent: 'İçerik kısaltıldı',
+  communityNote: 'Topluluk notu',
   verified: 'Doğrulanmış hesap',
   articleKicker: 'Makale',
   articleAlt: 'Makale kapağı',

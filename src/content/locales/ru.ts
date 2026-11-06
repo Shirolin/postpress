@@ -145,6 +145,7 @@ export const ru: Translations = {
   retweetedBy: 'Репост от',
   unavailablePost: 'Этот пост недоступен',
   truncatedContent: 'Содержание обрезано',
+  communityNote: 'Заметка сообщества',
   verified: 'Подтверждённый аккаунт',
   articleKicker: 'Статья',
   articleAlt: 'Обложка статьи',

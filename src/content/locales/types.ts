@@ -192,6 +192,8 @@ export interface Translations {
   retweetedBy: string;
   unavailablePost: string;
   truncatedContent: string;
+  /** The kicker above a community note's body. */
+  communityNote: string;
   verified: string;
   articleKicker: string;
   articleAlt: string;

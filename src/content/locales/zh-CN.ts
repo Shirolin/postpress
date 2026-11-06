@@ -144,6 +144,7 @@ export const zhCN: Translations = {
   retweetedBy: '转发自',
   unavailablePost: '此推文不可用',
   truncatedContent: '内容未完整显示',
+  communityNote: '社区笔记',
   verified: '已认证账号',
   articleKicker: '长文',
   articleAlt: '文章封面',

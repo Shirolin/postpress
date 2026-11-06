@@ -134,6 +134,55 @@
   opacity: 0.85;
 }
 
+/* -------------------------------------------------------------
+   Community note — a ruled annotation slip.
+
+   Context readers added under the post, not the author's words. The note is
+   its own object: a thin ruled frame with a caption row, so it reads as an
+   editorial annotation rather than as a continuation of the post. It is
+   deliberately not a filled recess like the quote box -- the quote already
+   means "another post's surface", and a second filled panel would read as a
+   second quote. The frame borrows the material's edge weight but never falls
+   below a hairline, because several papers set `--border-width` to 0px and an
+   annotation still needs an edge to sit on.
+   ------------------------------------------------------------- */
+.community-note {
+  --note-edge: max(1px, var(--border-width, 1px));
+  margin-top: calc(var(--rhythm-gap, 16px) * 0.6);
+  border: var(--note-edge) var(--rule-style, solid) var(--divider);
+  border-radius: var(--media-radius, 0px);
+  overflow: hidden;
+}
+
+.community-note-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: var(--note-edge) var(--rule-style, solid) var(--divider);
+  font-size: var(--type-meta-size, 13px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: var(--type-meta-tracking, normal);
+  text-transform: var(--type-meta-transform, none);
+  color: var(--text-sec);
+}
+
+.community-note-label svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.community-note-text {
+  padding: 11px 13px 12px;
+  font-size: calc(var(--type-body-size, 15px) - 1px);
+  line-height: var(--type-body-leading, 1.6);
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+  white-space: pre-wrap;
+  color: var(--text);
+}
+
 /* X rendered only a preview of a long post. The body ends in an ellipsis and
    this line says what it means, so the cut is not read as the author's ending.
    Both take existing material ink: the mark is fainter than the prose, the

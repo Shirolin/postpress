@@ -1146,3 +1146,72 @@ export const TWEET_DETAIL_CARD_JSON = JSON.stringify({
   }
 });
 
+
+/**
+ * A post carrying a community note.
+ *
+ * Shape taken from a live response captured 2026-11-06. `subtitle.text` is the
+ * note's source-language body; `shorttitle`/`footer` are X's localized status
+ * and `callToAction` its rating control, all present here so the parser can be
+ * shown to keep only the first.
+ */
+export const TWEET_DETAIL_COMMUNITY_NOTE_JSON = JSON.stringify({
+  data: {
+    threaded_conversation_with_injections_v2: {
+      instructions: [
+        {
+          type: 'TimelineAddEntries',
+          entries: [
+            {
+              entryType: 'TimelineTimelineItem',
+              entryId: 'tweet-7001',
+              sortIndex: '0',
+              content: {
+                itemContent: {
+                  __typename: 'TimelineTweet',
+                  tweet_results: {
+                    result: {
+                      __typename: 'Tweet',
+                      rest_id: '7001',
+                      core: {
+                        user_results: {
+                          result: {
+                            legacy: { screen_name: 'note_writer', name: 'Note Writer' },
+                            profile_image_url_https: 'https://pbs.twimg.com/profile_images/7/n.jpg'
+                          }
+                        }
+                      },
+                      legacy: {
+                        full_text: 'the post body',
+                        created_at: 'Thu Nov 05 19:55:20 +0000 2026'
+                      },
+                      birdwatch_pivot: {
+                        shorttitle: 'Readers added context',
+                        title: 'Readers added context',
+                        footer: { text: 'Ratings are being collected', entities: [] },
+                        callToAction: {
+                          title: 'Rate',
+                          prompt: 'Do you find this helpful?',
+                          destinationUrl: 'https://twitter.com/i/birdwatch/n/9001'
+                        },
+                        note: {
+                          rest_id: '9001',
+                          language: 'en',
+                          is_community_note_translatable: true
+                        },
+                        subtitle: {
+                          text: 'The claimed size increase is due to a Steam bug.\n\nhttps://example.com/source',
+                          entities: []
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+});

@@ -143,6 +143,7 @@ export const es: Translations = {
   retweetedBy: 'Reposteado por',
   unavailablePost: 'Este post no está disponible',
   truncatedContent: 'Contenido truncado',
+  communityNote: 'Nota de la comunidad',
   verified: 'Cuenta verificada',
   articleKicker: 'Artículo',
   articleAlt: 'Portada del artículo',

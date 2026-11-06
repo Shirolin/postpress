@@ -30,6 +30,7 @@ import {
   HOME_TIMELINE_SELF_THREAD_JSON,
   TWEET_DETAIL_CARD_JSON,
   TWEET_DETAIL_NESTED_QUOTE_JSON,
+  TWEET_DETAIL_COMMUNITY_NOTE_JSON,
 } from '../fixtures/graphql.ts';
 
 const { test, run } = createSuite();
@@ -569,6 +570,54 @@ test('gql.32: a quote of a deleted post is a tombstone, not the absence of a quo
   // The control: the same post without the field quotes nobody.
   const noQuote = parseTweetDetailResponse(TWEET_DETAIL_THREAD_JSON, 'TweetDetail', 'q1');
   assert.equal(noQuote.thread?.tweets[0].quotePost, undefined);
+});
+
+test('gql.33: a community note is read from the note body, not from X’s status or rating UI', () => {
+  const parsed = parseTweetDetailResponse(TWEET_DETAIL_COMMUNITY_NOTE_JSON, 'TweetDetail', 'q1');
+  const note = parsed.thread?.tweets[0].communityNote;
+
+  assert.equal(
+    note,
+    'The claimed size increase is due to a Steam bug.\n\nhttps://example.com/source',
+    'the card prints the note’s own words'
+  );
+  assert.ok(!note!.includes('Readers added context'), 'the status header is not context');
+  assert.ok(!note!.includes('Ratings are being collected'), 'the rating state is not context');
+  assert.ok(!note!.includes('Do you find this helpful?'), 'the rating prompt is a control');
+
+  // The control: a post with no pivot carries no note.
+  const plain = parseTweetDetailResponse(TWEET_DETAIL_ENTITIES_JSON, 'TweetDetail', 'q1');
+  assert.equal(plain.thread?.tweets[0].communityNote, undefined);
+});
+
+test('gql.34: the page’s rendered note wins even when the post body was not translated', () => {
+  // X translates the post body and its community note independently. Gating the
+  // merge on `translatedFrom` alone would keep the payload's source-language
+  // note on a card whose note the reader saw translated.
+  const parsed = parseTweetDetailResponse(TWEET_DETAIL_COMMUNITY_NOTE_JSON, 'TweetDetail', 'q1');
+  const thread = parsed.thread!;
+  const originalBody = thread.tweets[0].text;
+
+  const domThread: ThreadData = {
+    author: thread.author,
+    isSingle: true,
+    targetTweetIndex: 0,
+    tweets: [
+      {
+        id: thread.tweets[0].id,
+        url: thread.tweets[0].url,
+        author: thread.author,
+        timestamp: thread.tweets[0].timestamp,
+        text: 'the post body',
+        communityNote: '机器翻译后的社区笔记',
+      },
+    ],
+  };
+
+  applyDomTranslation(thread, domThread);
+
+  assert.equal(thread.tweets[0].communityNote, '机器翻译后的社区笔记');
+  assert.equal(thread.tweets[0].text, originalBody, 'the body stays GraphQL’s when it was not translated');
 });
 
 export function runTierGraphQL() {
