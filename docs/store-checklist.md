@@ -55,6 +55,10 @@ pnpm exec vite --config dev/vite.harness.config.ts
 # http://127.0.0.1:5199/preview.html?theme=riso&article=1&modal=1&locale=en-US
 ```
 
+- 抓图前先点掉弹窗顶部那条「点选头像即可脱敏」提示——它是首次使用的教练条，留在商店图里像新手引导。
+- 缩放按「整卡不裁」选最大的那档：默认 `Fit` 会把长串缩到 286px 宽，正文缩到 640×400 就没了，所以第一张用 `75%`（允许长串被截，看起来本来就可滚），文章用 `100%`，其余 `75%`。
+- 弹窗宽度上限是 1140px，1280 宽的窗口左右会各留 ~70px；这是当前真实布局，不要为了“满幅”去拉伸。
+
 参数含义见 `dev/preview.ts` 顶部注释（`?theme` `?ratio` `?canvas` `?grid=N` `?article=1`
 `?quote=1` `?video=1` `?no=qr,stats` 等）。
 
