@@ -88,6 +88,13 @@ coverage/
 .temp/
 *.tmp
 
+# The store film. The promo-video field takes a YouTube URL, so the copy that
+# matters lives on YouTube; the masters ride along as GitHub Release assets
+# (`store-assets-v<N>`). A 22 MB cut in git buys nothing a download URL does not,
+# and history cannot give it back. Poster frames stay: they are small and get
+# re-uploaded by hand.
+docs/store/*.mp4
+
 # Package managers: the repo installs with pnpm. A lockfile from another one is
 # a second source of truth for the dependency graph, not a thing to commit.
 yarn.lock

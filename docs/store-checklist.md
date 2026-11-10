@@ -36,6 +36,14 @@ Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.1.0.zip'
 | 截图 ×5 | 1280×800 | `screenshots/01`–`05` | 至少 1 张 |
 | 小型宣传图 | 440×280 | `promo-440x280.png` | 强烈建议 |
 | 大型宣传图 | 1400×560 | `promo-1400x560.png` | 可选（上首页轮播才用） |
+| 宣传视频 | 1920×1080 · 30s | [中文](https://github.com/Shirolin/postpress/releases/download/store-assets-v1/postpress-promo.mp4) · [English](https://github.com/Shirolin/postpress/releases/download/store-assets-v1/postpress-promo-en.mp4) | 可选 |
+| 视频封面 | 1920×1080 | `postpress-promo-poster.png` / `-poster-en.png` | — |
+
+- 成片不进 git（`.gitignore` 里有 `docs/store/*.mp4`），挂在 GitHub Release `store-assets-v1` 上；
+  换片时传新 Release（`store-assets-v2`…）再把上面两条链接改过去。封面帧很小，继续跟着仓库走。
+- 视频在后台填的是 YouTube 链接，不上传文件；`-en` 那份填**全局**视频，中文版填进 `zh_CN` 的本地化视频。
+  其余语言留空时按「本地化视频 → 本地化截图 → 全局视频 → 全局截图」回落，不必逐语言再录。
+- 两版共用同一条音轨（音乐 + 音效，无旁白），只是画面文字图层不同；分镜时间点完全一致。
 
 - 截图必须**方角、满幅、无内边距**，商店会统一缩到 640×400——正文太小的截图缩完会糊。
 - 没有 440×280 的扩展会被排在有的之后，这是白送的曝光。
