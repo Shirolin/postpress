@@ -16,7 +16,7 @@ GPL 的覆盖范围内**，仍按各自的 CC 许可使用；再分发这些图�
 
 ## 宣传片音频
 
-`docs/store/postpress-promo.mp4` 的 BGM 通过 Google Flow Music 生成，不是项目原创，也未标注为
+宣传片（Release `store-assets-v1` 里的中英两版）的 BGM 通过 Google Flow Music 生成，不是项目原创，也未标注为
 CC0；使用与再分发时以 Google Flow Music 的服务条款为准。音效通过 Openverse API 检索并在
 Freesound 获取，均为 CC0 1.0。
 

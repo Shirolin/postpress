@@ -29,7 +29,8 @@ Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.1.0.zip'
 
 ## 2. 图片
 
-全部在 `docs/store/`，由 dev harness 渲染（`dev/preview.ts` 的合成夹具，不含任何真实用户内容）：
+图片全部在 `docs/store/`，由 dev harness 渲染（`dev/preview.ts` 的合成夹具，不含任何真实用户内容）；
+两份成片不在仓库里，见下表下面的说明：
 
 | 用途 | 尺寸 | 文件 | 必需 |
 | :--- | :--- | :--- | :--- |
