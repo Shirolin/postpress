@@ -19,7 +19,7 @@
 
 ```bash
 pnpm run build
-Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.1.0.zip'
+Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.2.0.zip'
 ```
 
 - `manifest.json` 必须在 zip **根目录**，不能是 `dist/manifest.json`。
