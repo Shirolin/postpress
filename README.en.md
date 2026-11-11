@@ -3,7 +3,7 @@
 
   <h1>PostPress · 印推</h1>
   <p>
-    <b>Press X (Twitter) posts and same-author threads into publication-grade, high-resolution cards</b>
+    <b>Skip manual cropping and screenshots—copy X (Twitter) posts and same-author threads as publication-grade 3× cards, ready to paste anywhere</b>
   </p>
 
   <p>
@@ -13,7 +13,7 @@
   <p>
     <a href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai"><img src="https://img.shields.io/badge/Chrome_Web_Store-Install_Extension-4285F4?logo=googlechrome&logoColor=white" alt="Chrome Web Store" /></a>
     <a href="https://github.com/Shirolin/postpress/releases/latest"><img src="https://img.shields.io/github/v/release/Shirolin/postpress?color=success&label=Release" alt="Release" /></a>
-    <a href="https://github.com/Shirolin/postpress/actions/workflows/ci.yml"><img src="https://github.com/Shirolin/postpress/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+    <a href="https://github.com/Shirolin/postpress/actions/workflows/ci.yml"><img src="https://img.shields.io/github/v/release/Shirolin/postpress/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="License" /></a>
   </p>
 
@@ -26,7 +26,7 @@
 
 ## 🚀 Overview
 
-**PostPress** is a publication-grade card studio extension built for X (Twitter). Stop sharing cluttered, low-DPI browser screenshots—click the **press icon** in any post's action bar (or press `Alt + C`), and PostPress typesets single posts or multi-post threads inside an isolated live modal. Mix and match paper materials, aspect ratios, and outer canvas mats, then **copy directly to your clipboard** or **export as a 3× Retina PNG** with one click.
+**PostPress** is a publication-grade card copy and typesetting extension built for X (Twitter). Skip the tedious crop-and-screenshot routine, multi-part thread stitching, and cluttered, low-DPI browser captures—click the **press icon** in any post's action bar (or press `Alt + C`), and PostPress turns a single post or multi-post thread into a clean **3× Retina card** ready to **copy straight to your clipboard** and paste into chats, notes, or docs (or save as a PNG, with 12 paper materials, aspect ratios, and outer canvas mats).
 
 Every step—parsing, layout, and rasterization—runs 100% locally in your browser: **no login required, zero credential access, and zero external server communication**.
 
@@ -118,123 +118,123 @@ Load unpacked into Chrome / Chromium:
 
 | Step | Action |
 | :--- | :--- |
-| **1. Launch** | Click the **press icon** in any post's action bar, or hover over a post and press `Alt + C` (or trigger via the toolbar popup). |
-| **2. Customize** | Switch material themes, padding, corner radius, card ratio, and outer canvas mat backdrop; toggle footer metadata as needed. |
-| **3. Curate Thread** | Opening any post in a thread stitches the author's chain automatically; click the top-right chip on a post to exclude it, or click an avatar to blur that author. |
-| **4. Export** | Click **Copy Image** (writes directly to the clipboard, falling back to download if focus is lost) or **Save PNG**. |
+| **1. Open Modal** | Click the **press icon** in any post's action bar, or hover over a post and press `Alt + C` (also triggerable from the browser toolbar popup). |
+| **2. Customize** | Pick a material theme, padding, corner radius, card aspect ratio, and outer canvas backdrop in the right-hand panel; toggle footer QR and stats as needed. |
+| **3. Curate Thread** | Click any post inside a thread to stitch its context automatically; click a post's top-right button to exclude it, or click an avatar to blur just that author. |
+| **4. Copy & Share** | Click **Copy Image** (writes directly to your system clipboard, falling back to download if browser focus is lost) or **Save PNG**. |
 
 ---
 
 ## 🔒 Privacy & Security
 
-PostPress enforces **"100% local, zero external services"** as a hard architectural invariant:
+PostPress enforces **"100% local, zero external services"** as a hard architectural constraint:
 
-- **Zero External Telemetry**: Apart from fetching post media from X's official CDN (`*.twimg.com`, strictly validated by `isAllowedHost` to prevent SSRF) via the background worker to prevent Canvas tainting, the extension makes zero network requests.
-- **No Analytics or Tracking**: No telemetry, no crash reporting SDKs, and no remote configuration flags.
-- **Zero Credential Access**: Requires no login or X API keys. Reads only the DOM already rendered on your screen and the page's own GraphQL response stream in memory.
-- **Minimal Permissions**: Declares only `clipboardWrite`, `storage` (`chrome.storage.local` for user preferences), and `*.twimg.com` host access—no `tabs` or `<all_urls>` permissions.
+- **Zero External Remote Calls**: Apart from fetching post media from X's official image CDN (`*.twimg.com`, strictly validated via `isAllowedHost` to prevent SSRF) through the extension Background proxy, PostPress never makes requests to any third-party server.
+- **Zero Telemetry & Tracking**: No analytics beacons, no crash reporters, and no remote dynamic configuration.
+- **Zero Credential Access**: Requires no login or API keys. Reads only the already-rendered DOM and the page's own GraphQL response stream; post content lives strictly in memory and is released as soon as the modal closes.
+- **Minimal Permissions**: Declares only `clipboardWrite` (to copy images to your clipboard), `storage` (to save layout preferences in `chrome.storage.local`), and `*.twimg.com` image proxy access—never requesting `tabs` or broad host permissions.
 
-See [PRIVACY.md](PRIVACY.md) for the full privacy policy and [SECURITY.md](SECURITY.md) for vulnerability reporting.
+See [PRIVACY.md](PRIVACY.md) for the full privacy commitment and [SECURITY.md](SECURITY.md) for vulnerability reporting.
 
 ---
 
 ## ❓ FAQ
 
 <details>
-<summary><b>Why not just take a regular screenshot?</b></summary>
+<summary><b>Why not just take a system screenshot?</b></summary>
 
-OS screenshots are bound to your monitor's DPI and browser zoom, capturing cluttered UI chrome along the way. PostPress re-typesets and rasterizes the post inside an isolated Shadow DOM at 2× / 3× resolution with publication-grade typography, paper grain, and a source QR code.
+Taking a screenshot means dragging a selection box by hand, dodging replies below, and scrolling through multiple captures to stitch a thread—while still inheriting your display's DPI and browser UI clutter. PostPress skips the manual crop: it re-layouts the entire post or thread inside an isolated Shadow DOM at 2× / 3× resolution and puts a clean image straight on your clipboard, ready to paste anywhere.
 </details>
 
 <details>
-<summary><b>Will ultra-long thread cards look blurry when posted to social feeds?</b></summary>
+<summary><b>Will ultra-tall threads look blurry when posted to social feeds?</b></summary>
 
-Single posts export at 3× and stay razor-sharp. When a multi-post thread grows so tall that social platforms would scale its width down to an unreadable font size, the panel displays a **Readability Warning** suggesting a split export. Long threads default to 2× to keep pixel dimensions reasonable, while lossless channels can force 3× via **Prefer highest resolution** in Export settings.
+Single posts export at 3× and stay razor-sharp across social feeds. For very tall threads, social platforms scale images to a fixed width, which can shrink body text below comfortable reading size—when that happens, the panel proactively displays a **readability warning** and suggests splitting the thread. Tall threads default to 2× to keep pixel dimensions reasonable, with an optional **"Prefer highest resolution"** toggle in Export Settings to force 3× rendering.
 </details>
 
 <details>
 <summary><b>What happens to exported cards if the original post is deleted?</b></summary>
 
-Exported PNGs live on your clipboard or disk and are completely unaffected. The extension never persists tweet content in background storage; closing the modal frees the in-memory session immediately.
+Nothing—exported PNG images live entirely offline on your clipboard or local disk. The extension never persists post content in the background and frees memory as soon as you close the preview modal.
 </details>
 
 <details>
-<summary><b>What about copyright when quoting public posts?</b></summary>
+<summary><b>What are the copyright boundaries when quoting public posts?</b></summary>
 
-Cards preserve the original author's name, handle, timestamp, and permalink QR code by default. Public visibility does not imply a commercial license—please verify rights before commercial redistribution.
+Cards retain the original author's display name, handle, timestamp, and a source QR code by default. Public visibility does not waive copyright; please verify author permission before commercial use or large-scale redistribution.
 </details>
 
 ---
 
-## 🏗️ Architecture & Development
+## 🏗️ Architecture & Local Development
 
-![Architecture: 4 Build Entries, 2 JS Worlds, 1 Export Pipeline](docs/images/architecture.png)
+![Architecture: Four build entries, two JS worlds, one export](docs/images/architecture.png)
 
-- **Isolated Dual-World Execution**: `graphql-hook.js` runs at `document_start` in the page's `MAIN` world to intercept structured GraphQL responses; `content.js` lives in the extension's `ISOLATED` world, receiving sanitized data strictly over `window.postMessage`.
-- **Dual-Channel Resolution**: `resolveThread` prioritizes structured GraphQL conversation trees (natively capturing full `note_tweet` bodies and parent-child reply chains) and falls back seamlessly to Snowflake ID ordering, visual connectors, and DOM selectors when uncached.
-- **Clean 4-Entry Build**: Driven by Vite across four independent entries (ESM `background` + IIFE `content` / `popup` / `hook`) with runtime dependencies capped strictly at four (`preact`, `modern-screenshot`, `qrcode-generator`, `lucide-preact`).
+- **Dual-World Isolated Messaging**: `graphql-hook.js` injects at `document_start` into the page's `MAIN` world to intercept structured post responses; `content.js` runs in the extension's `ISOLATED` world, communicating strictly via sanitized `window.postMessage` payloads.
+- **Dual-Channel Thread Resolution**: `resolveThread` prioritizes the structured GraphQL conversation tree (natively supporting full `note_tweet` bodies and parent-child thread links) and falls back gracefully to chronological DOM extraction corroborated by Snowflake IDs and visual connectors.
+- **Clean 4-Entry Build**: Driven by Vite across four independent entries (ESM `background` + IIFE `content` / `popup` / `hook`), locking runtime dependencies to exactly 4 packages (`preact`, `modern-screenshot`, `qrcode-generator`, `lucide-preact`).
 
-### Repository Quality Gates
+### Build & Verification Gates
 
-Quality gates **must be executed in strict sequence** (`test:tier5` audits the freshly built `dist/` bundle and rejects stale builds):
+The repository uses a tiered verification suite that **must be run in order** (Tier 5 audits the freshly built `dist/` bundle directly and rejects stale builds):
 
 ```bash
-pnpm run build       # 1. Typecheck (tsc + node --check) + dead-code lint (knip) + 4-entry Vite build
-pnpm test            # 2. Tiers 1–4 E2E suite + i18n / GraphQL / Resolver / Article / Hygiene suites
-pnpm run test:tier5  # 3. Tier 5 adversarial stress & forensic bundle audit (CORS taint, clipboard, Shadow DOM)
+pnpm run build       # 1. Typecheck (tsc + node --check) + dead-code scan (knip) + 4-entry build
+pnpm test            # 2. Tiers 1–4 unit/edge/interaction/workflow tests + i18n / GraphQL / Resolver / Article / Hygiene suites
+pnpm run test:tier5  # 3. Tier 5 adversarial stress & bundle forensics (CORS taint guard, clipboard fallback, Shadow DOM isolation)
 ```
 
-### Standalone Visual Harness
+### Standalone Visual Debug Harness
 
-Debug card typography, materials, and modal states directly in your browser without loading the extension or visiting `x.com`:
+Preview card layouts and all theme states in a local browser without installing the extension or visiting `x.com`:
 
 ```bash
 pnpm exec vite --config dev/vite.harness.config.ts
 ```
 
-Open `http://127.0.0.1:5199/preview.html` and switch states via URL parameters (e.g., `?theme=riso&ratio=3:4&bg=paper&canvas=4:5`). For real-browser verification scripts (`verify:extension`, `verify:extractor`, `verify:motion`), see [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
+Open `http://127.0.0.1:5199/preview.html` and switch states via URL parameters (e.g. `?theme=riso&ratio=3:4&bg=paper&canvas=4:5`). For real-browser verification scripts (extension loading, offline DOM fixture extraction, frame-rate and pixel motion probes), see [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
 ## 📚 Documentation Map
 
-| Document | Scope |
+| Document | Description |
 | :--- | :--- |
-| [PROJECT.md](PROJECT.md) | Architectural overview, feature inventory, and data channel design |
-| [GLOSSARY.md](GLOSSARY.md) | Canonical definitions for Card, Canvas, Mat, Thread Session, and preferences |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution workflow, coding conventions, and PR checklist |
-| [AGENTS.md](AGENTS.md) | Gate sequence, TypeScript blind spots, and real-browser verification guides |
-| [PRIVACY.md](PRIVACY.md) / [SECURITY.md](SECURITY.md) | Privacy commitments, permission justifications, and security reporting |
-| [CHANGELOG.md](CHANGELOG.md) | Release history and notable changes |
-| [docs/i18n.md](docs/i18n.md) | 14-locale dictionary architecture, `'auto'` resolution rules, and `_locales` pitfalls |
-| [docs/loading-states.md](docs/loading-states.md) | First-frame `fit` measurement, image placeholders, FLIP motion rules, and pixel probes |
-| [docs/detection-audit.md](docs/detection-audit.md) | X DOM selector reliability audit and `ownership.ts` rules |
-| [docs/real-dom-sampling-checklist.md](docs/real-dom-sampling-checklist.md) | Offline real-tweet DOM sampling checklist and extractor verification |
-| [docs/architecture-review-2026-10-21.md](docs/architecture-review-2026-10-21.md) | Architectural review conclusions and rejected directions |
-| [docs/store-listing.md](docs/store-listing.md) | Chrome Web Store listing copy (name, short and full descriptions) and its sync rule with `_locales` |
-| [docs/store-checklist.md](docs/store-checklist.md) | Submission checklist: packaging, store images, console fields, privacy answers |
+| [PROJECT.md](PROJECT.md) | Architectural overview, Feature Inventory, and data channel design |
+| [GLOSSARY.md](GLOSSARY.md) | Canonical domain terminology (Card, Canvas / Mat, Thread Session, etc.) |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines, coding standards, architecture diagram rules, and PR workflow |
+| [AGENTS.md](AGENTS.md) | Build gate chain, TypeScript check blind spots, and real-browser verification guides |
+| [PRIVACY.md](PRIVACY.md) / [SECURITY.md](SECURITY.md) | Privacy commitments, permission justifications, and vulnerability disclosure policy |
+| [CHANGELOG.md](CHANGELOG.md) | Version history and release notes |
+| [docs/i18n.md](docs/i18n.md) | 14-locale dictionary architecture, auto-resolution rules, and `_locales` conventions |
+| [docs/loading-states.md](docs/loading-states.md) | First-frame `fit` measurement, image placeholders, motion trade-offs, and pixel probes |
+| [docs/detection-audit.md](docs/detection-audit.md) | X platform DOM selector reliability tiers and extraction audit |
+| [docs/real-dom-sampling-checklist.md](docs/real-dom-sampling-checklist.md) | Logged-out offline DOM sampling and extractor verification guide |
+| [docs/architecture-review-2026-10-21.md](docs/architecture-review-2026-10-21.md) | Historical architectural decisions and verified dead-ends |
+| [docs/store-listing.md](docs/store-listing.md) | Chrome Web Store listing copy (name, short/detailed descriptions) and `_locales` sync rules |
+| [docs/store-checklist.md](docs/store-checklist.md) | Store submission checklist: packaging, store images, dashboard fields, and privacy disclosures |
 
 ---
 
-## 🤝 Support & Contribution
+## 🤝 Support & Sponsorship
 
-If PostPress helps your workflow, consider supporting its ongoing development:
+If PostPress speeds up your workflow, consider supporting its ongoing maintenance:
 
 - **Afdian (爱发电)**: <https://ifdian.net/a/shirolin>
 - **Ko-fi**: <https://ko-fi.com/shirolin>
-- **GitHub Star**: Star [Shirolin/postpress](https://github.com/Shirolin/postpress) to help others discover it!
+- **GitHub Star**: Star [Shirolin/postpress](https://github.com/Shirolin/postpress) in the top-right corner to help others discover the project.
 
-Pull Requests and bug reports are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
+Issues and Pull Requests are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
 
 ---
 
 ## 📄 License
 
-Licensed under the **GNU General Public License v3.0 or later** (`GPL-3.0-or-later`). See [LICENSE](LICENSE) for the full text.
+Released under the **GNU General Public License v3.0 or later** (`GPL-3.0-or-later`). See [LICENSE](LICENSE) for full terms.
 
-You are free to use, modify, and redistribute this software (including commercially), provided that **any distributed modifications or derivative works are released under the same license with full source code made available**. The source credit link in the card footer serves as the compliance outlet under GPL §6.
+You are free to use, modify, and redistribute this software (including commercially), provided that **any distributed modifications or derivative works are licensed under the same GPLv3+ terms with complete source code**. The source attribution link in the bottom-right corner of the card serves as the compliance notice under GPL §6.
 
-Third-party works embedded in the sample card images keep their own CC licenses; see [CREDITS.md](CREDITS.md) for attribution.
+Third-party artworks embedded inside sample card images remain under their respective Creative Commons licenses; see [CREDITS.md](CREDITS.md) for attributions.
 
 ```text
 Copyright (C) 2026 Shirolin
@@ -244,4 +244,4 @@ the terms of the GNU General Public License as published by the Free Software
 Foundation, either version 3 of the License, or (at your option) any later version.
 ```
 
-<sub>X (Twitter) is a trademark of X Corp. This project is an independent open-source tool and is not affiliated with or endorsed by X Corp.</sub>
+<sub>X (Twitter) is a registered trademark of X Corp. This project is an independent open-source tool and is not affiliated with or endorsed by X Corp.</sub>

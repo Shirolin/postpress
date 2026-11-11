@@ -12,7 +12,7 @@ const MATERIALS = {
     surface: '#faf9f5', // taste-skill-ignore 产品自身的纸色，不是页面配色
     ink: '#121211',
     accent: '#2563eb',
-    zhNote: '暖白纸面，没有边框线，只留排版本身。',
+    zhNote: '暖白纸面，没有边框线，只留排版自身。',
     enNote: 'Warm white, no frame, nothing but the typesetting.',
   },
   midnight: {
@@ -48,7 +48,7 @@ const MATERIALS = {
     surface: '#f7f7f4',
     ink: '#101011',
     accent: '#1b3bd6',
-    zhNote: '墙标与左侧装裱线，像美术馆的展签。',
+    zhNote: '墙标与左侧装帧线，像美术馆的展签。',
     enNote: 'A wall label and a mounting rule, like a museum caption.',
   },
   darkroom: {
@@ -123,9 +123,9 @@ const EN = {
   'nav.article': 'Articles',
   'nav.privacy': 'Privacy',
   'nav.install': 'Install',
-  'hero.h1': 'Turn a post into a card.',
+  'hero.h1': 'Copy any post as a card.',
   'hero.sub':
-    'Twelve materials, four canvas shapes, fourteen interface languages. Typesetting and export happen on your own machine: no login, no upload, no X API.',
+    'Skip the manual crop-and-screenshot routine. Click the button on a post (or press Alt + C) to copy a single post or same-author thread as a crisp 3× card straight to your clipboard, ready to paste anywhere. Twelve materials, rendered entirely on your machine.',
   'hero.meta':
     'Free and open source · GPL-3.0-or-later · Chrome / Edge (Manifest V3, Chrome 111 and later)',
   'cta.install': 'Install in your browser',
@@ -135,7 +135,7 @@ const EN = {
   'facts.materials': 'materials',
   'facts.canvas': 'canvas shapes',
   'facts.locales': 'interface languages',
-  'facts.export': 'Retina export',
+  'facts.export': 'Retina copy',
   'thread.h2': 'Threads stitch themselves.',
   'thread.body':
     "Posts in one thread are joined by author and time, with ads and stray replies filtered out. Two ways in: X's own GraphQL cache first, then the rendered DOM when nothing is cached. Any post you would rather not show comes off with one click.",
@@ -155,7 +155,7 @@ const EN = {
   'article.s3': 'One to four keep their own proportions instead of being cropped square.',
   'switch.h2': 'Eight switches, one panel.',
   'switch.lead':
-    'Material, canvas, background, footer details, author blur and export resolution all live on this one panel; change one and the card follows.',
+    'Material, canvas, background, footer details, author blur and export resolution all live on this one panel; change one and the card follows. Your choices are remembered, so day to day you just open and hit Copy.',
   'switch.panelCap': 'The panel itself, at true size.',
   'switch.cap1': 'All on',
   'switch.cap1b': 'QR, counts, time, credit.',
@@ -181,7 +181,7 @@ const EN = {
   'install.s2':
     'Open <code>chrome://extensions</code>, turn on Developer mode, choose Load unpacked, and pick the <code>dist/</code> folder.',
   'install.s3t': 'Use',
-  'install.s3': 'Press the card button on any post, or hover a post and hit <kbd>Alt</kbd> + <kbd>C</kbd>.',
+  'install.s3': 'Press the card button on any post (or hover and hit <kbd>Alt</kbd> + <kbd>C</kbd>), click Copy Image, and paste anywhere.',
   'install.note': 'Released under GPL-3.0-or-later: redistribute your changes under the same licence.',
   'install.cta': 'Open the repository',
   'install.store': 'Add from the Chrome Web Store',
@@ -189,7 +189,7 @@ const EN = {
   'faq.lead': 'Six real questions, answers on the right.',
   'faq.q1': 'Why not just screenshot?',
   'faq.a1':
-    "A screenshot inherits your display's DPI and brings the browser's chrome with it. The card is laid out again in isolation to the material's own rules and rasterised at 3×, so the file is clean and stays sharp at feed width.",
+    "Cropping a screenshot by hand means dodging replies, stitching long threads across multiple captures, and settling for display DPI and browser chrome. One click on PostPress lays out the whole post or thread to the material's rules and puts a crisp 3× image straight on your clipboard, ready to paste.",
   'faq.q2': 'Does a long card blur in the feed?',
   'faq.a2':
     'A single post exports at 3×. A very long thread defaults to 2× to stay under the size ceiling; when it would read too small, the panel warns and suggests splitting. A global 3× switch lives in the export settings.',
@@ -206,7 +206,7 @@ const EN = {
   'faq.a6':
     'Chrome and Edge, from Chrome 111 (Manifest V3). Firefox and Safari are not supported yet: the extension is built on Chromium’s extension APIs.',
   'close.h2': 'Your next post deserves paper.',
-  'close.sub': 'Install once, then it sits in the action bar of every post. Rendered locally, image on the clipboard.',
+  'close.sub': 'Install once, then it sits in the action bar of every post. One click to the clipboard, ready to paste anywhere.',
   'foot.readme': 'README',
   'foot.privacy': 'Privacy',
   'foot.license': 'Licence',
@@ -228,13 +228,13 @@ const EN = {
 };
 
 const TITLES = {
-  zh: 'PostPress · 印推：把 X 推文排印成卡片',
-  en: 'PostPress: typeset X posts into print-grade cards',
+  zh: 'PostPress · 印推：把 X 推文复制成卡片',
+  en: 'PostPress: copy X posts as print-grade cards',
 };
 
 const DESCRIPTIONS = {
-  zh: 'PostPress 把 X 的推文与同作者长串重新排印成 3× 高清卡片：十二套材质、四种画幅，纯本地渲染，不登录、不上传。',
-  en: 'PostPress typesets X posts and same-author threads into 3× print-grade cards: twelve materials, four canvas shapes, rendered entirely on your machine.',
+  zh: '不用手拉框选截屏。点一下按钮（或按 Alt + C），把 X 推文与同作者长串复制成 3× 高清卡片，随手粘贴到任何地方；十二套材质，纯本机渲染，不登录、不上传。',
+  en: 'Skip manual cropping and screenshots. Copy X posts and same-author threads as 3× print-grade cards straight to your clipboard: twelve materials, rendered entirely on your machine.',
 };
 
 const root = document.documentElement;

@@ -455,6 +455,11 @@ test('hygiene.10: the _locales tree names Chrome’s directories, one per suppor
         `${dir}/messages.json's ${key} must be a non-empty message`
       );
     }
+    const descLen = [...(messages.extDesc?.message ?? '')].length;
+    assert.ok(
+      descLen <= 132,
+      `${dir}/messages.json extDesc is ${descLen} chars (Chrome Web Store limit is 132)`
+    );
   }
 });
 

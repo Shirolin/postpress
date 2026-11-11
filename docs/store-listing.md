@@ -13,16 +13,16 @@ PostPress · 印推
 
 ## 简短说明（manifest `description`，上限 132 字符）
 
-英文（124 字符，在上限以内）：
+英文：
 
 ```
-Press X posts and threads into print-grade cards. 12 tactile themes, custom canvas mats, 100% local rendering, zero uploads.
+Skip manual cropping: one-click copy X posts and threads as print-grade cards. 12 tactile themes, 100% local, zero uploads.
 ```
 
-中文（46 字符）：
+中文：
 
 ```
-把 X 推文与长串装帧成出版级高清卡片。12 款纸张肌理与自由画幅，纯本地排印，零数据上传。
+不用手拉框选截屏，把 X 推文与长串一键复制成出版级高清卡片，随手粘贴。12 款纸张肌理与自由画幅，纯本地排印，零数据上传。
 ```
 
 ## 详细说明
@@ -30,9 +30,9 @@ Press X posts and threads into print-grade cards. 12 tactile themes, custom canv
 ### 英文 (en-US)
 
 ```
-PostPress — Press X posts and threads into publication-grade cards.
+PostPress — Skip manual cropping and copy X posts & threads as publication-grade cards, ready to paste anywhere.
 
-Stop sharing cluttered, low-DPI browser screenshots. Click the press icon on any post (or press Alt + C), and PostPress typesets single posts or multi-post threads into crisp, print-grade cards—ready to copy to your clipboard or export as 3× Retina PNGs.
+Stop dragging selection boxes by hand, dodging reply clutter, or stitching multi-part thread screenshots. Click the press icon on any post (or press Alt + C), and PostPress typesets single posts or same-author threads into crisp, 3× Retina cards—written straight to your clipboard so you can paste them into chats, notes, or docs (or save as PNGs).
 
 WHAT YOU GET:
 
@@ -58,9 +58,9 @@ Not affiliated with X Corp.
 ### 简体中文 (zh-CN)
 
 ```
-PostPress · 印推 —— 把 X（Twitter）推文与长串，排印成出版级质感卡片。
+PostPress · 印推 —— 不用框选截屏，把 X（Twitter）推文与长串一键复制成出版级卡片，随手粘贴。
 
-告别夹带杂乱界面与模糊缩放的普通截屏。轻点推文操作栏的印刷机图标（或悬停按 Alt + C），PostPress（印推）即刻在本地将单条推文或同作者长串（Thread）重新组版，装帧为可一键复制或导出 3× 超清 PNG 的精美卡片。
+告别手拉选框、避开杂乱评论区、滚屏拼长图的繁琐截屏。轻点推文操作栏的印刷机图标（或悬停按 Alt + C），PostPress（印推）即刻在本地将单条推文或同作者长串（Thread）重新组版，一键生成 3× 超清卡片写进剪贴板，随手粘贴到聊天、笔记或文档中（也可另存为 PNG）。
 
 功能亮点：
 
@@ -105,9 +105,9 @@ PostPress · 印推 —— 把 X（Twitter）推文与长串，排印成出版�
 ### 德语 (de)
 
 ```
-PostPress — X-Posts und Threads als druckreife Karten gestalten.
+PostPress — Ohne Zuschneiden: X-Posts und Threads per Klick als druckreife Karten kopieren und überall einfügen.
 
-Schluss mit überladenen, unscharfen Browser-Screenshots. Ein Klick auf das Druckersymbol unter einem Post (oder Alt + C beim Überfahren mit der Maus), und PostPress setzt einzelne Posts oder mehrteilige Threads desselben Verfassers zu gestochen scharfen Karten — direkt in die Zwischenablage oder als 3×-Retina-PNG.
+Schluss mit mühsamem Rahmenziehen, mitfotografierten Antworten und gestückelten Thread-Screenshots. Ein Klick auf das Druckersymbol unter einem Post (oder Alt + C beim Überfahren mit der Maus), und PostPress setzt einzelne Posts oder mehrteilige Threads desselben Verfassers zu gestochen scharfen 3×-Retina-Karten — direkt in die Zwischenablage zum Einfügen in Chats, Notizen oder Dokumente (oder als PNG-Download).
 
 FUNKTIONEN IM ÜBERBLICK:
 
@@ -133,9 +133,9 @@ Steht in keiner Verbindung zu X Corp.
 ### 俄语 (ru)
 
 ```
-PostPress — превращайте посты и треды X в карточки типографского качества.
+PostPress — без ручной обрезки скриншотов: копируйте посты и треды X как карточки в один клик и вставляйте куда угодно.
 
-Забудьте о перегруженных и мыльных скриншотах из браузера. Нажмите на значок печатного пресса под любым постом (или сочетание Alt + C при наведении) — PostPress мгновенно сверстает отдельный пост или авторский тред в чёткую карточку. Копируйте её в буфер обмена в один клик или сохраняйте в PNG 3× Retina.
+Больше не нужно вручную выделять область экрана, обходить чужие реплаи или склеивать длинные треды из нескольких скриншотов. Нажмите на значок печатного пресса под любым постом (или сочетание Alt + C при наведении) — PostPress мгновенно сверстает отдельный пост или авторский тред в чёткую карточку 3× Retina прямо в буфер обмена для быстрой вставки в чаты, заметки и документы (или сохранения в PNG).
 
 ВОЗМОЖНОСТИ:
 
@@ -161,9 +161,9 @@ PostPress — превращайте посты и треды X в карточ�
 ### 法语 (fr)
 
 ```
-PostPress — Transformez vos posts et threads X en cartes de qualité éditoriale.
+PostPress — Fini le recadrage manuel : copiez vos posts et threads X en cartes de qualité éditoriale, prêtes à coller partout.
 
-Oubliez les captures d’écran floues et encombrées par l’interface du navigateur. Cliquez sur l’icône de presse sous n’importe quel post (ou appuyez sur Alt + C au survol) : PostPress met en page un post isolé ou le fil complet d’un auteur en une carte impeccable, prête à être copiée dans le presse-papiers ou téléchargée en PNG 3× Retina.
+Plus besoin de tracer un rectangle de capture à la main, d’éviter les réponses parasites ni de recoller un thread en plusieurs morceaux. Cliquez sur l’icône de presse sous n’importe quel post (ou appuyez sur Alt + C au survol) : PostPress met en page un post isolé ou le fil complet d’un auteur en une carte 3× Retina impeccable, copiée directement dans le presse-papiers pour être collée dans vos discussions, notes ou documents (ou téléchargée en PNG).
 
 FONCTIONNALITÉS CLÉS :
 
@@ -189,9 +189,9 @@ Non affilié à X Corp.
 ### 韩语 (ko)
 
 ```
-PostPress · 트윗판화 — X(트위터) 게시물과 스레드를 출판 품질의 카드로 조판하세요.
+PostPress · 트윗판화 — 번거로운 캡처 영역 지정 없이, X(트위터) 게시물과 스레드를 클릭 한 번에 출판 품질 카드로 복사해 어디든 붙여넣으세요.
 
-복잡한 브라우저 UI가 섞이거나 흐릿하게 깨지는 일반 스크린샷은 이제 그만. 게시물 하단 작업 표시줄의 프레스 아이콘을 클릭하거나(또는 마우스를 올린 채 Alt + C), 단일 게시물과 같은 작성자의 연속 스레드를 깔끔한 카드로 즉시 조판해 보세요. 클립보드로 바로 복사하거나 3× Retina 고해상도 PNG로 저장할 수 있습니다.
+일일이 마우스로 캡처 영역을 맞추고, 아래 달린 답글을 피하고, 긴 스레드를 여러 장 찍어 이어 붙이던 번거로움은 이제 그만. 게시물 하단 작업 표시줄의 프레스 아이콘을 클릭하거나(또는 마우스를 올린 채 Alt + C), 단일 게시물과 같은 작성자의 연속 스레드를 3× Retina 고해상도 카드로 즉시 조판해 클립보드로 바로 복사하고 메신저, 노트, 문서 어디든 바로 붙여넣으세요(PNG 저장도 지원).
 
 주요 기능:
 
@@ -217,9 +217,9 @@ X Corp.와 무관한 독립 확장 프로그램입니다.
 ### 日语 (ja)
 
 ```
-PostPress · 推刷 — X（旧Twitter）のポストやスレッドを、出版品質のカードに組版。
+PostPress · 推刷 — 範囲選択のスクショは不要。X（旧Twitter）のポストやスレッドをワンクリックで出版品質のカードとしてコピーし、どこにでも貼り付け。
 
-余計なUIが写り込んだり、縮小で文字がぼやけたりするスクリーンショットはもう不要です。ポスト下部のアクションバーにあるプレス機アイコンをクリック（またはカーソルを合わせて Alt + C）するだけで、単体ポストや同一投稿者の連続スレッドを瞬時に美しいカードへと再組版。ワンクリックでクリップボードにコピー、または 3× Retina 高解像度 PNG として保存できます。
+手で範囲をドラッグして切り抜いたり、返信欄を避けたり、長いスレッドを何枚もスクショして繋ぎ合わせたりする手間はもう不要です。ポスト下部のアクションバーにあるプレス機アイコンをクリック（またはカーソルを合わせて Alt + C）するだけで、単体ポストや同一投稿者の連続スレッドを瞬時に 3× Retina 高解像度カードへと組版。そのままクリップボードにコピーしてチャットやメモ、ドキュメントへすぐに貼り付けられます（PNG 保存も可能）。
 
 主な機能:
 
@@ -245,9 +245,9 @@ X Corp. とは一切関係ありません。
 ### 土耳其语 (tr)
 
 ```
-PostPress — X gönderilerini ve dizilerini baskı kalitesinde kartlara dönüştürün.
+PostPress — Ekran görüntüsü kırpmaya son: X gönderilerini ve dizilerini tek tıkla baskı kalitesinde kart olarak kopyalayın, istediğiniz yere yapıştırın.
 
-Karmaşık arayüz öğeleriyle dolu, bulanık ekran görüntülerine veda edin. Herhangi bir gönderinin altındaki baskı simgesine tıklayın (veya fareyle üzerine gelip Alt + C tuşlarına basın); PostPress tekil gönderileri ya da aynı yazarın arka arkaya paylaştığı dizileri (thread) anında net ve şık kartlara dönüştürsün. Tek tıkla panoya kopyalayın veya 3× Retina PNG olarak indirin.
+Elle seçim kutusu sürükleme, alttaki yanıtları kadrajdan çıkarma veya uzun dizileri (thread) parça parça ekran görüntüsü alıp birleştirme zahmetine veda edin. Herhangi bir gönderinin altındaki baskı simgesine tıklayın (veya fareyle üzerine gelip Alt + C tuşlarına basın); PostPress tekil gönderileri ya da aynı yazarın ardışık dizilerini anında net 3× Retina kartlara dönüştürüp doğrudan panonuza kopyalasın—sohbetlere, notlara veya belgelere anında yapıştırın (veya PNG olarak indirin).
 
 ÖNE ÇIKAN ÖZELLİKLER:
 
@@ -273,9 +273,9 @@ X Corp. ile hiçbir bağlantısı yoktur.
 ### 乌克兰语 (uk)
 
 ```
-PostPress — перетворюйте пости й треди X на картки типографської якості.
+PostPress — без ручного кадрування скриншотів: копіюйте пости й треди X одним кліком як картки типографської якості та вставляйте будь-куди.
 
-Забудьте про захаращені інтерфейсом і розмиті скриншоти з браузера. Натисніть значок друкарського преса під будь-яким постом (або Alt + C при наведенні курсора) — і PostPress миттєво зверстає окремий пост чи авторський тред у чітку картку. Копіюйте її до буфера обміну одним кліком або зберігайте у форматі PNG 3× Retina.
+Більше не потрібно вручну виділяти область екрана, оминати чужі відповіді чи склеювати довгі треди з кількох скриншотів. Натисніть значок друкарського преса під будь-яким постом (або Alt + C при наведенні курсора) — і PostPress миттєво зверстає окремий пост чи авторський тред у чітку картку 3× Retina просто до буфера обміну, готову до вставки в чати, нотатки чи документи (або збереження у PNG).
 
 МОЖЛИВОСТІ:
 
@@ -301,9 +301,9 @@ PostPress — перетворюйте пости й треди X на карт�
 ### 西班牙语 (es)
 
 ```
-PostPress — Convierte posts e hilos de X en tarjetas con acabado editorial.
+PostPress — Sin recortar capturas a mano: copia posts e hilos de X en un clic como tarjetas editoriales, listas para pegar donde quieras.
 
-Olvídate de las capturas de pantalla borrosas y llenas de elementos del navegador. Haz clic en el icono de prensa bajo cualquier post (o pulsa Alt + C al pasar el cursor) y PostPress maquetará al instante un post suelto o el hilo completo de un autor en una tarjeta nítida, lista para copiar al portapapeles o descargar en PNG 3× Retina.
+Olvídate de arrastrar recuadros de selección, esquivar respuestas ajenas o unir capturas de pantalla para guardar un hilo. Haz clic en el icono de prensa bajo cualquier post (o pulsa Alt + C al pasar el cursor) y PostPress maquetará al instante un post suelto o el hilo completo de un autor en una tarjeta 3× Retina nítida, copiada directamente al portapapeles para pegarla en chats, notas o documentos (o descargarla en PNG).
 
 QUÉ INCLUYE:
 
@@ -329,9 +329,9 @@ No afiliado a X Corp.
 ### 意大利语 (it)
 
 ```
-PostPress — Trasforma i post e i thread di X in card di qualità editoriale.
+PostPress — Basta ritagliare screenshot a mano: copia post e thread di X con un clic in card di qualità editoriale, pronte da incollare ovunque.
 
-Basta screenshot sfocati e pieni di elementi dell’interfaccia. Clicca sull’icona del torchio tipografico sotto qualsiasi post (oppure premi Alt + C passando il cursore) e PostPress impaginerà all’istante un singolo post o l’intero thread di un autore in una card nitida, pronta da copiare negli appunti o scaricare come PNG 3× Retina.
+Dimentica i riquadri di selezione manuali, le risposte di disturbo sotto al post e gli screenshot multipli da incollare per salvare un thread. Clicca sull’icona del torchio tipografico sotto qualsiasi post (oppure premi Alt + C passando il cursore) e PostPress impaginerà all’istante un singolo post o l’intero thread di un autore in una card 3× Retina nitida, copiata direttamente negli appunti per incollarla in chat, note o documenti (o scaricarla come PNG).
 
 CARATTERISTICHE PRINCIPALI:
 
@@ -357,9 +357,9 @@ Non affiliato a X Corp.
 ### 巴西葡萄牙语 (pt-BR)
 
 ```
-PostPress — Transforme posts e threads do X em cartões com acabamento editorial.
+PostPress — Sem recortar prints na mão: copie posts e threads do X em um clique como cartões editoriais, prontos para colar onde quiser.
 
-Chega de capturas de tela poluídas e em baixa resolução. Clique no ícone de prensa na barra de ações de qualquer post (ou pressione Alt + C ao passar o cursor) e o PostPress diagrama na hora um post avulso ou uma thread inteira do mesmo autor em um cartão nítido — pronto para copiar para a área de transferência ou baixar em PNG 3× Retina.
+Chega de puxar caixas de seleção manualmente, desviar de respostas poluídas ou juntar vários prints para salvar uma thread. Clique no ícone de prensa na barra de ações de qualquer post (ou pressione Alt + C ao passar o cursor) e o PostPress diagrama na hora um post avulso ou uma thread inteira do mesmo autor em um cartão 3× Retina nítido — copiado direto para a área de transferência para colar em chats, notas ou documentos (ou baixar em PNG).
 
 O QUE VOCÊ ENCONTRA:
 
@@ -385,9 +385,9 @@ Não afiliado à X Corp.
 ### 印尼语 (id)
 
 ```
-PostPress — Ubah postingan dan utas X menjadi kartu berkualitas cetak editorial.
+PostPress — Tanpa repot memotong tangkapan layar: salin postingan dan utas X sekali klik menjadi kartu berkualitas cetak, siap ditempel di mana saja.
 
-Tinggalkan tangkapan layar yang berantakan dan buram. Klik ikon mesin cetak di bawah postingan mana pun (atau tekan Alt + C saat mengarahkan kursor), dan PostPress langsung menyusun postingan tunggal maupun utas beruntun dari penulis yang sama menjadi kartu yang tajam — siap disalin ke papan klip atau diunduh sebagai PNG 3× Retina.
+Tinggalkan cara lama menarik kotak seleksi manual, menghindari balasan yang berantakan, atau menyambung banyak tangkapan layar untuk satu utas. Klik ikon mesin cetak di bawah postingan mana pun (atau tekan Alt + C saat mengarahkan kursor), dan PostPress langsung menyusun postingan tunggal maupun utas beruntun dari penulis yang sama menjadi kartu 3× Retina yang tajam — langsung tersalin ke papan klip untuk ditempel ke obrolan, catatan, atau dokumen (atau diunduh sebagai PNG).
 
 FITUR UTAMA:
 
@@ -413,9 +413,9 @@ Tidak berafiliasi dengan X Corp.
 ### 繁体中文 (zh-TW)
 
 ```
-PostPress · 印推 —— 把 X（Twitter）推文與長串，排印成出版級質感卡片。
+PostPress · 印推 —— 不用框選截圖，把 X（Twitter）推文與長串一鍵複製成出版級卡片，隨手貼上。
 
-告別夾帶雜亂介面與模糊縮放的普通截圖。輕點推文操作列的印刷機圖示（或游標停留按 Alt + C），PostPress（印推）即刻在本機將單則推文或同作者長串（Thread）重新組版，裝幀為可一鍵複製或匯出 3× 超高解析 PNG 的精美卡片。
+告別手拉選框、避開雜亂留言區、捲動拼長圖的繁瑣截圖。輕點推文操作列的印刷機圖示（或游標停留按 Alt + C），PostPress（印推）即刻在本機將單則推文或同作者長串（Thread）重新組版，一鍵產生 3× 超高解析卡片寫入剪貼簿，隨手貼到聊天、筆記或文件中（也可另存為 PNG）。
 
 功能亮點：
 
@@ -437,5 +437,3 @@ PostPress · 印推 —— 把 X（Twitter）推文與長串，排印成出版�
 
 與 X Corp. 無關聯。
 ```
-
-
