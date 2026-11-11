@@ -126,7 +126,8 @@ Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.2.0.zip'
 - 首次审核通常 1–7 天，新账号更久；期间不要重复提交，会排到队尾。
 - 通过后可设为 Public；地区、定价（免费）、可见性在 Distribution 页。
 - 更新流程：改 `manifest.version` → `pnpm run build` → 重新打包 → 上传 → 提交审核。
-  只改图片或文案不需要新版本包，但同样要走审核。
+- **哪些改动要新包**：标题与简短说明在 manifest 里（`__MSG_extTitle__` / `__MSG_extDesc__`，逐语言各一份），
+  改它们必须发新版本；详细说明、截图、宣传图、视频只在后台，不用新包。两类改动都要走审核。
 
 ## 7. 发布之后
 
