@@ -134,3 +134,6 @@ Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.2.0.zip'
   （条目 ID `mfmldbbkajimckojjgceehiackjpakai`，2026-11-01 通过审核）。
 - 版本号按 semver 递增，`CHANGELOG.md` 同步记一条。
 - 商店页的「详细说明」与 `docs/store-listing.md` 是两份副本，改一边记得改另一边。
+- 「详细说明」在后台是**逐语言各一份**，14 门语言都已经有译文。改英文那份不会带动其他语言，
+  后台也不会提示哪门语言还是旧的——只能一门门切过去看。`docs/store-listing.md` 是这 14 份的源。
+- 分语言资源（截图、宣传视频）留空就回落到「全球通用」那份；除非真做了对应语言的图，否则留空是对的。
