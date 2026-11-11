@@ -34,6 +34,7 @@ export const id: Translations = {
   exportSettings: 'Ekspor',
   support: 'Dukungan',
   supportAfdian: 'Dukung saya di Afdian',
+  supportRate: 'Beri nilai PostPress',
   canvasBg_none: 'Tanpa latar',
   canvasBg_theme: 'Ikuti tema',
   canvasBg_paper: 'Kertas',

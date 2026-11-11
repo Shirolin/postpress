@@ -35,6 +35,7 @@ export const zhTW: Translations = {
   exportSettings: '匯出設定',
   support: '支持專案',
   supportAfdian: '在愛發電支持我',
+  supportRate: '給 PostPress 評分',
   canvasBg_none: '無背景',
   canvasBg_theme: '跟隨主題',
   canvasBg_paper: '紙白',

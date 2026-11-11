@@ -29,6 +29,7 @@ import {
   LayoutGrid,
   Zap,
   Coffee,
+  Star,
   Icon,
 } from 'lucide-preact';
 
@@ -1087,6 +1088,20 @@ export function Controls({
                   aria-label="Ko-fi"
                 >
                   <Coffee size={15} aria-hidden="true" />
+                </a>
+                {/* The store's own review page, not the listing: one click
+                    lands where a visitor can actually leave a rating, and a
+                    quiet icon in the support row asks without interrupting a
+                    copy the way a timed prompt would. */}
+                <a
+                  class="support-link"
+                  href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai/reviews"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={t.supportRate}
+                  aria-label={t.supportRate}
+                >
+                  <Star size={15} aria-hidden="true" />
                 </a>
               </div>
             </div>

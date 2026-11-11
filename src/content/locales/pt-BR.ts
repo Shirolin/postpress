@@ -35,6 +35,7 @@ export const ptBR: Translations = {
   exportSettings: 'Exportar',
   support: 'Suporte',
   supportAfdian: 'Apoie-me no Afdian',
+  supportRate: 'Avaliar o PostPress',
   canvasBg_none: 'Sem fundo',
   canvasBg_theme: 'Seguir o tema',
   canvasBg_paper: 'Papel',

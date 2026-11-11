@@ -36,6 +36,7 @@ export const ru: Translations = {
   exportSettings: 'Экспорт',
   support: 'Поддержка',
   supportAfdian: 'Поддержать на Afdian',
+  supportRate: 'Оценить PostPress',
   canvasBg_none: 'Без фона',
   canvasBg_theme: 'Как тема',
   canvasBg_paper: 'Бумага',

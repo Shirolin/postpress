@@ -5580,12 +5580,16 @@ test('F35.9: the support and sponsor links are in the settings disclosure with s
       container.shadow.querySelectorAll('.more-body .support-link')
     ) as Array<{ getAttribute(name: string): string | null }>;
 
-    assert.equal(links.length, 3, 'there must be exactly three support links');
+    assert.equal(links.length, 4, 'there must be exactly four support links');
     const hrefs = links.map((link) => link.getAttribute('href'));
     assert.deepEqual(hrefs, [
       'https://github.com/Shirolin/postpress',
       'https://ifdian.net/a/shirolin',
       'https://ko-fi.com/shirolin',
+      // The store's review tab, not the listing: the link exists so a rating
+      // takes one click, and it must point at the item this build is published
+      // under.
+      'https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai/reviews',
     ]);
 
     for (const link of links) {

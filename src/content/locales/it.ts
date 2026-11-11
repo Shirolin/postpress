@@ -34,6 +34,7 @@ export const it: Translations = {
   exportSettings: 'Esporta',
   support: 'Supporto',
   supportAfdian: 'Sostienimi su Afdian',
+  supportRate: 'Valuta PostPress',
   canvasBg_none: 'Nessuno',
   canvasBg_theme: 'Come il tema',
   canvasBg_paper: 'Carta',

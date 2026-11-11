@@ -59,6 +59,7 @@ export interface Translations {
   exportSettings: string;
   support: string;
   supportAfdian: string;
+  supportRate: string;
   canvasBg_none: string;
   canvasBg_theme: string;
   canvasBg_paper: string;

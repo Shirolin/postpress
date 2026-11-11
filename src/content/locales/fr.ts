@@ -34,6 +34,7 @@ export const fr: Translations = {
   exportSettings: 'Export',
   support: 'Soutien',
   supportAfdian: 'Soutenez-moi sur Afdian',
+  supportRate: 'Noter PostPress',
   canvasBg_none: 'Aucun',
   canvasBg_theme: 'Comme le thème',
   canvasBg_paper: 'Papier',
