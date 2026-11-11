@@ -30,7 +30,7 @@ Skip screenshot cropping: copy any X tweet or thread as a print-grade 3× image.
 ### 英文 (en-US)
 
 ```
-PostPress — Skip manual cropping and copy X posts & threads as publication-grade cards, ready to paste anywhere.
+PostPress — Skip the tweet screenshot. Crop nothing: copy any X post or thread as a publication-grade card, ready to paste anywhere.
 
 Stop dragging selection boxes by hand, dodging reply clutter, or stitching multi-part thread screenshots. Click the press icon on any post (or press Alt + C), and PostPress typesets single posts or same-author threads into crisp, 3× Retina cards—written straight to your clipboard so you can paste them into chats, notes, or docs (or save as PNGs).
 
@@ -58,7 +58,7 @@ Not affiliated with X Corp.
 ### 简体中文 (zh-CN)
 
 ```
-PostPress · 印推 —— 不用框选截屏，把 X（Twitter）推文与长串一键复制成出版级卡片，随手粘贴。
+PostPress · 印推 —— 告别推文截图。不用框选、不用拼接，把 X（Twitter）推文与长串一键复制成出版级卡片，随手粘贴。
 
 告别手拉选框、避开杂乱评论区、滚屏拼长图的繁琐截屏。轻点推文操作栏的印刷机图标（或悬停按 Alt + C），PostPress（印推）即刻在本地将单条推文或同作者长串（Thread）重新组版，一键生成 3× 超清卡片写进剪贴板，随手粘贴到聊天、笔记或文档中（也可另存为 PNG）。
 
