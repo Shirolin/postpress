@@ -37,13 +37,16 @@ Compress-Archive -Path 'dist\*' -DestinationPath 'postpress-1.1.0.zip'
 | 截图 ×5 | 1280×800 | `screenshots/01`–`05` | 至少 1 张 |
 | 小型宣传图 | 440×280 | `promo-440x280.png` | 强烈建议 |
 | 大型宣传图 | 1400×560 | `promo-1400x560.png` | 可选（上首页轮播才用） |
-| 宣传视频 | 1920×1080 · 30s | [中文](https://github.com/Shirolin/postpress/releases/download/store-assets-v2/postpress-promo.mp4) · [English](https://github.com/Shirolin/postpress/releases/download/store-assets-v2/postpress-promo-en.mp4) | 可选 |
+| 宣传视频 | 1920×1080 · 30s | [中文](https://youtu.be/HIsYVIfMv2Q) · [English](https://youtu.be/jhM5ysK1C2c)（均不公开列出） | 可选 |
 | 视频封面 | 1920×1080 | `postpress-promo-poster.png` / `-poster-en.png` | — |
 
-- 成片不进 git（`.gitignore` 里有 `docs/store/*.mp4`），挂在 GitHub Release `store-assets-v2` 上；
-  换片时传新 Release（`store-assets-v3`…）再把上面两条链接改过去。封面帧很小，继续跟着仓库走。
-- 视频在后台填的是 YouTube 链接，不上传文件；`-en` 那份填**全局**视频，中文版填进 `zh_CN` 的本地化视频。
+- 成片不进 git（`.gitignore` 里有 `docs/store/*.mp4`），母版挂在 GitHub Release
+  [store-assets-v2](https://github.com/Shirolin/postpress/releases/tag/store-assets-v2)；换片时传新 Release
+  （`store-assets-v3`…）再把上面两条链接改过去。封面帧很小，继续跟着仓库走。
+- 后台填的是 YouTube 链接，不上传文件；`-en` 那份填**全局**视频，中文版填进 `zh_CN` 的本地化视频。
   其余语言留空时按「本地化视频 → 本地化截图 → 全局视频 → 全局截图」回落，不必逐语言再录。
+- 两条视频当前都是**不公开列出**：能嵌入、能看，不进搜索与频道页。要公开就在 Studio 里改公开范围，
+  链接不变。上传时的标题、说明、封面与必填项见 `docs/store/youtube.md`。
 - 两版共用同一条音轨（音乐 + 音效，无旁白），只是画面文字图层不同；分镜时间点完全一致。
 
 ### 五张截图怎么来的
