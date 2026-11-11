@@ -16,13 +16,13 @@ PostPress · 印推
 英文：
 
 ```
-Skip manual cropping: one-click copy X posts and threads as print-grade cards. 12 tactile themes, 100% local, zero uploads.
+Skip screenshot cropping: copy any X tweet or thread as a print-grade 3× image. PNG on your clipboard, 100% local.
 ```
 
 中文：
 
 ```
-不用手拉框选截屏，把 X 推文与长串一键复制成出版级高清卡片，随手粘贴。12 款纸张肌理与自由画幅，纯本地排印，零数据上传。
+不用手拉框选截图：把 X 推文或长串一键复制成 3× 高清卡片，粘贴到任何地方。12 款纸张肌理，纯本地渲染，零上传。
 ```
 
 ## 详细说明

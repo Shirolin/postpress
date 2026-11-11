@@ -3,6 +3,14 @@
 格式遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [1.2.1] - 2026-11-11
+
+### 变更
+
+- **标题与简介补上用户真正在搜的词**：英文标题从 `X & Thread Card Studio` 改为 `X Tweet & Thread Card Studio`，简介改成以 `Skip screenshot cropping` 开头、带上 `tweet / thread / image / PNG / clipboard`——此前标题和简介里一个 "screenshot" 都没有，而商店里同类工具全在抢这个词。中文标题从 `PostPress · 印推` 改为 `X 推文截图转卡片`，简介里的「截屏」改为「截图」（搜索用的是后者）。繁体标题同步。
+
+这一版的文案依据是商店同行的评论区：长推文只截到「显示更多」之前、带图推文被切掉下半截、想要整串而不是单条、想要页面内的按钮——这些抱怨对应的功能这个扩展都有，只是此前没写进能被搜到的地方。
+
 ## [1.2.0] - 2026-11-11
 
 ### 变更
