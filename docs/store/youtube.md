@@ -1,7 +1,6 @@
 # 宣传片的 YouTube 那两份
 
-商店后台的视频字段只收 YouTube 链接，不收文件。两条都已上传，**不公开列出**：能嵌入、能看，
-不进搜索、不进频道页。要公开就在 Studio 里改公开范围，链接不变。
+商店后台的视频字段只收 YouTube 链接，不收文件。两条都已上传并设为**公开**，链接固定不变。
 
 | | 中文 | English |
 | :--- | :--- | :--- |
@@ -38,7 +37,7 @@ PostPress — Copy any X post as a print-grade card (30s demo)
 | 年龄限制 | 无 |
 | 类别 | Science & Technology |
 | 标签 | `PostPress, Chrome extension, Twitter, X, screenshot, typesetting, clipboard` |
-| 可见性 | 不公开列出 |
+| 可见性 | 公开 |
 
 ## 背景音乐的授权
 
