@@ -40,11 +40,15 @@ PostPress — Copy any X post as a print-grade card (30s demo)
 | 标签 | `PostPress, Chrome extension, Twitter, X, screenshot, typesetting, clipboard` |
 | 可见性 | 不公开列出 |
 
-## 背景音乐的授权还没结清
+## 背景音乐的授权
 
-BGM 是 Google Flow Music 生成的，`CREDITS.md` 记着「不是 CC0，使用与再分发以 Flow Music 的
-服务条款为准」；音效全部 CC0 1.0，没有问题。
+BGM 是 Google Flow Music 生成的，音效全部 CC0 1.0。`flowmusic.app/terms` 直接跳转到
+Google 服务条款，没有音乐专属的授权页；Google 条款写的是你保留自己内容的权利，也没有禁止把输出发布出去。
+所以「不能用」没有依据。
 
-传到 YouTube 属于公开再分发，还会进 Content ID 比对，比挂在 GitHub Release 上暴露面大。
-现在是不公开状态，撤回成本低。要彻底稳妥就换一条明确允许商用的曲子重混：
-`.tmp/promo/build-audio-v15.mjs` 里换 BGM 输入重跑，画面不用重渲，然后传新 Release、重传两条视频。
+会咬人的是另一件事：Content ID。YouTube 会把音轨拿去比对已登记的音乐库，生成模型有可能撞上训练素材里的
+段落，命中后果是限流、分地区屏蔽或消音——这和公开与否无关，不公开一样比对。
+
+这一关目前是过的：上传时 YouTube 的版权检查给出「检查完毕。未发现任何问题。」，频道的内容检测页也没有
+任何主张。残余风险是主张事后才来（有人事后登记曲库），代价是这条视频被限制，那时换 BGM 重混即可
+——`.tmp/promo/build-audio-v15.mjs` 换 BGM 输入重跑，画面不用重渲，再传新 Release 与两条新视频。
