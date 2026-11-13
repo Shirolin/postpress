@@ -5,7 +5,8 @@
 > （嵌套）回答——10-10 那篇把引用推文列在「未采到」里，所以别指望从它读结论；
 > 第 5 条 2026-10-21 部分回答（见该行），**长文帖的列表视图形态由 `docs/observed-dom-2026-10-22-article-preview.md`
 > 回答**（见下表 3c），**第 12 条（社区笔记）由 `docs/observed-dom-2026-11-06-community-note.md` 回答**
-> （无翻译行的形态仍缺），其余仍未采到；「为什么」一列写的是采集当日的判据，
+> （无翻译行的形态仍缺），**多图轮播（5–20 张）由 `docs/observed-dom-2026-11-13-carousel.md` 回答**，
+> 其余仍未采到；「为什么」一列写的是采集当日的判据，
 > 不是现行事实。**
 > 已经采到的场景在 `docs/observed-dom-*.md`（每篇开头有状态行），先看那里，再决定还差哪几条。
 
@@ -20,6 +21,7 @@
 |---|---|---|---|
 | 1 | **图 + GIF 并排** | 当前 bug：视频检测短路导致图片丢失 | ✅（左侧截图 + 右侧 GIF） |
 | 2 | **纯图片（1~4 张）** | 基线，确认照片提取没被改坏 | 你截图里那个是混合，需另找一个纯图的 |
+| 2b | **多图轮播（5–20 张）** | X 2026-11-12 把单帖媒体上限从 4 提到 20；轮播是 `ScrollSnap-List`，每 slide 一个 `tweetPhoto`，图片加载前该 testid 数为 0 | **已答（2026-11-13）**：16 图帖实测见 `docs/observed-dom-2026-11-13-carousel.md` |
 | 3 | **引用推文** | 验证 `findQuoteContainer` 4 级 fallback + 媒体不串味 | ✅（红框「查看引用」那条） |
 | 3b | **嵌套引用（引用里的引用）** | 两级引用的容器形态**不同**：外层是 `role=link` 无 testid，内层是 `nestedQuotePreview`，媒体是 `nestedQuotePreviewMedia` 而非 `tweetPhoto` | ✅（2026-10-14，`observed-dom-2026-10-14-nested-quote.md`） |
 | 3c | **长文帖（列表视图的预览卡）** | 列表视图与状态页的文章标记**互不相交**：预览卡没有阅读视图，只有 `article-cover-image` | **已答（2026-10-22）**：结构与判据见 `docs/observed-dom-2026-10-22-article-preview.md`；仍缺 `outerHTML` |

@@ -724,7 +724,7 @@
 }
 
 /* -------------------------------------------------------------
-   Multi-Image Grid (1 to 4 Images) & Ratio-Aware Responsive Layout
+   Multi-Image Grid (1 to 20 Images) & Ratio-Aware Responsive Layout
    ------------------------------------------------------------- */
 .media-grid {
   display: grid;
@@ -1255,6 +1255,33 @@
 .post-to-card-target[data-fit="contain"][data-ratio="auto"] .media-grid[data-layout="grid"][data-count][data-grid-layout="left-hero"] {
   display: grid;
   grid-template-rows: auto auto;
+}
+
+/* ---------------- Five or more pictures: rows of four ----------------
+   X raised a post's media ceiling from four to twenty on 2026-11-12 and shows
+   the set as a horizontal carousel. A card is a still picture, so the set
+   becomes rows of four instead. The grid states no height of its own: each row
+   takes the height of its cells and the card grows downwards.
+
+   `cover` gives every cell a square to crop into (the shape the four-picture
+   quad uses); the 完整展示 override below hands the cell back to its picture. */
+.media-grid[data-layout="grid"][data-grid-layout="rows"],
+.post-to-card-target[data-fit="contain"][data-ratio="auto"] .media-grid[data-layout="grid"][data-grid-layout="rows"] {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-content: start;
+}
+.media-grid[data-layout="grid"][data-grid-layout="rows"] .media-item {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  align-self: start;
+}
+
+/* 完整展示 in the auto ratio: the plan gives each cell its picture's own shape,
+   so a square cell would frame empty space around it. */
+.post-to-card-target[data-fit="contain"][data-ratio="auto"] .media-grid[data-layout="grid"][data-grid-layout="rows"] .media-item {
+  aspect-ratio: auto;
 }
 
 /* ---------------- Multi Images (Stack Mode: 100% Full Display) ---------------- */

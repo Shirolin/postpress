@@ -19,7 +19,7 @@ import { SINGLE_TWEET_HTML } from '../fixtures/single-tweet.ts';
 import { THREAD_HTML } from '../fixtures/thread.ts';
 import { QUOTE_TWEET_HTML, QUOTE_TWEET_UNAVAILABLE_HTML } from '../fixtures/quote-tweet.ts';
 import { EMOJI_TWEET_HTML, PURE_EMOJI_HTML } from '../fixtures/emojis.ts';
-import { ONE_PHOTO_HTML, TWO_PHOTOS_HTML, THREE_PHOTOS_HTML, FOUR_PHOTOS_HTML, VIDEO_POSTER_HTML, PHOTO_AND_GIF_HTML, PHOTO_AND_VIDEO_HTML, GIF_POSTER_LAYER_HTML, VIDEO_VISIBLE_POSTER_HTML, MEDIA_WITH_INNER_GROUP_HTML, GIF_ARIA_LABELED_HTML, GIF_BADGE_TEXT_HTML, VIDEO_WITH_DURATION_HTML, GIF_POSTER_ONLY_HTML, VIDEO_POSTER_ONLY_HTML, VIDEO_ARIA_LABEL_ONLY_HTML, FOUR_GIFS_HTML } from '../fixtures/multi-images.ts';
+import { ONE_PHOTO_HTML, TWO_PHOTOS_HTML, THREE_PHOTOS_HTML, FOUR_PHOTOS_HTML, VIDEO_POSTER_HTML, PHOTO_AND_GIF_HTML, PHOTO_AND_VIDEO_HTML, GIF_POSTER_LAYER_HTML, VIDEO_VISIBLE_POSTER_HTML, MEDIA_WITH_INNER_GROUP_HTML, GIF_ARIA_LABELED_HTML, GIF_BADGE_TEXT_HTML, VIDEO_WITH_DURATION_HTML, GIF_POSTER_ONLY_HTML, VIDEO_POSTER_ONLY_HTML, VIDEO_ARIA_LABEL_ONLY_HTML, FOUR_GIFS_HTML, SIX_PHOTOS_HTML } from '../fixtures/multi-images.ts';
 import { extractTweetData } from '../../src/content/adapter/extractor.ts';
 import { resolveThread } from '../../src/content/adapter/resolver.ts';
 import {
@@ -1118,12 +1118,6 @@ test('F11.8: a video-only tweet still yields exactly one item', () => {
   assert.equal(media[0].type, 'video');
 });
 
-test('F11.9: never returns more than 4 media items', () => {
-  const tweet = createDomElement(PHOTO_AND_VIDEO_HTML);
-  const media = extractTweetData(tweet as unknown as Element)?.media;
-  assert.ok((media?.length ?? 0) <= 4, 'media count must respect the 4-item layout cap');
-});
-
 test('F11.10: a GIF poster layer is not extracted as a photo', () => {
   // Observed on a live GIF post: the hidden poster sits inside the tweetPhoto
   // wrapper behind the <video>, so counting it would render the GIF twice.
@@ -1244,17 +1238,32 @@ test('F12.4: a four-photo post extracts all four, each at original resolution', 
   }
 });
 
-test('F12.5: a payload carrying more than four photos is clamped to four', () => {
-  // X does not offer a five-photo post, so this is the guard against a layout
-  // X might ship rather than a case seen in the wild. The card's grid has four
-  // cells; a fifth item would render outside the layout.
-  const five = FOUR_PHOTOS_HTML.replace(
-    '</article>',
-    '<div data-testid="tweetPhoto"><img src="https://pbs.twimg.com/media/extra.jpg?format=jpg&name=small" alt="Extra"></div></article>'
+test('F12.5: a payload carrying more than twenty photos is clamped to twenty', () => {
+  // X's ceiling is twenty since 2026-11-12. This guards the renderer against a
+  // payload that somehow carries more, not a shape seen in the wild.
+  const many = `
+<article data-testid="tweet">
+  <div data-testid="User-Name"><a href="/user/status/8020"><time datetime="2026-11-13T00:00:00.000Z"></time></a></div>
+  ${Array.from({ length: 21 }, (_, index) => `
+  <div data-testid="tweetPhoto">
+    <img src="https://pbs.twimg.com/media/extra_${index}.jpg?format=jpg&name=small" alt="Extra ${index}">
+  </div>`).join('')}
+</article>`;
+  const media = mediaFrom(many);
+  assert.equal(media.length, 20, 'the twenty-first photo must not reach the card');
+  assert.ok(!media.some((m) => m.url.includes('extra_20')));
+});
+
+test('F12.6: a six-photo post extracts all six, in document order', () => {
+  // The carousel X renders for more than four pictures mounts one tweetPhoto
+  // per slide; the old four-item cap dropped slides 5 and 6 silently.
+  const media = mediaFrom(SIX_PHOTOS_HTML);
+  assert.equal(media.length, 6);
+  assert.deepEqual(
+    media.map((m) => (m.originalUrl || '').match(/six_(\d)\.jpg/)?.[1]),
+    ['1', '2', '3', '4', '5', '6']
   );
-  const media = mediaFrom(five);
-  assert.equal(media.length, 4, 'the fifth photo must not reach the card');
-  assert.ok(!media.some((m) => m.url.includes('extra.jpg')));
+  assert.ok(media.every((m) => /name=orig/.test(m.url)), 'every slide keeps its original-resolution request');
 });
 
 // -------------------------------------------------------------
@@ -6291,6 +6300,72 @@ test('F28.4: card.css arranges top-hero, left-hero and the 2-picture layouts the
     rule('.media-grid').declares('gap', 'var(--media-gap'),
     'the grid gutter comes from the material, not a fixed step'
   );
+});
+
+test('F28.9: five or more pictures are planned and rendered as four-column rows', async () => {
+  const items = Array.from({ length: 16 }, () => photo(1.18));
+  const plan = planMediaGrid(items, CONTAIN_GRID);
+  assert.equal(plan.layout, 'rows', 'past four pictures the arrangement is the gallery');
+  assert.equal(plan.slots?.length, 16, 'every picture gets a cell');
+  assert.ok(plan.slots!.every((slot) => slot.width === '100%'), 'the grid owns the four columns');
+  assert.equal(plan.aspectRatio, undefined, 'the rows take their height from the pictures');
+
+  const sheet = cssSheet(path.resolve(__dirname, '../../src/content/styles/card.css'));
+  const rows = sheet.find((r) =>
+    r.selectors.includes('.media-grid[data-layout="grid"][data-grid-layout="rows"]')
+  );
+  assert.ok(rows, 'card.css needs a rule for the rows layout');
+  assert.equal(
+    rows.declares('grid-template-columns', 'repeat(4, minmax(0, 1fr))'),
+    true,
+    'four pictures to a row'
+  );
+
+  assert.equal(planMediaGrid(items.slice(0, 6), AUTO_GRID).layout, 'rows');
+  assert.equal(planMediaGrid(items.slice(0, 4), AUTO_GRID).layout, 'quad', 'four is still the quad');
+
+  // The plan is not the card: the renderer must mount every item, or "all
+  // twenty visible" is only a claim about the planner.
+  const html = await renderCard({
+    data: {
+      id: '91016',
+      url: 'https://x.com/ada/status/91016',
+      author: { name: 'Ada', handle: '@ada' },
+      text: 'sixteen pictures',
+      timestamp: '2026-11-13T00:00:00.000Z',
+      media: items,
+    } satisfies TweetData,
+    config: { imageFit: 'contain', aspectRatio: 'auto', mediaLayout: 'grid' },
+  });
+  assert.equal((html.match(/class="media-box"/g) || []).length, 16, 'the card must mount all sixteen');
+  assert.match(html, /data-grid-layout="rows"/);
+  assert.match(html, /data-count="16"/);
+});
+
+test('F28.10: a quote panel prints at most four pictures', async () => {
+  // The post's own media may reach twenty, but the quote panel is a preview
+  // inside the main column and was drawn around the four-cell quad.
+  const quoteMedia = Array.from({ length: 8 }, (_, index) => ({
+    type: 'image' as const,
+    url: `https://pbs.twimg.com/media/quote_${index}.jpg`,
+    aspectRatio: 1,
+  }));
+  const html = await renderCard({
+    data: {
+      id: '93001',
+      url: 'https://x.com/ada/status/93001',
+      author: { name: 'Ada', handle: '@ada' },
+      text: 'quoting a gallery',
+      timestamp: '2026-11-13T00:00:00.000Z',
+      quotePost: {
+        author: { name: 'Grace', handle: '@grace' },
+        text: 'eight pictures',
+        media: quoteMedia,
+      },
+    } satisfies TweetData,
+    config: { imageFit: 'contain', aspectRatio: 'auto', mediaLayout: 'grid' },
+  });
+  assert.equal((html.match(/class="media-box"/g) || []).length, 4, 'the quote prints four, not eight');
 });
 
 test('F28.5: Dual portrait images calculate dynamic combined aspect-ratio (r0 + r1) in Auto mode', () => {

@@ -1,6 +1,7 @@
 import { Fragment } from 'preact';
 import type { JSX, Ref } from 'preact';
 import type { TweetData, ThreadData, AuthorInfo, MediaItem, TweetStats, QuoteDepth } from '../../types/tweet.ts';
+import { MAX_MEDIA_PER_POST } from '../../types/tweet.ts';
 import type { CardConfig, ImageFitOption, AspectRatioOption, MediaLayoutOption, Locale, BlurOverrides } from '../../types/card.ts';
 import { CardQrCode } from './qrcode.ts';
 import {
@@ -220,6 +221,15 @@ function handleImageError(event: JSX.TargetedEvent<HTMLImageElement>) {
 /** Narrowest shape (width / height) a lone cover picture is shown at: 3:4. */
 const MIN_LONE_RATIO = 0.75;
 
+/**
+ * How many pictures a quote panel prints.
+ *
+ * The post's own media may reach X's twenty-item ceiling, but the quote panel is
+ * a preview inside the main card's column and was drawn around the four-cell
+ * quad. A twenty-picture quote would grow taller than the post it annotates.
+ */
+const QUOTE_MEDIA_LIMIT = 4;
+
 function renderMediaGrid(
   media: MediaItem[] | undefined,
   altPrefix: string = 'Tweet photo',
@@ -232,7 +242,7 @@ function renderMediaGrid(
   if (!media || media.length === 0) return null;
   // A mutable copy: a picture that reports its real shape replaces its own entry
   // here, so the next plan sees it. The caller's MediaItems are left untouched.
-  let items = media.slice(0, 4);
+  let items = media.slice(0, MAX_MEDIA_PER_POST);
   const count = items.length;
 
   // One plan, made from whatever shapes are known now. The images re-plan
@@ -770,7 +780,7 @@ function renderQuoteCard(
       ) : text ? (
         <div class="quote-text">{renderTextWithParagraphBreaks(text, 'quote')}</div>
       ) : null}
-      {renderMediaGrid(quotePost.media, t.photoAlt, imageFit, aspectRatio, mediaLayout, t.videoLabel, showPlayButton)}
+      {renderMediaGrid(quotePost.media?.slice(0, QUOTE_MEDIA_LIMIT), t.photoAlt, imageFit, aspectRatio, mediaLayout, t.videoLabel, showPlayButton)}
       {/* A quoted post can itself quote someone. That further post renders as
           its own quote panel inside this one, so the chain reads as the nesting
           it is rather than as one flat list of bodies. Two levels, no more: the

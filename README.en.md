@@ -67,7 +67,7 @@ Every step—parsing, layout, and rasterization—runs 100% locally in your brow
 
 #### 🔍 Dual-Channel Extraction Engine
 - **Smart Thread Stitching**: Powered by a **GraphQL-first + DOM fallback** pipeline (`resolveThread`). Automatically connects consecutive posts by the same author, strips promoted ads and unrelated replies, and lets you exclude individual posts inside the live preview.
-- **Long-form Articles & Rich Media**: Natively parses X Articles (extracting cover images, kickers, titles, and ledes); renders quoted posts in filled or outlined styles matching the active material; restores native Twemoji Unicode characters; upgrades photos via a `name=orig` 4K fallback chain across 1–4 image grid/stack layouts.
+- **Long-form Articles & Rich Media**: Natively parses X Articles (extracting cover images, kickers, titles, and ledes); renders quoted posts in filled or outlined styles matching the active material; restores native Twemoji Unicode characters; upgrades photos via a `name=orig` 4K fallback chain across 1–20 image grids (four to a row past the first four) and stack layouts.
 
 #### ⚡ Retina Export & Privacy Guardrails
 - **3× Retina Rasterization & Gesture-Safe Copy**: Single posts export at 3× resolution by default; ultra-tall threads adapt to 2× to prevent platform downscaling artifacts (with an optional global 3× override). Clicking **Copy** claims the system clipboard immediately inside the user gesture via a Promise-backed `ClipboardItem`, ensuring long thread renders never fail due to transient activation timeouts.

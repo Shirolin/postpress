@@ -36,6 +36,16 @@ export interface TweetStats {
  */
 export const QUOTE_LEVELS = 2;
 
+/**
+ * How many pictures or videos one post can carry.
+ *
+ * X's own ceiling for a single post, raised from four to twenty on 2026-11-12.
+ * Both extraction channels and the renderer read this one figure: a payload
+ * that somehow carries more is trimmed where it enters, and a card draws the
+ * set as rows of four rather than as X's horizontal carousel.
+ */
+export const MAX_MEDIA_PER_POST = 20;
+
 /** How deep in the quote chain a rendered quote panel sits. */
 export type QuoteDepth = 1 | 2;
 

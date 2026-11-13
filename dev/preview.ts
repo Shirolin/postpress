@@ -8,6 +8,7 @@
 
 import { render, h } from 'preact';
 import type { ThreadData } from '../src/types/tweet';
+import { MAX_MEDIA_PER_POST } from '../src/types/tweet';
 import '../src/content/container/element';
 import { App } from '../src/content/ui/App';
 import { Card } from '../src/content/ui/Card';
@@ -628,11 +629,18 @@ installPreviewStorage();
 /**
  * A single image in each of the three grid shapes, so a material's media
  * rhythm can be reviewed without a live thread. ?grid=3 is the left/right hero
- * case where a wrong corner or gutter is most obvious.
+ * case where a wrong corner or gutter is most obvious; ?grid=16 exercises the
+ * rows-of-four gallery X's twenty-item posts need.
  */
-const gridThreadData = (count: 2 | 3 | 4): ThreadData => {
-  const pool = [photo1, photo2, photo3, photo1];
-  const ratios = [1.6, 0.806, 1.538, 1.6];
+const GRID_SAMPLES = [
+  { url: photo1, aspectRatio: 1.6 },
+  { url: photo2, aspectRatio: 0.806 },
+  { url: photo3, aspectRatio: 1.538 },
+  { url: photo1, aspectRatio: 1.6 },
+];
+
+const gridThreadData = (rawCount: number): ThreadData => {
+  const count = Math.min(MAX_MEDIA_PER_POST, Math.max(2, Math.floor(rawCount) || 2));
   return {
     author,
     isSingle: true,
@@ -647,8 +655,7 @@ const gridThreadData = (count: 2 | 3 | 4): ThreadData => {
         stats: { replies: '64', reposts: '902', likes: '8.1K', views: '301K' },
         media: Array.from({ length: count }, (_, i) => ({
           type: 'image' as const,
-          url: pool[i],
-          aspectRatio: ratios[i],
+          ...GRID_SAMPLES[i % GRID_SAMPLES.length],
         })),
       },
     ],
@@ -680,7 +687,7 @@ function selectThreadData(): ThreadData {
     if (params.get(key) === '1') return data;
   }
   const grid = params.get('grid');
-  if (grid) return gridThreadData(Math.min(4, Math.max(2, Number(grid))) as 2 | 3 | 4);
+  if (grid) return gridThreadData(Number(grid));
   return threadData;
 }
 

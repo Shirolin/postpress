@@ -620,6 +620,58 @@ test('gql.34: the page’s rendered note wins even when the post body was not tr
   assert.equal(thread.tweets[0].text, originalBody, 'the body stays GraphQL’s when it was not translated');
 });
 
+test('gql.35: all twenty media items X now allows reach the card', () => {
+  // X raised a post's media ceiling from four to twenty on 2026-11-12. Both
+  // `extended_entities.media` and `entities.media` carry the whole set; this
+  // used to be sliced to the four the old grid had cells for.
+  const payload = JSON.stringify({
+    data: {
+      threaded_conversation_with_injections_v2: {
+        instructions: [
+          {
+            type: 'TimelineAddEntries',
+            entries: [
+              {
+                entryId: 'tweet-9401',
+                content: {
+                  itemContent: {
+                    tweet_results: {
+                      result: {
+                        __typename: 'Tweet',
+                        rest_id: '9401',
+                        core: {
+                          user_results: {
+                            result: { legacy: { screen_name: 'ada_builds', name: 'Ada Nakamura' } },
+                          },
+                        },
+                        legacy: {
+                          full_text: 'twenty pictures',
+                          extended_entities: {
+                            media: Array.from({ length: 20 }, (_, index) => ({
+                              type: 'photo',
+                              media_url_https: `https://pbs.twimg.com/media/twenty_${index}.jpg`,
+                              original_info: { width: 1200, height: 1000 },
+                            })),
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  });
+
+  const parsed = parseTweetDetailResponse(payload, 'TweetDetail', 'q1');
+  const media = parsed.thread?.tweets[0].media;
+  assert.equal(media?.length, 20, 'the whole set must survive parsing');
+  assert.match(media![19].url, /twenty_19\.jpg/, 'the last item is not dropped');
+});
+
 export function runTierGraphQL() {
   return run();
 }

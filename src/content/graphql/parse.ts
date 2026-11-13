@@ -11,7 +11,7 @@
  */
 
 import type { ThreadData, TweetData, AuthorInfo, MediaItem, TweetStats, QuoteTweetData, ArticleData, RichToken } from '../../types/tweet.ts';
-import { QUOTE_LEVELS, unavailableQuote } from '../../types/tweet.ts';
+import { MAX_MEDIA_PER_POST, QUOTE_LEVELS, unavailableQuote } from '../../types/tweet.ts';
 import { upgradeAvatarUrl, upgradePhotoUrl } from '../adapter/urls.ts';
 import { isArticlePermalink, stripTrailingArticleToken } from '../adapter/emojis.ts';
 import type { ReplyLink } from './bridge.ts';
@@ -368,7 +368,7 @@ function parseMedia(tweet: Json, hasArticle = false): MediaItem[] | undefined {
   const list = Array.isArray(extended) ? extended : (Array.isArray(basic) ? basic : []);
 
   const items: MediaItem[] = [];
-  for (const entry of list.slice(0, 4)) {
+  for (const entry of list.slice(0, MAX_MEDIA_PER_POST)) {
     if (!isObject(entry)) continue;
     const type = str(entry.type);
     const baseUrl = str(entry.media_url_https) || str(entry.media_url);
