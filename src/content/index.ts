@@ -21,6 +21,82 @@ import { initGraphQLBridge } from './graphql/bridge.ts';
  */
 export const ACTIVE_ATTR = 'data-post-to-card';
 
+/**
+ * X's media carousel (five or more pictures) mounts a slide's `tweetPhoto`
+ * wrapper only once the picture decodes. Clicked before that, the DOM channel
+ * reports no media at all; the GraphQL channel normally answers first, so this
+ * only matters when the bridge missed the payload.
+ */
+const CAROUSEL_LIST = '[data-testid="ScrollSnap-List"]';
+const TWEET_PHOTO = 'div[data-testid="tweetPhoto"]';
+const CAROUSEL_WAIT_MS = 1000;
+
+/**
+ * True while X's media carousel is still mounting its pictures.
+ *
+ * The carousel (five or more pictures) creates a slide's `tweetPhoto` wrapper
+ * only once the picture decodes; before that the DOM channel sees the slides but
+ * no media. A partially decoded set counts as waiting, because extracting it
+ * would print the pictures that happened to land first.
+ */
+function carouselWaitingForPictures(article: Element): boolean {
+  const slides = article.querySelectorAll(`${CAROUSEL_LIST} > div[role="presentation"]`);
+  if (slides.length === 0) return false;
+  return article.querySelectorAll(TWEET_PHOTO).length < slides.length;
+}
+
+/**
+ * Waits, bounded, for a rendered carousel to expose every picture.
+ *
+ * "Ready" means every slide has its `tweetPhoto`, not merely the first. The
+ * timeout is a ceiling for a picture that never arrives, not an expected wait —
+ * the thumbnails are already in flight.
+ */
+function waitForCarouselMedia(article: Element, slideCount: number): Promise<void> {
+  if (typeof MutationObserver !== 'function') return Promise.resolve();
+
+  return new Promise<void>((resolve) => {
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      observer.disconnect();
+      resolve();
+    };
+    const ready = () => article.querySelectorAll(TWEET_PHOTO).length >= slideCount;
+    const observer = new MutationObserver(() => {
+      if (ready()) finish();
+    });
+    const timer = setTimeout(finish, CAROUSEL_WAIT_MS);
+    observer.observe(article, { childList: true, subtree: true });
+  });
+}
+
+/**
+ * Opens the card for one post.
+ *
+ * The common path is synchronous: the card opens in the click's own turn, which
+ * is what the popup's message handler and the trigger both expect. Only a
+ * carousel whose pictures have not decoded defers, and it re-reads the post
+ * once they have.
+ */
+function openCardFor(article: Element): void {
+  const resolved = resolveThread(article);
+  const hasMedia = resolved.tweets.some((tweet) => (tweet.media?.length ?? 0) > 0);
+
+  if (hasMedia || !carouselWaitingForPictures(article)) {
+    openCardModal(resolved, createExportHandler(resolved));
+    return;
+  }
+
+  const slideCount = article.querySelectorAll(`${CAROUSEL_LIST} > div[role="presentation"]`).length;
+  void waitForCarouselMedia(article, slideCount).then(() => {
+    const threadData = resolveThread(article);
+    openCardModal(threadData, createExportHandler(threadData));
+  });
+}
+
 function initContentScript(): void {
   try {
     document.documentElement.setAttribute(ACTIVE_ATTR, 'true');
@@ -29,9 +105,7 @@ function initContentScript(): void {
     initGraphQLBridge();
 
     const controller = initTwitterInjection((article: Element) => {
-      const threadData = resolveThread(article);
-
-      openCardModal(threadData, createExportHandler(threadData));
+      void openCardFor(article);
     });
 
     // Supplementary scans for dynamic SPA feed hydration

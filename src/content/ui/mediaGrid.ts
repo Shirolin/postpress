@@ -1,7 +1,8 @@
 /**
  * Media grid: the one place a card decides how its pictures are arranged.
  *
- * A card mounts up to four MediaItems. Which arrangement they get is a single
+ * A card mounts up to twenty MediaItems, X's own per-post ceiling. Which
+ * arrangement they get is a single
  * decision with three inputs — how many, what shape each one is, and whether the
  * user asked for a poster ratio — and it used to be made in two places: once
  * while rendering, and again imperatively in every image's `onLoad`, once the
@@ -25,10 +26,12 @@
  * width. On the shapes X actually serves this leaves no dead space in a cell,
  * where the fixed grid it replaces left 8–34% of the cell empty.
  *
- * The grouping itself is unchanged — a three-picture post still gets the same
- * hero decision and a four-picture one the same quad — because that decision is
- * about composition, and only the size of each track was wrong. `cover` keeps
- * the fixed grid, because a crop is what it asks for.
+ * The grouping for one to four pictures is unchanged — a three-picture post
+ * still gets the same hero decision and a four-picture one the same quad —
+ * because that decision is about composition, and only the size of each track
+ * was wrong. Past four, X's post belongs to one gallery treatment: rows of four,
+ * which `card.css` draws and this module only shapes. `cover` keeps a fixed grid
+ * for one to four, because a crop is what it asks for.
  *
  * The widths are computed here rather than left to flex's `flex-grow`: a line's
  * wrap point is decided from the flex base size, so equal-basis cells all land
@@ -37,6 +40,7 @@
  */
 
 import type { MediaItem } from '../../types/tweet.ts';
+import { MAX_MEDIA_PER_POST } from '../../types/tweet.ts';
 import type { AspectRatioOption, ImageFitOption, MediaLayoutOption } from '../../types/card.ts';
 import { heroCellRatio, heroRowShare } from './geometry.ts';
 
@@ -48,10 +52,11 @@ export type GridLayout =
   | 'portrait-columns'
   | 'left-hero'
   | 'top-hero'
-  | 'quad';
+  | 'quad'
+  | 'rows';
 
-/** Every layout except the one that divides the grid into two columns. */
-type BandLayout = Exclude<GridLayout, 'left-hero'>;
+/** Every layout that is laid out as lines of pictures. */
+type BandLayout = Exclude<GridLayout, 'left-hero' | 'rows'>;
 
 export interface MediaGridOptions {
   /** 'auto' lets the pictures shape the grid; the poster ratios are fixed. */
@@ -102,8 +107,9 @@ export interface MediaGridPlan {
 /**
  * Picks the arrangement for a set of items.
  *
- * Thresholds are the ones the grid has always used, and they are read off the
- * first item because that is the one the hero slot holds.
+ * The 1–4 thresholds are the ones the grid has always used, and they are read
+ * off the first item because that is the one the hero slot holds. Past four the
+ * count alone decides: the gallery is the same whatever shapes arrive.
  */
 function chooseLayout(count: number, items: MediaItem[]): GridLayout {
   if (count === 3) {
@@ -134,6 +140,10 @@ function chooseLayout(count: number, items: MediaItem[]): GridLayout {
   }
 
   if (count === 4) return 'quad';
+
+  // X raised a post's media ceiling from four to twenty; past four pictures the
+  // composition is always the same gallery, so shape decides nothing here.
+  if (count > 4) return 'rows';
 
   return 'default';
 }
@@ -332,6 +342,14 @@ function shapedPlan(items: MediaItem[], layout: GridLayout): Pick<MediaGridPlan,
     return { slots: ratios.map(ratio => ({ ratio, width: '100%' })), columns };
   }
 
+  if (layout === 'rows') {
+    // Four to a row, every cell the picture's own rectangle. The grid supplies
+    // the four columns (card.css), so a cell states only its shape and takes the
+    // track it is given: a partial last row stays in its quarter instead of
+    // stretching the leftover pictures across the card.
+    return { slots: ratios.map(ratio => ({ ratio, width: '100%' })) };
+  }
+
   const slots: MediaSlot[] = new Array(items.length);
   for (const line of linesFor(layout, items.length)) {
     const total = line.reduce((sum, index) => sum + ratios[index], 0);
@@ -353,9 +371,9 @@ export function planMediaGrid(
   items: MediaItem[],
   options: MediaGridOptions
 ): MediaGridPlan {
-  // The card renderer caps layouts at four items, so a longer set is trimmed
-  // before it is planned rather than after.
-  const visible = items.slice(0, 4);
+  // X allows twenty items on one post, so the card shows all of them; a longer
+  // set is trimmed here rather than in each caller.
+  const visible = items.slice(0, MAX_MEDIA_PER_POST);
   const layout = chooseLayout(visible.length, visible);
   const plan: MediaGridPlan = { layout };
 

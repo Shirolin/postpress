@@ -66,6 +66,35 @@ export const FOUR_PHOTOS_HTML = `
 `;
 
 /**
+ * Six pictures in X's post-2026-11-12 carousel shape, from the 16-slide post
+ * measured on 2026-11-13 (`docs/observed-dom-2026-11-13-carousel.md`).
+ *
+ * The site mounts one `tweetPhoto` per slide under `ScrollSnap-List`; a count
+ * above four reaches the extractor as more of the same slot, not as a new
+ * marker. Pictures hydrate lazily, so the slides also exist before their
+ * `tweetPhoto` children do — the extractor reads whatever has decoded.
+ */
+export const SIX_PHOTOS_HTML = `
+<article data-testid="tweet">
+  <div data-testid="User-Name">
+    <a href="/user/status/8006"><time datetime="2026-11-13T00:00:00.000Z"></time></a>
+  </div>
+  <div data-testid="ScrollSnap-SwipeableList">
+    <div role="tablist" data-testid="ScrollSnap-List">
+      ${[1, 2, 3, 4, 5, 6].map((n) => `
+      <div role="presentation">
+        <a href="/user/status/8006/photo/${n}" role="link">
+          <div data-testid="tweetPhoto">
+            <img src="https://pbs.twimg.com/media/six_${n}.jpg?format=jpg&name=240x240" alt="S${n}">
+          </div>
+        </a>
+      </div>`).join('')}
+    </div>
+  </div>
+</article>
+`;
+
+/**
  * A media-rich tweet. Observed on a live two-image post: the media block also
  * carries a role="group", so a bare group match attaches the trigger to the
  * photo area instead of the action row.

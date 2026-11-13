@@ -50,7 +50,7 @@ Post-to-Card（PostPress · 印推）是一个基于 Manifest V3 的纯本地 Ch
 | F9 | Native Emoji Restoration | 遍历 Twemoji `img[alt]` 还原原生 Unicode emoji，修复 `textContent` 丢失表情问题 | M3 | 任务书 §R1 |
 | F10 | Mention, Hashtag & Cashtag Preservation | 识别并保留 `@mentions`、`#hashtags` 与 `$cashtags` 的富文本高亮特征 | M3 | 任务书 §R1 |
 | F11 | High-Res Media Upgrade | 头像升级为 `_400x400`，配图升级为 `format=jpg&name=orig`（含多级回退链），视频提取 poster 封面 | M3 | 任务书 §R1 |
-| F12 | Multi-Image Grid Extraction | 支持 1–4 张图片网格与堆叠布局元数据解析 | M3 | 任务书 §R1 |
+| F12 | Multi-Image Grid Extraction | 支持 1–20 张图片网格（五张起四列多行）与堆叠布局元数据解析 | M3 | 任务书 §R1 |
 | F13 | Quote Tweet Extraction | 提取被引用推文（含两级嵌套引用预览与独立媒体归属判定）构建 `quotePost` 结构 | M3 | 任务书 §R1 |
 | F14 | Dual-Channel Thread Resolution | GraphQL 结构化会话树优先 + DOM 时序/连接线兜底，拼接同作者连续推文并过滤广告与异作者回复 | M3 / M6 | 任务书 §R1 |
 | F15 | Custom Element & Shadow DOM | 注册 `<post-to-card-container>`，open ShadowRoot 挂载 | M4 | 任务书 §R2 |

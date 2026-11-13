@@ -145,14 +145,14 @@ const EN = {
   'thread.cap': 'Three posts by one author, one of them quoting: the whole card as it exports.',
   'article.h2': 'Articles, quotes and image grids survive.',
   'article.lead':
-    'An X Article brings out its cover and lead; a quoted post is filled or outlined to suit the material; one to four pictures keep their own proportions in the grid.',
+    'An X Article brings out its cover and lead; a quoted post is filled or outlined to suit the material; one to twenty pictures keep their own proportions in the grid, four to a row past the first four (fill crops them square).',
   'article.lede': '“Not a filter — paper, rule and type at the right ratio.”',
   'article.s1t': 'Article',
   'article.s1': 'Cover, kicker, title and lead come through together.',
   'article.s2t': 'Quote',
   'article.s2': 'Filled or outlined, following the material.',
   'article.s3t': 'Pictures',
-  'article.s3': 'One to four keep their own proportions instead of being cropped square.',
+  'article.s3': 'One to twenty keep their own proportions instead of being cropped square; four to a row past the first four, and fill crops them square.',
   'switch.h2': 'Eight switches, one panel.',
   'switch.lead':
     'Material, canvas, background, footer details, author blur and export resolution all live on this one panel; change one and the card follows. Your choices are remembered, so day to day you just open and hit Copy.',

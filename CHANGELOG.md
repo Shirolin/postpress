@@ -3,6 +3,12 @@
 格式遵循 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号遵循 [语义化版本](https://semver.org/lang/zh-CN/)。
 
+## [未发布]
+
+### 新增
+
+- **单帖最多 20 张媒体**：X 于 2026-11-12 把单帖图片/视频上限从 4 提到 20。DOM 通道不再只读轮播的前四个 `tweetPhoto`，GraphQL 通道不再截断 `extended_entities.media`；卡片五张起按四列多行排，完整展示保留每张比例，填充铺满裁成方块。引用帖仍只印前四张（引用框是主帖栏里的预览）；轮播图片未解码、解析结果又没有媒体时，DOM 通道会等最多 1 秒再重解析。实测十六图帖：DOM 16 个 slide、GraphQL 16 项，修复前只出 4 张。
+
 ## [1.2.1] - 2026-11-11
 
 ### 变更

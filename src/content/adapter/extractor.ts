@@ -2,11 +2,11 @@
  * Twitter/X DOM Extractor.
  * Extracts structured TweetData from Twitter/X article elements:
  * author metadata, native Unicode text, rich tokens (@mentions, #hashtags, $cashtags, URLs),
- * multi-image grids (1-4 images), video poster frames, nested quote tweets, and engagement stats.
+ * multi-image grids (up to X's twenty per post), video poster frames, nested quote tweets, and engagement stats.
  */
 
 import type { TweetData, AuthorInfo, MediaItem, TweetStats, QuoteTweetData, ArticleData, RichToken } from '../../types/tweet.ts';
-import { QUOTE_LEVELS, unavailableQuote } from '../../types/tweet.ts';
+import { MAX_MEDIA_PER_POST, QUOTE_LEVELS, unavailableQuote } from '../../types/tweet.ts';
 import { restoreUnicodeEmojis, cleanTweetText, normalizeTweetWhitespace, isPicMediaLink, stripTrailingArticleLink, stripTrailingArticleToken } from './emojis.ts';
 import { upgradeAvatarUrl, upgradePhotoUrl, extractVideoPosterUrl } from './urls.ts';
 import { classifySocial, getRetweetedBy } from './social.ts';
@@ -610,7 +610,7 @@ function pushUniqueMediaItem(items: MediaItem[], candidate: MediaItem): void {
     if (items[duplicateIndex].type === 'image' && candidate.type !== 'image') {
       items[duplicateIndex] = candidate;
     }
-  } else if (items.length < 4) {
+  } else if (items.length < MAX_MEDIA_PER_POST) {
     items.push(candidate);
   }
 }
@@ -664,10 +664,10 @@ function isVideoOrGifSlot(slot: Element): boolean {
 /**
  * Photos plus the video/GIF items for one container.
  *
- * A tweet can mix photos and videos/GIFs, or contain up to 4 distinct animated GIFs.
- * Scans each tweetPhoto slot individually so that multiple video/GIF items are preserved
- * without collapsing into a single item, and standalone players are incorporated without
- * duplicating the poster frames.
+ * A tweet can mix photos and videos/GIFs, or contain up to X's twenty media
+ * items. Scans each tweetPhoto slot individually so that multiple video/GIF
+ * items are preserved without collapsing into a single item, and standalone
+ * players are incorporated without duplicating the poster frames.
  */
 function collectPhotoAndVideoMedia(
   container: Element,
@@ -693,7 +693,7 @@ function collectPhotoAndVideoMedia(
     (slot) => !isExcluded(slot)
   );
 
-  for (const slot of photoSlots.slice(0, 4)) {
+  for (const slot of photoSlots.slice(0, MAX_MEDIA_PER_POST)) {
     if (isVideoOrGifSlot(slot)) {
       const videoItem = extractVideoMedia(slot, ownership, excludeQuoted);
       if (videoItem) {
@@ -726,8 +726,11 @@ function collectPhotoAndVideoMedia(
     }
   }
 
-  // 2. Scan standalone video elements outside tweetPhoto slots
-  if (items.length < 4) {
+  // 2. Scan standalone video elements outside tweetPhoto slots.
+  // X counts photos and videos against the same twenty-item ceiling, so this
+  // pass keeps running while the photo pass has not filled it. A post with
+  // sixteen photos can still carry the four more X allows.
+  if (items.length < MAX_MEDIA_PER_POST) {
     const standaloneVideoSlots = Array.from(
       container.querySelectorAll('div[data-testid="videoPlayer"], div[data-testid="videoComponent"], div[aria-label="Embedded video"]')
     ).filter((slot) => {
@@ -737,7 +740,7 @@ function collectPhotoAndVideoMedia(
     });
 
     for (const slot of standaloneVideoSlots) {
-      if (items.length >= 4) break;
+      if (items.length >= MAX_MEDIA_PER_POST) break;
       const videoItem = extractVideoMedia(slot, ownership, excludeQuoted);
       if (videoItem) {
         pushUniqueMediaItem(items, videoItem);
@@ -746,19 +749,19 @@ function collectPhotoAndVideoMedia(
   }
 
   // 3. Fallback: whole-container scan for unnested video elements or legacy shapes
-  if (items.length < 4) {
+  if (items.length < MAX_MEDIA_PER_POST) {
     const videoMedia = extractVideoMedia(container, ownership, excludeQuoted);
     if (videoMedia) {
       pushUniqueMediaItem(items, videoMedia);
     }
   }
 
-  return items.slice(0, 4);
+  return items.slice(0, MAX_MEDIA_PER_POST);
 }
 
 /**
- * Extracts up to 4 high-res photos plus any video/GIF poster frame for the main
- * tweet. Excludes media belonging to nested quote tweets.
+ * Extracts a post's high-res photos plus any video/GIF poster frame (X caps a
+ * post at twenty media items). Excludes media belonging to nested quote tweets.
  *
  * A long-form post's article is excluded wholesale: its cover is extracted
  * separately as `article.cover` and mounted by the article layout, so leaving it
