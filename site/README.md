@@ -1,12 +1,12 @@
 # 产品页
 
-`site/` 是 PostPress 的产品页，纯静态：`index.html`（中文入口）+ `en/index.html`（独立静态英文入口）+ `styles.css` + `app.js` + `assets/`，
+`site/` 是 PostPress 的产品页，纯静态：`index.html`（默认英文入口）+ `zh/index.html`（独立静态中文入口）+ `en/index.html`（旧链接兼容跳转）+ `styles.css` + `app.js` + `assets/`，
 没有构建步骤，由 [`.github/workflows/pages.yml`](../.github/workflows/pages.yml) 发布到 GitHub Pages。
 仓库设置里 Pages 的 Source 要选 **GitHub Actions**，否则工作流不会生效。
 
 - **两套皮，同一张版**：默认近黑（`#0c0e11` 底 + 薄荷按钮），另一套是纸面（`#ecedea` 底 + 深绿按钮 + 近黑结尾）。
   右上角切换，存在 `localStorage`，`?theme=light` 也能直接打开。
-- **双语静态入口 + 原地切换**：`/` 原生写死中文语义与 `og.jpg`，`en/` 原生写死英文语义与 `og-en.jpg`（通过 `hreflang` 互指），确保不运行 JS 的社交平台和爬虫能抓到对应语言的卡片预览。右上角按钮可随时原地切换中英文。
+- **默认英文 + 双语静态入口**：`/` 原生写死英文语义与 `og-en.jpg`（供海外社区与社交平台默认抓取），`zh/` 原生写死中文语义与 `og.jpg`（通过 `hreflang` 互指）。右上角按钮可随时原地切换中英文。
 - **内容带停在 1680px**：超宽屏时背景色块仍铺满整宽，文字与栅格收进 `--edge` 边距，字号也上一个台阶。
 - **配色取品牌**：近黑 `#0c0e11`（底）、`#1e2229`（右侧舞台）、米白 `#f2f4f0`（字）、
   薄荷 `#6cc59c`（只给按钮与选中态，来自 `ui/brandMark.ts` 的机身）、结尾的纸色 `#f5f6f4`。

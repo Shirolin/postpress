@@ -370,9 +370,9 @@ const textNodes = [...document.querySelectorAll('[data-i18n]')];
 const original = new Map(textNodes.map((el) => [el, el.innerHTML]));
 
 let lang = pageLang;
-if (pageLang === 'zh') {
+if (pageLang === 'en') {
   try {
-    if (localStorage.getItem('pp-lang') === 'en') lang = 'en';
+    if (localStorage.getItem('pp-lang') === 'zh') lang = 'zh';
   } catch {
     /* 隐私模式下读不到存储，用默认语言 */
   }
