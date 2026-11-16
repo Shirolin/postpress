@@ -1,8 +1,8 @@
 /**
- * PostPress 产品页：语言切换、材质样张、入场动效。
+ * PostPress 产品页：语言切换、材质样张、展示标签、入场动效。
  *
- * 页面本身是静态 HTML，中文写在标签里；这里只负责换成英文、换样张、加动效。
- * JS 不跑时，中文版本与第一张样张仍然完整可读。
+ * 页面本身是静态 HTML（根路径 `/` 为中文，`en/` 为英文）；这里负责多语言原地切换、
+ * 全页材质样张联动、长文/多图网格切换以及动效。JS 不跑时静态版本仍然完整可读。
  */
 
 const MATERIALS = {
@@ -118,7 +118,6 @@ const MATERIALS = {
 
 const EN = {
   skip: 'Skip to content',
-  'nav.materials': 'Materials',
   'nav.thread': 'Threads',
   'nav.article': 'Articles',
   'nav.privacy': 'Privacy',
@@ -128,8 +127,8 @@ const EN = {
     'Skip the manual crop-and-screenshot routine. Click the button on a post (or press Alt + C) to copy a single post or same-author thread as a crisp 3× card straight to your clipboard, ready to paste anywhere. Twelve materials, rendered entirely on your machine.',
   'hero.meta':
     'Free and open source · GPL-3.0-or-later · Chrome / Edge (Manifest V3, Chrome 111 and later)',
-  'cta.install': 'Install in your browser',
-  'cta.install2': 'Install in your browser',
+  'cta.install': 'Add from Chrome Web Store',
+  'cta.install2': 'Add from Chrome Web Store',
   'cta.source': 'Source and docs',
   'spec.pick': 'Pick a material',
   'facts.materials': 'materials',
@@ -143,7 +142,14 @@ const EN = {
   'thread.tick2': 'Long threads export at 2× by default, under the platform size ceiling',
   'thread.tick3': 'When a card would read too small in a feed, the panel says so before you export',
   'thread.cap': 'Three posts by one author, one of them quoting: the whole card as it exports.',
+  'thread.d1': 'Posts',
+  'thread.d2': 'Photos',
+  'thread.d3': 'Quote',
+  'thread.d4': 'Export',
   'article.h2': 'Articles, quotes and image grids survive.',
+  'article.tab1': 'X Article',
+  'article.tab2': 'Zero-Crop Quad',
+  'article.tab3': '20-Image Grid',
   'article.lead':
     'An X Article brings out its cover and lead; a quoted post is filled or outlined to suit the material; one to twenty pictures keep their own proportions in the grid, four to a row past the first four (fill crops them square).',
   'article.lede': '“Not a filter — paper, rule and type at the right ratio.”',
@@ -153,10 +159,10 @@ const EN = {
   'article.s2': 'Filled or outlined, following the material.',
   'article.s3t': 'Pictures',
   'article.s3': 'One to twenty keep their own proportions instead of being cropped square; four to a row past the first four, and fill crops them square.',
-  'switch.h2': 'Eight switches, one panel.',
+  'switch.h2': 'Eight switches, one Studio.',
   'switch.lead':
-    'Material, canvas, background, footer details, author blur and export resolution all live on this one panel; change one and the card follows. Your choices are remembered, so day to day you just open and hit Copy.',
-  'switch.panelCap': 'The panel itself, at true size.',
+    'Material, canvas, background, footer details, author blur and export resolution all live on this one Studio modal; change one and the live preview follows. Your choices are remembered, so day to day you just open and hit Copy.',
+  'switch.panelCap': 'The real Studio modal: left preview and right controls stay in sync live.',
   'switch.cap1': 'All on',
   'switch.cap1b': 'QR, counts, time, credit.',
   'switch.cap2': 'Footer off',
@@ -173,7 +179,10 @@ const EN = {
   'privacy.p3': "Fetches the card's pictures. A canvas cannot read cross-origin images without it.",
   'install.h2': 'Into your browser.',
   'install.lead':
-    'Install from the Chrome Web Store in one click, or build from source with the three steps below.',
+    'Install from the Chrome Web Store in one click; or expand the three-step build from source below.',
+  'install.store': 'Add from Chrome Web Store',
+  'install.cta': 'Open GitHub repository',
+  'install.sourceSummary': 'For developers: build from source (3 steps)',
   'install.s1t': 'Build',
   'install.s1':
     'Clone the source, install and build. The output lands in <code>dist/</code>.',
@@ -183,8 +192,6 @@ const EN = {
   'install.s3t': 'Use',
   'install.s3': 'Press the card button on any post (or hover and hit <kbd>Alt</kbd> + <kbd>C</kbd>), click Copy Image, and paste anywhere.',
   'install.note': 'Released under GPL-3.0-or-later: redistribute your changes under the same licence.',
-  'install.cta': 'Open the repository',
-  'install.store': 'Add from the Chrome Web Store',
   'faq.h2': 'Asked most',
   'faq.lead': 'Six real questions, answers on the right.',
   'faq.q1': 'Why not just screenshot?',
@@ -211,7 +218,7 @@ const EN = {
   'foot.privacy': 'Privacy',
   'foot.license': 'Licence',
   'foot.credit':
-    'Photographs inside the sample cards: letterpress posters by Amos Paul Kennedy Jr, photo by Michellecornelison (CC BY-SA 4.0); metal movable type, photo by Willi Heidelbach (CC BY 2.5), both via Wikimedia Commons. @postpress_demo and @typeset_demo are invented sample accounts; the names and posts are samples too.',
+    'Sample card photographs via Unsplash (Unsplash License): @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting, and @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind, and @postpress_ext are invented sample accounts.',
   'foot.gpl': 'GPL-3.0-or-later',
   'theme.minimal': 'Minimal',
   'theme.midnight': 'Midnight',
@@ -227,6 +234,118 @@ const EN = {
   'theme.brutalist': 'Brutalist',
 };
 
+const ZH = {
+  skip: '跳到正文',
+  'nav.thread': '长串',
+  'nav.article': '长文',
+  'nav.privacy': '隐私',
+  'nav.install': '安装',
+  'hero.h1': '把推文复制成卡片。',
+  'hero.sub':
+    '不用手拉框选截屏。点一下按钮（或按 Alt + C），整条推文与同作者长串直接排成 3× 高清卡片写进剪贴板，随手粘贴到任何地方；十二套材质，全部在本机完成，不登录、不上传。',
+  'hero.meta':
+    '免费开源 · GPL-3.0-or-later · Chrome / Edge（Manifest V3，Chrome 111 起）',
+  'cta.install': '从 Chrome 商店安装',
+  'cta.install2': '从 Chrome 商店安装',
+  'cta.source': '源码与文档',
+  'spec.pick': '挑一种材质',
+  'facts.materials': '套材质',
+  'facts.canvas': '种外层画幅',
+  'facts.locales': '种界面语言',
+  'facts.export': '超清复制',
+  'thread.h2': '长串会自己接上。',
+  'thread.body':
+    '同一条串里的推文按作者与时间接起来，广告和第三方回复被剔除。解析走两条路：先读 X 自己的 GraphQL 缓存，读不到再退回页面上的 DOM 标记。不想展示的那一条，点一下剔掉。',
+  'thread.tick1': '同作者连续推文自动拼合，广告与路人回复不进来',
+  'thread.tick2': '长串默认 2× 导出，躲开平台尺寸上限',
+  'thread.tick3': '比例过大、缩进信息流会看不清时，面板会先提醒你分段',
+  'thread.cap': '三条同作者推文，其中一条带引用，导出的就是这一整张长卡片。',
+  'thread.d1': '推文',
+  'thread.d2': '配图',
+  'thread.d3': '引用',
+  'thread.d4': '导出',
+  'article.h2': '长文、引用、四宫格，都不丢。',
+  'article.tab1': 'X 长文',
+  'article.tab2': '四图无裁切',
+  'article.tab3': '20 图拼版',
+  'article.lead':
+    'X 长文会带出封面与导语；引用帖按材质填充或描边；一到二十张配图按各自比例拼成网格，五张起四列多行，填充铺满时每格裁成方块。',
+  'article.lede': '“不是滤镜，是纸、线与字的比例。”',
+  'article.s1t': '长文',
+  'article.s1': '封面、栏目名、标题与导语一起带出来。',
+  'article.s2t': '引用',
+  'article.s2': '填充或描边，跟当前材质走。',
+  'article.s3t': '配图',
+  'article.s3': '一到二十张按各自比例拼成网格，五张起四列多行；填充铺满时裁成方块。',
+  'switch.h2': '八个开关，一块工作台。',
+  'switch.lead':
+    '材质、画幅、背景、页脚信息、作者模糊、导出清晰度都在这个弹窗工作台上；改一下，左侧卡片预览立刻跟着变。偏好会自动记住，平时点开直接点「复制图片」就能走。',
+  'switch.panelCap': '真实 Studio 弹窗，左侧预览与右侧开关实时联动。',
+  'switch.cap1': '全开',
+  'switch.cap1b': '二维码、数据、时间、署名。',
+  'switch.cap2': '关页脚',
+  'switch.cap2b': '只剩正文。',
+  'switch.cap3': '打码',
+  'switch.cap3b': '作者与引用作者一起模糊。',
+  'privacy.h2': '全程在本机跑完。',
+  'privacy.body':
+    '没有账号，没有服务器，没有遥测。排版在隔离的 Shadow DOM 里完成，导出交给浏览器自己的画布；除了向 X 的图片域名取你卡片里本来就有的配图，不发任何请求。',
+  'privacy.note': '不读取你的时间线，不需要 X 账号，也不用 X API。与 X Corp. 无关联。',
+  'privacy.p1': '把渲染好的图片放进剪贴板，只在你点「复制」时用。',
+  'privacy.p2': '记住你选的材质、画幅与开关；只存在本地。',
+  'privacy.p3': '取卡片里的配图。画布读不了跨域图片，没有它导出会失败。',
+  'install.h2': '装进浏览器。',
+  'install.lead': '从 Chrome 应用商店一键安装；想自己编译，也可在下方展开源码三步构建。',
+  'install.store': '从 Chrome 应用商店安装',
+  'install.cta': '打开 GitHub 仓库',
+  'install.sourceSummary': '开发者与自定义：从源码构建（三步）',
+  'install.s1t': '构建',
+  'install.s1': '拉下源码装依赖再构建，产物在 <code>dist/</code>。',
+  'install.s2t': '载入',
+  'install.s2':
+    '打开 <code>chrome://extensions</code>，开启「开发者模式」，点「加载已解压的扩展程序」，选 <code>dist/</code>。',
+  'install.s3t': '用',
+  'install.s3': '在任意推文的操作栏点卡片按钮（或悬停按 <kbd>Alt</kbd> + <kbd>C</kbd>），点「复制图片」，去别处直接粘贴。',
+  'install.note': '以 GPL-3.0-or-later 发布：改完再分发请同样开源。',
+  'faq.h2': '常被问到的',
+  'faq.lead': '六个真问题，答案就在右边。',
+  'faq.q1': '为什么不直接截屏？',
+  'faq.a1':
+    '截屏要手拉框选、躲开底下的评论，遇到长推文还得滚动截好几张；截出来的图跟着屏幕 DPI 走，还夹带浏览器界面。点一下印推，整条推文或长串直接按材质规范重新排成 3× 高清图写进剪贴板，随手就能粘贴，缩到信息流宽度依然锐利。',
+  'faq.q2': '长串发到信息流会被压糊吗？',
+  'faq.a2':
+    '单条按 3× 导出。超长串默认 2× 以躲开尺寸上限；缩进信息流会小到难读时，面板会提示并建议分段。要极清可以在导出设置里强制 3×。',
+  'faq.q3': '需要登录或绑定 X 吗？',
+  'faq.a3': '不需要。没有账号体系，只读当前页面已经渲染出来的内容和宿主自己的缓存，不碰任何凭据。',
+  'faq.q4': '导出的东西会被上传吗？',
+  'faq.a4': '不会。图片只写到剪贴板和你的硬盘；关掉预览即释放内存，不在本地保存推文内容。',
+  'faq.q5': '能商用吗？',
+  'faq.a5':
+    '软件本身是 GPL-3.0-or-later，可以商用。卡片里的文字与配图仍属于原作者，公开可见不等于可以随意商用，分发前请自己确认。',
+  'faq.q6': '能装在哪些浏览器上？',
+  'faq.a6': 'Chrome 与 Edge，Chrome 111 起（Manifest V3）。Firefox 与 Safari 还没适配——扩展用的是 Chromium 的扩展接口。',
+  'close.h2': '下一条推文，印出来。',
+  'close.sub': '装一次，之后每条推文的操作栏里都有它。点一下进剪贴板，随处都能粘贴。',
+  'foot.readme': 'README',
+  'foot.privacy': '隐私说明',
+  'foot.license': '许可',
+  'foot.credit':
+    '示例卡片摄影来自 Unsplash（Unsplash License）：@declansun、@xanderart、@parrish、@hngstrm、@dnevozhai、@kugedo6060、@nicolonimor、@peemaglama、@markusspiske、@hannynaibaho、@jakobowens1、@mitchures、@migueljoya、@kellysikkema、@bady、@egorghetto、@vonshnauzer、@kimonmaritz、@monadiform、@deconovo、@evstyle、@chatelp、@a7med7、@renjunn、@benchaccounting、@andrew_bright。卡片中的 @claranovak、@kenjisato_35mm、@marcusreid、@noralind 与 @postpress_ext 均为虚构示例账号。',
+  'foot.gpl': 'GPL-3.0-or-later',
+  'theme.minimal': '极简',
+  'theme.midnight': '夜幕',
+  'theme.glass': '液态玻璃',
+  'theme.material': '质感',
+  'theme.gallery': '画廊',
+  'theme.darkroom': '暗房',
+  'theme.riso': '孔版',
+  'theme.sumi': '水墨',
+  'theme.clay': '软陶',
+  'theme.terminal': '终端',
+  'theme.receipt': '小票',
+  'theme.brutalist': '粗野派',
+};
+
 const TITLES = {
   zh: 'PostPress · 印推：把 X 推文复制成卡片',
   en: 'PostPress: copy X posts as print-grade cards',
@@ -240,6 +359,9 @@ const DESCRIPTIONS = {
 const root = document.documentElement;
 root.classList.add('js');
 
+const BASE = root.dataset.base || '.';
+const pageLang = root.dataset.pageLang === 'en' ? 'en' : 'zh';
+
 /* -------------------------------------------------------------- 语言 */
 
 const langButton = document.getElementById('lang');
@@ -247,11 +369,13 @@ const description = document.querySelector('meta[name="description"]');
 const textNodes = [...document.querySelectorAll('[data-i18n]')];
 const original = new Map(textNodes.map((el) => [el, el.innerHTML]));
 
-let lang = 'zh';
-try {
-  if (localStorage.getItem('pp-lang') === 'en') lang = 'en';
-} catch {
-  /* 隐私模式下读不到存储，用默认语言 */
+let lang = pageLang;
+if (pageLang === 'zh') {
+  try {
+    if (localStorage.getItem('pp-lang') === 'en') lang = 'en';
+  } catch {
+    /* 隐私模式下读不到存储，用默认语言 */
+  }
 }
 
 function applyLanguage(next) {
@@ -260,9 +384,11 @@ function applyLanguage(next) {
   document.title = TITLES[next];
   if (description) description.setAttribute('content', DESCRIPTIONS[next]);
 
+  const dict = next === 'en' ? EN : ZH;
   for (const el of textNodes) {
     const key = el.getAttribute('data-i18n');
-    el.innerHTML = next === 'en' && EN[key] ? EN[key] : original.get(el);
+    if (next === pageLang) el.innerHTML = original.get(el);
+    else if (dict[key]) el.innerHTML = dict[key];
   }
 
   langButton.textContent = next === 'en' ? '中文' : 'EN';
@@ -270,6 +396,7 @@ function applyLanguage(next) {
 
   renderThemeLabel();
   renderCaption();
+  updateArticleAlt();
 }
 
 langButton.addEventListener('click', () => {
@@ -321,7 +448,7 @@ themeButton.addEventListener('click', () => {
   setTheme(currentTheme() === 'light' ? 'dark' : 'light');
 });
 
-/* ------------------------------------------------------------ 材质样张 */
+/* ------------------------------------------------------------ 材质样张 & 展示标签 */
 
 const specimenImg = document.getElementById('specimen-img');
 const capName = document.getElementById('cap-name');
@@ -330,15 +457,59 @@ const capTokens = document.querySelector('.cap-tokens');
 const materialButtons = [...document.querySelectorAll('.material')];
 // 页面下方的长串、长文与三种页脚状态也跟着材质换，别只换顶上那一张。
 const followingCards = [...document.querySelectorAll('[data-card]')];
+const articleImg = document.getElementById('article-img');
+const showcaseTabs = [...document.querySelectorAll('.showcase-tab')];
 
 let material = currentTheme() === 'light' ? 'minimal' : 'midnight';
 let pickedManually = false;
+let showcaseMode = 'article';
 
 function showMaterial(id) {
   material = id;
-  specimenImg.src = `./assets/cards/${id}.webp`;
-  for (const img of followingCards) img.src = `./assets/cards/${img.dataset.card}-${id}.webp`;
+  specimenImg.src = `${BASE}/assets/cards/${id}.webp`;
+  for (const img of followingCards) {
+    if (img === articleImg && showcaseMode !== 'article') continue;
+    img.src = `${BASE}/assets/cards/${img.dataset.card}-${id}.webp`;
+  }
   renderCaption();
+}
+
+function updateArticleAlt() {
+  if (!articleImg) return;
+  const alts = {
+    article: {
+      zh: '示例卡片：一条带 X 长文的推文，上方是横版封面照片，下方是长文标题与导语。',
+      en: 'Sample card: an X Article post with its cover photograph, kicker, title and opening line.',
+    },
+    quad: {
+      zh: '示例卡片：Gallery 材质下的四张 3:2 建筑摄影，在 Fit 模式下零裁切完整对齐。',
+      en: 'Sample card: four 3:2 architectural photographs mounted in Gallery with zero cropping in Fit mode.',
+    },
+    grid20: {
+      zh: '示例卡片：单条推文携带 20 张照片，按四列多行均衡铺排。',
+      en: 'Sample card: a 20-image post laid out cleanly in 4-column balanced rows.',
+    },
+  };
+  articleImg.alt = alts[showcaseMode][lang];
+}
+
+function setShowcaseMode(mode) {
+  showcaseMode = mode;
+  for (const tab of showcaseTabs) {
+    tab.setAttribute('aria-selected', String(tab.dataset.showcase === mode));
+  }
+  if (!articleImg) return;
+  if (mode === 'article') articleImg.src = `${BASE}/assets/cards/article-${material}.webp`;
+  else if (mode === 'quad') articleImg.src = `${BASE}/assets/cards/showcase-quad.webp`;
+  else if (mode === 'grid20') articleImg.src = `${BASE}/assets/cards/showcase-grid20.webp`;
+  updateArticleAlt();
+}
+
+for (const tab of showcaseTabs) {
+  tab.addEventListener('click', () => {
+    const mode = tab.dataset.showcase;
+    if (mode && mode !== showcaseMode) setShowcaseMode(mode);
+  });
 }
 
 /** 没手动挑过时，默认材质跟着皮走：深色给夜幕，浅色给极简。 */
@@ -357,8 +528,8 @@ function renderCaption() {
     .join('');
   specimenImg.alt =
     lang === 'en'
-      ? `${m.en} material: one post with a quoted post, rendered as a card.`
-      : `${m.zh}材质的卡片：一条推文，正文下方引用另一条推文。`;
+      ? `${m.en} material: sample post rendered as a card.`
+      : `${m.zh}材质的卡片：实拍样张渲染效果。`;
 
   for (const button of materialButtons) {
     button.setAttribute('aria-pressed', String(button.dataset.material === material));
@@ -393,9 +564,8 @@ const ENTER_SELECTORS = [
   '.switch-list > figure',
   '.privacy-text > *',
   '.perms > li',
-  '.steps > li',
-  '.install-code pre',
-  '.install-side',
+  '.install-primary',
+  '.install-source',
   '.faq-row',
 ];
 

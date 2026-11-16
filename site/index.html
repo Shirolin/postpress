@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-base="." data-page-lang="zh">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,6 +32,9 @@
     <meta name="twitter:image" content="https://shirolin.github.io/postpress/assets/cards/og.jpg" />
     <meta name="twitter:image:alt" content="PostPress · 印推：把推文复制成卡片" />
     <link rel="canonical" href="https://shirolin.github.io/postpress/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://shirolin.github.io/postpress/" />
+    <link rel="alternate" hreflang="en" href="https://shirolin.github.io/postpress/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://shirolin.github.io/postpress/" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:locale:alternate" content="en_US" />
     <script type="application/ld+json">
@@ -47,7 +50,7 @@
             "downloadUrl": "https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai",
             "sameAs": "https://github.com/Shirolin/postpress",
             "license": "https://www.gnu.org/licenses/gpl-3.0.html",
-            "softwareVersion": "1.1.0",
+            "softwareVersion": "1.3.0",
             "author": {
               "@type": "Person",
               "name": "Shirolin",
@@ -174,7 +177,7 @@
             不用手拉框选截屏。点一下按钮（或按 Alt + C），整条推文与同作者长串直接排成 3× 高清卡片写进剪贴板，随手粘贴到任何地方；十二套材质，全部在本机完成，不登录、不上传。
           </p>
           <div class="hero-actions">
-            <a class="btn" href="#install" data-i18n="cta.install">装到浏览器</a>
+            <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai" data-i18n="cta.install">从 Chrome 商店安装</a>
             <a class="link" href="https://github.com/Shirolin/postpress" data-i18n="cta.source">源码与文档</a>
           </div>
           <p class="hero-meta" data-i18n="hero.meta">
@@ -196,9 +199,9 @@
             <img
               id="specimen-img"
               src="./assets/cards/midnight.webp"
-              alt="夜幕材质的卡片：PostPress 印推的一条推文，正文下方引用排版样张的一句短推。"
+              alt="夜幕材质的卡片：实拍样张渲染效果。"
               width="1280"
-              height="766"
+              height="1315"
               decoding="async"
               fetchpriority="high"
             />
@@ -207,40 +210,40 @@
             <p class="rack-label" id="rack-label" data-i18n="spec.pick">挑一种材质</p>
             <div class="rack-list" role="group" aria-labelledby="rack-label">
               <button class="material" type="button" data-material="minimal" aria-pressed="false">
-                <img src="./assets/cards/thumb-minimal.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.minimal">极简</span>
+                <img src="./assets/cards/thumb-minimal.webp" alt="" width="320" height="328" loading="lazy" decoding="async" /><span data-i18n="theme.minimal">极简</span>
               </button>
               <button class="material" type="button" data-material="midnight" aria-pressed="true">
-                <img src="./assets/cards/thumb-midnight.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.midnight">夜幕</span>
+                <img src="./assets/cards/thumb-midnight.webp" alt="" width="320" height="329" loading="lazy" decoding="async" /><span data-i18n="theme.midnight">夜幕</span>
               </button>
               <button class="material" type="button" data-material="glass" aria-pressed="false">
-                <img src="./assets/cards/thumb-glass.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.glass">液态玻璃</span>
+                <img src="./assets/cards/thumb-glass.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.glass">液态玻璃</span>
               </button>
               <button class="material" type="button" data-material="material" aria-pressed="false">
-                <img src="./assets/cards/thumb-material.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.material">质感</span>
+                <img src="./assets/cards/thumb-material.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.material">质感</span>
               </button>
               <button class="material" type="button" data-material="gallery" aria-pressed="false">
-                <img src="./assets/cards/thumb-gallery.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.gallery">画廊</span>
+                <img src="./assets/cards/thumb-gallery.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.gallery">画廊</span>
               </button>
               <button class="material" type="button" data-material="darkroom" aria-pressed="false">
-                <img src="./assets/cards/thumb-darkroom.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.darkroom">暗房</span>
+                <img src="./assets/cards/thumb-darkroom.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.darkroom">暗房</span>
               </button>
               <button class="material" type="button" data-material="riso" aria-pressed="false">
-                <img src="./assets/cards/thumb-riso.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.riso">孔版</span>
+                <img src="./assets/cards/thumb-riso.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.riso">孔版</span>
               </button>
               <button class="material" type="button" data-material="sumi" aria-pressed="false">
-                <img src="./assets/cards/thumb-sumi.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.sumi">水墨</span>
+                <img src="./assets/cards/thumb-sumi.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.sumi">水墨</span>
               </button>
               <button class="material" type="button" data-material="clay" aria-pressed="false">
-                <img src="./assets/cards/thumb-clay.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.clay">软陶</span>
+                <img src="./assets/cards/thumb-clay.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.clay">软陶</span>
               </button>
               <button class="material" type="button" data-material="terminal" aria-pressed="false">
-                <img src="./assets/cards/thumb-terminal.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.terminal">终端</span>
+                <img src="./assets/cards/thumb-terminal.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span data-i18n="theme.terminal">终端</span>
               </button>
               <button class="material" type="button" data-material="receipt" aria-pressed="false">
-                <img src="./assets/cards/thumb-receipt.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.receipt">小票</span>
+                <img src="./assets/cards/thumb-receipt.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span data-i18n="theme.receipt">小票</span>
               </button>
               <button class="material" type="button" data-material="brutalist" aria-pressed="false">
-                <img src="./assets/cards/thumb-brutalist.webp" alt="" width="320" height="192" loading="lazy" decoding="async" /><span data-i18n="theme.brutalist">粗野派</span>
+                <img src="./assets/cards/thumb-brutalist.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.brutalist">粗野派</span>
               </button>
             </div>
           </div>
@@ -272,7 +275,7 @@
             src="./assets/cards/thread-midnight.webp"
             alt="示例卡片：三条同作者推文，前两条各带一张配图，第三条引用另一条推文。"
             width="900"
-            height="1863"
+            height="1745"
             loading="lazy"
             decoding="async"
           />
@@ -283,7 +286,7 @@
             <div><dt data-i18n="thread.d1">推文</dt><dd>3</dd></div>
             <div><dt data-i18n="thread.d2">配图</dt><dd>2</dd></div>
             <div><dt data-i18n="thread.d3">引用</dt><dd>1</dd></div>
-            <div><dt data-i18n="thread.d4">导出</dt><dd>1280 × 2785</dd></div>
+            <div><dt data-i18n="thread.d4">导出</dt><dd>1472 × 2854</dd></div>
           </dl>
           <ul class="ticks">
             <li data-i18n="thread.tick1">同作者连续推文自动拼合，广告与路人回复不进来</li>
@@ -299,13 +302,19 @@
         </div>
         <div class="article-body">
           <figure class="article-figure">
+            <div class="showcase-tabs" role="tablist" aria-label="排版样张类型">
+              <button class="showcase-tab" type="button" role="tab" data-showcase="article" aria-selected="true" data-i18n="article.tab1">X 长文</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="quad" aria-selected="false" data-i18n="article.tab2">四图无裁切</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="grid20" aria-selected="false" data-i18n="article.tab3">20 图拼版</button>
+            </div>
             <img
+              id="article-img"
               class="drift"
               data-card="article"
               src="./assets/cards/article-midnight.webp"
               alt="示例卡片：一条带 X 长文的推文，上方是横版封面照片，下方是长文标题与导语。"
               width="1100"
-              height="1176"
+              height="1143"
               loading="lazy"
               decoding="async"
             />
@@ -335,9 +344,9 @@
 
       <section class="sec switches" id="switches">
         <div class="sec-head">
-          <h2 data-i18n="switch.h2">八个开关，一块面板。</h2>
+          <h2 data-i18n="switch.h2">八个开关，一块工作台。</h2>
           <p class="lead" data-i18n="switch.lead">
-            材质、画幅、背景、页脚信息、作者模糊、导出清晰度都在这一块面板上；改一下，卡片立刻跟着变。偏好会自动记住，平时点开直接点「复制图片」就能走。
+            材质、画幅、背景、页脚信息、作者模糊、导出清晰度都在这个弹窗工作台上；改一下，左侧卡片预览立刻跟着变。偏好会自动记住，平时点开直接点「复制图片」就能走。
           </p>
         </div>
         <div class="switches-body">
@@ -345,31 +354,31 @@
             <img
               data-card="panel"
               src="./assets/cards/panel-midnight.webp"
-              alt="PostPress 的控制面板：材质网格、画幅与背景、页脚三个开关、作者隐私脱敏，底部是复制与保存。"
-              width="680"
-              height="1906"
+              alt="PostPress 的真实 Studio 弹窗：左侧为卡片实时预览与缩放条，右侧为材质、画幅、背景、页脚开关、作者隐私与复制按钮。"
+              width="1280"
+              height="869"
               loading="lazy"
               decoding="async"
             />
-            <figcaption data-i18n="switch.panelCap">面板本体，1:1 大小。</figcaption>
+            <figcaption data-i18n="switch.panelCap">真实 Studio 弹窗，左侧预览与右侧开关实时联动。</figcaption>
           </figure>
           <div class="switch-list">
             <figure>
-              <img data-card="switch-full" src="./assets/cards/switch-full-midnight.webp" alt="示例卡片：页脚带二维码、互动数据、发布时间与署名。" width="900" height="539" loading="lazy" decoding="async" />
+              <img data-card="switch-full" src="./assets/cards/switch-full-midnight.webp" alt="示例卡片：页脚带二维码、互动数据、发布时间与署名。" width="900" height="523" loading="lazy" decoding="async" />
               <figcaption>
                 <span class="tag" data-i18n="switch.cap1">全开</span>
                 <span data-i18n="switch.cap1b">二维码、数据、时间、署名。</span>
               </figcaption>
             </figure>
             <figure>
-              <img data-card="switch-plain" src="./assets/cards/switch-plain-midnight.webp" alt="示例卡片：页脚只留正文，二维码、数据与时间已关闭。" width="900" height="436" loading="lazy" decoding="async" />
+              <img data-card="switch-plain" src="./assets/cards/switch-plain-midnight.webp" alt="示例卡片：页脚只留正文，二维码、数据与时间已关闭。" width="900" height="434" loading="lazy" decoding="async" />
               <figcaption>
                 <span class="tag" data-i18n="switch.cap2">关页脚</span>
                 <span data-i18n="switch.cap2b">只剩正文。</span>
               </figcaption>
             </figure>
             <figure>
-              <img data-card="switch-blur" src="./assets/cards/switch-blur-midnight.webp" alt="示例卡片：作者与引用作者的头像、昵称、账号都被高斯模糊。" width="900" height="436" loading="lazy" decoding="async" />
+              <img data-card="switch-blur" src="./assets/cards/switch-blur-midnight.webp" alt="示例卡片：作者与引用作者的头像、昵称、账号都被高斯模糊。" width="900" height="434" loading="lazy" decoding="async" />
               <figcaption>
                 <span class="tag" data-i18n="switch.cap3">打码</span>
                 <span data-i18n="switch.cap3b">作者与引用作者一起模糊。</span>
@@ -410,36 +419,39 @@
         <div class="sec-head">
           <h2 data-i18n="install.h2">装进浏览器。</h2>
           <p class="lead" data-i18n="install.lead">
-            从 Chrome 应用商店一键安装；想改代码，就按下面三步从源码构建。
+            从 Chrome 应用商店一键安装；想自己编译，也可在下方展开源码三步构建。
           </p>
         </div>
-        <ol class="steps">
-          <li>
-            <h3 data-i18n="install.s1t">构建</h3>
-            <p data-i18n="install.s1">拉下源码装依赖再构建，产物在 <code>dist/</code>。</p>
-          </li>
-          <li>
-            <h3 data-i18n="install.s2t">载入</h3>
-            <p data-i18n="install.s2">
-              打开 <code>chrome://extensions</code>，开启「开发者模式」，点「加载已解压的扩展程序」，选 <code>dist/</code>。
-            </p>
-          </li>
-          <li>
-            <h3 data-i18n="install.s3t">用</h3>
-            <p data-i18n="install.s3">在任意推文的操作栏点卡片按钮（或悬停按 <kbd>Alt</kbd> + <kbd>C</kbd>），点「复制图片」，去别处直接粘贴。</p>
-          </li>
-        </ol>
-        <div class="install-code">
-          <pre><code>git clone https://github.com/Shirolin/postpress.git
+        <div class="install-primary">
+          <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai" data-i18n="install.store">从 Chrome 应用商店安装</a>
+          <a class="link" href="https://github.com/Shirolin/postpress" data-i18n="install.cta">打开 GitHub 仓库</a>
+          <p class="note" data-i18n="install.note">以 GPL-3.0-or-later 发布：改完再分发请同样开源。</p>
+        </div>
+        <details class="install-source">
+          <summary data-i18n="install.sourceSummary">开发者与自定义：从源码构建（三步）</summary>
+          <ol class="steps">
+            <li>
+              <h3 data-i18n="install.s1t">构建</h3>
+              <p data-i18n="install.s1">拉下源码装依赖再构建，产物在 <code>dist/</code>。</p>
+            </li>
+            <li>
+              <h3 data-i18n="install.s2t">载入</h3>
+              <p data-i18n="install.s2">
+                打开 <code>chrome://extensions</code>，开启「开发者模式」，点「加载已解压的扩展程序」，选 <code>dist/</code>。
+              </p>
+            </li>
+            <li>
+              <h3 data-i18n="install.s3t">用</h3>
+              <p data-i18n="install.s3">在任意推文的操作栏点卡片按钮（或悬停按 <kbd>Alt</kbd> + <kbd>C</kbd>），点「复制图片」，去别处直接粘贴。</p>
+            </li>
+          </ol>
+          <div class="install-code">
+            <pre><code>git clone https://github.com/Shirolin/postpress.git
 cd postpress
 pnpm install
 pnpm run build   <span class="c"># → dist/</span></code></pre>
-          <div class="install-side">
-            <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai" data-i18n="install.store">从 Chrome 应用商店安装</a>
-            <a class="btn" href="https://github.com/Shirolin/postpress" data-i18n="install.cta">打开仓库</a>
-            <p class="note" data-i18n="install.note">以 GPL-3.0-or-later 发布：改完再分发请同样开源。</p>
           </div>
-        </div>
+        </details>
       </section>
 
       <section class="sec faq" id="faq">
@@ -490,7 +502,7 @@ pnpm run build   <span class="c"># → dist/</span></code></pre>
       <h2 class="close-line" data-i18n="close.h2">下一条推文，印出来。</h2>
       <div class="close-foot">
         <p data-i18n="close.sub">装一次，之后每条推文的操作栏里都有它。点一下进剪贴板，随处都能粘贴。</p>
-        <a class="btn btn-dark" href="#install" data-i18n="cta.install2">装到浏览器</a>
+        <a class="btn btn-dark" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai" data-i18n="cta.install2">从 Chrome 商店安装</a>
       </div>
     </section>
 
@@ -505,8 +517,7 @@ pnpm run build   <span class="c"># → dist/</span></code></pre>
         </nav>
       </div>
       <p class="foot-credit" data-i18n="foot.credit">
-        示例卡片里的照片：Amos Paul Kennedy Jr 的活版海报，摄影 Michellecornelison（CC BY-SA 4.0）；金属活字，摄影 Willi
-        Heidelbach（CC BY 2.5），均来自 Wikimedia Commons。卡片里的 @postpress_demo 与 @typeset_demo 是虚构的示例账号，人名与推文同样是示例。
+        示例卡片摄影来自 Unsplash（Unsplash License）：@declansun、@xanderart、@parrish、@hngstrm、@dnevozhai、@kugedo6060、@nicolonimor、@peemaglama、@markusspiske、@hannynaibaho、@jakobowens1、@mitchures、@migueljoya、@kellysikkema、@bady、@egorghetto、@vonshnauzer、@kimonmaritz、@monadiform、@deconovo、@evstyle、@chatelp、@a7med7、@renjunn、@benchaccounting、@andrew_bright。卡片中的 @claranovak、@kenjisato_35mm、@marcusreid、@noralind 与 @postpress_ext 均为虚构示例账号。
       </p>
       <p class="foot-legal">
         <span data-i18n="foot.gpl">GPL-3.0-or-later</span> · X（Twitter）是 X Corp. 的商标，本项目与其无关联。
