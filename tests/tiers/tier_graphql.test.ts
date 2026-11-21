@@ -620,6 +620,116 @@ test('gql.34: the page’s rendered note wins even when the post body was not tr
   assert.equal(thread.tweets[0].text, originalBody, 'the body stays GraphQL’s when it was not translated');
 });
 
+test('gql.36: a quoted post’s community note is parsed from GraphQL and accepts DOM translation overlay', () => {
+  const payload = JSON.stringify({
+    data: {
+      threaded_conversation_with_injections_v2: {
+        instructions: [
+          {
+            type: 'TimelineAddEntries',
+            entries: [
+              {
+                entryId: 'tweet-2123922406821532053',
+                sortIndex: '100',
+                content: {
+                  itemContent: {
+                    tweet_results: {
+                      result: {
+                        __typename: 'Tweet',
+                        rest_id: '2123922406821532053',
+                        core: {
+                          user_results: {
+                            result: {
+                              legacy: {
+                                name: 'An Average Gamer',
+                                screen_name: 'AnAverageGamerX',
+                                profile_image_url_https: 'https://pbs.twimg.com/profile_images/1/a_normal.jpg',
+                              },
+                            },
+                          },
+                        },
+                        legacy: {
+                          id_str: '2123922406821532053',
+                          full_text: 'Outer post body',
+                          created_at: 'Fri Nov 21 07:32:00 +0000 2026',
+                        },
+                        quoted_status_result: {
+                          result: {
+                            __typename: 'Tweet',
+                            rest_id: '2123880000000000001',
+                            core: {
+                              user_results: {
+                                result: {
+                                  legacy: {
+                                    name: 'Gramiliki',
+                                    screen_name: 'xgramiliki',
+                                    profile_image_url_https: 'https://pbs.twimg.com/profile_images/2/b_normal.jpg',
+                                  },
+                                },
+                              },
+                            },
+                            legacy: {
+                              id_str: '2123880000000000001',
+                              full_text: 'Quoted post body',
+                              created_at: 'Fri Nov 21 04:48:00 +0000 2026',
+                            },
+                            birdwatch_pivot: {
+                              title: 'Readers added context',
+                              subtitle: {
+                                text: 'GTAVI fanbase is currently review bombing Zelda.',
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            ],
+          },
+        ],
+      },
+    },
+  });
+
+  const parsed = parseTweetDetailResponse(payload, 'TweetDetail', 'q1');
+  const thread = parsed.thread!;
+  assert.equal(thread.tweets[0].communityNote, undefined);
+  assert.equal(
+    thread.tweets[0].quotePost?.communityNote,
+    'GTAVI fanbase is currently review bombing Zelda.'
+  );
+
+  // When the user saw the quoted post's note translated in the DOM (and the
+  // outer tweet has neither translation nor note), the overlay still applies.
+  const domThread: ThreadData = {
+    author: thread.author,
+    isSingle: true,
+    targetTweetIndex: 0,
+    tweets: [
+      {
+        id: thread.tweets[0].id,
+        url: thread.tweets[0].url,
+        author: thread.author,
+        timestamp: thread.tweets[0].timestamp,
+        text: 'Outer post body',
+        quotePost: {
+          author: thread.tweets[0].quotePost!.author,
+          text: 'Quoted post body',
+          communityNote: 'GTAVI 的粉丝群体目前正在对塞尔达进行评论轰炸。',
+        },
+      },
+    ],
+  };
+
+  applyDomTranslation(thread, domThread);
+  assert.equal(
+    thread.tweets[0].quotePost?.communityNote,
+    'GTAVI 的粉丝群体目前正在对塞尔达进行评论轰炸。'
+  );
+});
+
 test('gql.35: all twenty media items X now allows reach the card', () => {
   // X raised a post's media ceiling from four to twenty on 2026-11-12. Both
   // `extended_entities.media` and `entities.media` carry the whole set; this

@@ -1157,6 +1157,21 @@ function extractQuoteTweet(
     if (quoteCardMedia) media.push(quoteCardMedia);
   }
 
+  // Community note attached to this quoted post (excluding any deeper nested quote).
+  let quoteCommunityNote: string | undefined;
+  const quotePivots = quoteBox.querySelectorAll(COMMUNITY_NOTE_MARKER);
+  for (let i = 0; i < quotePivots.length; i++) {
+    const pivot = quotePivots[i];
+    if (!isOwnedBy(pivot, quoteBox, nestedInScope)) continue;
+    const body = findCommunityNoteBody(pivot);
+    if (!body) continue;
+    const noteText = cleanTweetText(body).trim();
+    if (noteText) {
+      quoteCommunityNote = noteText;
+      break;
+    }
+  }
+
   // A marker that yielded no identity and no body is not a usable quote: X
   // leaves empty shells in some layouts, and rendering one produces a blank box.
   if (!text && !quoteAuthor.name && !quoteAuthor.handle && media.length === 0) {
@@ -1170,6 +1185,7 @@ function extractQuoteTweet(
     timestamp,
     url: quoteUrl,
     media: media.length > 0 ? media : undefined,
+    communityNote: quoteCommunityNote,
     quotePost: nested,
   };
 }
@@ -1325,14 +1341,16 @@ function extractTranslationNotice(tweetTextEl: Element | null | undefined): stri
  * The body of one community note, or null when the block is not the shape this
  * build knows.
  *
- * The block is, in order: a status header, a spacer, an optional "translated
- * from" row, the note body, a spacer, and the rating footer. The body has no
+ * The block is, in order: a status header, a spacer, an optional translation
+ * row, the note body, a spacer, and the rating footer. The body has no
  * testid of its own and every class name is hashed, so it is found by what the
  * other three blocks are, not by position: the header carries a birdwatch icon,
- * the translation row carries buttons, and the footer's rating control is a
- * `div[role="link"]` (the note's own links are `<a>` elements). What remains is
- * the body. Position alone would be one row short on an untranslated note,
- * which has one block fewer.
+ * the translation row carries buttons (auto-translate toggle) or an `<svg>`
+ * icon ("Translated by Grok" with no buttons), and the footer's rating control
+ * is a `div[role="link"]` (the note's own links are `<a>` elements, and emojis
+ * in body text are `<img>`, never `<svg>`). What remains is the body. Position
+ * alone would be one row short on an untranslated note, which has one block
+ * fewer.
  */
 function findCommunityNoteBody(pivot: Element): Element | null {
   const children = childNodesOf(pivot);
@@ -1343,6 +1361,7 @@ function findCommunityNoteBody(pivot: Element): Element | null {
     if ((el.tagName || '').toUpperCase() !== 'DIV') continue;
     if (el.querySelector('[data-testid="icon-birdwatch-fill"], [data-testid="icon-birdwatch-level"]')) continue;
     if (el.querySelector('button')) continue;
+    if (el.querySelector('svg')) continue;
     if (el.querySelector('div[role="link"]')) continue;
     return el;
   }

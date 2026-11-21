@@ -476,6 +476,7 @@ function parseQuote(tweet: Json, depth: number = 1): QuoteTweetData | undefined 
     url: inner.rest_id
       ? `https://x.com/${parseAuthor(inner).handle.replace(/^@/, '')}/status/${inner.rest_id}`
       : undefined,
+    communityNote: parseCommunityNote(inner),
     quotePost: depth < QUOTE_LEVELS ? parseQuote(inner, depth + 1) : undefined,
   };
 }

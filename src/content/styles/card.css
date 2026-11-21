@@ -183,6 +183,32 @@
   color: var(--text);
 }
 
+/* Inside a filled quote recess (`--quote-bg`), `--divider` was tuned against
+   `--surface` and can wash out or invert on the darker quote tint, while the
+   quote's own `gap` already supplies vertical breathing. Lifting the note back
+   to `--surface` with `--quote-border` restores the same contrast and crisp
+   inner rule the note has on the main post. */
+.quote-card .community-note {
+  margin-top: 2px;
+  background: var(--surface);
+  border-color: var(--quote-border, var(--divider));
+  border-radius: max(0px, calc(var(--media-radius, 0px) - 4px));
+}
+
+.post-to-card-target[data-quote-style="outlined"] .quote-card .community-note {
+  background: transparent;
+  border-color: var(--divider);
+}
+
+.quote-card .community-note-label {
+  padding: 7px 11px;
+}
+
+.quote-card .community-note-text {
+  padding: 9px 11px 10px;
+  font-size: calc(var(--type-quote-size, 14.5px) - 1px);
+}
+
 /* X rendered only a preview of a long post. The body ends in an ellipsis and
    this line says what it means, so the cut is not read as the author's ending.
    Both take existing material ink: the mark is fainter than the prose, the

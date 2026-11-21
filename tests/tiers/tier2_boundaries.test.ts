@@ -978,6 +978,80 @@ test('Tier 2.41b: a community note’s body reaches the card, without X’s stat
   assert.ok(!plain.includes('class="community-note"'), 'a post without a note grew one');
 });
 
+test('Tier 2.41c: a Grok-translated community note on a quoted post keeps its body and stays on the quote', async () => {
+  // Real shape observed 2026-11-21 (/AnAverageGamerX/status/2123922406821532053):
+  // 1) The quoted post is an unmarked `div[role="link"]` frame whose body sits
+  //    in an inner wrapper beside its own `birdwatch-pivot`.
+  // 2) The note's translation line ("由 Grok 翻译") carries a Grok `<svg>` icon
+  //    with no `<button>`, so checking only for buttons mistook that line for
+  //    the note body and dropped the real text.
+  const article = createDomElement(`
+    <article data-testid="tweet" role="article">
+      <div data-testid="User-Name">
+        <a href="/AnAverageGamerX"><span>An Average Gamer</span></a>
+        <a href="/AnAverageGamerX"><span>@AnAverageGamerX</span></a>
+      </div>
+      <div data-testid="tweetText"><span>Outer post body</span></div>
+      <a href="/AnAverageGamerX/status/2123922406821532053"><time datetime="2026-11-21T07:32:00.000Z">7:32</time></a>
+      <div role="link" tabindex="0">
+        <div>
+          <div data-testid="User-Name">
+            <a href="/xgramiliki"><span>Gramiliki</span></a>
+            <a href="/xgramiliki"><span>@xgramiliki</span></a>
+          </div>
+          <div data-testid="tweetText"><span>Quoted post body</span></div>
+        </div>
+        <div data-testid="birdwatch-pivot" role="link" tabindex="0">
+          <div>
+            <div>
+              <svg data-testid="icon-birdwatch-fill" viewBox="0 0 24 24"></svg>
+              <div dir="ltr"><span>读者添加了背景信息</span></div>
+            </div>
+          </div>
+          <div>
+            <div dir="ltr">
+              <svg viewBox="0 0 33 32" aria-hidden="true"></svg>
+              <span>由 Grok 翻译</span>
+            </div>
+          </div>
+          <div dir="ltr">
+            <span><span>GTAVI 的粉丝群体目前正在对塞尔达进行评论轰炸。\n</span></span>
+            <a href="https://t.co/3rXlPiIywU" role="link"><span>x.com/AnAverageGamer…</span></a>
+          </div>
+          <div>
+            <div dir="ltr"><span>你觉得此信息是否有帮助？</span></div>
+            <div role="link" tabindex="0"><div dir="ltr"><span>请进行评价</span></div></div>
+          </div>
+        </div>
+      </div>
+    </article>
+  `);
+
+  const data = extractTweetData(article);
+  assert.ok(data, 'article must extract');
+  assert.equal(data!.communityNote, undefined, 'quoted post’s note must not leak onto the outer tweet');
+  assert.ok(data!.quotePost?.communityNote, 'quoted post’s note was dropped');
+  assert.ok(
+    data!.quotePost!.communityNote!.includes('GTAVI 的粉丝群体目前正在对塞尔达进行评论轰炸'),
+    'the note body was lost'
+  );
+  assert.ok(
+    data!.quotePost!.communityNote!.includes('x.com/AnAverageGamer…'),
+    'the note’s own link was lost'
+  );
+  assert.ok(
+    !data!.quotePost!.communityNote!.includes('由 Grok 翻译'),
+    'the Grok translation notice leaked into the note body'
+  );
+
+  const html = await renderCard({ data });
+  const quoteIdx = html.indexOf('class="quote-card"');
+  const noteIdx = html.indexOf('class="community-note"');
+  assert.ok(quoteIdx >= 0 && noteIdx > quoteIdx, 'the note should render inside the quote card');
+  assert.ok(html.includes('GTAVI 的粉丝群体目前正在对塞尔达进行评论轰炸'), 'the note body did not reach the card');
+  assert.ok(!html.includes('由 Grok 翻译'), 'the Grok translation notice reached the card');
+});
+
 test('Tier 2.42: a self-labelled link is tokenized, not dropped as a media permalink', () => {
   // Regression guard. The old "visible text equals href" test for media
   // permalinks also swallowed a genuine URL whose label is the URL itself,

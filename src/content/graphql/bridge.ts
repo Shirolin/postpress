@@ -12,7 +12,7 @@
  * retained.
  */
 
-import type { ThreadData } from '../../types/tweet.ts';
+import type { QuoteTweetData, ThreadData } from '../../types/tweet.ts';
 import {
   parseTweetDetailResponse,
   parseReplyLinkage,
@@ -204,9 +204,35 @@ export function lookupFromGraphQL(targetTweetId?: string): GraphQLLookup {
  * is also the one whose shape the user saw. A DOM that has no note leaves the
  * payload's note in place.
  */
+export function hasQuoteCommunityNote(quote: QuoteTweetData | undefined): boolean {
+  let curr = quote;
+  while (curr) {
+    if (curr.communityNote) return true;
+    curr = curr.quotePost;
+  }
+  return false;
+}
+
+function applyQuoteCommunityNotes(
+  targetQuote: QuoteTweetData | undefined,
+  domQuote: QuoteTweetData | undefined
+): void {
+  if (!targetQuote || targetQuote.isUnavailable || !domQuote) return;
+  if (domQuote.communityNote) {
+    targetQuote.communityNote = domQuote.communityNote;
+  }
+  applyQuoteCommunityNotes(targetQuote.quotePost, domQuote.quotePost);
+}
+
 export function applyDomTranslation(graphqlThread: ThreadData, domThread: ThreadData): void {
   const domTarget = domThread.tweets[domThread.targetTweetIndex ?? 0];
-  if (!domTarget?.translatedFrom && !domTarget?.communityNote) return;
+  if (
+    !domTarget?.translatedFrom &&
+    !domTarget?.communityNote &&
+    !hasQuoteCommunityNote(domTarget?.quotePost)
+  ) {
+    return;
+  }
 
   const target =
     graphqlThread.tweets.find((tweet) => tweet.id === domTarget.id) ??
@@ -221,4 +247,5 @@ export function applyDomTranslation(graphqlThread: ThreadData, domThread: Thread
   if (domTarget.communityNote) {
     target.communityNote = domTarget.communityNote;
   }
+  applyQuoteCommunityNotes(target.quotePost, domTarget.quotePost);
 }

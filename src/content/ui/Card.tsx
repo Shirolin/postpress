@@ -583,8 +583,11 @@ function renderTranslationNotice(tweet: TweetData) {
  * The card supplies its own localized kicker, so the block reads as one thing
  * whatever language the page was in.
  */
-function renderCommunityNote(tweet: TweetData, t: ReturnType<typeof getTranslation>) {
-  if (!tweet.communityNote) return null;
+function renderCommunityNote(
+  post: Pick<TweetData, 'communityNote'>,
+  t: ReturnType<typeof getTranslation>
+) {
+  if (!post.communityNote) return null;
   return (
     <div class="community-note">
       <div class="community-note-label">
@@ -592,7 +595,7 @@ function renderCommunityNote(tweet: TweetData, t: ReturnType<typeof getTranslati
         <span>{t.communityNote}</span>
       </div>
       <div class="community-note-text">
-        {renderTextWithParagraphBreaks(tweet.communityNote, 'community-note')}
+        {renderTextWithParagraphBreaks(post.communityNote, 'community-note')}
       </div>
     </div>
   );
@@ -801,6 +804,7 @@ function renderQuoteCard(
         undefined,
         2
       )}
+      {renderCommunityNote(quotePost, t)}
     </div>
   );
 }

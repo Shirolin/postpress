@@ -69,6 +69,8 @@ export interface QuoteTweetData {
   url?: string;
   /** Post was deleted, private, or otherwise not renderable. */
   isUnavailable?: boolean;
+  /** Community note attached to this quoted post, when X shows one. */
+  communityNote?: string;
   /**
    * The post this quote itself quotes, when it does.
    *

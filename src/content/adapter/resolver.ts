@@ -10,7 +10,7 @@ import type { ThreadData, TweetData, QuoteTweetData } from '../../types/tweet.ts
 import { stripTrailingArticleToken } from './emojis.ts';
 import { extractContinuousThread, TWEET_ARTICLE_SELECTOR } from './thread.ts';
 import { extractTweetData, extractTweetId } from './extractor.ts';
-import { lookupFromGraphQL, applyDomTranslation, initGraphQLBridge } from '../graphql/bridge.ts';
+import { lookupFromGraphQL, applyDomTranslation, hasQuoteCommunityNote, initGraphQLBridge } from '../graphql/bridge.ts';
 
 export type ResolutionTarget = Element | string;
 
@@ -152,7 +152,11 @@ export function resolveThread(
       try {
         const domTweet = extractTweetData(articleElement);
         if (domTweet) {
-          if (domTweet.translatedFrom || domTweet.communityNote) {
+          if (
+            domTweet.translatedFrom ||
+            domTweet.communityNote ||
+            hasQuoteCommunityNote(domTweet.quotePost)
+          ) {
             const domWrapper: ThreadData = {
               author: domTweet.author,
               tweets: [domTweet],

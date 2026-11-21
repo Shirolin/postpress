@@ -185,7 +185,20 @@ export function findQuoteContainer(article: Element, exclude?: Element | null): 
     while (node && node !== article) {
       if (node === exclude) break;
       if (node.querySelector('div[data-testid="tweetText"]')) {
-        if (!mainUserName || !node.contains(mainUserName)) return node;
+        if (!mainUserName || !node.contains(mainUserName)) {
+          // X's unmarked quote card is a clickable `role="link"` frame whose
+          // body sits in an inner wrapper alongside siblings (such as a
+          // community note attached to the quoted post). Stopping at the inner
+          // wrapper leaves those siblings outside `quoteBox`, so `ownerOf`
+          // would attribute them to the outer tweet.
+          let frame: Element | null = node;
+          while (frame && frame !== article && frame !== exclude) {
+            if (mainUserName && frame.contains(mainUserName)) break;
+            if (frame.getAttribute('role') === 'link') return frame;
+            frame = frame.parentElement;
+          }
+          return node;
+        }
         break;
       }
       node = node.parentElement;
