@@ -119,6 +119,24 @@ export type ImageFitOption = 'contain' | 'cover';
 export type MediaLayoutOption = 'grid' | 'stack';
 
 /**
+ * The file an export is written as.
+ *
+ * Copy always writes PNG: the clipboard hands a browser one representation and
+ * `image/png` is the only one every Chromium build accepts, so the format
+ * preference applies to downloads. See `formatSpec` in
+ * `content/engine/format.ts` for the MIME and extension each one maps to.
+ */
+export type ExportFormat = 'png' | 'jpeg' | 'webp';
+
+/**
+ * Compression strength for the lossy formats.
+ *
+ * The names are the picker's values; the numeric quality each one means is
+ * `EXPORT_QUALITY_VALUE` in `content/ui/options.ts`. PNG ignores it.
+ */
+export type ExportQuality = 'standard' | 'high' | 'maximum';
+
+/**
  * One post's author-privacy tri-state. `follow` is the default: the global
  * switch decides.
  */
@@ -169,4 +187,8 @@ export interface CardConfig {
    * picture would pass X's own display cap, for a channel that does not.
    */
   preferHighResolution?: boolean;
+  /** The file format a download is written as. Copy stays PNG by design. */
+  exportFormat?: ExportFormat;
+  /** Compression for a lossy `exportFormat`; ignored for PNG. */
+  exportQuality?: ExportQuality;
 }

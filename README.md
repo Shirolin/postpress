@@ -26,7 +26,7 @@
 
 ## 🚀 Overview
 
-**PostPress** is a publication-grade card copy and typesetting extension built for X (Twitter). Skip the tedious crop-and-screenshot routine, multi-part thread stitching, and cluttered, low-DPI browser captures—click the **press icon** in any post's action bar (or press `Alt + C`), and PostPress turns a single post or multi-post thread into a clean **3× Retina card** ready to **copy straight to your clipboard** and paste into chats, notes, or docs (or save as a PNG, with 12 paper materials, aspect ratios, and outer canvas mats).
+**PostPress** is a publication-grade card copy and typesetting extension built for X (Twitter). Skip the tedious crop-and-screenshot routine, multi-part thread stitching, and cluttered, low-DPI browser captures—click the **press icon** in any post's action bar (or press `Alt + C`), and PostPress turns a single post or multi-post thread into a clean **3× Retina card** ready to **copy straight to your clipboard** and paste into chats, notes, or docs (or save as PNG, JPEG or WebP, with 12 paper materials, aspect ratios, and outer canvas mats).
 
 Every step—parsing, layout, and rasterization—runs 100% locally in your browser: **no login required, zero credential access, and zero external server communication**.
 
@@ -121,7 +121,7 @@ Load unpacked into Chrome / Chromium:
 | **1. Open Modal** | Click the **press icon** in any post's action bar, or hover over a post and press `Alt + C` (also triggerable from the browser toolbar popup). |
 | **2. Customize** | Pick a material theme, padding, corner radius, card aspect ratio, and outer canvas backdrop in the right-hand panel; toggle footer QR and stats as needed. |
 | **3. Curate Thread** | Click any post inside a thread to stitch its context automatically; click a post's top-right button to exclude it, or click an avatar to blur just that author. |
-| **4. Copy & Share** | Click **Copy Image** (writes directly to your system clipboard, falling back to download if browser focus is lost) or **Save PNG**. |
+| **4. Copy & Share** | Click **Copy Image** (writes a PNG directly to your system clipboard, falling back to download if browser focus is lost) or **Save image** (PNG, JPEG or WebP; lossy formats offer a quality level). |
 
 ---
 

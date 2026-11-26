@@ -28,8 +28,24 @@ export function failNextRasterization(message: string): void {
   failure = message;
 }
 
-/** The first 8 bytes of a PNG; a blob without them holds no picture. */
+/**
+ * The first bytes of each format's container; a blob without them holds no
+ * picture. The engine dispatches on the requested type now that format is a
+ * preference, so a stub that only ever wrote PNG bytes would make a JPEG export
+ * look like an empty canvas.
+ */
 const PNG_SIGNATURE = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
+const JPEG_SIGNATURE = [0xff, 0xd8, 0xff];
+/** `RIFF` <size> `WEBP`; the size bytes are left zero, which is legal. */
+const WEBP_SIGNATURE = [
+  0x52, 0x49, 0x46, 0x46, 0x00, 0x00, 0x00, 0x00, 0x57, 0x45, 0x42, 0x50,
+];
+
+function signatureFor(type: string): number[] {
+  if (type === 'image/jpeg') return JPEG_SIGNATURE;
+  if (type === 'image/webp') return WEBP_SIGNATURE;
+  return PNG_SIGNATURE;
+}
 
 /**
  * Makes the next rasterization return a Blob with no picture in it.
@@ -78,16 +94,20 @@ export async function domToBlob(target: unknown, options: Record<string, any> = 
   // Read only by a rasterizing call: a measurement that arrives between the
   // injection and the export must not spend it, and the engine's own readout
   // does exactly that on every mounted card.
-  const size = nextSize ?? 8;
+  const signature = signatureFor(options.type || 'image/png');
+  // At least the signature's own length: WebP's is 12 bytes, and a default of
+  // 8 would make a perfectly real render look like the empty-canvas shape.
+  const size = nextSize ?? Math.max(8, signature.length);
   const shape = nextBlob;
   nextSize = null;
   nextBlob = 'png';
 
   const bytes = new Uint8Array(size);
-  if (shape === 'png' && size >= PNG_SIGNATURE.length) {
-    // A real PNG starts with these; the engine checks for them, so a stub that
-    // filled the blob with zeroes would look like the empty-canvas shape.
-    bytes.set(PNG_SIGNATURE, 0);
+  if (shape === 'png' && size >= signature.length) {
+    // A real picture starts with its format's signature; the engine checks for
+    // it, so a stub that filled the blob with zeroes would look like the
+    // empty-canvas shape.
+    bytes.set(signature, 0);
   }
   return new Blob([bytes], { type: options.type || 'image/png' });
 }

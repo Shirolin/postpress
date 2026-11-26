@@ -2,7 +2,7 @@ import type { JSX } from 'preact';
 import type { ThreadData, TweetData } from '../../types/tweet.ts';
 import type { CardConfig, ThemeId, PaddingOption, RadiusOption, CanvasRatioOption, CanvasBackgroundId, LocalePreference, BlurOverrides, AvatarPrivacyMode } from '../../types/card.ts';
 import { THEMES, THEME_ORDER, EXPERIMENTAL_THEMES, CANVAS_BACKGROUNDS, CANVAS_BACKGROUND_ORDER, resolveCanvasBackground, themeSwatch } from './themes.ts';
-import { PADDING, RADIUS, ASPECT_RATIO, IMAGE_FIT, MEDIA_LAYOUT, CANVAS_RATIO } from './options.ts';
+import { PADDING, RADIUS, ASPECT_RATIO, IMAGE_FIT, MEDIA_LAYOUT, CANVAS_RATIO, EXPORT_FORMAT, EXPORT_QUALITY } from './options.ts';
 import { getTranslation, resolveLocale, sanitizeLocalePref, SUPPORTED_LOCALES, LOCALE_ENDONYMS, type Translations } from '../i18n.ts';
 import { useId, useState } from 'preact/hooks';
 import { handleRadioKeyDown } from './radioGroup.ts';
@@ -819,7 +819,14 @@ export function Controls({
               anyone compositing later -- but the picker should not let you
               believe you have a finished picture when you have a cut-out. */}
           {config.canvasRatio !== 'auto' && (config.canvasBackground ?? 'none') === 'none' && (
-            <span class="control-hint">{t.canvasTransparentHint}</span>
+            <span class="control-hint">
+              {/* WebP keeps the alpha; JPEG has no choice but an opaque fill.
+                  Saying "transparent" while the file is white would be a
+                  promise the export cannot keep. */}
+              {(config.exportFormat ?? EXPORT_FORMAT.default) === 'jpeg'
+                ? t.jpegTransparentHint
+                : t.canvasTransparentHint}
+            </span>
           )}
           {/* Offered only once there is a canvas. With neither option on the
               mat is the card's own box, so an outer shadow would be clipped
@@ -1021,14 +1028,44 @@ export function Controls({
               </div>
             </div>
 
-            {/* Beside the other things about the file rather than inside them:
-                it changes nothing on the card, only how many pixels the export
-                is made of. Off by default because it is a size trade, and the
-                size is already quoted above the export button. */}
+            {/* What the file is, then how many pixels it has. The format leads
+                because it is the answer people come here for, and quality only
+                exists for the lossy formats -- a quality picker beside PNG
+                would be a control that cannot change anything. */}
             <div class="control-section">
               <span class="control-label">
                 <span>{t.exportSettings}</span>
               </span>
+              <span class="control-sub-label">{t.exportFormat}</span>
+              <Segmented
+                name={t.exportFormat}
+                options={EXPORT_FORMAT.values}
+                value={config.exportFormat ?? EXPORT_FORMAT.default}
+                onSelect={(next) => updateConfig({ exportFormat: next })}
+                /* Format names are proper nouns, not translated. */
+                labels={{ png: 'PNG', jpeg: 'JPEG', webp: 'WebP' }}
+              />
+              {(config.exportFormat ?? EXPORT_FORMAT.default) !== 'png' && (
+                <>
+                  <span class="control-sub-label">{t.exportQuality}</span>
+                  <Segmented
+                    name={t.exportQuality}
+                    options={EXPORT_QUALITY.values}
+                    value={config.exportQuality ?? EXPORT_QUALITY.default}
+                    onSelect={(next) => updateConfig({ exportQuality: next })}
+                    labels={{
+                      standard: t.qualityStandard,
+                      high: t.qualityHigh,
+                      maximum: t.qualityMaximum,
+                    }}
+                  />
+                  {/* The copy button is not in this section, so the one place
+                      the exception is visible is beside the control that sets
+                      it. Without this, choosing JPEG and pressing copy looks
+                      like a bug when the clipboard holds a PNG. */}
+                  <span class="control-hint">{t.copyStaysPng}</span>
+                </>
+              )}
               <div class="toggles-list">
                 <Toggle
                   label={t.preferHighResolution}
@@ -1129,7 +1166,7 @@ export function Controls({
           <div class="status-region" role="status" aria-live="polite">
             {isExporting && (
               <span class="sr-only">
-                {pendingAction === 'download' ? t.generatingPng : t.copying}
+                {pendingAction === 'download' ? t.generatingImage : t.copying}
               </span>
             )}
             {statusMessage && (
@@ -1221,8 +1258,8 @@ export function Controls({
             class={`btn-secondary${pendingAction === 'download' ? ' is-pending' : flash === 'download' ? ' is-flashing' : failedAction === 'download' ? ' is-failed' : ''}`}
             onClick={onExportDownload}
             disabled={isExporting || exportSize?.impossible === true}
-            aria-label={flash === 'download' ? t.downloadSuccess : t.downloadPng}
-            title={flash === 'download' ? t.downloadSuccess : t.downloadPng}
+            aria-label={flash === 'download' ? t.downloadSuccess : t.downloadImage}
+            title={flash === 'download' ? t.downloadSuccess : t.downloadImage}
           >
             {/* This button's only label is its icon, so the surface tint and border
                 join the tick on completion to make the confirmation readable at a

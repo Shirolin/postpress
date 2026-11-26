@@ -13,6 +13,7 @@ import { Modal } from './Modal.tsx';
 import { handleRadioKeyDown } from './radioGroup.ts';
 import { threadSession, toggleExcluded } from '../threadSession.ts';
 import { CARD_WIDTH, viewportPadding } from './geometry.ts';
+import { EXPORT_FORMAT, EXPORT_QUALITY, EXPORT_QUALITY_VALUE } from './options.ts';
 import type { ExportAction, ExportOutcome, ExportRequestOptions } from '../engine/index.ts';
 import { ExportRenderError, exportSizeReadout } from '../engine/index.ts';
 
@@ -96,8 +97,8 @@ export interface AppProps {
   onClose: () => void;
   /**
    * Runs one export. `request` carries what the panel knows at the press --
-   * today the resolution preference -- read from the config on screen, so the
-   * file cannot be made from a value the readout is not showing.
+   * the resolution preference and the download format -- read from the config on
+   * screen, so the file cannot be made from a value the panel is not showing.
    */
   onExport?: (
     target: HTMLElement,
@@ -835,8 +836,14 @@ export function App({ threadData, onClose, onExport, initialConfig }: AppProps):
         // file is the card's own rendering: the rasterizer copies computed
         // styles, so `filter: blur(6px)` on a hidden author is drawn into the
         // picture exactly as the preview shows it.
+        const format = config.exportFormat ?? EXPORT_FORMAT.default;
+        const quality = config.exportQuality ?? EXPORT_QUALITY.default;
         const request: ExportRequestOptions = {
           preferHighResolution: config.preferHighResolution === true,
+          format,
+          // PNG ignores quality, and sending one would suggest the switch has
+          // an effect it does not. The engine carries the same rule.
+          ...(format === 'png' ? {} : { quality: EXPORT_QUALITY_VALUE[quality] }),
         };
         const outcome = await onExport(target, action, request);
         // Escape can close the modal while this is in flight; nothing below has

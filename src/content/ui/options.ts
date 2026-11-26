@@ -24,6 +24,8 @@ import type {
   AspectRatioOption,
   CanvasBackgroundId,
   CanvasRatioOption,
+  ExportFormat,
+  ExportQuality,
   ImageFitOption,
   MediaLayoutOption,
   PaddingOption,
@@ -147,6 +149,38 @@ export const CANVAS_BACKGROUND: CardOption<CanvasBackgroundId> = {
     'aurora',
   ],
   default: 'none',
+};
+
+/**
+ * The file format an export is written as.
+ *
+ * PNG first because it is the only format both the clipboard and every channel
+ * accept unchanged, and the one this shipped with. JPEG and WebP trade the
+ * card's sharp edges for a much smaller file.
+ */
+export const EXPORT_FORMAT: CardOption<ExportFormat> = {
+  values: ['png', 'jpeg', 'webp'],
+  default: 'png',
+};
+
+/**
+ * How hard a lossy format compresses.
+ *
+ * Three named steps rather than a continuous slider: the panel's segmented
+ * control already speaks in steps, and a number nobody can see on a 640px card
+ * is a decision the user cannot make. `high` is the default because it is the
+ * point where a screenshot stops showing artifacts at reading size.
+ */
+export const EXPORT_QUALITY: CardOption<ExportQuality> = {
+  values: ['standard', 'high', 'maximum'],
+  default: 'high',
+};
+
+/** The rasterizer's `quality` (0–1) for each named level. */
+export const EXPORT_QUALITY_VALUE: Record<ExportQuality, number> = {
+  standard: 0.8,
+  high: 0.9,
+  maximum: 0.95,
 };
 
 /**

@@ -37,7 +37,7 @@ import { MIXED_FEED_WITH_ADS_AND_REPLIES_HTML } from '../fixtures/ads-replies.ts
 import { RICH_TOKENS_HTML, EXPECTED_TOKENS } from '../fixtures/rich-tokens.ts';
 import { TRANSLATIONS, SUPPORTED_LOCALES, getTranslation, resolveLocale } from '../../src/content/i18n.ts';
 import { THEMES, THEME_ORDER, EXPERIMENTAL_THEMES, DEFAULT_CARD_CONFIG, LEGACY_THEME_ALIASES, resolveRadius, sanitizeTheme, CANVAS_BACKGROUNDS, CANVAS_BACKGROUND_ORDER, resolveCanvasBackground, themeSwatch } from '../../src/content/ui/themes.ts';
-import { ASPECT_RATIO, CANVAS_BACKGROUND, CANVAS_RATIO, IMAGE_FIT, MEDIA_LAYOUT, PADDING, RADIUS, optionValue } from '../../src/content/ui/options.ts';
+import { ASPECT_RATIO, CANVAS_BACKGROUND, CANVAS_RATIO, EXPORT_FORMAT, EXPORT_QUALITY, EXPORT_QUALITY_VALUE, IMAGE_FIT, MEDIA_LAYOUT, PADDING, RADIUS, optionValue } from '../../src/content/ui/options.ts';
 import { aspectMinHeight, CARD_WIDTH, GRID_TRACKS, heroCellRatio, heroRowShare, MEDIA_MOUNT, NARROW_BREAKPOINT, NARROW_VIEWPORT_PADDING, VIEWPORT_PADDING, viewportPadding } from '../../src/content/ui/geometry.ts';
 import { POPUP_COPY } from '../../src/content/popupCopy.ts';
 import { planMediaGrid } from '../../src/content/ui/mediaGrid.ts';
@@ -3049,6 +3049,8 @@ test('F18.2b: an option names its values and its default in one place', () => {
     { name: 'media layout', option: MEDIA_LAYOUT, shipped: DEFAULT_CARD_CONFIG.mediaLayout },
     { name: 'canvas ratio', option: CANVAS_RATIO, shipped: DEFAULT_CARD_CONFIG.canvasRatio },
     { name: 'canvas background', option: CANVAS_BACKGROUND, shipped: DEFAULT_CARD_CONFIG.canvasBackground },
+    { name: 'export format', option: EXPORT_FORMAT, shipped: DEFAULT_CARD_CONFIG.exportFormat },
+    { name: 'export quality', option: EXPORT_QUALITY, shipped: DEFAULT_CARD_CONFIG.exportQuality },
   ];
 
   for (const { name, option, shipped } of options) {
@@ -3068,6 +3070,16 @@ test('F18.2b: an option names its values and its default in one place', () => {
       );
     }
   }
+
+  // The quality levels are ordered from the smallest file to the largest, and
+  // all sit inside the range the rasterizer's `quality` option accepts.
+  const qualityValues = EXPORT_QUALITY.values.map((value) => EXPORT_QUALITY_VALUE[value]);
+  assert.deepEqual(
+    qualityValues,
+    [...qualityValues].sort((a, b) => a - b),
+    'a higher level must spend more bytes, not fewer'
+  );
+  assert.ok(qualityValues.every((value) => value > 0 && value < 1));
 });
 
 test('F18.3: an unknown padding value falls back to the default rather than reaching the card', () => {
@@ -4350,6 +4362,71 @@ test('F24.2: exports card to PNG blob at scale: 3 for Ultra-HD resolution', asyn
   assert.equal(stub.rasterizerCalls[0].options.scale, 3, 'an explicit scale reaches the rasterizer');
 });
 
+test('F24.2b: a download is written in the chosen format, and copy stays PNG', async () => {
+  // Format is a download preference. The clipboard is handed one
+  // representation and only PNG is accepted everywhere, so a copy must render
+  // PNG even when the download format says JPEG -- otherwise the copy path and
+  // the filename would disagree with the bytes.
+  const stub = await rasterizer();
+  const engine = await exportEngine();
+
+  stub.resetRasterizer();
+  await withMountedCard(EXPORT_THREAD, async (card) => {
+    const jpeg = await engine.renderCardToBlob(card, { format: 'jpeg', quality: 0.8 });
+    assert.equal(jpeg.type, 'image/jpeg');
+  });
+  const jpegCall = stub.rasterizerCalls[0].options;
+  assert.equal(jpegCall.type, 'image/jpeg');
+  assert.equal(jpegCall.quality, 0.8, 'the quality level reaches the encoder');
+  assert.equal(
+    jpegCall.backgroundColor,
+    '#ffffff',
+    'a lossy format has no alpha; a transparent mat must not encode black'
+  );
+
+  stub.resetRasterizer();
+  await withMountedCard(EXPORT_THREAD, async (card) => {
+    const webp = await engine.renderCardToBlob(card, { format: 'webp' });
+    assert.equal(webp.type, 'image/webp');
+  });
+  assert.equal(stub.rasterizerCalls[0].options.type, 'image/webp');
+
+  stub.resetRasterizer();
+  await withMountedCard(EXPORT_THREAD, async (card) => {
+    await withClipboard('none', async () => {
+      await engine.exportCard(card, { action: 'copy', format: 'jpeg', quality: 0.8 });
+    });
+  });
+  assert.equal(
+    stub.rasterizerCalls[0].options.type,
+    'image/png',
+    'the clipboard takes PNG whatever the download format says'
+  );
+  assert.equal(
+    stub.rasterizerCalls[0].options.quality,
+    undefined,
+    'and the quality switch does not pretend to affect it'
+  );
+});
+
+test('F24.2c: an empty lossy picture is refused like an empty PNG', async () => {
+  // The rasterizer's empty-canvas shape is format-agnostic in spirit: a truthy
+  // blob with the right type and no picture. The check dispatches on the
+  // format's own container signature, so JPEG must be caught too.
+  const stub = await rasterizer();
+  stub.resetRasterizer();
+  stub.failNextRasterizationWithEmptyBlob();
+  const engine = await exportEngine();
+
+  await withMountedCard(EXPORT_THREAD, async (card) => {
+    await assert.rejects(
+      () => engine.renderCardToBlob(card, { format: 'jpeg' }),
+      (err: any) => err && err.code === 'empty-blob',
+      'an empty JPEG was delivered as a picture'
+    );
+  });
+});
+
 test('F24.3: waits for nested image decoding before rendering snapshot', async () => {
   const stub = await rasterizer();
   stub.resetRasterizer();
@@ -5003,6 +5080,39 @@ test('F33.7: the export handler names the file after the target tweet, not the f
   });
 });
 
+test('F33.8: the download filename follows the format, and a copy stays PNG', async () => {
+  // The name is what a person sees in the downloads folder, so it has to name
+  // the bytes. A copy is PNG whatever the preference says (see `exportCard`),
+  // and a refused copy downloads that same PNG -- both keep the `.png` name.
+  const entry = await loadModule('/src/content/exportHandler.ts');
+  const handler = entry.createExportHandler(CONTAINER_THREAD) as (
+    target: any,
+    action: 'copy' | 'download',
+    request?: any
+  ) => Promise<{ filename: string }>;
+
+  const stub = await rasterizer();
+  stub.resetRasterizer();
+  await withMountedCard(CONTAINER_THREAD, async (card) => {
+    const result = await handler(card, 'download', { format: 'jpeg' });
+    assert.ok(
+      result.filename.endsWith('.jpg'),
+      `a JPEG download must not be named .png: ${result.filename}`
+    );
+  });
+
+  stub.resetRasterizer();
+  await withMountedCard(CONTAINER_THREAD, async (card) => {
+    await withClipboard('none', async () => {
+      const result = await handler(card, 'copy', { format: 'jpeg' });
+      assert.ok(
+        result.filename.endsWith('.png'),
+        `a copy is PNG and must be named .png: ${result.filename}`
+      );
+    });
+  });
+});
+
 // -------------------------------------------------------------
 // F34: The size readout and the exporter share one scale calculation
 // -------------------------------------------------------------
@@ -5571,9 +5681,70 @@ test('F35.8: an export is made from the resolution the panel is showing, not a s
     assert.equal(calls.length, 1, 'the press ran one export');
     assert.deepEqual(
       calls[0].request,
-      { preferHighResolution: true },
-      'the file is made from the value on screen, not one taken when the card opened'
+      { preferHighResolution: true, format: 'png' },
+      'the file is made from the values on screen, not ones taken when the card opened'
     );
+  });
+});
+
+test('F35.8b: the export settings offer a format, and quality only for lossy ones', async () => {
+  // The format picker is the whole point of the setting; quality without it
+  // would be a control with nothing to act on. The copy exception is stated
+  // here because the copy button is outside this section and would otherwise
+  // look broken when it pastes a PNG after the download was set to JPEG.
+  await withContainerEnv(async ({ openCardModal, flushEffects }) => {
+    const t = getTranslation(resolveLocale(DEFAULT_CARD_CONFIG.locale));
+    const container = openCardModal(EXPORT_THREAD, async () => ({
+      success: true,
+      method: 'clipboard',
+      filename: 'a.png',
+    } as any));
+    await flushEffects();
+
+    (container.shadow.querySelector('.more-section .more-toggle') as any).click();
+    await flushEffects();
+
+    const groups = (): any[] =>
+      [...container.shadow.querySelectorAll('.more-body [role="radiogroup"]')];
+    const groupFor = (label: string): any =>
+      groups().find((group) => group.getAttribute('aria-label') === label);
+
+    const formatGroup = groupFor(t.exportFormat);
+    assert.ok(formatGroup, 'the export settings have no format picker');
+    const formatRadios = [...formatGroup.querySelectorAll('[role="radio"]')];
+    assert.deepEqual(
+      formatRadios.map((radio: any) => radio.textContent),
+      ['PNG', 'JPEG', 'WebP'],
+      'the three formats are offered in a fixed order'
+    );
+    assert.equal(
+      formatRadios.find((radio: any) => radio.getAttribute('aria-checked') === 'true')
+        ?.textContent,
+      'PNG',
+      'the shipped default is the one the file has always been'
+    );
+    assert.ok(!groupFor(t.exportQuality), 'quality must not be offered for PNG');
+
+    (formatRadios[1] as any).click();
+    await flushEffects();
+
+    const qualityGroup = groupFor(t.exportQuality);
+    assert.ok(qualityGroup, 'choosing JPEG must offer a quality level');
+    assert.deepEqual(
+      [...qualityGroup.querySelectorAll('[role="radio"]')].map((radio: any) => radio.textContent),
+      [t.qualityStandard, t.qualityHigh, t.qualityMaximum]
+    );
+    assert.ok(
+      [...container.shadow.querySelectorAll('.more-body .control-hint')].some(
+        (hint: any) => hint.textContent === t.copyStaysPng
+      ),
+      'the panel must say a copy is still PNG'
+    );
+
+    // Back to PNG hides the lossy-only controls again.
+    (formatRadios[0] as any).click();
+    await flushEffects();
+    assert.ok(!groupFor(t.exportQuality), 'PNG must not leave a dead quality picker behind');
   });
 });
 
@@ -6014,7 +6185,7 @@ test('F26.5: download trigger creates hidden anchor, clicks it, and revokes obje
     };
 
     try {
-      engine.downloadBlobAsPng(pngBlob(), 'card.png');
+      engine.downloadBlob(pngBlob(), 'card.png');
 
       const anchors = doc.body.querySelectorAll('a[download]');
       assert.equal(anchors.length, 1, 'the download is an anchor in the page');

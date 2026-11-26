@@ -14,6 +14,7 @@
  */
 
 import { buildExportFilename } from './engine/filename.ts';
+import { formatSpec } from './engine/format.ts';
 import {
   exportCard,
   type ExportAction,
@@ -38,14 +39,21 @@ export function createExportHandler(
 ): (target: HTMLElement, action: ExportAction, request?: ExportRequestOptions) => Promise<ExportOutcome> {
   return (target, action, request) => {
     const tweet = threadSession(threadData, undefined).targetTweet;
+    // A copy is PNG whatever the format preference says (see `exportCard`), and
+    // a clipboard refusal falls back to downloading that same PNG. The
+    // extension therefore follows the action first and the preference second.
+    const extension = formatSpec(action === 'copy' ? 'png' : request?.format).extension;
     return exportCard(target, {
       action,
       ...request,
-      filename: buildExportFilename({
-        handle: tweet?.author?.handle ?? threadData.author.handle,
-        text: tweet?.text,
-        timestamp: tweet?.timestamp,
-      }),
+      filename: buildExportFilename(
+        {
+          handle: tweet?.author?.handle ?? threadData.author.handle,
+          text: tweet?.text,
+          timestamp: tweet?.timestamp,
+        },
+        { extension }
+      ),
     });
   };
 }

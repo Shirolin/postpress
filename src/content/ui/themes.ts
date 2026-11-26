@@ -1,5 +1,5 @@
 import type { ThemeId, RadiusOption, CardConfig, LegacyThemeId, CanvasBackgroundId } from '../../types/card.ts';
-import { ASPECT_RATIO, CANVAS_BACKGROUND, CANVAS_RATIO, IMAGE_FIT, MEDIA_LAYOUT, PADDING, RADIUS } from './options.ts';
+import { ASPECT_RATIO, CANVAS_BACKGROUND, CANVAS_RATIO, EXPORT_FORMAT, EXPORT_QUALITY, IMAGE_FIT, MEDIA_LAYOUT, PADDING, RADIUS } from './options.ts';
 
 /**
  * A theme is an object a post can live on, not a colour skin.
@@ -1230,6 +1230,10 @@ export const DEFAULT_CARD_CONFIG: CardConfig = {
   canvasBackground: CANVAS_BACKGROUND.default,
   canvasShadow: false,
   preferHighResolution: false,
+  // A download stays PNG until the user asks otherwise, so every existing
+  // install's file is byte-for-byte what it was before this setting existed.
+  exportFormat: EXPORT_FORMAT.default,
+  exportQuality: EXPORT_QUALITY.default,
 };
 
 /**

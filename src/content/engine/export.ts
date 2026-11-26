@@ -8,6 +8,7 @@
  */
 
 import { domToBlob } from 'modern-screenshot';
+import type { ExportFormat } from '../../types/card.ts';
 import type { ExtensionResponse } from '../../types/messages.ts';
 import { IMAGE_PROXY_BUDGET_MS } from '../../background/proxy.ts';
 import { DEFAULT_AVATAR_SRC, EXPORT_SWAP_ATTR } from '../ui/imageFallback.ts';
@@ -16,6 +17,12 @@ import {
   fitScaleToCanvas,
   type ScaleFit,
 } from './scale.ts';
+import {
+  extensionForMime,
+  formatSpec,
+  headLength,
+  looksLikeImageHead,
+} from './format.ts';
 
 export const FALLBACK_PLACEHOLDER_DATA_URL =
   'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100%" height="100%" fill="%23333333"/></svg>';
@@ -59,6 +66,17 @@ export interface ExportRequestOptions {
    * storage, and nothing here can go stale while the dialog stays open.
    */
   preferHighResolution?: boolean;
+  /**
+   * The format a download is written as.
+   *
+   * Copy ignores it: the clipboard is handed one representation and only PNG is
+   * accepted everywhere, so `exportCard` renders PNG for a copy whatever this
+   * says. The filename is chosen by the caller from the same value, so the file
+   * and its name cannot disagree.
+   */
+  format?: ExportFormat;
+  /** Compression strength (0–1) for a lossy `format`; ignored for PNG. */
+  quality?: number;
 }
 
 export interface RenderOptions extends ExportRequestOptions {
@@ -431,23 +449,6 @@ function mountUnzoomedCopy(card: HTMLElement): { copy: HTMLElement; dispose: () 
   return { copy, dispose: () => wrapper.remove() };
 }
 
-/** The 8 bytes every PNG starts with. */
-const PNG_SIGNATURE = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
-
-/**
- * Whether the blob actually begins with a PNG.
- *
- * The rasterizer can return a truthy, `image/png`-typed Blob with no picture in
- * it, in two shapes: empty at scale 1, and a 54-byte header written over an
- * empty source at every other scale. Both fail this check; a real PNG, however
- * small, passes it.
- */
-async function looksLikePng(blob: Blob): Promise<boolean> {
-  if (blob.size < PNG_SIGNATURE.length) return false;
-  const head = new Uint8Array(await blob.slice(0, PNG_SIGNATURE.length).arrayBuffer());
-  return PNG_SIGNATURE.every((byte, index) => head[index] === byte);
-}
-
 /**
  * Measures the card and applies the canvas limit, logging when it bites.
  *
@@ -620,7 +621,18 @@ function mountAndRender(
 
       const { requested: scaleRequested, fit } = scaleFor(copy, options);
       const scale = fit.applied;
-      const backgroundColor = options.backgroundColor !== undefined ? options.backgroundColor : null;
+      const format = options.format ?? 'png';
+      const spec = formatSpec(format);
+      // A lossy format has no alpha channel, and an unpainted mat is exactly
+      // what the canvas background used to carry. White is the answer that
+      // reads as "nothing here" on every theme; leaving it null would encode
+      // the transparent corners as black.
+      const backgroundColor =
+        options.backgroundColor !== undefined
+          ? options.backgroundColor
+          : spec.lossy
+            ? '#ffffff'
+            : null;
 
       // A card over the edge limit cannot be rasterized at any scale, and the
       // browser's own failure for it is a zero-byte blob. Refusing here says why,
@@ -666,7 +678,10 @@ function mountAndRender(
       return await verifyRenderedBlob(
         await domToBlob(copy, {
           scale,
-          type: 'image/png',
+          type: spec.mime,
+          // PNG ignores this, and handing it over anyway would suggest the
+          // switch does something it does not.
+          ...(spec.lossy && options.quality !== undefined ? { quality: options.quality } : {}),
           backgroundColor,
           features: {
             copyScrollbar: false,
@@ -683,7 +698,8 @@ function mountAndRender(
             const src = result.ok ? result.src : FALLBACK_PLACEHOLDER_DATA_URL;
             return src.startsWith('data:') ? src : false;
           },
-        })
+        }),
+        format
       );
     } catch (err) {
       // Everything else -- the decode pass, a too-tall card, the rasterizer --
@@ -729,16 +745,26 @@ function mountAndRender(
  * Rejects when the rasterizer handed back something without a picture in it.
  *
  * An unallocatable canvas comes back as a Blob that is truthy but holds no
- * picture: empty at scale 1, and at every other scale `domToBlob` runs the blob
- * through `changePngDpi`, which rebuilds it from a 54-byte header written over
- * an empty source -- 54 bytes, `image/png`, and no PNG signature. Asking whether
- * the bytes are a PNG covers both shapes, and does not guess from the length.
+ * picture: empty at scale 1, and for PNG at every other scale `domToBlob` runs
+ * the blob through its DPI pass, which rebuilds it from a 54-byte header written
+ * over an empty source -- 54 bytes, `image/png`, and no PNG signature. The check
+ * is the format's own container signature, so it covers all three formats and
+ * still does not guess from the length: a real picture can be tiny, and a
+ * decoded-but-empty one very rarely matches an encoder's magic bytes.
  */
-async function verifyRenderedBlob(blob: Blob | null): Promise<Blob> {
+async function verifyRenderedBlob(
+  blob: Blob | null,
+  format: ExportFormat
+): Promise<Blob> {
   if (!blob) {
     throw new ExportRenderError('rasterizer', 'Screenshot engine produced an empty blob.');
   }
-  if (!(await looksLikePng(blob))) {
+  const length = Math.min(blob.size, headLength(format));
+  let head = new Uint8Array(0);
+  if (length > 0) {
+    head = new Uint8Array(await blob.slice(0, length).arrayBuffer());
+  }
+  if (!looksLikeImageHead(format, head)) {
     throw new ExportRenderError(
       'empty-blob',
       'Screenshot engine produced an empty image; the card is probably too tall for a canvas.'
@@ -872,9 +898,13 @@ export function classifyClipboardFailure(err: unknown): ClipboardFailure {
 }
 
 /**
- * Downloads a binary Blob directly as a PNG file via a hidden anchor tag.
+ * Downloads a binary Blob as a file through a hidden anchor tag.
+ *
+ * The extension belongs to the filename the caller chose; this function never
+ * encodes a format of its own, which is what let the name and the bytes drift
+ * apart when the format became a preference.
  */
-export function downloadBlobAsPng(blob: Blob, filename: string = 'post-to-card.png'): void {
+export function downloadBlob(blob: Blob, filename: string = 'post-to-card.png'): void {
   if (typeof document === 'undefined' || typeof document.createElement !== 'function') {
     return;
   }
@@ -952,8 +982,9 @@ export interface ClipboardWriteHandle {
  *
  * The item carries exactly one representation, because Chromium and Firefox
  * both ignore or reject a write holding more than one. `image/png` as the key is
- * not a guess: the keys must be stated before the data exists, and this engine
- * only ever produces PNG.
+ * not a guess: the keys must be stated before the data exists, and the copy path
+ * always renders PNG (`exportCard` decides that), whatever the download's format
+ * preference says.
  *
  * Throws `ClipboardUnsupportedError` in this tick, before any item is built, so
  * a caller can decide to render for a download instead of for nothing.
@@ -1035,7 +1066,8 @@ export async function exportBlobWithFallback(
   action: ExportAction = 'copy',
   customFilename?: string
 ): Promise<ExportResult> {
-  const filename = customFilename || `post-to-card-${Date.now()}.png`;
+  const filename =
+    customFilename || `post-to-card-${Date.now()}.${extensionForMime(blob.type)}`;
 
   if (action === 'download') {
     return deliverDownload(blob, filename, null);
@@ -1048,7 +1080,13 @@ export async function exportBlobWithFallback(
     if (!canUseImageClipboard()) {
       throw new ClipboardUnsupportedError('Clipboard API is not supported in this environment.');
     }
-    await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+    // The key must name what the bytes are. `exportCard` never calls this with a
+    // non-PNG blob for a copy, so the common path is unchanged; deriving the key
+    // keeps a direct caller from handing the clipboard a JPEG labelled PNG,
+    // which pastes as a corrupt image rather than failing where it can be seen.
+    await navigator.clipboard.write([
+      new ClipboardItem({ [blob.type || 'image/png']: blob }),
+    ]);
     return { success: true, method: 'clipboard', filename };
   } catch (clipboardErr) {
     console.warn(
@@ -1071,7 +1109,7 @@ function deliverDownload(
     ? { clipboardFailure: refusal.reason, clipboardError: refusal.message }
     : {};
   try {
-    downloadBlobAsPng(blob, filename);
+    downloadBlob(blob, filename);
     return { success: true, method: 'download', filename, ...carried };
   } catch (err) {
     const errorMsg = err instanceof Error ? err.message : String(err);
@@ -1105,8 +1143,15 @@ export async function exportCard(
   cardElement: HTMLElement,
   options: ExportCardOptions = {}
 ): Promise<ExportOutcome> {
-  const { action = 'copy', scale, preferHighResolution, filename, render } = options;
-  const name = filename || `post-to-card-${Date.now()}.png`;
+  const { action = 'copy', scale, preferHighResolution, format, quality, filename, render } =
+    options;
+  // A copy is always PNG. The clipboard is handed one representation and only
+  // PNG is accepted by every Chromium build, so the format preference is a
+  // download preference; deciding it here rather than at the call site keeps
+  // every caller's copy path identical.
+  const renderFormat: ExportFormat = action === 'copy' ? 'png' : format ?? 'png';
+  const name =
+    filename || `post-to-card-${Date.now()}.${formatSpec(renderFormat).extension}`;
 
   let report: RenderReport | null = null;
   const renderOptions: RenderOptions = {
@@ -1114,8 +1159,12 @@ export async function exportCard(
     // Read where the picture is made, not here: see `RenderOptions.preferHighResolution`.
     ...(preferHighResolution === undefined ? {} : { preferHighResolution }),
     ...render,
-    // After the spread, so a caller-supplied `render` cannot silently drop the
-    // reporting this function is responsible for.
+    // After the spread, so neither a caller-supplied `render` nor a mistaken
+    // call site can make a copy render into a format the clipboard refuses.
+    format: renderFormat,
+    ...(quality === undefined ? {} : { quality }),
+    // After everything else, so a caller-supplied `render` cannot silently drop
+    // the reporting this function is responsible for.
     report: (next) => {
       report = next;
     },

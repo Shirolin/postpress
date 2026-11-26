@@ -117,11 +117,11 @@ export const enUS: Translations = {
 
   copyImage: 'Copy Image',
   copiedButton: 'Copied',
-  downloadPng: 'Download PNG',
+  downloadImage: 'Download image',
   copying: 'Copying to clipboard...',
-  generatingPng: 'Generating PNG...',
+  generatingImage: 'Generating image...',
   copiedSuccess: 'Copied to clipboard',
-  downloadSuccess: 'PNG downloaded',
+  downloadSuccess: 'Image downloaded',
   exportFailed: 'Export failed',
   exportEmpty: 'The screenshot engine returned an empty image; please retry',
   exportTooTall:
@@ -140,6 +140,13 @@ export const enUS: Translations = {
   statusSeparator: '; ',
   retryExport: 'Retry',
   longCardWarning: 'This picture is very tall; a feed will shrink its text. Consider splitting a long thread',
+  exportFormat: 'Format',
+  exportQuality: 'Quality',
+  qualityStandard: 'Standard',
+  qualityHigh: 'High',
+  qualityMaximum: 'Maximum',
+  copyStaysPng: 'Copy always writes PNG; the selected format applies to downloads.',
+  jpegTransparentHint: 'JPEG cannot keep transparency; the unpainted mat is filled white.',
 
   zoomLabel: 'Preview Zoom',
   zoomFit: 'Fit',

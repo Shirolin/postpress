@@ -25,7 +25,7 @@ README 与 CONTRIBUTING 因此也只写 pnpm）。
   唯一的例外是 `tsconfig.test-support.json` 里列着的那三个从不跨边界的文件。改共享类型（`TweetData`
   等）的字段时，grep 一遍测试里的名字，别只信 tsc。
 
-三个真浏览器脚本，按问题选：
+四个真浏览器脚本，按问题选：
 
 - **扩展装得上吗**：`node dev/verify-extension.mjs --url https://x.com/`（headed；headless 会被
   x.com 403）。它证明不了提取器——未登录时整页 0 个 `data-testid`。
@@ -35,6 +35,9 @@ README 与 CONTRIBUTING 因此也只写 pnpm）。
   浏览器面板里的页面**不跑渲染帧**——`rAF` 不推进、过渡停在起点、`ResizeObserver` 不投递——所以
   这类行为只有真浏览器能验，截图与 tiers 都看不到。它不在 `npm test` 里：判据是时序。它同时量
   「画出来的像素」——比如作者模糊是否真的落在屏幕上（读 `filter` 声明证明不了这一点）。
+- **导出的文件真是那种格式吗**：`node dev/verify-export-formats.mjs`。在同一张夹具卡片上依次导出
+  PNG/JPEG/WebP，验文件头、扩展名、像素尺寸与逐像素差异，产物落在 `.tmp/e2e-export-formats-*`。
+  tiers 用的 rasterizer stub 只写签名，有损编码对不对它答不了。
 
 改动效探针的断言时，**先让被修的东西坏掉跑一次**：断言的完成判据是"拿掉修复就会红"。
 

@@ -16,6 +16,8 @@ import {
   ASPECT_RATIO,
   CANVAS_BACKGROUND,
   CANVAS_RATIO,
+  EXPORT_FORMAT,
+  EXPORT_QUALITY,
   IMAGE_FIT,
   MEDIA_LAYOUT,
   PADDING,
@@ -85,6 +87,11 @@ function normalizeStoredConfig(saved: Record<string, any> | null | undefined): C
     // Same rule: a preference nobody turned on is off, including when the
     // store holds the string "false".
     preferHighResolution: saved.preferHighResolution === true,
+    // Both answer the shipped default for a value that was never set and for
+    // one this build does not offer -- a download that silently became WebP
+    // because the store held a retired id would be the worse answer.
+    exportFormat: optionValue(EXPORT_FORMAT, saved.exportFormat),
+    exportQuality: optionValue(EXPORT_QUALITY, saved.exportQuality),
     // A store written before this existed has neither field. Both then answer
     // "every post follows the switch" and "the hint has not been dismissed",
     // which is what the upgrade shows: no card looks any different than it did.

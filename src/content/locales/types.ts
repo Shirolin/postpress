@@ -154,9 +154,9 @@ export interface Translations {
   // Export Actions & Status
   copyImage: string;
   copiedButton: string;
-  downloadPng: string;
+  downloadImage: string;
   copying: string;
-  generatingPng: string;
+  generatingImage: string;
   copiedSuccess: string;
   downloadSuccess: string;
   exportFailed: string;
@@ -173,6 +173,17 @@ export interface Translations {
   clipboardFallbackArtwork: string;
   preferHighResolution: string;
   preferHighResolutionHint: string;
+  /** The label over the PNG / JPEG / WebP picker. */
+  exportFormat: string;
+  /** The label over the compression picker; only shown for lossy formats. */
+  exportQuality: string;
+  qualityStandard: string;
+  qualityHigh: string;
+  qualityMaximum: string;
+  /** Why a copy is still PNG when the download format is lossy. */
+  copyStaysPng: string;
+  /** Said instead of the transparent-mat hint when the format cannot keep alpha. */
+  jpegTransparentHint: string;
   statusSeparator: string;
   retryExport: string;
   /**
