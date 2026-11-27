@@ -36,8 +36,8 @@
   --step-h: clamp(2rem, 1.55rem + 1.7vw, 2.75rem);
   --step-d: clamp(2.25rem, 1.65rem + 2.35vw, 3.75rem);
 
-  --font: "Switzer", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC",
-    "Microsoft YaHei", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  --font: "Switzer", "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "PingFang TC",
+    "Apple SD Gothic Neo", "Malgun Gothic", "Microsoft YaHei", "Hiragino Sans", "Yu Gothic UI", sans-serif;
   --mono: ui-monospace, "Cascadia Mono", "SF Mono", Consolas, "Noto Sans Mono CJK SC", monospace; /* taste-skill-ignore 只给 pre / code / kbd 用 */
 }
 
@@ -247,6 +247,16 @@ pre {
   padding: 4px 2px;
   cursor: pointer;
   transition: color 0.15s ease;
+}
+
+.lang-select {
+  max-width: 11.5rem;
+  text-overflow: ellipsis;
+}
+
+.lang-select option {
+  background: var(--bg);
+  color: var(--ink);
 }
 
 .lang:hover,
@@ -978,7 +988,7 @@ pre {
   max-width: 6.4em;
 }
 
-html[lang='en'] .close-line {
+html:not([lang^='zh']):not([lang='ja']):not([lang='ko']) .close-line {
   max-width: 12ch;
 }
 
@@ -1162,8 +1172,13 @@ html[lang='en'] .close-line {
     gap: 12px;
   }
 
-  .lang {
+  #theme.lang {
     margin-left: auto;
+  }
+
+  .lang-select {
+    margin-left: 0;
+    max-width: 8.5rem;
   }
 
   .rack-list {

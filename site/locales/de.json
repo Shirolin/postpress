@@ -1,0 +1,179 @@
+{
+  "brandName": "PostPress",
+  "brandCnSuffix": "",
+  "skip": "Zum Inhalt springen",
+  "navAriaLabel": "Seitennavigation",
+  "langAriaLabel": "Sprache",
+  "meta": {
+    "title": "PostPress: Sauberes Tweet-Screenshot-Tool für X",
+    "description": "Mit einem Klick jeden Tweet in ein Bild verwandeln. X-Posts und Threads als 3×-PNG-Karten in die Zwischenablage kopieren—12 Stile, 100 % lokal, ohne Login.",
+    "ogDescription": "Mit einem Klick jeden Tweet in ein Bild verwandeln. X-Posts und Threads als 3×-PNG-Karten in die Zwischenablage kopieren—12 Stile, 100 % lokal, ohne Login.",
+    "ogImageAlt": "PostPress: X-Posts als druckreife 3×-Karten kopieren",
+    "siteName": "PostPress",
+    "appDescription": "Mit einem Klick jeden Tweet in ein Bild verwandeln. X-Posts und Threads als 3×-PNG-Karten in die Zwischenablage kopieren—12 Stile, 100 % lokal, ohne Login."
+  },
+  "nav": {
+    "thread": "Threads",
+    "article": "Artikel",
+    "privacy": "Datenschutz",
+    "install": "Installieren"
+  },
+  "themeToggle": {
+    "light": "Hell",
+    "dark": "Dunkel",
+    "ariaToLight": "Zur hellen Ansicht wechseln",
+    "ariaToDark": "Zur dunklen Ansicht wechseln"
+  },
+  "hero": {
+    "h1": "Jeden Post als Karte kopieren.",
+    "sub": "Schluss mit manuellem Zuschneiden und Screenshots. Ein Klick auf den Button am Post (oder Alt + C) kopiert einen einzelnen Post oder einen Thread desselben Autors als gestochen scharfe 3×-Karte direkt in die Zwischenablage. Zwölf Designs, komplett lokal auf deinem Gerät gerendert.",
+    "meta": "Kostenlos & Open Source · GPL-3.0-or-later · Chrome / Edge (Manifest V3, ab Chrome 111)"
+  },
+  "cta": {
+    "install": "Im Chrome Web Store hinzufügen",
+    "install2": "Im Chrome Web Store hinzufügen",
+    "source": "Quellcode & Doku"
+  },
+  "facts": {
+    "materials": "Designs",
+    "canvas": "Leinwandformate",
+    "locales": "Sprachen",
+    "export": "Retina-Kopie"
+  },
+  "spec": {
+    "pick": "Design wählen",
+    "cardAltTemplate": "Design {name}: Beispiel-Post als gerenderte Karte."
+  },
+  "materials": {
+    "minimal": { "name": "Minimal", "note": "Warmes Weiß, kein Rahmen, nur pure Typografie." },
+    "midnight": { "name": "Mitternacht", "note": "Tiefer Hintergrund mit heller Schrift, angenehm bei Nacht." },
+    "glass": { "name": "Liquid Glass", "note": "Halbtransparente Scheibe mit feiner Lichtkante." },
+    "material": { "name": "Material 3", "note": "Tonale Flächen und Radien nach Material 3." },
+    "gallery": { "name": "Galerie", "note": "Wandetikett und Montagelinie wie im Museum." },
+    "darkroom": { "name": "Dunkelkammer", "note": "Kontaktabzug: Bildnummern, Ränder, Silbergrau." },
+    "riso": { "name": "Riso", "note": "Leuchtfarben, leicht versetzter Druck, Papierkorn." },
+    "sumi": { "name": "Sumi", "note": "Reispapier, verdünnte Tusche, zinnoberrotes Siegel." },
+    "clay": { "name": "Ton", "note": "Abgerundet und weich, wie von Hand geformt." },
+    "terminal": { "name": "Terminal", "note": "Monospace, Scanlines, Konsolengrün." },
+    "receipt": { "name": "Kassenbon", "note": "Thermopapier, gestrichelte Linien, dichte Monospace-Schrift." },
+    "brutalist": { "name": "Brutalistisch", "note": "3px harter Rahmen und Neon-Gelb. Experimentell." }
+  },
+  "thread": {
+    "h2": "Threads fügen sich selbst zusammen.",
+    "body": "Beiträge eines Threads werden nach Autor und Zeit verknüpft, Werbung und fremde Antworten bleiben außen vor. Zwei Wege: zuerst X' eigener GraphQL-Cache, falls leer das gerenderte DOM. Jeder unerwünschte Post lässt sich mit einem Klick entfernen.",
+    "imgAlt": "Beispielkarte: drei Posts eines Autors, zwei mit Fotos und einer mit Zitat.",
+    "cap": "Drei Posts eines Autors, einer davon zitierend: die gesamte Karte beim Export.",
+    "d1": "Posts",
+    "d2": "Fotos",
+    "d3": "Zitat",
+    "d4": "Export",
+    "tick1": "Aufeinanderfolgende Posts eines Autors werden verbunden; Werbung und fremde Antworten bleiben draußen",
+    "tick2": "Lange Threads werden standardmäßig mit 2× exportiert, um unter dem Größenlimit zu bleiben",
+    "tick3": "Wird eine Karte im Feed zu klein, warnt das Panel schon vor dem Export"
+  },
+  "guide": {
+    "h2": "So machst du einen sauberen Tweet-Screenshot ohne Ballast",
+    "intro": "Meist macht man einen Tweet-Screenshot für eine Präsentation, einen Newsletter oder einen Gruppenchat—und landet am Ende bei Antworten, Seitenleisten und unscharfem Text. Es gibt drei gängige Wege, einen Tweet in ein Bild zu verwandeln, jeder mit einem klaren Haken.",
+    "m1t": "Smartphone-Screenshot",
+    "m1": "Hardwaretasten unter iOS oder Android drücken und dann Statusleiste, Navigationssymbole sowie die erste Antwort darunter wegschneiden. Für einen kurzen Post geht das schnell, aber der Preis sind feste Bildschirmauflösung, ungleichmäßige Ränder und mühsames Zusammenkleben mehrerer Screenshots bei langen Threads.",
+    "m2t": "Browser-Bereichsaufnahme",
+    "m2": "Am Desktop mit dem System-Snipping-Tool oder einem Browser-Kürzel ein Rechteck um den Post ziehen. Du hast etwas mehr Kontrolle über den Ausschnitt als am Handy, bleibst aber an Monitor-DPI, sichtbare Browser-Elemente oder Hover-Zustände gebunden und musst bei Zitaten oder Bildrastern am Fensterrand ständig neu zuschneiden.",
+    "m3t": "Post direkt als Karte rendern",
+    "m3": "Statt Pixel vom Bildschirm abzufotografieren, werden Text, Medien und Thread-Struktur ausgelesen und frisch auf einer sauberen Fläche gesetzt. Der Haken vieler Web-Tools: Man muss die URL auf einen fremden Server kopieren, auf API-Limits warten oder Wasserzeichen und kaputte Threads hinnehmen.",
+    "outro": "PostPress nutzt diesen dritten Weg komplett lokal im Browser: Klicke auf den Karten-Button an einem beliebigen X-Post (oder drücke Alt + C), wähle ein Design und kopiere ein gestochen scharfes 3×-PNG direkt in die Zwischenablage—ohne Antworten, ohne Werbung, ohne Server und ohne Login.",
+    "imgAlt": "Ein Tweet lokal im Mitternacht-Design gerendert—ohne Browser-Rahmen oder Antworten.",
+    "cap": "Ein Tweet lokal im Design Mitternacht gerendert—kein Browser-Rahmen, keine fremden Antworten."
+  },
+  "article": {
+    "h2": "Artikel, Zitate und Bildraster bleiben erhalten.",
+    "tablistAria": "Layout-Beispiele",
+    "tab1": "X-Artikel",
+    "tab2": "Vierer ohne Beschnitt",
+    "tab3": "20-Bilder-Raster",
+    "lead": "Ein X-Artikel bringt Titelbild und Einstieg mit; ein zitierter Post wird passend zum Design gefüllt oder umrandet; ein bis zwanzig Bilder behalten im Raster ihre Proportionen, ab fünf Bildern vier pro Reihe (bei „Füllen“ quadratisch beschnitten).",
+    "lede": "„Kein Filter — Papier, Linie und Schrift im richtigen Verhältnis.“",
+    "s1t": "Artikel",
+    "s1": "Cover, Rubrik, Titel und Einstieg kommen gemeinsam sauber mit.",
+    "s2t": "Zitat",
+    "s2": "Gefüllt oder umrandet, passend zum gewählten Design.",
+    "s3t": "Bilder",
+    "s3": "Eins bis zwanzig behalten ihr Seitenverhältnis statt quadratisch beschnitten zu werden; ab fünf Bildern vier pro Reihe, „Füllen“ schneidet quadratisch zu.",
+    "alts": {
+      "article": "Beispielkarte: ein X-Artikel-Post mit Titelbild, Rubrik, Überschrift und erster Zeile.",
+      "quad": "Beispielkarte: vier 3:2-Architekturfotos im Galerie-Design, im Modus Einpassen ohne Beschnitt ausgerichtet.",
+      "grid20": "Beispielkarte: ein Post mit 20 Bildern, sauber in ausgewogenen 4er-Reihen angeordnet."
+    }
+  },
+  "switch": {
+    "h2": "Acht Schalter, ein Studio.",
+    "lead": "Design, Leinwand, Hintergrund, Fußzeile, Autor-Unschärfe und Exportauflösung sitzen gemeinsam in diesem Studio-Dialog; jede Änderung aktualisiert die Vorschau sofort. Deine Auswahl wird gemerkt, sodass du im Alltag nur noch öffnest und auf Kopieren klickst.",
+    "panelAlt": "Der echte PostPress-Studio-Dialog: links Live-Vorschau, rechts Regler für Designs, Leinwand, Fußzeile, Autor-Unschärfe und Kopieren.",
+    "panelCap": "Das echte Studio-Fenster: Vorschau links und Schalter rechts bleiben live synchron.",
+    "cap1": "Alles an",
+    "cap1Alt": "Beispielkarte mit QR-Code, Interaktionen, Zeitstempel und Quellenangabe.",
+    "cap1b": "QR, Zahlen, Zeit, Quelle.",
+    "cap2": "Ohne Fuß",
+    "cap2Alt": "Beispielkarte ohne Fußzeile, nur der reine Beitragstext.",
+    "cap2b": "Nur der Inhalt.",
+    "cap3": "Verwischt",
+    "cap3Alt": "Beispielkarte mit verwischtem Autor und zitiertem Autor.",
+    "cap3b": "Autor und zitierter Autor zusammen."
+  },
+  "privacy": {
+    "h2": "Läuft vollständig auf deinem Gerät.",
+    "body": "Kein Konto, kein Server, keine Telemetrie. Der Satz erfolgt in einem isolierten Shadow DOM und der Export über den eigenen Canvas des Browsers. Abgesehen vom Abruf der Bilder deiner Karte von X' Bildservern verlässt nichts deinen Rechner.",
+    "note": "Liest keine Timeline, braucht kein X-Konto und keine X-API. Nicht mit X Corp. verbunden.",
+    "p1": "Legt das fertige Bild erst beim Klick auf Kopieren in deine Zwischenablage.",
+    "p2": "Speichert Design, Leinwand und Schalter ausschließlich lokal.",
+    "p3": "Lädt die Bilder der Karte. Ohne diese Berechtigung darf ein Canvas keine fremden Bilder lesen."
+  },
+  "install": {
+    "h2": "Ab in deinen Browser.",
+    "lead": "Mit einem Klick aus dem Chrome Web Store installieren oder unten die drei Schritte aus dem Quellcode nutzen.",
+    "store": "Im Chrome Web Store hinzufügen",
+    "cta": "GitHub-Repository öffnen",
+    "note": "Veröffentlicht unter GPL-3.0-or-later: Gib Änderungen unter derselben Lizenz weiter.",
+    "sourceSummary": "Für Entwickler: aus dem Quellcode bauen (3 Schritte)",
+    "s1t": "Bauen",
+    "s1": "Quellcode klonen, Abhängigkeiten installieren und bauen. Die Ausgabe landet in <code>dist/</code>.",
+    "s2t": "Laden",
+    "s2": "Öffne <code>chrome://extensions</code>, aktiviere den Entwicklermodus, wähle „Entpackte Erweiterung laden“ und wähle den Ordner <code>dist/</code>.",
+    "s3t": "Nutzen",
+    "s3": "Klicke am Post auf den Karten-Button (oder fahre darüber und drücke <kbd>Alt</kbd> + <kbd>C</kbd>), klicke auf Bild kopieren und füge es überall ein."
+  },
+  "faq": {
+    "h2": "Häufig gefragt",
+    "lead": "Acht echte Fragen, die Antworten direkt daneben.",
+    "q1": "Warum nicht einfach einen Screenshot machen?",
+    "a1": "Screenshots von Hand zuschneiden heißt: Antworten aussparen, lange Threads aus mehreren Bildern stückeln und mit Bildschirm-DPI sowie Browser-Rahmen leben. Ein Klick auf PostPress setzt den ganzen Post oder Thread nach klaren Designregeln und legt ein scharfes 3×-Bild direkt in deine Zwischenablage.",
+    "q2": "Wird eine lange Karte im Feed unscharf?",
+    "a2": "Ein einzelner Post wird mit 3× exportiert. Sehr lange Threads nutzen standardmäßig 2×, um unter dem Größenlimit zu bleiben; droht der Text zu klein zu werden, warnt das Panel vorab und rät zum Teilen. Ein globaler 3×-Schalter liegt in den Exporteinstellungen.",
+    "q3": "Muss ich mich bei X anmelden oder verbinden?",
+    "a3": "Nein. Es gibt kein Kontosystem: Die Erweiterung liest nur das, was bereits vor dir im Browser gerendert wurde, und fasst keine Zugangsdaten an.",
+    "q4": "Wird irgendetwas hochgeladen?",
+    "a4": "Nein. Das Bild geht nur in deine Zwischenablage und auf deine Festplatte; beim Schließen der Vorschau wird der Rest freigegeben. Es werden keine Post-Inhalte gespeichert.",
+    "q5": "Darf ich es kommerziell nutzen?",
+    "a5": "Die Software steht unter GPL-3.0-or-later und darf kommerziell genutzt werden. Texte und Bilder in einer Karte gehören weiterhin ihren Urhebern; prüfe dies vor einer Weiterverbreitung.",
+    "q6": "In welchen Browsern läuft es?",
+    "a6": "Chrome und Edge ab Chrome 111 (Manifest V3). Firefox und Safari werden noch nicht unterstützt, da die Erweiterung auf Chromium-Erweiterungs-APIs aufbaut.",
+    "q7": "Wie mache ich einen Tweet-Screenshot ohne Antworten?",
+    "a7": "Klicke am Post auf den PostPress-Karten-Button (oder fahre mit der Maus darüber und drücke Alt + C). PostPress liest nur diesen Post—oder aufeinanderfolgende Posts desselben Autors im Thread—und lässt Werbung sowie fremde Antworten automatisch weg. Einzelne Thread-Posts lassen sich vor dem Kopieren per Klick ausschließen.",
+    "q8": "Kann ich einen Tweet in ein PNG umwandeln?",
+    "a8": "Ja. PostPress rendert die Karte lokal im Browser und kopiert ein 3×-PNG direkt in die Zwischenablage (oder lädt die PNG-Datei auf die Festplatte herunter). Sehr lange Threads nutzen standardmäßig 2× für das Größenlimit, lassen sich in den Exporteinstellungen aber auf 3× umstellen."
+  },
+  "close": {
+    "h2": "Dein nächster Post verdient Papier.",
+    "sub": "Einmal installieren, dann sitzt es in der Aktionsleiste jedes Posts. Ein Klick in die Zwischenablage, bereit zum Einfügen."
+  },
+  "foot": {
+    "navAria": "Links",
+    "readme": "README",
+    "readmeHref": "README.md",
+    "privacy": "Datenschutz",
+    "privacyHref": "PRIVACY.md",
+    "license": "Lizenz",
+    "credit": "Beispielfotos via Unsplash (Unsplash License): @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting und @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind und @postpress_ext sind erfundene Beispielkonten.",
+    "gpl": "GPL-3.0-or-later",
+    "legalSuffix": "X (Twitter) ist eine Marke der X Corp., nicht verbunden."
+  }
+}

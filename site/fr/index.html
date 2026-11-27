@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="fr" data-base=".." data-page-lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PostPress : capture de tweet propre pour X</title>
+    <meta
+      name="description"
+      content="Transformez un tweet en image en un clic. Copiez posts et fils X en cartes PNG 3× dans le presse-papiers—12 styles, 100 % local, sans connexion."
+    />
+    <meta name="google-site-verification" content="MU-E0FhsaY2ecGcnntckuE4LsM8GMd74kc0OJ6sNNnY" />
+    <meta name="theme-color" content="#0c0e11" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://shirolin.github.io/postpress/fr/" />
+    <meta property="og:title" content="PostPress : capture de tweet propre pour X" />
+    <meta
+      property="og:description"
+      content="Transformez un tweet en image en un clic. Copiez posts et fils X en cartes PNG 3× dans le presse-papiers—12 styles, 100 % local, sans connexion."
+    />
+    <meta property="og:site_name" content="PostPress" />
+    <meta property="og:image" content="https://shirolin.github.io/postpress/assets/cards/og-en.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="PostPress : copiez les posts X en cartes 3× de qualité imprimée" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PostPress : capture de tweet propre pour X" />
+    <meta
+      name="twitter:description"
+      content="Transformez un tweet en image en un clic. Copiez posts et fils X en cartes PNG 3× dans le presse-papiers—12 styles, 100 % local, sans connexion."
+    />
+    <meta name="twitter:image" content="https://shirolin.github.io/postpress/assets/cards/og-en.jpg" />
+    <meta name="twitter:image:alt" content="PostPress : copiez les posts X en cartes 3× de qualité imprimée" />
+    <link rel="canonical" href="https://shirolin.github.io/postpress/fr/" />
+    <link rel="alternate" hreflang="en" href="https://shirolin.github.io/postpress/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://shirolin.github.io/postpress/zh/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://shirolin.github.io/postpress/zh-tw/" />
+    <link rel="alternate" hreflang="ja" href="https://shirolin.github.io/postpress/ja/" />
+    <link rel="alternate" hreflang="ko" href="https://shirolin.github.io/postpress/ko/" />
+    <link rel="alternate" hreflang="de" href="https://shirolin.github.io/postpress/de/" />
+    <link rel="alternate" hreflang="fr" href="https://shirolin.github.io/postpress/fr/" />
+    <link rel="alternate" hreflang="es" href="https://shirolin.github.io/postpress/es/" />
+    <link rel="alternate" hreflang="it" href="https://shirolin.github.io/postpress/it/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://shirolin.github.io/postpress/pt-br/" />
+    <link rel="alternate" hreflang="ru" href="https://shirolin.github.io/postpress/ru/" />
+    <link rel="alternate" hreflang="tr" href="https://shirolin.github.io/postpress/tr/" />
+    <link rel="alternate" hreflang="uk" href="https://shirolin.github.io/postpress/uk/" />
+    <link rel="alternate" hreflang="id" href="https://shirolin.github.io/postpress/id/" />
+    <link rel="alternate" hreflang="x-default" href="https://shirolin.github.io/postpress/" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta property="og:locale:alternate" content="id_ID" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "PostPress",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Chrome, Edge",
+            "url": "https://shirolin.github.io/postpress/fr/",
+            "downloadUrl": "https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai",
+            "sameAs": "https://github.com/Shirolin/postpress",
+            "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+            "softwareVersion": "1.3.1",
+            "author": {
+              "@type": "Person",
+              "name": "Shirolin",
+              "url": "https://github.com/Shirolin"
+            },
+            "image": "https://shirolin.github.io/postpress/assets/cards/og-en.jpg",
+            "description": "Transformez un tweet en image en un clic. Copiez posts et fils X en cartes PNG 3× dans le presse-papiers—12 styles, 100 % local, sans connexion.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Pourquoi ne pas simplement faire une capture d’écran ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Recadrer à la main oblige à esquiver les réponses, recoller les longs fils sur plusieurs captures et subir le DPI de l’écran comme l’interface du navigateur. Un clic sur PostPress met en page tout le post ou fil selon les règles du thème et place un 3× net dans votre presse-papiers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Une longue carte devient-elle floue dans le fil ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Un post seul est exporté en 3×. Un fil très long passe en 2× par défaut pour rester sous le plafond de taille ; s’il risque d’être trop petit à lire, le panneau avertit et suggère de le découper. Un bouton 3× global existe dans les réglages d’export."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Faut-il se connecter ou lier un compte X ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Non. Il n’y a aucun système de compte : l’extension lit uniquement ce que la page affiche déjà et ne touche jamais à vos identifiants."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Est-ce que quelque chose est envoyé en ligne ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Non. L’image va vers votre presse-papiers et votre disque ; fermer l’aperçu libère le reste. Aucun contenu de post n’est conservé."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Puis-je l’utiliser commercialement ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Le logiciel est sous licence GPL-3.0-or-later et libre d’usage commercial. Les textes et images d’une carte appartiennent toujours à leurs auteurs ; vérifiez avant de redistribuer."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quels navigateurs sont compatibles ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Chrome et Edge, à partir de Chrome 111 (Manifest V3). Firefox et Safari ne sont pas encore pris en charge : l’extension repose sur les API d’extension Chromium."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Comment capturer un tweet sans les réponses ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Cliquez sur le bouton carte PostPress du post (ou survolez et appuyez sur Alt + C). PostPress lit uniquement ce post—ou les posts consécutifs du même auteur dans un fil—et exclut automatiquement publicités et réponses tierces. Si un post du fil est de trop, excluez-le d’un clic avant de copier."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Puis-je transformer un tweet en PNG ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Oui. PostPress rend la carte localement dans votre navigateur et copie un PNG 3× directement dans votre presse-papiers (ou télécharge le fichier PNG sur votre disque). Les fils très longs restent en 2× par défaut pour respecter la limite de taille, avec une option 3× dans les réglages d’export."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="icon" href="../assets/favicon.png" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      (function () {
+        try {
+          var q = new URLSearchParams(location.search).get('theme');
+          var t = q === 'light' || q === 'dark' ? q : localStorage.getItem('pp-theme');
+          if (t === 'light') document.documentElement.dataset.theme = 'light';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Aller au contenu</a>
+
+    <div class="hero" id="top">
+      <div class="hero-left">
+        <header class="bar">
+          <a class="brand" href="#top" aria-label="PostPress">
+            <svg class="mark" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+              <rect x="3" y="3.75" width="18" height="10.5" rx="3" fill="#6CC59C" stroke="#1E5A44" stroke-width="1.5" />
+              <path d="M3.75 7.75V6.9A2.4 2.4 0 0 1 6.15 4.5H17.85A2.4 2.4 0 0 1 20.25 6.9V7.75Z" fill="#A6E2C6" />
+              <rect x="5.75" y="11" width="12.5" height="1.6" rx=".875" fill="#1E5A44" />
+              <g fill="#142019"><ellipse cx="9.5" cy="8.1" rx="1.4" ry="1.9" /><ellipse cx="14.5" cy="8.1" rx="1.4" ry="1.9" /></g>
+              <g fill="#fff"><circle cx="10" cy="7.25" r=".55" /><circle cx="15" cy="7.25" r=".55" /></g>
+              <path d="M7.5 11.75h9v7.5A1.75 1.75 0 0 1 14.75 21h-5.5A1.75 1.75 0 0 1 7.5 19.25Z" fill="#F8F8F5" stroke="#1E5A44" stroke-width="1.5" stroke-linejoin="round" />
+              <circle cx="10" cy="15.4" r="1.05" fill="#6CC59C" />
+              <g stroke="#6CC59C" stroke-width="1.3" stroke-linecap="round"><path d="M12.1 15.4h2.2" /><path d="M9.6 18.3h4.8" /></g>
+            </svg>
+            <span class="brand-name">PostPress</span>
+          </a>
+          <nav class="bar-nav" aria-label="Navigation de la page">
+            <a href="#thread">Fils</a>
+            <a href="#article">Articles</a>
+            <a href="#privacy">Confidentialité</a>
+            <a href="#install">Installer</a>
+          </nav>
+          <button class="lang" id="theme" type="button" aria-label="Passer à la version claire">Clair</button>
+          <select class="lang lang-select" id="lang" aria-label="Langue">
+            <option value="en" data-href="../">English</option>
+            <option value="zh" data-href="../zh/">简体中文</option>
+            <option value="zh-tw" data-href="../zh-tw/">繁體中文</option>
+            <option value="ja" data-href="../ja/">日本語</option>
+            <option value="ko" data-href="../ko/">한국어</option>
+            <option value="de" data-href="../de/">Deutsch</option>
+            <option value="fr" data-href="../fr/" selected>Français</option>
+            <option value="es" data-href="../es/">Español</option>
+            <option value="it" data-href="../it/">Italiano</option>
+            <option value="pt-br" data-href="../pt-br/">Português</option>
+            <option value="ru" data-href="../ru/">Русский</option>
+            <option value="tr" data-href="../tr/">Türkçe</option>
+            <option value="uk" data-href="../uk/">Українська</option>
+            <option value="id" data-href="../id/">Bahasa Indonesia</option>
+          </select>
+        </header>
+
+        <div class="hero-copy">
+          <h1>Copiez chaque post en carte.</h1>
+          <p class="hero-sub">
+            Oubliez le recadrage manuel et les captures d’écran. Cliquez sur le bouton d’un post (ou appuyez sur Alt + C) pour copier un post ou un fil du même auteur en carte 3× nette dans votre presse-papiers. Douze thèmes, rendus entièrement sur votre machine.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Ajouter depuis le Chrome Web Store</a>
+            <a class="link" href="https://github.com/Shirolin/postpress">Code source et docs</a>
+          </div>
+          <p class="hero-meta">
+            Gratuit et open source · GPL-3.0-or-later · Chrome / Edge (Manifest V3, dès Chrome 111)
+          </p>
+          <ul class="facts">
+            <li><b>12</b><span>thèmes</span></li>
+            <li><b>4</b><span>formats de fond</span></li>
+            <li><b>14</b><span>langues d’interface</span></li>
+            <li><b>3×</b><span>copie Retina</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-stage" id="studio">
+        <a class="repo" href="https://github.com/Shirolin/postpress">GitHub</a>
+        <div class="studio" data-ui>
+          <figure class="studio-card">
+            <img
+              id="specimen-img"
+              src="../assets/cards/midnight.webp"
+              alt="Thème Minuit : exemple de post rendu en carte."
+              width="1280"
+              height="1315"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </figure>
+          <div class="rack">
+            <p class="rack-label" id="rack-label">Choisissez un thème</p>
+            <div class="rack-list" role="group" aria-labelledby="rack-label">
+              <button class="material" type="button" data-material="minimal" aria-pressed="false">
+                <img src="../assets/cards/thumb-minimal.webp" alt="" width="320" height="328" loading="lazy" decoding="async" /><span>Minimal</span>
+              </button>
+              <button class="material" type="button" data-material="midnight" aria-pressed="true">
+                <img src="../assets/cards/thumb-midnight.webp" alt="" width="320" height="329" loading="lazy" decoding="async" /><span>Minuit</span>
+              </button>
+              <button class="material" type="button" data-material="glass" aria-pressed="false">
+                <img src="../assets/cards/thumb-glass.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Verre liquide</span>
+              </button>
+              <button class="material" type="button" data-material="material" aria-pressed="false">
+                <img src="../assets/cards/thumb-material.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Material 3</span>
+              </button>
+              <button class="material" type="button" data-material="gallery" aria-pressed="false">
+                <img src="../assets/cards/thumb-gallery.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Galerie</span>
+              </button>
+              <button class="material" type="button" data-material="darkroom" aria-pressed="false">
+                <img src="../assets/cards/thumb-darkroom.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Chambre noire</span>
+              </button>
+              <button class="material" type="button" data-material="riso" aria-pressed="false">
+                <img src="../assets/cards/thumb-riso.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Riso</span>
+              </button>
+              <button class="material" type="button" data-material="sumi" aria-pressed="false">
+                <img src="../assets/cards/thumb-sumi.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Sumi</span>
+              </button>
+              <button class="material" type="button" data-material="clay" aria-pressed="false">
+                <img src="../assets/cards/thumb-clay.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Argile</span>
+              </button>
+              <button class="material" type="button" data-material="terminal" aria-pressed="false">
+                <img src="../assets/cards/thumb-terminal.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span>Terminal</span>
+              </button>
+              <button class="material" type="button" data-material="receipt" aria-pressed="false">
+                <img src="../assets/cards/thumb-receipt.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span>Ticket</span>
+              </button>
+              <button class="material" type="button" data-material="brutalist" aria-pressed="false">
+                <img src="../assets/cards/thumb-brutalist.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Brutaliste</span>
+              </button>
+            </div>
+          </div>
+          <p class="cap">
+            <span class="cap-name" id="cap-name">Minuit</span>
+            <span class="cap-note" id="cap-note">Fond profond et texte clair, reposant la nuit.</span>
+            <span class="cap-tokens" aria-hidden="true">
+              <i style="background: #181b22"></i><!-- taste-skill-ignore material surface colour, not page theme -->
+              <i style="background: #f0f2f5"></i><i style="background: #7aa2ff"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="sec thread" id="thread">
+        <div class="thread-text">
+          <h2>Les fils s’assemblent d’eux-mêmes.</h2>
+          <p>
+            Les posts d’un même fil sont réunis par auteur et par date, sans publicités ni réponses parasites. Deux sources : d’abord le cache GraphQL de X, puis le DOM rendu s’il n’y a rien en cache. Tout post que vous ne voulez pas montrer s’exclut en un clic.
+          </p>
+        </div>
+        <figure class="thread-figure">
+          <img
+            class="drift"
+            data-card="thread"
+            src="../assets/cards/thread-midnight.webp"
+            alt="Exemple de carte : trois posts d’un même auteur, deux avec photos et un citant un autre post."
+            width="900"
+            height="1745"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Trois posts d’un même auteur dont une citation : toute la carte prête à exporter.</figcaption>
+        </figure>
+        <div class="thread-data">
+          <dl class="thread-stats">
+            <div><dt>Posts</dt><dd>3</dd></div>
+            <div><dt>Photos</dt><dd>2</dd></div>
+            <div><dt>Citation</dt><dd>1</dd></div>
+            <div><dt>Export</dt><dd>1472 × 2854</dd></div>
+          </dl>
+          <ul class="ticks">
+            <li>Les posts consécutifs d’un même auteur sont réunis ; pubs et réponses tierces restent hors cadre</li>
+            <li>Les longs fils s’exportent en 2× par défaut, sous la limite de taille</li>
+            <li>Si une carte risque d’être trop petite dans un fil, le panneau vous prévient avant l’export</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec guide" id="screenshot-guide">
+        <div class="guide-content">
+          <h2>Comment capturer un tweet sans le superflu</h2>
+          <p class="guide-intro">
+            On fait souvent une capture de tweet pour illustrer une présentation, une newsletter ou un chat—et on se retrouve avec les réponses, les barres latérales et du texte flou. Il existe trois façons courantes de transformer un tweet en image, chacune avec un compromis clair.
+          </p>
+          <ol class="guide-methods">
+            <li>
+              <h3>Capture sur téléphone</h3>
+              <p>
+                Appuyez sur les boutons physiques sous iOS ou Android, puis recadrez la barre d’état, les icônes et la première réponse en dessous. C’est rapide pour un post court, mais au prix d’une définition figée à l’écran, de marges inégales et de l’impossibilité de capturer un long fil sans recoller plusieurs images à la main.
+              </p>
+            </li>
+            <li>
+              <h3>Capture de zone sur navigateur</h3>
+              <p>
+                Utilisez l’outil de capture du système ou un raccourci du navigateur pour tracer un rectangle autour du post sur ordinateur. Vous maîtrisez un peu mieux le cadrage que sur mobile, mais vous restez tributaire du DPI de l’écran, des éléments d’interface ou états de survol, et devez recadrer dès qu’une citation ou grille photo touche le bord.
+              </p>
+            </li>
+            <li>
+              <h3>Rendre le post en carte</h3>
+              <p>
+                Plutôt que de photographier les pixels de l’écran, on lit le texte, les médias et la structure du fil pour les recomposer sur une toile propre. Le revers des outils en ligne est de devoir coller l’URL sur un serveur tiers, subir les quotas d’API, les filigranes ou les fils coupés.
+              </p>
+            </li>
+          </ol>
+          <p class="guide-outro">
+            PostPress adopte cette troisième voie entièrement dans votre navigateur : cliquez sur le bouton carte de n’importe quel post X (ou appuyez sur Alt + C), choisissez un thème et copiez un PNG 3× net dans votre presse-papiers—réponses et pubs filtrées, sans serveur et sans connexion.
+          </p>
+        </div>
+        <figure class="guide-figure">
+          <img
+            src="../assets/cards/midnight.webp"
+            alt="Un tweet rendu localement dans le thème Minuit, sans bordure de navigateur ni réponses."
+            width="1280"
+            height="1315"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Un tweet rendu localement dans le thème Minuit—sans interface du navigateur ni réponses parasites.</figcaption>
+        </figure>
+      </section>
+
+      <section class="sec article" id="article">
+        <div class="sec-head article-head">
+          <h2>Articles, citations et grilles photo suivent.</h2>
+        </div>
+        <div class="article-body">
+          <figure class="article-figure">
+            <div class="showcase-tabs" role="tablist" aria-label="Exemples de mise en page">
+              <button class="showcase-tab" type="button" role="tab" data-showcase="article" aria-selected="true">Article X</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="quad" aria-selected="false">Quad sans recadrage</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="grid20" aria-selected="false">Grille 20 images</button>
+            </div>
+            <img
+              id="article-img"
+              class="drift"
+              data-card="article"
+              src="../assets/cards/article-midnight.webp"
+              alt="Exemple de carte : un Article X avec image de couverture, rubrique, titre et première ligne."
+              width="1100"
+              height="1143"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="article-side">
+            <p class="article-lead">
+              Un Article X fait ressortir sa couverture et son chapô ; un post cité est plein ou encadré selon le thème ; de une à vingt images gardent leurs proportions dans la grille, quatre par ligne au-delà de quatre (Remplir les recadre en carré).
+            </p>
+            <p class="article-lede">« Pas un filtre — du papier, des filets et de la typographie au bon ratio. »</p>
+            <ul class="article-points">
+              <li>
+                <b>Article</b>
+                <span>Couverture, rubrique, titre et amorce sortent ensemble.</span>
+              </li>
+              <li>
+                <b>Citation</b>
+                <span>Fond plein ou filet, fidèle au thème choisi.</span>
+              </li>
+              <li>
+                <b>Images</b>
+                <span>De une à vingt images conservent leurs proportions sans découpe carrée ; quatre par ligne au-delà de quatre, sauf en mode Remplir.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec switches" id="switches">
+        <div class="sec-head">
+          <h2>Huit réglages, un seul Studio.</h2>
+          <p class="lead">
+            Thème, format, fond, pied de carte, floutage de l’auteur et résolution d’export vivent dans cette même fenêtre Studio ; chaque clic met à jour l’aperçu en direct. Vos choix sont mémorisés pour copier en un geste au quotidien.
+          </p>
+        </div>
+        <div class="switches-body">
+          <figure class="panel-shot">
+            <img
+              data-card="panel"
+              src="../assets/cards/panel-midnight.webp"
+              alt="La vraie fenêtre Studio de PostPress : aperçu en direct à gauche, réglages de thème, format, pied de carte, floutage et copie à droite."
+              width="1280"
+              height="869"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>La vraie fenêtre Studio : aperçu à gauche et réglages à droite synchronisés en direct.</figcaption>
+          </figure>
+          <div class="switch-list">
+            <figure>
+              <img data-card="switch-full" src="../assets/cards/switch-full-midnight.webp" alt="Exemple de carte avec QR code, compteurs, date et signature activés." width="900" height="523" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">Tout activé</span>
+                <span>QR, compteurs, date, crédit.</span>
+              </figcaption>
+            </figure>
+            <figure>
+              <img data-card="switch-plain" src="../assets/cards/switch-plain-midnight.webp" alt="Exemple de carte avec pied masqué, ne gardant que le texte du post." width="900" height="434" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">Sans pied</span>
+                <span>Le contenu seul.</span>
+              </figcaption>
+            </figure>
+            <figure>
+              <img data-card="switch-blur" src="../assets/cards/switch-blur-midnight.webp" alt="Exemple de carte avec l’auteur et l’auteur cité floutés." width="900" height="434" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">Flouté</span>
+                <span>Auteur et auteur cité ensemble.</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec privacy" id="privacy">
+        <div class="privacy-text">
+          <h2>Tout tourne sur votre machine, de bout en bout.</h2>
+          <p>
+            Aucun compte, aucun serveur, aucune télémétrie. La mise en page s’effectue dans un Shadow DOM isolé et l’export est dessiné par le canvas du navigateur. Hormis le chargement des images déjà présentes dans votre carte depuis les hôtes de X, rien ne sort de votre ordinateur.
+          </p>
+          <p class="note">
+            Ne lit pas votre fil d’actualité, ne demande ni compte X ni API X. Non affilié à X Corp.
+          </p>
+        </div>
+        <ul class="perms">
+          <li>
+            <code>clipboardWrite</code>
+            <span>Écrit l’image finale dans votre presse-papiers uniquement lorsque vous cliquez sur Copier.</span>
+          </li>
+          <li>
+            <code>storage</code>
+            <span>Mémorise vos thèmes, formats et réglages localement uniquement.</span>
+          </li>
+          <li>
+            <code>*.twimg.com</code>
+            <span>Récupère les images de la carte. Sans cela, un canvas ne peut pas lire d’images cross-origin.</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="sec install" id="install">
+        <div class="sec-head">
+          <h2>Dans votre navigateur.</h2>
+          <p class="lead">
+            Installez depuis le Chrome Web Store en un clic, ou dépliez ci-dessous la compilation en trois étapes depuis les sources.
+          </p>
+        </div>
+        <div class="install-primary">
+          <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Ajouter depuis le Chrome Web Store</a>
+          <a class="link" href="https://github.com/Shirolin/postpress">Ouvrir le dépôt GitHub</a>
+          <p class="note">Publié sous GPL-3.0-or-later : redistribuez vos modifications sous la même licence.</p>
+        </div>
+        <details class="install-source">
+          <summary>Pour les développeurs : compiler depuis les sources (3 étapes)</summary>
+          <ol class="steps">
+            <li>
+              <h3>Compiler</h3>
+              <p>Clonez le dépôt, installez les dépendances et compilez. La sortie va dans <code>dist/</code>.</p>
+            </li>
+            <li>
+              <h3>Charger</h3>
+              <p>
+                Ouvrez <code>chrome://extensions</code>, activez le mode développeur, cliquez sur Charger l’extension non empaquetée et choisissez le dossier <code>dist/</code>.
+              </p>
+            </li>
+            <li>
+              <h3>Utiliser</h3>
+              <p>Cliquez sur le bouton carte d’un post (ou survolez et faites <kbd>Alt</kbd> + <kbd>C</kbd>), cliquez sur Copier l’image et collez où vous voulez.</p>
+            </li>
+          </ol>
+          <div class="install-code">
+            <pre><code>git clone https://github.com/Shirolin/postpress.git
+cd postpress
+pnpm install
+pnpm run build   <span class="c"># → dist/</span></code></pre>
+          </div>
+        </details>
+      </section>
+
+      <section class="sec faq" id="faq">
+        <div class="faq-row faq-head">
+          <h2>Questions fréquentes</h2>
+          <p class="lead">Huit vraies questions, leurs réponses à droite.</p>
+        </div>
+        <div class="faq-row">
+          <h3>Pourquoi ne pas simplement faire une capture d’écran ?</h3>
+          <p>
+            Recadrer à la main oblige à esquiver les réponses, recoller les longs fils sur plusieurs captures et subir le DPI de l’écran comme l’interface du navigateur. Un clic sur PostPress met en page tout le post ou fil selon les règles du thème et place un 3× net dans votre presse-papiers.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>Une longue carte devient-elle floue dans le fil ?</h3>
+          <p>
+            Un post seul est exporté en 3×. Un fil très long passe en 2× par défaut pour rester sous le plafond de taille ; s’il risque d’être trop petit à lire, le panneau avertit et suggère de le découper. Un bouton 3× global existe dans les réglages d’export.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>Faut-il se connecter ou lier un compte X ?</h3>
+          <p>
+            Non. Il n’y a aucun système de compte : l’extension lit uniquement ce que la page affiche déjà et ne touche jamais à vos identifiants.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>Est-ce que quelque chose est envoyé en ligne ?</h3>
+          <p>
+            Non. L’image va vers votre presse-papiers et votre disque ; fermer l’aperçu libère le reste. Aucun contenu de post n’est conservé.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>Puis-je l’utiliser commercialement ?</h3>
+          <p>
+            Le logiciel est sous licence GPL-3.0-or-later et libre d’usage commercial. Les textes et images d’une carte appartiennent toujours à leurs auteurs ; vérifiez avant de redistribuer.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>Quels navigateurs sont compatibles ?</h3>
+          <p>
+            Chrome et Edge, à partir de Chrome 111 (Manifest V3). Firefox et Safari ne sont pas encore pris en charge : l’extension repose sur les API d’extension Chromium.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>Comment capturer un tweet sans les réponses ?</h3>
+          <p>
+            Cliquez sur le bouton carte PostPress du post (ou survolez et appuyez sur Alt + C). PostPress lit uniquement ce post—ou les posts consécutifs du même auteur dans un fil—et exclut automatiquement publicités et réponses tierces. Si un post du fil est de trop, excluez-le d’un clic avant de copier.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>Puis-je transformer un tweet en PNG ?</h3>
+          <p>
+            Oui. PostPress rend la carte localement dans votre navigateur et copie un PNG 3× directement dans votre presse-papiers (ou télécharge le fichier PNG sur votre disque). Les fils très longs restent en 2× par défaut pour respecter la limite de taille, avec une option 3× dans les réglages d’export.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <section class="close" id="close">
+      <h2 class="close-line">Votre prochain post mérite du papier.</h2>
+      <div class="close-foot">
+        <p>Installez une fois, puis retrouvez-le dans la barre d’actions de chaque post. Un clic vers le presse-papiers, prêt à coller partout.</p>
+        <a class="btn btn-dark" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Ajouter depuis le Chrome Web Store</a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot-top">
+        <p class="foot-brand">PostPress</p>
+        <nav aria-label="Liens">
+          <a href="https://github.com/Shirolin/postpress">GitHub</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/README.md">README</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/PRIVACY.md">Confidentialité</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/LICENSE">Licence</a>
+        </nav>
+      </div>
+      <p class="foot-credit">
+        Photographies d’exemple via Unsplash (Unsplash License) : @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting et @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind et @postpress_ext sont des comptes d’exemple fictifs.
+      </p>
+      <p class="foot-legal">
+        <span>GPL-3.0-or-later</span> · X (Twitter) est une marque de X Corp., sans affiliation.
+      </p>
+    </footer>
+
+    <script id="pp-i18n" type="application/json">{"lang":"fr","themeLabel":{"light":"Clair","dark":"Sombre"},"themeAria":{"light":"Passer à la version claire","dark":"Passer à la version sombre"},"specCardAltTemplate":"Thème {name} : exemple de post rendu en carte.","articleAlts":{"article":"Exemple de carte : un Article X avec image de couverture, rubrique, titre et première ligne.","quad":"Exemple de carte : quatre photos d’architecture 3:2 dans Galerie, alignées sans recadrage en mode Ajuster.","grid20":"Exemple de carte : un post de 20 images disposé proprement sur 4 colonnes équilibrées."},"materials":{"minimal":{"name":"Minimal","note":"Blanc chaud, sans cadre, rien que la typographie."},"midnight":{"name":"Minuit","note":"Fond profond et texte clair, reposant la nuit."},"glass":{"name":"Verre liquide","note":"Panneau translucide bordé d’un fin reflet."},"material":{"name":"Material 3","note":"Blocs tonals et angles arrondis Material 3."},"gallery":{"name":"Galerie","note":"Cartel mural et filet de montage, façon musée."},"darkroom":{"name":"Chambre noire","note":"Planche-contact : numéros de vue, marges, gris argentique."},"riso":{"name":"Riso","note":"Encres fluo, passe décalée et grain de papier."},"sumi":{"name":"Sumi","note":"Papier de riz, encre diluée et sceau vermillon."},"clay":{"name":"Argile","note":"Doux et arrondi, comme modelé à la main."},"terminal":{"name":"Terminal","note":"Chasse fixe, lignes de balayage, vert console."},"receipt":{"name":"Ticket","note":"Papier thermique, pointillés, chasse fixe serrée."},"brutalist":{"name":"Brutaliste","note":"Cadre dur 3px et jaune fluo. Expérimental."}}}</script>
+    <script src="../app.js" defer></script>
+  </body>
+</html>

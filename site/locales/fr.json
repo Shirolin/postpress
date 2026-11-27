@@ -1,0 +1,179 @@
+{
+  "brandName": "PostPress",
+  "brandCnSuffix": "",
+  "skip": "Aller au contenu",
+  "navAriaLabel": "Navigation de la page",
+  "langAriaLabel": "Langue",
+  "meta": {
+    "title": "PostPress : capture de tweet propre pour X",
+    "description": "Transformez un tweet en image en un clic. Copiez posts et fils X en cartes PNG 3× dans le presse-papiers—12 styles, 100 % local, sans connexion.",
+    "ogDescription": "Transformez un tweet en image en un clic. Copiez posts et fils X en cartes PNG 3× dans le presse-papiers—12 styles, 100 % local, sans connexion.",
+    "ogImageAlt": "PostPress : copiez les posts X en cartes 3× de qualité imprimée",
+    "siteName": "PostPress",
+    "appDescription": "Transformez un tweet en image en un clic. Copiez posts et fils X en cartes PNG 3× dans le presse-papiers—12 styles, 100 % local, sans connexion."
+  },
+  "nav": {
+    "thread": "Fils",
+    "article": "Articles",
+    "privacy": "Confidentialité",
+    "install": "Installer"
+  },
+  "themeToggle": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "ariaToLight": "Passer à la version claire",
+    "ariaToDark": "Passer à la version sombre"
+  },
+  "hero": {
+    "h1": "Copiez chaque post en carte.",
+    "sub": "Oubliez le recadrage manuel et les captures d’écran. Cliquez sur le bouton d’un post (ou appuyez sur Alt + C) pour copier un post ou un fil du même auteur en carte 3× nette dans votre presse-papiers. Douze thèmes, rendus entièrement sur votre machine.",
+    "meta": "Gratuit et open source · GPL-3.0-or-later · Chrome / Edge (Manifest V3, dès Chrome 111)"
+  },
+  "cta": {
+    "install": "Ajouter depuis le Chrome Web Store",
+    "install2": "Ajouter depuis le Chrome Web Store",
+    "source": "Code source et docs"
+  },
+  "facts": {
+    "materials": "thèmes",
+    "canvas": "formats de fond",
+    "locales": "langues d’interface",
+    "export": "copie Retina"
+  },
+  "spec": {
+    "pick": "Choisissez un thème",
+    "cardAltTemplate": "Thème {name} : exemple de post rendu en carte."
+  },
+  "materials": {
+    "minimal": { "name": "Minimal", "note": "Blanc chaud, sans cadre, rien que la typographie." },
+    "midnight": { "name": "Minuit", "note": "Fond profond et texte clair, reposant la nuit." },
+    "glass": { "name": "Verre liquide", "note": "Panneau translucide bordé d’un fin reflet." },
+    "material": { "name": "Material 3", "note": "Blocs tonals et angles arrondis Material 3." },
+    "gallery": { "name": "Galerie", "note": "Cartel mural et filet de montage, façon musée." },
+    "darkroom": { "name": "Chambre noire", "note": "Planche-contact : numéros de vue, marges, gris argentique." },
+    "riso": { "name": "Riso", "note": "Encres fluo, passe décalée et grain de papier." },
+    "sumi": { "name": "Sumi", "note": "Papier de riz, encre diluée et sceau vermillon." },
+    "clay": { "name": "Argile", "note": "Doux et arrondi, comme modelé à la main." },
+    "terminal": { "name": "Terminal", "note": "Chasse fixe, lignes de balayage, vert console." },
+    "receipt": { "name": "Ticket", "note": "Papier thermique, pointillés, chasse fixe serrée." },
+    "brutalist": { "name": "Brutaliste", "note": "Cadre dur 3px et jaune fluo. Expérimental." }
+  },
+  "thread": {
+    "h2": "Les fils s’assemblent d’eux-mêmes.",
+    "body": "Les posts d’un même fil sont réunis par auteur et par date, sans publicités ni réponses parasites. Deux sources : d’abord le cache GraphQL de X, puis le DOM rendu s’il n’y a rien en cache. Tout post que vous ne voulez pas montrer s’exclut en un clic.",
+    "imgAlt": "Exemple de carte : trois posts d’un même auteur, deux avec photos et un citant un autre post.",
+    "cap": "Trois posts d’un même auteur dont une citation : toute la carte prête à exporter.",
+    "d1": "Posts",
+    "d2": "Photos",
+    "d3": "Citation",
+    "d4": "Export",
+    "tick1": "Les posts consécutifs d’un même auteur sont réunis ; pubs et réponses tierces restent hors cadre",
+    "tick2": "Les longs fils s’exportent en 2× par défaut, sous la limite de taille",
+    "tick3": "Si une carte risque d’être trop petite dans un fil, le panneau vous prévient avant l’export"
+  },
+  "guide": {
+    "h2": "Comment capturer un tweet sans le superflu",
+    "intro": "On fait souvent une capture de tweet pour illustrer une présentation, une newsletter ou un chat—et on se retrouve avec les réponses, les barres latérales et du texte flou. Il existe trois façons courantes de transformer un tweet en image, chacune avec un compromis clair.",
+    "m1t": "Capture sur téléphone",
+    "m1": "Appuyez sur les boutons physiques sous iOS ou Android, puis recadrez la barre d’état, les icônes et la première réponse en dessous. C’est rapide pour un post court, mais au prix d’une définition figée à l’écran, de marges inégales et de l’impossibilité de capturer un long fil sans recoller plusieurs images à la main.",
+    "m2t": "Capture de zone sur navigateur",
+    "m2": "Utilisez l’outil de capture du système ou un raccourci du navigateur pour tracer un rectangle autour du post sur ordinateur. Vous maîtrisez un peu mieux le cadrage que sur mobile, mais vous restez tributaire du DPI de l’écran, des éléments d’interface ou états de survol, et devez recadrer dès qu’une citation ou grille photo touche le bord.",
+    "m3t": "Rendre le post en carte",
+    "m3": "Plutôt que de photographier les pixels de l’écran, on lit le texte, les médias et la structure du fil pour les recomposer sur une toile propre. Le revers des outils en ligne est de devoir coller l’URL sur un serveur tiers, subir les quotas d’API, les filigranes ou les fils coupés.",
+    "outro": "PostPress adopte cette troisième voie entièrement dans votre navigateur : cliquez sur le bouton carte de n’importe quel post X (ou appuyez sur Alt + C), choisissez un thème et copiez un PNG 3× net dans votre presse-papiers—réponses et pubs filtrées, sans serveur et sans connexion.",
+    "imgAlt": "Un tweet rendu localement dans le thème Minuit, sans bordure de navigateur ni réponses.",
+    "cap": "Un tweet rendu localement dans le thème Minuit—sans interface du navigateur ni réponses parasites."
+  },
+  "article": {
+    "h2": "Articles, citations et grilles photo suivent.",
+    "tablistAria": "Exemples de mise en page",
+    "tab1": "Article X",
+    "tab2": "Quad sans recadrage",
+    "tab3": "Grille 20 images",
+    "lead": "Un Article X fait ressortir sa couverture et son chapô ; un post cité est plein ou encadré selon le thème ; de une à vingt images gardent leurs proportions dans la grille, quatre par ligne au-delà de quatre (Remplir les recadre en carré).",
+    "lede": "« Pas un filtre — du papier, des filets et de la typographie au bon ratio. »",
+    "s1t": "Article",
+    "s1": "Couverture, rubrique, titre et amorce sortent ensemble.",
+    "s2t": "Citation",
+    "s2": "Fond plein ou filet, fidèle au thème choisi.",
+    "s3t": "Images",
+    "s3": "De une à vingt images conservent leurs proportions sans découpe carrée ; quatre par ligne au-delà de quatre, sauf en mode Remplir.",
+    "alts": {
+      "article": "Exemple de carte : un Article X avec image de couverture, rubrique, titre et première ligne.",
+      "quad": "Exemple de carte : quatre photos d’architecture 3:2 dans Galerie, alignées sans recadrage en mode Ajuster.",
+      "grid20": "Exemple de carte : un post de 20 images disposé proprement sur 4 colonnes équilibrées."
+    }
+  },
+  "switch": {
+    "h2": "Huit réglages, un seul Studio.",
+    "lead": "Thème, format, fond, pied de carte, floutage de l’auteur et résolution d’export vivent dans cette même fenêtre Studio ; chaque clic met à jour l’aperçu en direct. Vos choix sont mémorisés pour copier en un geste au quotidien.",
+    "panelAlt": "La vraie fenêtre Studio de PostPress : aperçu en direct à gauche, réglages de thème, format, pied de carte, floutage et copie à droite.",
+    "panelCap": "La vraie fenêtre Studio : aperçu à gauche et réglages à droite synchronisés en direct.",
+    "cap1": "Tout activé",
+    "cap1Alt": "Exemple de carte avec QR code, compteurs, date et signature activés.",
+    "cap1b": "QR, compteurs, date, crédit.",
+    "cap2": "Sans pied",
+    "cap2Alt": "Exemple de carte avec pied masqué, ne gardant que le texte du post.",
+    "cap2b": "Le contenu seul.",
+    "cap3": "Flouté",
+    "cap3Alt": "Exemple de carte avec l’auteur et l’auteur cité floutés.",
+    "cap3b": "Auteur et auteur cité ensemble."
+  },
+  "privacy": {
+    "h2": "Tout tourne sur votre machine, de bout en bout.",
+    "body": "Aucun compte, aucun serveur, aucune télémétrie. La mise en page s’effectue dans un Shadow DOM isolé et l’export est dessiné par le canvas du navigateur. Hormis le chargement des images déjà présentes dans votre carte depuis les hôtes de X, rien ne sort de votre ordinateur.",
+    "note": "Ne lit pas votre fil d’actualité, ne demande ni compte X ni API X. Non affilié à X Corp.",
+    "p1": "Écrit l’image finale dans votre presse-papiers uniquement lorsque vous cliquez sur Copier.",
+    "p2": "Mémorise vos thèmes, formats et réglages localement uniquement.",
+    "p3": "Récupère les images de la carte. Sans cela, un canvas ne peut pas lire d’images cross-origin."
+  },
+  "install": {
+    "h2": "Dans votre navigateur.",
+    "lead": "Installez depuis le Chrome Web Store en un clic, ou dépliez ci-dessous la compilation en trois étapes depuis les sources.",
+    "store": "Ajouter depuis le Chrome Web Store",
+    "cta": "Ouvrir le dépôt GitHub",
+    "note": "Publié sous GPL-3.0-or-later : redistribuez vos modifications sous la même licence.",
+    "sourceSummary": "Pour les développeurs : compiler depuis les sources (3 étapes)",
+    "s1t": "Compiler",
+    "s1": "Clonez le dépôt, installez les dépendances et compilez. La sortie va dans <code>dist/</code>.",
+    "s2t": "Charger",
+    "s2": "Ouvrez <code>chrome://extensions</code>, activez le mode développeur, cliquez sur Charger l’extension non empaquetée et choisissez le dossier <code>dist/</code>.",
+    "s3t": "Utiliser",
+    "s3": "Cliquez sur le bouton carte d’un post (ou survolez et faites <kbd>Alt</kbd> + <kbd>C</kbd>), cliquez sur Copier l’image et collez où vous voulez."
+  },
+  "faq": {
+    "h2": "Questions fréquentes",
+    "lead": "Huit vraies questions, leurs réponses à droite.",
+    "q1": "Pourquoi ne pas simplement faire une capture d’écran ?",
+    "a1": "Recadrer à la main oblige à esquiver les réponses, recoller les longs fils sur plusieurs captures et subir le DPI de l’écran comme l’interface du navigateur. Un clic sur PostPress met en page tout le post ou fil selon les règles du thème et place un 3× net dans votre presse-papiers.",
+    "q2": "Une longue carte devient-elle floue dans le fil ?",
+    "a2": "Un post seul est exporté en 3×. Un fil très long passe en 2× par défaut pour rester sous le plafond de taille ; s’il risque d’être trop petit à lire, le panneau avertit et suggère de le découper. Un bouton 3× global existe dans les réglages d’export.",
+    "q3": "Faut-il se connecter ou lier un compte X ?",
+    "a3": "Non. Il n’y a aucun système de compte : l’extension lit uniquement ce que la page affiche déjà et ne touche jamais à vos identifiants.",
+    "q4": "Est-ce que quelque chose est envoyé en ligne ?",
+    "a4": "Non. L’image va vers votre presse-papiers et votre disque ; fermer l’aperçu libère le reste. Aucun contenu de post n’est conservé.",
+    "q5": "Puis-je l’utiliser commercialement ?",
+    "a5": "Le logiciel est sous licence GPL-3.0-or-later et libre d’usage commercial. Les textes et images d’une carte appartiennent toujours à leurs auteurs ; vérifiez avant de redistribuer.",
+    "q6": "Quels navigateurs sont compatibles ?",
+    "a6": "Chrome et Edge, à partir de Chrome 111 (Manifest V3). Firefox et Safari ne sont pas encore pris en charge : l’extension repose sur les API d’extension Chromium.",
+    "q7": "Comment capturer un tweet sans les réponses ?",
+    "a7": "Cliquez sur le bouton carte PostPress du post (ou survolez et appuyez sur Alt + C). PostPress lit uniquement ce post—ou les posts consécutifs du même auteur dans un fil—et exclut automatiquement publicités et réponses tierces. Si un post du fil est de trop, excluez-le d’un clic avant de copier.",
+    "q8": "Puis-je transformer un tweet en PNG ?",
+    "a8": "Oui. PostPress rend la carte localement dans votre navigateur et copie un PNG 3× directement dans votre presse-papiers (ou télécharge le fichier PNG sur votre disque). Les fils très longs restent en 2× par défaut pour respecter la limite de taille, avec une option 3× dans les réglages d’export."
+  },
+  "close": {
+    "h2": "Votre prochain post mérite du papier.",
+    "sub": "Installez une fois, puis retrouvez-le dans la barre d’actions de chaque post. Un clic vers le presse-papiers, prêt à coller partout."
+  },
+  "foot": {
+    "navAria": "Liens",
+    "readme": "README",
+    "readmeHref": "README.md",
+    "privacy": "Confidentialité",
+    "privacyHref": "PRIVACY.md",
+    "license": "Licence",
+    "credit": "Photographies d’exemple via Unsplash (Unsplash License) : @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting et @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind et @postpress_ext sont des comptes d’exemple fictifs.",
+    "gpl": "GPL-3.0-or-later",
+    "legalSuffix": "X (Twitter) est une marque de X Corp., sans affiliation."
+  }
+}

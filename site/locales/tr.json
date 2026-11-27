@@ -1,0 +1,179 @@
+{
+  "brandName": "PostPress",
+  "brandCnSuffix": "",
+  "skip": "İçeriğe geç",
+  "navAriaLabel": "Sayfa gezintisi",
+  "langAriaLabel": "Dil",
+  "meta": {
+    "title": "PostPress: X için temiz tweet ekran görüntüsü aracı",
+    "description": "Tek tıkla herhangi bir tweet’i görsele dönüştürün. X gönderilerini ve dizileri 3× PNG kart olarak panoya kopyalayın—12 tema, %100 yerel, giriş gerektirmez.",
+    "ogDescription": "Tek tıkla herhangi bir tweet’i görsele dönüştürün. X gönderilerini ve dizileri 3× PNG kart olarak panoya kopyalayın—12 tema, %100 yerel, giriş gerektirmez.",
+    "ogImageAlt": "PostPress: X gönderilerini baskı kalitesinde 3× kart olarak kopyalayın",
+    "siteName": "PostPress",
+    "appDescription": "Tek tıkla herhangi bir tweet’i görsele dönüştürün. X gönderilerini ve dizileri 3× PNG kart olarak panoya kopyalayın—12 tema, %100 yerel, giriş gerektirmez."
+  },
+  "nav": {
+    "thread": "Diziler",
+    "article": "Makaleler",
+    "privacy": "Gizlilik",
+    "install": "Kurulum"
+  },
+  "themeToggle": {
+    "light": "Açık",
+    "dark": "Koyu",
+    "ariaToLight": "Açık sürüme geç",
+    "ariaToDark": "Koyu sürüme geç"
+  },
+  "hero": {
+    "h1": "Her gönderiyi kart olarak kopyalayın.",
+    "sub": "Elle kırpmayı ve ekran görüntüsü almayı bırakın. Bir gönderideki düğmeye tıklayın (veya Alt + C’ye basın); tek bir gönderiyi ya da aynı yazarın dizisini net bir 3× kart olarak doğrudan panonuza kopyalayın. On iki tema, tamamen kendi cihazınızda oluşturulur.",
+    "meta": "Ücretsiz ve açık kaynak · GPL-3.0-or-later · Chrome / Edge (Manifest V3, Chrome 111 ve üzeri)"
+  },
+  "cta": {
+    "install": "Chrome Web Mağazası’ndan ekle",
+    "install2": "Chrome Web Mağazası’ndan ekle",
+    "source": "Kaynak kod ve belgeler"
+  },
+  "facts": {
+    "materials": "tema",
+    "canvas": "tuval biçimi",
+    "locales": "arayüz dili",
+    "export": "Retina kopya"
+  },
+  "spec": {
+    "pick": "Bir tema seçin",
+    "cardAltTemplate": "{name} teması: kart olarak işlenmiş örnek gönderi."
+  },
+  "materials": {
+    "minimal": { "name": "Minimal", "note": "Sıcak beyaz zemin, çerçeve yok, yalnızca tipografi." },
+    "midnight": { "name": "Gece yarısı", "note": "Derin koyu zemin ve açık yazı, gece okuması için rahat." },
+    "glass": { "name": "Sıvı cam", "note": "Kenarı ince ışıklı yarı saydam cam levha." },
+    "material": { "name": "Material 3", "note": "Material 3 ton blokları ve yuvarlatılmış köşeler." },
+    "gallery": { "name": "Galeri", "note": "Müze etiketi gibi duvar yazısı ve montaj çizgisi." },
+    "darkroom": { "name": "Karanlık oda", "note": "Kontakt baskı: kare numaraları, kenar boşlukları, gümüş grisi." },
+    "riso": { "name": "Riso", "note": "Floresan mürekkepler, hafif kaymış baskı ve kâğıt dokusu." },
+    "sumi": { "name": "Sumi", "note": "Pirinç kâğıdı, sulandırılmış mürekkep ve kırmızı mühür." },
+    "clay": { "name": "Kil", "note": "Elde şekillendirilmiş gibi yumuşak ve yuvarlak." },
+    "terminal": { "name": "Terminal", "note": "Eş aralıklı yazı tipi, tarama çizgileri, konsol yeşili." },
+    "receipt": { "name": "Fiş", "note": "Termal kâğıt, kesikli çizgiler ve sıkı eş aralıklı yazı." },
+    "brutalist": { "name": "Brütalist", "note": "3px sert çerçeve ve fosforlu sarı. Deneysel." }
+  },
+  "thread": {
+    "h2": "Diziler kendiliğinden birleşir.",
+    "body": "Aynı dizideki gönderiler yazar ve zamana göre birleştirilir; reklamlar ve ilgisiz yanıtlar dışarıda bırakılır. İki yol kullanır: önce X’in kendi GraphQL önbelleği, yoksa ekrandaki DOM. Göstermek istemediğiniz herhangi bir gönderi tek tıkla çıkarılır.",
+    "imgAlt": "Örnek kart: aynı yazardan ikisi fotoğraflı, biri alıntılı üç gönderi.",
+    "cap": "Aynı yazardan üç gönderi, biri alıntılı: dışa aktarılan tam kart.",
+    "d1": "Gönderi",
+    "d2": "Fotoğraf",
+    "d3": "Alıntı",
+    "d4": "Dışa aktarma",
+    "tick1": "Aynı yazarın ardışık gönderileri birleşir; reklamlar ve üçüncü taraf yanıtlar girmez",
+    "tick2": "Uzun diziler boyut sınırının altında kalmak için varsayılan olarak 2× dışa aktarılır",
+    "tick3": "Kart akışta çok küçük kalacaksa panel dışa aktarmadan önce uyarır"
+  },
+  "guide": {
+    "h2": "Kalabalık olmadan temiz bir tweet ekran görüntüsü nasıl alınır?",
+    "intro": "Bir sunumda, bültende ya da sohbette paylaşmak için tweet ekran görüntüsü alırken çoğu zaman yanıtlar, yan çubuklar ve bulanık metinler de kareye girer. Bir tweet’i görsele dönüştürmenin yaygın üç yolu vardır ve her birinin belirgin bir bedeli bulunur.",
+    "m1t": "Telefondan ekran görüntüsü",
+    "m1": "iOS veya Android’de tuşlara basın, ardından durum çubuğunu, gezinme simgelerini ve alttaki ilk yanıtı kırpın. Kısa bir gönderi için hızlıdır; ancak ekran çözünürlüğüne takılırsınız, kenar boşlukları düzensiz olur ve uzun bir diziyi elle birden çok kareyi birleştirmeden alamazsınız.",
+    "m2t": "Tarayıcıda alan seçerek yakalama",
+    "m2": "Masaüstünde sistem kırpma aracını veya tarayıcı kısayolunu kullanıp gönderinin etrafına dikdörtgen çizin. Telefona göre biraz daha kontrollüdür; yine de ekran DPI’ına bağlı kalırsınız, tarayıcı kenarları ya da fare vurguları çıkabilir ve alıntı ya da fotoğraf ızgarası kenara yakınsa her seferinde yeniden kırpmanız gerekir.",
+    "m3t": "Gönderiyi doğrudan kart olarak işleme",
+    "m3": "Ekrandaki pikselleri çekmek yerine gönderinin metnini, medyasını ve dizi yapısını okuyup temiz bir tuvalde yeniden dizer. Çevrimiçi web araçlarının bedeli ise bağlantıyı üçüncü taraf sunucuya yapıştırmak, API sınırlarını beklemek veya filigran ve bozuk dizilere katlanmaktır.",
+    "outro": "PostPress üçüncü yolu tamamen tarayıcınızın içinde çalıştırır: herhangi bir X gönderisindeki kart düğmesine tıklayın (veya Alt + C’ye basın), bir tema seçin ve net bir 3× PNG’yi doğrudan panonuza kopyalayın—yanıtlar ve reklamlar süzülür, sunucu ve giriş gerekmez.",
+    "imgAlt": "Gece yarısı temasında yerel olarak işlenmiş, tarayıcı çerçevesi ve yanıtlar olmayan bir tweet.",
+    "cap": "Gece yarısı temasında yerel olarak işlenmiş bir tweet—tarayıcı çerçevesi yok, alakasız yanıt yok."
+  },
+  "article": {
+    "h2": "Makaleler, alıntılar ve görsel ızgaraları bozulmaz.",
+    "tablistAria": "Yerleşim örnekleri",
+    "tab1": "X Makalesi",
+    "tab2": "Kırpmasız 4’lü",
+    "tab3": "20 Görselli Izgara",
+    "lead": "Bir X Makalesi kapak görselini ve giriş satırını korur; alıntılanan gönderi temaya göre doldurulur veya çerçevelenir; birden yirmiye kadar görsel ızgarada kendi oranlarını korur, dörtten sonra satır başına dörtlü dizilir (Doldur modu kare kırpar).",
+    "lede": "“Filtre değil — doğru oranda kâğıt, çizgi ve yazı.”",
+    "s1t": "Makale",
+    "s1": "Kapak, bölüm başlığı, başlık ve giriş birlikte aktarılır.",
+    "s2t": "Alıntı",
+    "s2": "Seçilen temaya uygun biçimde dolgulu veya çerçeveli.",
+    "s3t": "Görseller",
+    "s3": "Birden yirmiye kadar görsel kare kırpılmadan oranını korur; beşinciden itibaren dörtlü satırlar, Doldur modunda kare kırpım.",
+    "alts": {
+      "article": "Örnek kart: kapak fotoğrafı, bölüm etiketi, başlık ve ilk satırı içeren bir X Makalesi.",
+      "quad": "Örnek kart: Galeri temasında Sığdır modunda kırpılmadan hizalanmış dört adet 3:2 mimari fotoğraf.",
+      "grid20": "Örnek kart: 20 görselli bir gönderi, dengeli 4 sütunlu satırlar hâlinde düzenlenmiş."
+    }
+  },
+  "switch": {
+    "h2": "Sekiz anahtar, tek Studio.",
+    "lead": "Tema, tuval, arka plan, alt bilgi ayrıntıları, yazar bulanıklaştırma ve dışa aktarma çözünürlüğü bu tek Studio penceresindedir; birini değiştirin, soldaki canlı önizleme anında güncellenir. Seçimleriniz hatırlanır; her gün açıp Kopyala’ya basmanız yeter.",
+    "panelAlt": "Gerçek PostPress Studio penceresi: solda canlı kart önizlemesi, sağda tema, tuval, alt bilgi, yazar bulanıklaştırma ve kopyalama denetimleri.",
+    "panelCap": "Gerçek Studio penceresi: sol önizleme ve sağ denetimler canlı olarak eşzamanlıdır.",
+    "cap1": "Tümü açık",
+    "cap1Alt": "QR kodu, sayılar, tarih ve kaynak satırı açık örnek kart.",
+    "cap1b": "QR, sayılar, tarih, kaynak.",
+    "cap2": "Alt bilgi kapalı",
+    "cap2Alt": "Alt bilgisi kapalı, yalnızca gönderi metnini gösteren örnek kart.",
+    "cap2b": "Yalnızca gövde.",
+    "cap3": "Bulanık",
+    "cap3Alt": "Yazarı ve alıntılanan yazarı bulanıklaştırılmış örnek kart.",
+    "cap3b": "Yazar ve alıntılanan yazar birlikte."
+  },
+  "privacy": {
+    "h2": "Baştan sona kendi cihazınızda çalışır.",
+    "body": "Hesap yok, sunucu yok, telemetri yok. Dizgi yalıtılmış bir Shadow DOM içinde yapılır ve dışa aktarmayı tarayıcının kendi tuvali çizer. Kartınızdaki görselleri X’in görsel sunucularından almak dışında hiçbir veri cihazınızdan çıkmaz.",
+    "note": "Zaman akışınızı okumaz, X hesabı veya X API gerektirmez. X Corp. ile bağlantısı yoktur.",
+    "p1": "Bitmiş görseli yalnızca Kopyala’ya bastığınızda panonuza yazar.",
+    "p2": "Seçtiğiniz tema, tuval ve anahtarları yalnızca yerel olarak saklar.",
+    "p3": "Karttaki görselleri çeker. Tuval bunlar olmadan farklı kökenden görselleri okuyamaz."
+  },
+  "install": {
+    "h2": "Tarayıcınıza ekleyin.",
+    "lead": "Chrome Web Mağazası’ndan tek tıkla kurun veya aşağıdan kaynaktan 3 adımlı derlemeyi açın.",
+    "store": "Chrome Web Mağazası’ndan ekle",
+    "cta": "GitHub deposunu aç",
+    "note": "GPL-3.0-or-later altında yayımlanmıştır: değişikliklerinizi aynı lisansla paylaşın.",
+    "sourceSummary": "Geliştiriciler için: kaynaktan derleme (3 adım)",
+    "s1t": "Derle",
+    "s1": "Kaynağı klonlayın, bağımlılıkları kurun ve derleyin. Çıktı <code>dist/</code> içine konur.",
+    "s2t": "Yükle",
+    "s2": "<code>chrome://extensions</code> adresini açın, Geliştirici modunu açın, Paketi açılmamış öğe yükle deyip <code>dist/</code> klasörünü seçin.",
+    "s3t": "Kullan",
+    "s3": "Herhangi bir gönderide kart düğmesine basın (veya üzerine gelip <kbd>Alt</kbd> + <kbd>C</kbd> yapın), Görseli kopyala’ya tıklayın ve istediğiniz yere yapıştırın."
+  },
+  "faq": {
+    "h2": "Sık sorulanlar",
+    "lead": "Sekiz gerçek soru, yanıtları sağda.",
+    "q1": "Neden doğrudan ekran görüntüsü almayayım?",
+    "a1": "Elle kırpmak yanıtları dışarıda bırakmaya çalışmak, uzun dizileri birden çok karede birleştirmek ve ekran DPI’ı ile tarayıcı çerçevesine razı olmak demektir. PostPress’te tek tık, tüm gönderiyi veya diziyi temanın kurallarına göre dizer ve panonuza net bir 3× görsel koyar.",
+    "q2": "Uzun bir kart akışta bulanıklaşır mı?",
+    "a2": "Tek bir gönderi 3× olarak dışa aktarılır. Çok uzun bir dizi boyut sınırının altında kalmak için varsayılan olarak 2× çıkar; okuması fazla küçülecekse panel önceden uyarır ve bölmeyi önerir. Dışa aktarma ayarlarında genel bir 3× anahtarı bulunur.",
+    "q3": "Giriş yapmam veya X hesabımı bağlamam gerekiyor mu?",
+    "a3": "Hayır. Hesap sistemi yoktur: yalnızca önünüzdeki sayfanın zaten oluşturduğu içeriği okur ve kimlik bilgilerine asla dokunmaz.",
+    "q4": "Herhangi bir şey yükleniyor mu?",
+    "a4": "Hayır. Görsel yalnızca panonuza ve diskinize gider; önizlemeyi kapatınca kalanı serbest bırakılır. Hiçbir gönderi içeriği saklanmaz.",
+    "q5": "Ticari olarak kullanabilir miyim?",
+    "a5": "Yazılım GPL-3.0-or-later lisanslıdır ve ticari kullanıma serbesttir. Kartın içindeki metin ve görseller yine kendi yazarlarına aittir; yeniden dağıtmadan önce kontrol edin.",
+    "q6": "Hangi tarayıcılarda çalışır?",
+    "a6": "Chrome 111’den itibaren Chrome ve Edge (Manifest V3). Firefox ve Safari henüz desteklenmiyor: uzantı Chromium’un uzantı API’leri üzerine kuruludur.",
+    "q7": "Yanıtlar olmadan bir tweet’in ekran görüntüsünü nasıl alırım?",
+    "a7": "Gönderideki PostPress kart düğmesine tıklayın (veya üzerine gelip Alt + C’ye basın). PostPress yalnızca o gönderiyi—ya da dizideki aynı yazarın ardışık gönderilerini—okur; reklamları ve üçüncü taraf yanıtlarını otomatik olarak dışarıda bırakır. Kopyalamadan önce dizideki istemediğiniz bir gönderiyi tek tıkla çıkarabilirsiniz.",
+    "q8": "Bir tweet’i PNG’ye dönüştürebilir miyim?",
+    "a8": "Evet. PostPress kartı tarayıcınızda yerel olarak oluşturur ve doğrudan panonuza 3× PNG kopyalar (veya PNG dosyasını diskinize indirir). Çok uzun diziler boyut sınırı nedeniyle varsayılan olarak 2× çıkar, dışa aktarma ayarlarından 3× seçilebilir."
+  },
+  "close": {
+    "h2": "Sıradaki gönderiniz kâğıdı hak ediyor.",
+    "sub": "Bir kez kurun, her gönderinin eylem çubuğunda yerini alsın. Panoya tek tık, her yere yapıştırmaya hazır."
+  },
+  "foot": {
+    "navAria": "Bağlantılar",
+    "readme": "README",
+    "readmeHref": "README.md",
+    "privacy": "Gizlilik",
+    "privacyHref": "PRIVACY.md",
+    "license": "Lisans",
+    "credit": "Örnek kart fotoğrafları Unsplash (Unsplash License) üzerinden alınmıştır: @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting ve @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind ve @postpress_ext kurgusal örnek hesaplardır.",
+    "gpl": "GPL-3.0-or-later",
+    "legalSuffix": "X (Twitter), X Corp.’un ticari markasıdır; bağlantılı değildir."
+  }
+}

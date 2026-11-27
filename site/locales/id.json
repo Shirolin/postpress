@@ -1,0 +1,179 @@
+{
+  "brandName": "PostPress",
+  "brandCnSuffix": "",
+  "skip": "Langsung ke konten",
+  "navAriaLabel": "Navigasi halaman",
+  "langAriaLabel": "Bahasa",
+  "meta": {
+    "title": "PostPress: alat screenshot tweet bersih untuk X",
+    "description": "Ubah tweet apa saja menjadi gambar dalam sekali klik. Salin postingan dan utas X sebagai kartu PNG 3× ke papan klip—12 tema, 100% lokal, tanpa login.",
+    "ogDescription": "Ubah tweet apa saja menjadi gambar dalam sekali klik. Salin postingan dan utas X sebagai kartu PNG 3× ke papan klip—12 tema, 100% lokal, tanpa login.",
+    "ogImageAlt": "PostPress: salin postingan X sebagai kartu 3× kualitas cetak",
+    "siteName": "PostPress",
+    "appDescription": "Ubah tweet apa saja menjadi gambar dalam sekali klik. Salin postingan dan utas X sebagai kartu PNG 3× ke papan klip—12 tema, 100% lokal, tanpa login."
+  },
+  "nav": {
+    "thread": "Utas",
+    "article": "Artikel",
+    "privacy": "Privasi",
+    "install": "Pasang"
+  },
+  "themeToggle": {
+    "light": "Terang",
+    "dark": "Gelap",
+    "ariaToLight": "Ganti ke versi terang",
+    "ariaToDark": "Ganti ke versi gelap"
+  },
+  "hero": {
+    "h1": "Salin postingan apa pun sebagai kartu.",
+    "sub": "Lewati repotnya memotong dan menangkap layar manual. Klik tombol di postingan (atau tekan Alt + C) untuk menyalin satu postingan atau utas penulis yang sama sebagai kartu 3× tajam langsung ke papan klip. Dua belas tema, seluruhnya dirender di perangkat Anda.",
+    "meta": "Gratis & sumber terbuka · GPL-3.0-or-later · Chrome / Edge (Manifest V3, Chrome 111 ke atas)"
+  },
+  "cta": {
+    "install": "Tambahkan dari Chrome Web Store",
+    "install2": "Tambahkan dari Chrome Web Store",
+    "source": "Sumber dan dokumentasi"
+  },
+  "facts": {
+    "materials": "tema",
+    "canvas": "bentuk kanvas",
+    "locales": "bahasa antarmuka",
+    "export": "salinan Retina"
+  },
+  "spec": {
+    "pick": "Pilih tema",
+    "cardAltTemplate": "Tema {name}: contoh postingan yang dirender sebagai kartu."
+  },
+  "materials": {
+    "minimal": { "name": "Minimal", "note": "Putih hangat, tanpa bingkai, hanya tipografi murni." },
+    "midnight": { "name": "Tengah malam", "note": "Dasar gelap dengan huruf terang, nyaman di malam hari." },
+    "glass": { "name": "Kaca cair", "note": "Panel tembus pandang dengan tepi bercahaya tipis." },
+    "material": { "name": "Material 3", "note": "Blok warna tonal dan sudut khas Material 3." },
+    "gallery": { "name": "Galeri", "note": "Label dinding dan garis pasang layaknya di museum." },
+    "darkroom": { "name": "Kamar gelap", "note": "Lembar kontak: nomor bingkai, margin, abu-abu perak." },
+    "riso": { "name": "Riso", "note": "Tinta neon, cetak sedikit meleset, tekstur kertas." },
+    "sumi": { "name": "Sumi", "note": "Kertas beras, tinta encer, cap merah menyala." },
+    "clay": { "name": "Tanah liat", "note": "Membulat dan lembut, seperti dibentuk dengan tangan." },
+    "terminal": { "name": "Terminal", "note": "Font monospace, garis pindai, hijau konsol." },
+    "receipt": { "name": "Struk", "note": "Kertas termal, garis putus-putus, monospace rapat." },
+    "brutalist": { "name": "Brutalis", "note": "Bingkai tegas 3px dan kuning neon. Eksperimental." }
+  },
+  "thread": {
+    "h2": "Utas tersambung otomatis.",
+    "body": "Postingan dalam satu utas digabungkan berdasarkan penulis dan waktu, dengan iklan serta balasan acak tersaring keluar. Dua jalur baca: cache GraphQL milik X terlebih dahulu, lalu DOM yang dirender bila tidak ada cache. Postingan yang tidak ingin ditampilkan bisa dilepas sekali klik.",
+    "imgAlt": "Contoh kartu: tiga postingan oleh satu penulis, dua berfoto dan satu mengutip postingan lain.",
+    "cap": "Tiga postingan oleh satu penulis, salah satunya kutipan: seluruh kartu seperti saat diekspor.",
+    "d1": "Postingan",
+    "d2": "Foto",
+    "d3": "Kutipan",
+    "d4": "Ekspor",
+    "tick1": "Postingan berurutan dari satu penulis digabung; iklan dan balasan pihak ketiga tidak ikut",
+    "tick2": "Utas panjang diekspor pada 2× secara bawaan agar tetap di bawah batas ukuran",
+    "tick3": "Bila kartu akan terlihat terlalu kecil di linimasa, panel memberi tahu sebelum diekspor"
+  },
+  "guide": {
+    "h2": "Cara screenshot tweet dengan bersih tanpa gangguan",
+    "intro": "Kebanyakan orang mengambil screenshot tweet untuk dibagikan di presentasi, buletin, atau obrolan grup—lalu malah terbawa balasan, bilah sisi, dan teks buram. Ada tiga cara umum mengubah tweet menjadi gambar, dan masing-masing punya konsekuensi jelas.",
+    "m1t": "Screenshot dari ponsel",
+    "m1": "Tekan tombol fisik di iOS atau Android, lalu potong bilah status, ikon navigasi, dan balasan pertama di bawahnya. Cepat untuk satu postingan pendek, tetapi resolusinya terkunci di layar, margin tidak rata, dan utas panjang harus disambung manual dari beberapa tangkapan.",
+    "m2t": "Tangkapan area di peramban",
+    "m2": "Gunakan alat potong sistem atau pintasan peramban untuk menarik kotak di sekitar postingan pada desktop. Kontrol bingkai memang sedikit lebih baik daripada ponsel, tetapi masih terikat DPI layar, antarmuka peramban atau efek hover, dan harus dipotong ulang setiap kutipan atau kisi foto mendekati tepi layar.",
+    "m3t": "Merender postingan sebagai kartu",
+    "m3": "Alih-alih memotret piksel layar, teks, media, dan struktur utas dibaca lalu ditata ulang di atas kanvas bersih. Kekurangan alat web biasa adalah Anda harus menempelkan URL ke server pihak ketiga, menunggu batas API, atau menerima tanda air dan utas terputus.",
+    "outro": "PostPress menjalankan cara ketiga sepenuhnya di dalam peramban Anda: klik tombol kartu di postingan X mana pun (atau tekan Alt + C), pilih tema, lalu salin PNG 3× tajam langsung ke papan klip—tanpa balasan dan iklan, tanpa server, dan tanpa login.",
+    "imgAlt": "Tweet yang dirender secara lokal dalam tema Tengah malam, tanpa bingkai peramban atau balasan.",
+    "cap": "Tweet yang dirender secara lokal dalam tema Tengah malam—tanpa bingkai peramban, tanpa balasan nyasar."
+  },
+  "article": {
+    "h2": "Artikel, kutipan, dan kisi gambar tetap utuh.",
+    "tablistAria": "Contoh tata letak",
+    "tab1": "Artikel X",
+    "tab2": "Empat Tanpa Potong",
+    "tab3": "Kisi 20 Gambar",
+    "lead": "Artikel X menampilkan sampul dan paragraf pembuka; postingan kutipan diberi latar atau garis tepi sesuai tema; satu hingga dua puluh gambar menjaga proporsinya di dalam kisi, empat per baris setelah empat pertama (Isi penuh memotong menjadi persegi).",
+    "lede": "“Bukan filter — kertas, garis, dan huruf pada rasio yang tepat.”",
+    "s1t": "Artikel",
+    "s1": "Sampul, rubrik, judul, dan pembuka tampil bersama.",
+    "s2t": "Kutipan",
+    "s2": "Berlatar atau bergaris tepi, mengikuti tema.",
+    "s3t": "Gambar",
+    "s3": "Satu hingga dua puluh menjaga rasio asli alih-alih dipotong persegi; empat per baris mulai gambar kelima, atau persegi pada mode Isi penuh.",
+    "alts": {
+      "article": "Contoh kartu: postingan Artikel X dengan foto sampul, rubrik, judul, dan baris pembuka.",
+      "quad": "Contoh kartu: empat foto arsitektur 3:2 dalam tema Galeri, sejajar tanpa terpotong di mode Utuh.",
+      "grid20": "Contoh kartu: postingan 20 gambar yang ditata rapi dalam 4 kolom seimbang."
+    }
+  },
+  "switch": {
+    "h2": "Delapan sakelar, satu Studio.",
+    "lead": "Tema, kanvas, latar belakang, detail kaki kartu, buram penulis, dan resolusi ekspor semua berada di satu modal Studio ini; ubah satu dan pratinjau langsung ikut berubah. Pilihan Anda diingat sehingga sehari-hari cukup buka lalu klik Salin.",
+    "panelAlt": "Modal Studio PostPress asli: pratinjau kartu langsung di kiri, kontrol tema, kanvas, kaki kartu, buram penulis, dan salin di kanan.",
+    "panelCap": "Modal Studio asli: pratinjau kiri dan kontrol kanan tersinkron secara langsung.",
+    "cap1": "Semua aktif",
+    "cap1Alt": "Contoh kartu dengan kode QR, statistik, waktu, dan kredit aktif.",
+    "cap1b": "QR, statistik, waktu, kredit.",
+    "cap2": "Tanpa kaki",
+    "cap2Alt": "Contoh kartu dengan kaki kartu nonaktif, hanya menyisakan isi postingan.",
+    "cap2b": "Hanya isi teks.",
+    "cap3": "Diburkan",
+    "cap3Alt": "Contoh kartu dengan penulis dan penulis kutipan diburamkan.",
+    "cap3b": "Penulis dan penulis kutipan bersama."
+  },
+  "privacy": {
+    "h2": "Berjalan di perangkat Anda, dari awal sampai akhir.",
+    "body": "Tanpa akun, tanpa server, tanpa telemetri. Penataan terjadi di dalam Shadow DOM terisolasi dan ekspor digambar oleh kanvas peramban sendiri. Selain mengambil gambar yang sudah ada di kartu dari host gambar X, tidak ada yang keluar dari perangkat Anda.",
+    "note": "Tidak membaca linimasa Anda, tidak perlu akun X maupun API X. Tidak berafiliasi dengan X Corp.",
+    "p1": "Menulis gambar jadi ke papan klip Anda, hanya saat Anda menekan Salin.",
+    "p2": "Mengingat tema, kanvas, dan sakelar pilihan Anda; tersimpan secara lokal.",
+    "p3": "Mengambil gambar kartu. Kanvas tidak dapat membaca gambar lintas-asal tanpa izin ini."
+  },
+  "install": {
+    "h2": "Ke dalam peramban Anda.",
+    "lead": "Pasang dari Chrome Web Store dalam sekali klik; atau buka tiga langkah bangun dari sumber di bawah.",
+    "store": "Tambahkan dari Chrome Web Store",
+    "cta": "Buka repositori GitHub",
+    "note": "Dirilis di bawah GPL-3.0-or-later: distribusikan ulang perubahan Anda di bawah lisensi yang sama.",
+    "sourceSummary": "Untuk pengembang: bangun dari sumber (3 langkah)",
+    "s1t": "Bangun",
+    "s1": "Klon sumber, pasang dependensi, lalu bangun. Hasilnya masuk ke <code>dist/</code>.",
+    "s2t": "Muat",
+    "s2": "Buka <code>chrome://extensions</code>, aktifkan Mode pengembang, pilih Muat yang belum dibuka paketnya, dan pilih folder <code>dist/</code>.",
+    "s3t": "Pakai",
+    "s3": "Klik tombol kartu di postingan mana pun (atau arahkan kursor dan tekan <kbd>Alt</kbd> + <kbd>C</kbd>), klik Salin gambar, lalu tempel di mana saja."
+  },
+  "faq": {
+    "h2": "Pertanyaan umum",
+    "lead": "Delapan pertanyaan nyata, jawabannya di sebelah kanan.",
+    "q1": "Mengapa tidak langsung screenshot biasa saja?",
+    "a1": "Memotong screenshot secara manual berarti menghindari balasan, menyambung utas panjang dari beberapa tangkapan, dan pasrah pada DPI layar serta bingkai peramban. Satu klik di PostPress menata seluruh postingan atau utas sesuai aturan tema dan meletakkan gambar 3× tajam langsung di papan klip.",
+    "q2": "Apakah kartu panjang menjadi buram di linimasa?",
+    "a2": "Postingan tunggal diekspor pada 3×. Utas yang sangat panjang bawaan memakai 2× agar tetap di bawah batas ukuran; bila teksnya akan terbaca terlalu kecil, panel memperingatkan dan menyarankan pemisahan. Sakelar 3× global tersedia di pengaturan ekspor.",
+    "q3": "Perlu login atau menghubungkan akun X?",
+    "a3": "Tidak. Tidak ada sistem akun: ekstensi hanya membaca apa yang sudah dirender di halaman depan Anda dan tidak pernah menyentuh kredensial.",
+    "q4": "Apakah ada data yang diunggah?",
+    "a4": "Tidak. Gambar hanya masuk ke papan klip dan disk Anda; menutup pratinjau melepaskan sisanya. Tidak ada isi postingan yang disimpan.",
+    "q5": "Bolehkah dipakai secara komersial?",
+    "a5": "Perangkat lunak ini berlisensi GPL-3.0-or-later dan bebas dipakai secara komersial. Teks dan gambar di dalam kartu tetap menjadi milik penulisnya; pastikan sebelum mendistribusikan ulang.",
+    "q6": "Peramban apa saja yang mendukungnya?",
+    "a6": "Chrome dan Edge, mulai Chrome 111 (Manifest V3). Firefox dan Safari belum didukung karena ekstensi dibangun di atas API ekstensi Chromium.",
+    "q7": "Bagaimana cara screenshot tweet tanpa balasan?",
+    "a7": "Klik tombol kartu PostPress pada postingan (atau arahkan kursor lalu tekan Alt + C). PostPress hanya membaca postingan itu—atau postingan berurutan oleh penulis yang sama dalam utas—dan otomatis menyaring iklan serta balasan pihak ketiga. Jika ada postingan dalam utas yang ingin dilewati, klik sekali untuk mengecualikannya sebelum menyalin.",
+    "q8": "Bisakah saya mengubah tweet menjadi PNG?",
+    "a8": "Bisa. PostPress merender kartu secara lokal di peramban Anda dan menyalin PNG 3× langsung ke papan klip (atau mengunduh berkas PNG ke disk). Utas yang sangat panjang memakai 2× secara bawaan demi batas ukuran, dengan opsi 3× di pengaturan ekspor."
+  },
+  "close": {
+    "h2": "Postingan berikutnya layak dicetak di kertas.",
+    "sub": "Pasang sekali, lalu tombolnya hadir di bilah aksi setiap postingan. Satu klik ke papan klip, siap ditempel di mana saja."
+  },
+  "foot": {
+    "navAria": "Tautan",
+    "readme": "README",
+    "readmeHref": "README.md",
+    "privacy": "Privasi",
+    "privacyHref": "PRIVACY.md",
+    "license": "Lisensi",
+    "credit": "Foto kartu contoh berasal dari Unsplash (Unsplash License): @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting, dan @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind, dan @postpress_ext adalah akun contoh fiktif.",
+    "gpl": "GPL-3.0-or-later",
+    "legalSuffix": "X (Twitter) adalah merek dagang X Corp., tidak berafiliasi."
+  }
+}

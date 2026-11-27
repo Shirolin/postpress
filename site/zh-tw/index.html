@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="zh-TW" data-base=".." data-page-lang="zh-tw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PostPress · 印推：乾淨的 X 推文截圖工具</title>
+    <meta
+      name="description"
+      content="一鍵把推文轉成圖片。將 X 貼文與同作者長串直接複製為 3× 高清 PNG 卡片到剪貼簿——12 款材質、全程本機渲染、免登入。"
+    />
+    <meta name="google-site-verification" content="MU-E0FhsaY2ecGcnntckuE4LsM8GMd74kc0OJ6sNNnY" />
+    <meta name="theme-color" content="#0c0e11" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://shirolin.github.io/postpress/zh-tw/" />
+    <meta property="og:title" content="PostPress · 印推：乾淨的 X 推文截圖工具" />
+    <meta
+      property="og:description"
+      content="一鍵把推文轉成圖片。將 X 貼文與同作者長串直接複製為 3× 高清 PNG 卡片到剪貼簿——12 款材質、全程本機渲染、免登入。"
+    />
+    <meta property="og:site_name" content="PostPress · 印推" />
+    <meta property="og:image" content="https://shirolin.github.io/postpress/assets/cards/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="PostPress · 印推：將推文複製成印刷級 3× 卡片" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PostPress · 印推：乾淨的 X 推文截圖工具" />
+    <meta
+      name="twitter:description"
+      content="一鍵把推文轉成圖片。將 X 貼文與同作者長串直接複製為 3× 高清 PNG 卡片到剪貼簿——12 款材質、全程本機渲染、免登入。"
+    />
+    <meta name="twitter:image" content="https://shirolin.github.io/postpress/assets/cards/og.jpg" />
+    <meta name="twitter:image:alt" content="PostPress · 印推：將推文複製成印刷級 3× 卡片" />
+    <link rel="canonical" href="https://shirolin.github.io/postpress/zh-tw/" />
+    <link rel="alternate" hreflang="en" href="https://shirolin.github.io/postpress/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://shirolin.github.io/postpress/zh/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://shirolin.github.io/postpress/zh-tw/" />
+    <link rel="alternate" hreflang="ja" href="https://shirolin.github.io/postpress/ja/" />
+    <link rel="alternate" hreflang="ko" href="https://shirolin.github.io/postpress/ko/" />
+    <link rel="alternate" hreflang="de" href="https://shirolin.github.io/postpress/de/" />
+    <link rel="alternate" hreflang="fr" href="https://shirolin.github.io/postpress/fr/" />
+    <link rel="alternate" hreflang="es" href="https://shirolin.github.io/postpress/es/" />
+    <link rel="alternate" hreflang="it" href="https://shirolin.github.io/postpress/it/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://shirolin.github.io/postpress/pt-br/" />
+    <link rel="alternate" hreflang="ru" href="https://shirolin.github.io/postpress/ru/" />
+    <link rel="alternate" hreflang="tr" href="https://shirolin.github.io/postpress/tr/" />
+    <link rel="alternate" hreflang="uk" href="https://shirolin.github.io/postpress/uk/" />
+    <link rel="alternate" hreflang="id" href="https://shirolin.github.io/postpress/id/" />
+    <link rel="alternate" hreflang="x-default" href="https://shirolin.github.io/postpress/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta property="og:locale:alternate" content="id_ID" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "PostPress · 印推",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Chrome, Edge",
+            "url": "https://shirolin.github.io/postpress/zh-tw/",
+            "downloadUrl": "https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai",
+            "sameAs": "https://github.com/Shirolin/postpress",
+            "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+            "softwareVersion": "1.3.1",
+            "author": {
+              "@type": "Person",
+              "name": "Shirolin",
+              "url": "https://github.com/Shirolin"
+            },
+            "image": "https://shirolin.github.io/postpress/assets/cards/og.jpg",
+            "description": "一鍵把推文轉成圖片。將 X 貼文與同作者長串直接複製為 3× 高清 PNG 卡片到剪貼簿——12 款材質、全程本機渲染、免登入。",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "為什麼不直接截圖就好？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "手動裁切截圖得閃開底下的回覆、把長串滾動截圖後再拼起來，而且受限於螢幕 DPI 與瀏覽器邊框。點一下 PostPress，整則貼文或長串會直接依材質規則排好版，把銳利的 3× 圖片放進剪貼簿，隨時貼上。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "長卡片發到動態牆會被壓糊嗎？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "單則貼文以 3× 匯出。很長的長串預設以 2× 匯出以控制在尺寸上限內；若縮放後文字會過小，面板會先提醒並建議拆分。匯出設定中也提供全域 3× 開關。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "需要登入或綁定 X 嗎？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不需要。沒有帳號系統，只讀取眼前頁面已經渲染好的內容，完全不碰任何憑證。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "會有任何資料被上傳嗎？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不會。圖片只寫入剪貼簿與你的磁碟；關閉預覽視窗即釋放其餘資料，不保存任何貼文內容。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "可以商業使用嗎？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "軟體本身採用 GPL-3.0-or-later 授權，可自由用於商業用途。卡片中的文字與圖片仍屬於原作者；轉載前請自行確認授權。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "支援哪些瀏覽器？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Chrome 與 Edge（Chrome 111 起，Manifest V3）。尚未支援 Firefox 與 Safari——本擴充功能基於 Chromium 的擴充 API 開發。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "怎麼只截推文正文、不把底下的回覆截進去？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "點擊貼文上的 PostPress 卡片按鈕（或游標懸停按 Alt + C）。PostPress 只讀取該則貼文或同作者連續長串，會自動濾除廣告與第三方回覆；若長串中某則不想顯示，複製前點一下即可排除。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "能把推文直接轉成 PNG 圖片嗎？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "可以。PostPress 會在瀏覽器本機渲染卡片，並將 3× PNG 直接複製到剪貼簿（或下載 PNG 檔到磁碟）。超長串預設為 2× 以避開尺寸上限，也可以在匯出設定中切換為 3×。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="icon" href="../assets/favicon.png" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      (function () {
+        try {
+          var q = new URLSearchParams(location.search).get('theme');
+          var t = q === 'light' || q === 'dark' ? q : localStorage.getItem('pp-theme');
+          if (t === 'light') document.documentElement.dataset.theme = 'light';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">跳到正文</a>
+
+    <div class="hero" id="top">
+      <div class="hero-left">
+        <header class="bar">
+          <a class="brand" href="#top" aria-label="PostPress">
+            <svg class="mark" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+              <rect x="3" y="3.75" width="18" height="10.5" rx="3" fill="#6CC59C" stroke="#1E5A44" stroke-width="1.5" />
+              <path d="M3.75 7.75V6.9A2.4 2.4 0 0 1 6.15 4.5H17.85A2.4 2.4 0 0 1 20.25 6.9V7.75Z" fill="#A6E2C6" />
+              <rect x="5.75" y="11" width="12.5" height="1.6" rx=".875" fill="#1E5A44" />
+              <g fill="#142019"><ellipse cx="9.5" cy="8.1" rx="1.4" ry="1.9" /><ellipse cx="14.5" cy="8.1" rx="1.4" ry="1.9" /></g>
+              <g fill="#fff"><circle cx="10" cy="7.25" r=".55" /><circle cx="15" cy="7.25" r=".55" /></g>
+              <path d="M7.5 11.75h9v7.5A1.75 1.75 0 0 1 14.75 21h-5.5A1.75 1.75 0 0 1 7.5 19.25Z" fill="#F8F8F5" stroke="#1E5A44" stroke-width="1.5" stroke-linejoin="round" />
+              <circle cx="10" cy="15.4" r="1.05" fill="#6CC59C" />
+              <g stroke="#6CC59C" stroke-width="1.3" stroke-linecap="round"><path d="M12.1 15.4h2.2" /><path d="M9.6 18.3h4.8" /></g>
+            </svg>
+            <span class="brand-name">PostPress</span>
+            <span class="brand-cn">· 印推</span>
+          </a>
+          <nav class="bar-nav" aria-label="頁面導覽">
+            <a href="#thread">長串</a>
+            <a href="#article">長文</a>
+            <a href="#privacy">隱私</a>
+            <a href="#install">安裝</a>
+          </nav>
+          <button class="lang" id="theme" type="button" aria-label="切換到淺色版">淺色</button>
+          <select class="lang lang-select" id="lang" aria-label="語言">
+            <option value="en" data-href="../">English</option>
+            <option value="zh" data-href="../zh/">简体中文</option>
+            <option value="zh-tw" data-href="../zh-tw/" selected>繁體中文</option>
+            <option value="ja" data-href="../ja/">日本語</option>
+            <option value="ko" data-href="../ko/">한국어</option>
+            <option value="de" data-href="../de/">Deutsch</option>
+            <option value="fr" data-href="../fr/">Français</option>
+            <option value="es" data-href="../es/">Español</option>
+            <option value="it" data-href="../it/">Italiano</option>
+            <option value="pt-br" data-href="../pt-br/">Português</option>
+            <option value="ru" data-href="../ru/">Русский</option>
+            <option value="tr" data-href="../tr/">Türkçe</option>
+            <option value="uk" data-href="../uk/">Українська</option>
+            <option value="id" data-href="../id/">Bahasa Indonesia</option>
+          </select>
+        </header>
+
+        <div class="hero-copy">
+          <h1>把推文複製成卡片。</h1>
+          <p class="hero-sub">
+            不用手動拉框截圖。點一下貼文上的按鈕（或按 Alt + C），單則推文與同作者長串直接排成 3× 高清卡片寫入剪貼簿，隨處貼上。十二款材質，全程在本機渲染，免登入、不上傳。
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">從 Chrome 線上應用程式商店安裝</a>
+            <a class="link" href="https://github.com/Shirolin/postpress">原始碼與文件</a>
+          </div>
+          <p class="hero-meta">
+            免費開源 · GPL-3.0-or-later · Chrome / Edge（Manifest V3，Chrome 111 起）
+          </p>
+          <ul class="facts">
+            <li><b>12</b><span>款材質</span></li>
+            <li><b>4</b><span>種畫布比例</span></li>
+            <li><b>14</b><span>種介面語言</span></li>
+            <li><b>3×</b><span>高解析複製</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-stage" id="studio">
+        <a class="repo" href="https://github.com/Shirolin/postpress">GitHub</a>
+        <div class="studio" data-ui>
+          <figure class="studio-card">
+            <img
+              id="specimen-img"
+              src="../assets/cards/midnight.webp"
+              alt="夜幕材質的卡片：實拍樣張渲染效果。"
+              width="1280"
+              height="1315"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </figure>
+          <div class="rack">
+            <p class="rack-label" id="rack-label">挑選一種材質</p>
+            <div class="rack-list" role="group" aria-labelledby="rack-label">
+              <button class="material" type="button" data-material="minimal" aria-pressed="false">
+                <img src="../assets/cards/thumb-minimal.webp" alt="" width="320" height="328" loading="lazy" decoding="async" /><span>極簡</span>
+              </button>
+              <button class="material" type="button" data-material="midnight" aria-pressed="true">
+                <img src="../assets/cards/thumb-midnight.webp" alt="" width="320" height="329" loading="lazy" decoding="async" /><span>夜幕</span>
+              </button>
+              <button class="material" type="button" data-material="glass" aria-pressed="false">
+                <img src="../assets/cards/thumb-glass.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>液態玻璃</span>
+              </button>
+              <button class="material" type="button" data-material="material" aria-pressed="false">
+                <img src="../assets/cards/thumb-material.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>質感 (MD3)</span>
+              </button>
+              <button class="material" type="button" data-material="gallery" aria-pressed="false">
+                <img src="../assets/cards/thumb-gallery.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>藝廊</span>
+              </button>
+              <button class="material" type="button" data-material="darkroom" aria-pressed="false">
+                <img src="../assets/cards/thumb-darkroom.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>暗房</span>
+              </button>
+              <button class="material" type="button" data-material="riso" aria-pressed="false">
+                <img src="../assets/cards/thumb-riso.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>孔版</span>
+              </button>
+              <button class="material" type="button" data-material="sumi" aria-pressed="false">
+                <img src="../assets/cards/thumb-sumi.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>水墨</span>
+              </button>
+              <button class="material" type="button" data-material="clay" aria-pressed="false">
+                <img src="../assets/cards/thumb-clay.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>軟陶</span>
+              </button>
+              <button class="material" type="button" data-material="terminal" aria-pressed="false">
+                <img src="../assets/cards/thumb-terminal.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span>終端機</span>
+              </button>
+              <button class="material" type="button" data-material="receipt" aria-pressed="false">
+                <img src="../assets/cards/thumb-receipt.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span>收據</span>
+              </button>
+              <button class="material" type="button" data-material="brutalist" aria-pressed="false">
+                <img src="../assets/cards/thumb-brutalist.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>粗野派</span>
+              </button>
+            </div>
+          </div>
+          <p class="cap">
+            <span class="cap-name" id="cap-name">夜幕</span>
+            <span class="cap-note" id="cap-note">深墨底配淺字，夜間閱讀不刺眼。</span>
+            <span class="cap-tokens" aria-hidden="true">
+              <i style="background: #181b22"></i><!-- taste-skill-ignore material surface colour, not page theme -->
+              <i style="background: #f0f2f5"></i><i style="background: #7aa2ff"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="sec thread" id="thread">
+        <div class="thread-text">
+          <h2>長串會自動接上。</h2>
+          <p>
+            同一串貼文會依作者與時間自動串接，廣告與不相干的回覆一律濾除。解析走兩條路：先讀 X 自己的 GraphQL 快取，讀不到再退回頁面上的 DOM 標記。不想顯示的貼文，點一下即可剔除。
+          </p>
+        </div>
+        <figure class="thread-figure">
+          <img
+            class="drift"
+            data-card="thread"
+            src="../assets/cards/thread-midnight.webp"
+            alt="範例卡片：三則同作者貼文，前兩則各帶一張配圖，第三則引用另一則貼文。"
+            width="900"
+            height="1745"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>三則同作者貼文，其中一則帶引用，匯出的就是這一整張長卡片。</figcaption>
+        </figure>
+        <div class="thread-data">
+          <dl class="thread-stats">
+            <div><dt>貼文</dt><dd>3</dd></div>
+            <div><dt>圖片</dt><dd>2</dd></div>
+            <div><dt>引用</dt><dd>1</dd></div>
+            <div><dt>匯出</dt><dd>1472 × 2854</dd></div>
+          </dl>
+          <ul class="ticks">
+            <li>同作者連續貼文自動拼合，廣告與第三方回覆不納入</li>
+            <li>長串預設以 2× 匯出，避開平台尺寸上限</li>
+            <li>當長卡在動態牆縮放後字會太小時，面板會先提醒你拆分</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec guide" id="screenshot-guide">
+        <div class="guide-content">
+          <h2>如何乾淨截下推文，不帶頁面雜訊</h2>
+          <p class="guide-intro">
+            想把推文存成圖片放進簡報、電子報或群組聊天時，一般截圖常常會混進底下的回覆串、側邊欄與發糊的文字。把推文轉成圖片常見有三種做法，各自都有明確取捨。
+          </p>
+          <ol class="guide-methods">
+            <li>
+              <h3>手機內建截圖</h3>
+              <p>
+                按下 iOS 或 Android 實體鍵截圖，再手動裁掉狀態列、導覽圖示與底下露出的第一則回覆。單則短推文確實方便，但代價是解析度受限於螢幕、邊距不齊，遇到同作者長串只能滑動截好幾張再手工拼接。
+              </p>
+            </li>
+            <li>
+              <h3>瀏覽器選區截圖</h3>
+              <p>
+                在桌機上用系統截圖工具或瀏覽器快捷鍵框選貼文區域。構圖比手機好掌握一些，但代價依然受限於顯示器 DPI、容易截進瀏覽器介面或懸停狀態，遇到引用卡片或多圖格線接近視窗邊緣時還得反覆重裁。
+              </p>
+            </li>
+            <li>
+              <h3>直接渲染成卡片</h3>
+              <p>
+                不再對著螢幕拍像素，而是讀取貼文的文字、媒體與長串結構，在乾淨的畫布上重新排版輸出。代價是常見的線上網頁工具通常要求把貼文網址貼給第三方伺服器，受限於 API 額度，還常附帶浮水印或長串斷裂。
+              </p>
+            </li>
+          </ol>
+          <p class="guide-outro">
+            PostPress 採用第三種做法，並全程在你的瀏覽器本機完成：在任何 X 貼文上點一下按鈕（或按 Alt + C），挑選喜歡的材質，就能把銳利的 3× PNG 直接複製到剪貼簿——自動過濾回覆與廣告，不經伺服器、免登入。
+          </p>
+        </div>
+        <figure class="guide-figure">
+          <img
+            src="../assets/cards/midnight.webp"
+            alt="夜幕材質下的本機渲染卡片：沒有瀏覽器邊框，也沒有多餘回覆。"
+            width="1280"
+            height="1315"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>夜幕材質下的本機渲染卡片：沒有瀏覽器邊框，也沒有多餘回覆。</figcaption>
+        </figure>
+      </section>
+
+      <section class="sec article" id="article">
+        <div class="sec-head article-head">
+          <h2>長文、引用與多圖格線，完整保留。</h2>
+        </div>
+        <div class="article-body">
+          <figure class="article-figure">
+            <div class="showcase-tabs" role="tablist" aria-label="排版樣張類型">
+              <button class="showcase-tab" type="button" role="tab" data-showcase="article" aria-selected="true">X 長文</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="quad" aria-selected="false">四圖零裁切</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="grid20" aria-selected="false">20 圖拼版</button>
+            </div>
+            <img
+              id="article-img"
+              class="drift"
+              data-card="article"
+              src="../assets/cards/article-midnight.webp"
+              alt="範例卡片：一篇帶封面照、欄目、標題與首行文字的 X 長文貼文。"
+              width="1100"
+              height="1143"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="article-side">
+            <p class="article-lead">
+              X 長文會帶出封面圖與導語；引用貼文依材質填充或描邊；一到二十張圖片在格線中維持各自比例，第五張起改為四欄多列（填滿模式則裁成正方形）。
+            </p>
+            <p class="article-lede">「不是濾鏡，而是紙張、格線與字體的恰當比例。」</p>
+            <ul class="article-points">
+              <li>
+                <b>長文</b>
+                <span>封面、欄目名稱、標題與導語一次帶出。</span>
+              </li>
+              <li>
+                <b>引用</b>
+                <span>填充或描邊，跟隨當前材質。</span>
+              </li>
+              <li>
+                <b>圖片</b>
+                <span>一到二十張保留各自原始比例而不硬裁成方塊；五張起四欄排列，選擇填滿時才裁成正方形。</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec switches" id="switches">
+        <div class="sec-head">
+          <h2>八個開關，一座工作台。</h2>
+          <p class="lead">
+            材質、畫幅、背景、頁尾細節、作者模糊與匯出解析度都集中在這個 Studio 視窗裡；調整一項，左側預覽立刻同步更新。偏好設定會自動記住，日常只要打開再按「複製圖片」即可。
+          </p>
+        </div>
+        <div class="switches-body">
+          <figure class="panel-shot">
+            <img
+              data-card="panel"
+              src="../assets/cards/panel-midnight.webp"
+              alt="PostPress 的真實 Studio 視窗：左側為即時卡片預覽，右側為材質、畫幅、頁尾開關、作者模糊與複製按鈕。"
+              width="1280"
+              height="869"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>真實 Studio 視窗：左側預覽與右側控制項即時同步。</figcaption>
+          </figure>
+          <div class="switch-list">
+            <figure>
+              <img data-card="switch-full" src="../assets/cards/switch-full-midnight.webp" alt="範例卡片：啟用 QR Code、互動數據、發布時間與署名。" width="900" height="523" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">全開</span>
+                <span>QR Code、數據、時間、署名。</span>
+              </figcaption>
+            </figure>
+            <figure>
+              <img data-card="switch-plain" src="../assets/cards/switch-plain-midnight.webp" alt="範例卡片：關閉頁尾，僅保留貼文內文。" width="900" height="434" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">關閉頁尾</span>
+                <span>只留內文。</span>
+              </figcaption>
+            </figure>
+            <figure>
+              <img data-card="switch-blur" src="../assets/cards/switch-blur-midnight.webp" alt="範例卡片：作者與引用作者頭像、名稱與帳號均已模糊。" width="900" height="434" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">隱私模糊</span>
+                <span>作者與引用作者一併模糊。</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec privacy" id="privacy">
+        <div class="privacy-text">
+          <h2>從頭到尾都在本機執行。</h2>
+          <p>
+            沒有帳號、沒有伺服器、沒有遙測。排版在隔離的 Shadow DOM 中完成，匯出由瀏覽器自己的畫布繪製。除了向 X 的圖片主機取得卡片裡本來就有的圖片之外，不會有任何資料離開你的電腦。
+          </p>
+          <p class="note">
+            不讀取你的時間軸、不需要 X 帳號，也不使用 X API。與 X Corp. 無關聯。
+          </p>
+        </div>
+        <ul class="perms">
+          <li>
+            <code>clipboardWrite</code>
+            <span>只在你按下「複製」時，將完成的圖片寫入剪貼簿。</span>
+          </li>
+          <li>
+            <code>storage</code>
+            <span>記住你選擇的材質、畫幅與開關；僅儲存在本機。</span>
+          </li>
+          <li>
+            <code>*.twimg.com</code>
+            <span>抓取卡片內的圖片。沒有此權限，畫布無法讀取跨來源圖片。</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="sec install" id="install">
+        <div class="sec-head">
+          <h2>裝進你的瀏覽器。</h2>
+          <p class="lead">
+            從 Chrome 線上應用程式商店一鍵安裝；或展開下方三步驟自行從原始碼建置。
+          </p>
+        </div>
+        <div class="install-primary">
+          <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">從 Chrome 線上應用程式商店安裝</a>
+          <a class="link" href="https://github.com/Shirolin/postpress">開啟 GitHub 儲存庫</a>
+          <p class="note">以 GPL-3.0-or-later 釋出：若修改並再散布，請依相同授權開源。</p>
+        </div>
+        <details class="install-source">
+          <summary>開發者專用：從原始碼建置（3 步驟）</summary>
+          <ol class="steps">
+            <li>
+              <h3>建置</h3>
+              <p>複製原始碼、安裝相依套件並建置，輸出會落在 <code>dist/</code>。</p>
+            </li>
+            <li>
+              <h3>載入</h3>
+              <p>
+                開啟 <code>chrome://extensions</code>，啟用「開發人員模式」，點選「載入未封裝項目」，選擇 <code>dist/</code> 資料夾。
+              </p>
+            </li>
+            <li>
+              <h3>使用</h3>
+              <p>點擊任一貼文旁的卡片按鈕（或游標懸停按 <kbd>Alt</kbd> + <kbd>C</kbd>），點選「複製圖片」即可隨處貼上。</p>
+            </li>
+          </ol>
+          <div class="install-code">
+            <pre><code>git clone https://github.com/Shirolin/postpress.git
+cd postpress
+pnpm install
+pnpm run build   <span class="c"># → dist/</span></code></pre>
+          </div>
+        </details>
+      </section>
+
+      <section class="sec faq" id="faq">
+        <div class="faq-row faq-head">
+          <h2>常見問題</h2>
+          <p class="lead">八個真實問題，解答就在右側。</p>
+        </div>
+        <div class="faq-row">
+          <h3>為什麼不直接截圖就好？</h3>
+          <p>
+            手動裁切截圖得閃開底下的回覆、把長串滾動截圖後再拼起來，而且受限於螢幕 DPI 與瀏覽器邊框。點一下 PostPress，整則貼文或長串會直接依材質規則排好版，把銳利的 3× 圖片放進剪貼簿，隨時貼上。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>長卡片發到動態牆會被壓糊嗎？</h3>
+          <p>
+            單則貼文以 3× 匯出。很長的長串預設以 2× 匯出以控制在尺寸上限內；若縮放後文字會過小，面板會先提醒並建議拆分。匯出設定中也提供全域 3× 開關。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>需要登入或綁定 X 嗎？</h3>
+          <p>
+            不需要。沒有帳號系統，只讀取眼前頁面已經渲染好的內容，完全不碰任何憑證。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>會有任何資料被上傳嗎？</h3>
+          <p>
+            不會。圖片只寫入剪貼簿與你的磁碟；關閉預覽視窗即釋放其餘資料，不保存任何貼文內容。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>可以商業使用嗎？</h3>
+          <p>
+            軟體本身採用 GPL-3.0-or-later 授權，可自由用於商業用途。卡片中的文字與圖片仍屬於原作者；轉載前請自行確認授權。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>支援哪些瀏覽器？</h3>
+          <p>
+            Chrome 與 Edge（Chrome 111 起，Manifest V3）。尚未支援 Firefox 與 Safari——本擴充功能基於 Chromium 的擴充 API 開發。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>怎麼只截推文正文、不把底下的回覆截進去？</h3>
+          <p>
+            點擊貼文上的 PostPress 卡片按鈕（或游標懸停按 Alt + C）。PostPress 只讀取該則貼文或同作者連續長串，會自動濾除廣告與第三方回覆；若長串中某則不想顯示，複製前點一下即可排除。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>能把推文直接轉成 PNG 圖片嗎？</h3>
+          <p>
+            可以。PostPress 會在瀏覽器本機渲染卡片，並將 3× PNG 直接複製到剪貼簿（或下載 PNG 檔到磁碟）。超長串預設為 2× 以避開尺寸上限，也可以在匯出設定中切換為 3×。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <section class="close" id="close">
+      <h2 class="close-line">下一則貼文，值得印上紙面。</h2>
+      <div class="close-foot">
+        <p>安裝一次，之後每則貼文的操作列都會有它。點一下進剪貼簿，隨處都能貼上。</p>
+        <a class="btn btn-dark" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">從 Chrome 線上應用程式商店安裝</a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot-top">
+        <p class="foot-brand">PostPress · 印推</p>
+        <nav aria-label="連結">
+          <a href="https://github.com/Shirolin/postpress">GitHub</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/README.md">README</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/PRIVACY.md">隱私權</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/LICENSE">授權條款</a>
+        </nav>
+      </div>
+      <p class="foot-credit">
+        範例卡片攝影來自 Unsplash（Unsplash License）：@declansun、@xanderart、@parrish、@hngstrm、@dnevozhai、@kugedo6060、@nicolonimor、@peemaglama、@markusspiske、@hannynaibaho、@jakobowens1、@mitchures、@migueljoya、@kellysikkema、@bady、@egorghetto、@vonshnauzer、@kimonmaritz、@monadiform、@deconovo、@evstyle、@chatelp、@a7med7、@renjunn、@benchaccounting 與 @andrew_bright。@claranovak、@kenjisato_35mm、@marcusreid、@noralind 與 @postpress_ext 為虛構範例帳號。
+      </p>
+      <p class="foot-legal">
+        <span>GPL-3.0-or-later</span> · X（Twitter）為 X Corp. 之商標，本專案與其無關聯。
+      </p>
+    </footer>
+
+    <script id="pp-i18n" type="application/json">{"lang":"zh-tw","themeLabel":{"light":"淺色","dark":"深色"},"themeAria":{"light":"切換到淺色版","dark":"切換到深色版"},"specCardAltTemplate":"{name}材質的卡片：實拍樣張渲染效果。","articleAlts":{"article":"範例卡片：一篇帶封面照、欄目、標題與首行文字的 X 長文貼文。","quad":"範例卡片：Gallery 材質下的四張 3:2 建築攝影，在 Fit 模式下零裁切完整對齊。","grid20":"範例卡片：單則帶 20 張照片的貼文，以四欄多列均衡排版。"},"materials":{"minimal":{"name":"極簡","note":"暖白紙面，沒有邊框線，只留排版本身。"},"midnight":{"name":"夜幕","note":"深墨底配淺字，夜間閱讀不刺眼。"},"glass":{"name":"液態玻璃","note":"半透明玻璃片，邊緣一道細光。"},"material":{"name":"質感 (MD3)","note":"Material 3 的色塊層次與圓角。"},"gallery":{"name":"藝廊","note":"牆標與左側裝幀線，像美術館的展籤。"},"darkroom":{"name":"暗房","note":"接觸印相：片號、留白、銀鹽的灰。"},"riso":{"name":"孔版","note":"螢光墨、錯位套印與紙張顆粒。"},"sumi":{"name":"水墨","note":"宣紙、淡墨與一枚朱砂印。"},"clay":{"name":"軟陶","note":"圓潤柔和，像手工捏塑而成。"},"terminal":{"name":"終端機","note":"等寬字體、掃描線與終端機綠。"},"receipt":{"name":"收據","note":"感熱紙、虛線與緊排的等寬小字。"},"brutalist":{"name":"粗野派","note":"3px 硬邊與螢光黃，實驗性風格。"}}}</script>
+    <script src="../app.js" defer></script>
+  </body>
+</html>

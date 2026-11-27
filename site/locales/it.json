@@ -1,0 +1,179 @@
+{
+  "brandName": "PostPress",
+  "brandCnSuffix": "",
+  "skip": "Vai al contenuto",
+  "navAriaLabel": "Navigazione della pagina",
+  "langAriaLabel": "Lingua",
+  "meta": {
+    "title": "PostPress: screenshot puliti di tweet per X",
+    "description": "Trasforma qualsiasi tweet in immagine con un clic. Copia post e thread di X come card PNG 3× negli appunti—12 stili, 100% locale, senza login.",
+    "ogDescription": "Trasforma qualsiasi tweet in immagine con un clic. Copia post e thread di X come card PNG 3× negli appunti—12 stili, 100% locale, senza login.",
+    "ogImageAlt": "PostPress: copia i post di X come card 3× pronte per la stampa",
+    "siteName": "PostPress",
+    "appDescription": "Trasforma qualsiasi tweet in immagine con un clic. Copia post e thread di X come card PNG 3× negli appunti—12 stili, 100% locale, senza login."
+  },
+  "nav": {
+    "thread": "Thread",
+    "article": "Articoli",
+    "privacy": "Privacy",
+    "install": "Installa"
+  },
+  "themeToggle": {
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "ariaToLight": "Passa alla versione chiara",
+    "ariaToDark": "Passa alla versione scura"
+  },
+  "hero": {
+    "h1": "Copia ogni post come una card.",
+    "sub": "Basta ritagli manuali e screenshot. Clicca il pulsante su un post (o premi Alt + C) per copiare un singolo post o un thread dello stesso autore come nitida card 3× negli appunti, pronta da incollare ovunque. Dodici stili, renderizzati interamente sul tuo computer.",
+    "meta": "Gratuito e open source · GPL-3.0-or-later · Chrome / Edge (Manifest V3, da Chrome 111)"
+  },
+  "cta": {
+    "install": "Aggiungi dal Chrome Web Store",
+    "install2": "Aggiungi dal Chrome Web Store",
+    "source": "Codice e docs"
+  },
+  "facts": {
+    "materials": "stili",
+    "canvas": "formati tela",
+    "locales": "lingue interfaccia",
+    "export": "copia Retina"
+  },
+  "spec": {
+    "pick": "Scegli uno stile",
+    "cardAltTemplate": "Stile {name}: esempio di post renderizzato come card."
+  },
+  "materials": {
+    "minimal": { "name": "Minimal", "note": "Bianco caldo, nessuna cornice, solo tipografia." },
+    "midnight": { "name": "Mezzanotte", "note": "Fondo scuro e caratteri chiari, riposante di notte." },
+    "glass": { "name": "Vetro liquido", "note": "Lastra traslucida con un sottile bordo illuminato." },
+    "material": { "name": "Material 3", "note": "Blocchi tonali e angoli arrotondati Material 3." },
+    "gallery": { "name": "Galleria", "note": "Targhetta da parete e filetto di montaggio, come al museo." },
+    "darkroom": { "name": "Camera oscura", "note": "Provino a contatto: numeri di fotogramma, margini, grigio argento." },
+    "riso": { "name": "Riso", "note": "Inchiostri fluo, fuori registro e grana della carta." },
+    "sumi": { "name": "Sumi", "note": "Carta di riso, inchiostro diluito e sigillo vermiglio." },
+    "clay": { "name": "Argilla", "note": "Morbido e arrotondato, come modellato a mano." },
+    "terminal": { "name": "Terminale", "note": "Monospazio, righe di scansione, verde console." },
+    "receipt": { "name": "Scontrino", "note": "Carta termica, tratteggi e monospazio compatto." },
+    "brutalist": { "name": "Brutalista", "note": "Cornice rigida 3px e giallo fluo. Sperimentale." }
+  },
+  "thread": {
+    "h2": "I thread si uniscono da soli.",
+    "body": "I post dello stesso thread vengono uniti per autore e orario, filtrando annunci e risposte estranee. Due strade: prima la cache GraphQL di X, poi il DOM renderizzato se la cache è vuota. Ogni post che non vuoi mostrare si esclude con un clic.",
+    "imgAlt": "Card di esempio: tre post di un solo autore, due con foto e uno che cita un altro post.",
+    "cap": "Tre post dello stesso autore, uno con citazione: l'intera card così come viene esportata.",
+    "d1": "Post",
+    "d2": "Foto",
+    "d3": "Citazione",
+    "d4": "Esporta",
+    "tick1": "I post consecutivi di un autore vengono uniti; annunci e risposte di terzi restano fuori",
+    "tick2": "I thread lunghi si esportano a 2× di default per restare sotto il limite di peso",
+    "tick3": "Se una card risulterebbe troppo piccola nel feed, il pannello avvisa prima di esportare"
+  },
+  "guide": {
+    "h2": "Come fare uno screenshot di un tweet senza elementi superflui",
+    "intro": "Quasi tutti fanno lo screenshot di un tweet per condividerlo in una presentazione, newsletter o chat—ritrovandosi con risposte, barre laterali e testo sfocato. Ci sono tre modi comuni per trasformare un tweet in immagine, ciascuno con un compromesso chiaro.",
+    "m1t": "Screenshot dal telefono",
+    "m1": "Premi i tasti su iOS o Android, poi ritaglia barra di stato, icone e la prima risposta sotto. È veloce per un post breve, ma il compromesso è la risoluzione fissa dello schermo, margini irregolari e l'impossibilità di catturare un thread lungo senza incollare più screenshot a mano.",
+    "m2t": "Cattura area dal browser",
+    "m2": "Usa lo strumento di ritaglio del sistema o una scorciatoia del browser per tracciare un rettangolo attorno al post su desktop. Hai un po' più di controllo rispetto al telefono, ma resti legato al DPI del monitor, alla cornice del browser o agli stati hover, dovendo ritagliare di nuovo quando una citazione o griglia sfiora il bordo.",
+    "m3t": "Renderizzare il post come card",
+    "m3": "Invece di fotografare i pixel dello schermo, leggi testo, media e struttura del thread per reimpaginarli su una tela pulita. Il compromesso degli strumenti web ospitati è dover incollare l'URL su un server terzo, aspettare API limitate o tollerare filigrane e thread spezzati.",
+    "outro": "PostPress porta la terza strada interamente nel tuo browser: clicca il pulsante card su qualsiasi post X (o premi Alt + C), scegli uno stile e copia un PNG 3× nitido negli appunti—con risposte e annunci filtrati, nessun server e nessun login.",
+    "imgAlt": "Un tweet renderizzato localmente nello stile Mezzanotte, senza cornice del browser né risposte.",
+    "cap": "Un tweet renderizzato localmente nello stile Mezzanotte—niente cornice del browser, niente risposte superflue."
+  },
+  "article": {
+    "h2": "Articoli, citazioni e griglie restano intatti.",
+    "tablistAria": "Esempi di impaginazione",
+    "tab1": "Articolo X",
+    "tab2": "Quattro senza tagli",
+    "tab3": "Griglia 20 foto",
+    "lead": "Un Articolo X porta con sé copertina e sommario; un post citato viene riempito o bordato secondo lo stile; da una a venti immagini mantengono le proprie proporzioni nella griglia, quattro per riga oltre le prime quattro (Riempi le ritaglia quadrate).",
+    "lede": "«Non è un filtro: è carta, filetto e carattere nella giusta proporzione.»",
+    "s1t": "Articolo",
+    "s1": "Copertina, occhiello, titolo e incipit escono insieme.",
+    "s2t": "Citazione",
+    "s2": "Piena o bordata, seguendo lo stile scelto.",
+    "s3t": "Immagini",
+    "s3": "Da una a venti conservano le proporzioni invece di essere tagliate quadrate; quattro per riga dalla quinta, o quadrate in modalità Riempi.",
+    "alts": {
+      "article": "Card di esempio: un Articolo X con foto di copertina, occhiello, titolo e prima riga.",
+      "quad": "Card di esempio: quattro fotografie di architettura 3:2 in Galleria, allineate senza ritagli in modalità Adatta.",
+      "grid20": "Card di esempio: un post con 20 immagini impaginato con ordine in 4 colonne bilanciate."
+    }
+  },
+  "switch": {
+    "h2": "Otto interruttori, un unico Studio.",
+    "lead": "Stile, formato, sfondo, piè di pagina, sfocatura autore e risoluzione convivono in questa finestra Studio; cambia un'opzione e l'anteprima si aggiorna dal vivo. Le tue scelte vengono ricordate così ogni giorno ti basta aprire e cliccare Copia.",
+    "panelAlt": "La vera finestra Studio di PostPress: anteprima dal vivo a sinistra, controlli per stili, tela, piè di pagina, sfocatura e copia a destra.",
+    "panelCap": "La vera finestra Studio: anteprima a sinistra e controlli a destra sincronizzati dal vivo.",
+    "cap1": "Tutto attivo",
+    "cap1Alt": "Card di esempio con codice QR, statistiche, data e firma attivi.",
+    "cap1b": "QR, statistiche, data, firma.",
+    "cap2": "Senza piè",
+    "cap2Alt": "Card di esempio con piè di pagina disattivato, mantenendo solo il corpo del post.",
+    "cap2b": "Solo il testo.",
+    "cap3": "Sfocato",
+    "cap3Alt": "Card di esempio con autore e autore citato sfocati.",
+    "cap3b": "Autore e autore citato insieme."
+  },
+  "privacy": {
+    "h2": "Gira tutto sul tuo computer, dall'inizio alla fine.",
+    "body": "Nessun account, nessun server, nessuna telemetria. L'impaginazione avviene in uno Shadow DOM isolato e l'esportazione è disegnata dal canvas del browser stesso. Oltre a scaricare le immagini già nella card dagli host di X, nulla lascia il dispositivo.",
+    "note": "Non legge la tua timeline, non richiede account X né API X. Non affiliato a X Corp.",
+    "p1": "Mette l'immagine finita negli appunti solo quando premi Copia.",
+    "p2": "Ricorda stile, tela e interruttori; salvato solo in locale.",
+    "p3": "Recupera le immagini della card. Un canvas non può leggere immagini cross-origin senza di esso."
+  },
+  "install": {
+    "h2": "Nel tuo browser.",
+    "lead": "Installa dal Chrome Web Store con un clic, oppure apri qui sotto i tre passaggi per compilare dai sorgenti.",
+    "store": "Aggiungi dal Chrome Web Store",
+    "cta": "Apri repository GitHub",
+    "note": "Rilasciato sotto GPL-3.0-or-later: ridistribuisci le modifiche con la stessa licenza.",
+    "sourceSummary": "Per sviluppatori: compila dai sorgenti (3 passaggi)",
+    "s1t": "Compila",
+    "s1": "Clona il codice, installa le dipendenze e compila. L'output finisce in <code>dist/</code>.",
+    "s2t": "Carica",
+    "s2": "Apri <code>chrome://extensions</code>, attiva la modalità sviluppatore, scegli Carica estensione non pacchettizzata e seleziona la cartella <code>dist/</code>.",
+    "s3t": "Usa",
+    "s3": "Premi il pulsante card su qualsiasi post (o passa sopra e premi <kbd>Alt</kbd> + <kbd>C</kbd>), clicca Copia immagine e incolla ovunque."
+  },
+  "faq": {
+    "h2": "Domande frequenti",
+    "lead": "Otto domande reali, risposte sulla destra.",
+    "q1": "Perché non fare un semplice screenshot?",
+    "a1": "Ritagliare a mano vuol dire evitare risposte, unire thread lunghi da più catture e accontentarsi del DPI dello schermo e della cornice del browser. Un clic su PostPress impagina l'intero post o thread secondo lo stile scelto e mette negli appunti una nitida immagine 3×.",
+    "q2": "Una card lunga sfoca nel feed?",
+    "a2": "Un post singolo viene esportato a 3×. Un thread molto lungo usa 2× di default per restare sotto il limite di dimensione; se diventasse troppo piccolo da leggere, il pannello avvisa e suggerisce di dividerlo. Nelle impostazioni di esportazione c'è un interruttore globale 3×.",
+    "q3": "Devo accedere o collegare X?",
+    "a3": "No. Non esiste alcun sistema di account: legge solo ciò che la pagina davanti a te ha già renderizzato e non tocca mai credenziali.",
+    "q4": "Viene caricato qualcosa online?",
+    "a4": "No. L'immagine va negli appunti e sul tuo disco; chiudendo l'anteprima il resto viene liberato. Nessun contenuto del post viene salvato.",
+    "q5": "Posso usarlo commercialmente?",
+    "a5": "Il software è GPL-3.0-or-later e libero per uso commerciale. Parole e immagini dentro una card restano dei rispettivi autori; verifica prima di ridistribuire.",
+    "q6": "Su quali browser funziona?",
+    "a6": "Chrome ed Edge, da Chrome 111 (Manifest V3). Firefox e Safari non sono ancora supportati: l'estensione è basata sulle API di estensione Chromium.",
+    "q7": "Come faccio lo screenshot di un tweet senza risposte?",
+    "a7": "Clicca il pulsante card di PostPress sul post (o passa sopra e premi Alt + C). PostPress legge solo quel post—o i post consecutivi dello stesso autore in un thread—ed esclude automaticamente annunci e risposte di terzi. Puoi anche escludere con un clic singoli post del thread prima di copiare.",
+    "q8": "Posso trasformare un tweet in PNG?",
+    "a8": "Sì. PostPress renderizza la card localmente nel browser e copia un PNG 3× direttamente negli appunti (oppure scarica il file PNG sul disco). I thread molto lunghi usano 2× di default per il limite di dimensione, con opzione 3× nelle impostazioni di esportazione."
+  },
+  "close": {
+    "h2": "Il tuo prossimo post merita carta.",
+    "sub": "Installa una volta e resta nella barra di ogni post. Un clic verso gli appunti, pronto da incollare ovunque."
+  },
+  "foot": {
+    "navAria": "Collegamenti",
+    "readme": "README",
+    "readmeHref": "README.md",
+    "privacy": "Privacy",
+    "privacyHref": "PRIVACY.md",
+    "license": "Licenza",
+    "credit": "Fotografie di esempio via Unsplash (Unsplash License): @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting e @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind e @postpress_ext sono account di esempio fittizi.",
+    "gpl": "GPL-3.0-or-later",
+    "legalSuffix": "X (Twitter) è un marchio di X Corp., nessuna affiliazione."
+  }
+}

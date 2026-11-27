@@ -1,0 +1,179 @@
+{
+  "brandName": "PostPress",
+  "brandCnSuffix": "",
+  "skip": "Skip to content",
+  "navAriaLabel": "Page navigation",
+  "langAriaLabel": "Language",
+  "meta": {
+    "title": "PostPress: Clean Tweet Screenshot Tool for X",
+    "description": "Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login.",
+    "ogDescription": "Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login.",
+    "ogImageAlt": "PostPress: copy X posts as print-grade 3× cards",
+    "siteName": "PostPress",
+    "appDescription": "Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login."
+  },
+  "nav": {
+    "thread": "Threads",
+    "article": "Articles",
+    "privacy": "Privacy",
+    "install": "Install"
+  },
+  "themeToggle": {
+    "light": "Light",
+    "dark": "Dark",
+    "ariaToLight": "Switch to the light version",
+    "ariaToDark": "Switch to the dark version"
+  },
+  "hero": {
+    "h1": "Copy any post as a card.",
+    "sub": "Skip the manual crop-and-screenshot routine. Click the button on a post (or press Alt + C) to copy a single post or same-author thread as a crisp 3× card straight to your clipboard, ready to paste anywhere. Twelve materials, rendered entirely on your machine.",
+    "meta": "Free and open source · GPL-3.0-or-later · Chrome / Edge (Manifest V3, Chrome 111 and later)"
+  },
+  "cta": {
+    "install": "Add from Chrome Web Store",
+    "install2": "Add from Chrome Web Store",
+    "source": "Source and docs"
+  },
+  "facts": {
+    "materials": "materials",
+    "canvas": "canvas shapes",
+    "locales": "interface languages",
+    "export": "Retina copy"
+  },
+  "spec": {
+    "pick": "Pick a material",
+    "cardAltTemplate": "{name} material: sample post rendered as a card."
+  },
+  "materials": {
+    "minimal": { "name": "Minimal", "note": "Warm white, no frame, nothing but the typesetting." },
+    "midnight": { "name": "Midnight", "note": "A deep ground with pale type, easy at night." },
+    "glass": { "name": "Liquid Glass", "note": "A translucent pane with a thin lit edge." },
+    "material": { "name": "Material 3", "note": "Material 3 tonal blocks and corners." },
+    "gallery": { "name": "Gallery", "note": "A wall label and a mounting rule, like a museum caption." },
+    "darkroom": { "name": "Darkroom", "note": "A contact print: frame numbers, margins, silver grey." },
+    "riso": { "name": "Riso", "note": "Fluorescent inks, a misregistered pass, paper grain." },
+    "sumi": { "name": "Sumi", "note": "Rice paper, diluted ink, a cinnabar seal." },
+    "clay": { "name": "Clay", "note": "Rounded and soft, as if pressed by hand." },
+    "terminal": { "name": "Terminal", "note": "Monospace, scanlines, console green." },
+    "receipt": { "name": "Receipt", "note": "Thermal paper, dashed rules, tight monospace." },
+    "brutalist": { "name": "Brutalist", "note": "A 3px hard frame and fluorescent yellow. Experimental." }
+  },
+  "thread": {
+    "h2": "Threads stitch themselves.",
+    "body": "Posts in one thread are joined by author and time, with ads and stray replies filtered out. Two ways in: X's own GraphQL cache first, then the rendered DOM when nothing is cached. Any post you would rather not show comes off with one click.",
+    "imgAlt": "Sample card: three posts by one author, two with photographs and one quoting another post.",
+    "cap": "Three posts by one author, one of them quoting: the whole card as it exports.",
+    "d1": "Posts",
+    "d2": "Photos",
+    "d3": "Quote",
+    "d4": "Export",
+    "tick1": "Consecutive posts by one author are joined; ads and third-party replies stay out",
+    "tick2": "Long threads export at 2× by default, under the platform size ceiling",
+    "tick3": "When a card would read too small in a feed, the panel says so before you export"
+  },
+  "guide": {
+    "h2": "How to screenshot a tweet without the clutter",
+    "intro": "Most people grab a tweet screenshot to share an idea in a deck, newsletter, or group chat—only to end up with reply threads, sidebars, and soft text. There are three common ways to turn a tweet to image, and each carries a clear trade-off.",
+    "m1t": "Phone screenshot",
+    "m1": "Press the hardware buttons on iOS or Android, then crop out the status bar, navigation icons, and the first reply underneath. It is fast for a single short post, but the trade-off is fixed screen resolution, uneven margins, and no clean way to capture a multi-post thread without stitching several screenshots together by hand.",
+    "m2t": "Browser region capture",
+    "m2": "Use the OS snipping tool or a browser screenshot shortcut to drag a rectangle around the post on desktop. You get slightly more control over framing than on a phone, yet the trade-off is still display DPI, visible browser chrome or hover states, and re-cropping every time a quote card or photo grid sits near the edge of the viewport.",
+    "m3t": "Render the post as a card",
+    "m3": "Instead of photographing pixels off the screen, parse the post’s text, media, and thread structure and lay them out fresh on a clean canvas. The trade-off is that hosted web tools usually ask you to paste a tweet URL into a third-party server, wait on rate-limited APIs, or live with watermarks and broken long threads.",
+    "outro": "PostPress takes that third approach and runs it entirely inside your browser: click the card button on any X post (or press Alt + C), pick a material, and copy a crisp 3× PNG straight to your clipboard—with replies and ads filtered out, no server, and no login.",
+    "imgAlt": "A tweet rendered as a clean card in the Midnight material, without browser chrome or replies.",
+    "cap": "A tweet rendered locally in the Midnight material—no browser chrome, no stray replies."
+  },
+  "article": {
+    "h2": "Articles, quotes and image grids survive.",
+    "tablistAria": "Layout specimens",
+    "tab1": "X Article",
+    "tab2": "Zero-Crop Quad",
+    "tab3": "20-Image Grid",
+    "lead": "An X Article brings out its cover and lead; a quoted post is filled or outlined to suit the material; one to twenty pictures keep their own proportions in the grid, four to a row past the first four (fill crops them square).",
+    "lede": "“Not a filter — paper, rule and type at the right ratio.”",
+    "s1t": "Article",
+    "s1": "Cover, kicker, title and lead come through together.",
+    "s2t": "Quote",
+    "s2": "Filled or outlined, following the material.",
+    "s3t": "Pictures",
+    "s3": "One to twenty keep their own proportions instead of being cropped square; four to a row past the first four, and fill crops them square.",
+    "alts": {
+      "article": "Sample card: an X Article post with its cover photograph, kicker, title and opening line.",
+      "quad": "Sample card: four 3:2 architectural photographs mounted in Gallery with zero cropping in Fit mode.",
+      "grid20": "Sample card: a 20-image post laid out cleanly in 4-column balanced rows."
+    }
+  },
+  "switch": {
+    "h2": "Eight switches, one Studio.",
+    "lead": "Material, canvas, background, footer details, author blur and export resolution all live on this one Studio modal; change one and the live preview follows. Your choices are remembered, so day to day you just open and hit Copy.",
+    "panelAlt": "The real PostPress Studio modal: live card preview on the left, controls for materials, canvas, footer switches, author blur and copy on the right.",
+    "panelCap": "The real Studio modal: left preview and right controls stay in sync live.",
+    "cap1": "All on",
+    "cap1Alt": "Sample card with QR code, counts, timestamp and credit enabled.",
+    "cap1b": "QR, counts, time, credit.",
+    "cap2": "Footer off",
+    "cap2Alt": "Sample card with footer turned off, keeping only the post body.",
+    "cap2b": "The body alone.",
+    "cap3": "Blurred",
+    "cap3Alt": "Sample card with author and quoted author blurred.",
+    "cap3b": "Author and quoted author together."
+  },
+  "privacy": {
+    "h2": "It runs on your machine, end to end.",
+    "body": "No account, no server, no telemetry. Typesetting happens inside an isolated Shadow DOM and the export is drawn by the browser's own canvas. Apart from fetching the pictures already in your card from X's image hosts, nothing leaves the machine.",
+    "note": "It does not read your timeline, needs no X account and no X API. Not affiliated with X Corp.",
+    "p1": "Puts the finished image on your clipboard, only when you press Copy.",
+    "p2": "Remembers your material, canvas and switches; stored locally.",
+    "p3": "Fetches the card's pictures. A canvas cannot read cross-origin images without it."
+  },
+  "install": {
+    "h2": "Into your browser.",
+    "lead": "Install from the Chrome Web Store in one click; or expand the three-step build from source below.",
+    "store": "Add from Chrome Web Store",
+    "cta": "Open GitHub repository",
+    "note": "Released under GPL-3.0-or-later: redistribute your changes under the same licence.",
+    "sourceSummary": "For developers: build from source (3 steps)",
+    "s1t": "Build",
+    "s1": "Clone the source, install and build. The output lands in <code>dist/</code>.",
+    "s2t": "Load",
+    "s2": "Open <code>chrome://extensions</code>, turn on Developer mode, choose Load unpacked, and pick the <code>dist/</code> folder.",
+    "s3t": "Use",
+    "s3": "Press the card button on any post (or hover and hit <kbd>Alt</kbd> + <kbd>C</kbd>), click Copy Image, and paste anywhere."
+  },
+  "faq": {
+    "h2": "Asked most",
+    "lead": "Eight real questions, answers on the right.",
+    "q1": "Why not just screenshot?",
+    "a1": "Cropping a screenshot by hand means dodging replies, stitching long threads across multiple captures, and settling for display DPI and browser chrome. One click on PostPress lays out the whole post or thread to the material's rules and puts a crisp 3× image straight on your clipboard, ready to paste.",
+    "q2": "Does a long card blur in the feed?",
+    "a2": "A single post exports at 3×. A very long thread defaults to 2× to stay under the size ceiling; when it would read too small, the panel warns and suggests splitting. A global 3× switch lives in the export settings.",
+    "q3": "Do I need to log in or connect X?",
+    "a3": "No. There is no account system: it reads only what the page in front of you has already rendered, and never touches a credential.",
+    "q4": "Is anything uploaded?",
+    "a4": "No. The image goes to your clipboard and your disk; closing the preview releases the rest. No post content is stored.",
+    "q5": "Can I use it commercially?",
+    "a5": "The software is GPL-3.0-or-later and free to use commercially. The words and pictures inside a card still belong to their author; check before you redistribute.",
+    "q6": "Which browsers can run it?",
+    "a6": "Chrome and Edge, from Chrome 111 (Manifest V3). Firefox and Safari are not supported yet: the extension is built on Chromium's extension APIs.",
+    "q7": "How do I screenshot a tweet without replies?",
+    "a7": "Click the PostPress card button on the post (or hover and press Alt + C). PostPress reads only that post—or consecutive posts by the same author in a thread—and automatically leaves out ads and third-party replies. If a thread includes a post you want to omit, click once to exclude it before copying.",
+    "q8": "Can I turn a tweet into a PNG?",
+    "a8": "Yes. PostPress renders the card locally in your browser and copies a 3× PNG straight to your clipboard (or downloads the PNG file to your disk). Very long threads default to 2× to stay under the size ceiling, with an option in export settings for 3×."
+  },
+  "close": {
+    "h2": "Your next post deserves paper.",
+    "sub": "Install once, then it sits in the action bar of every post. One click to the clipboard, ready to paste anywhere."
+  },
+  "foot": {
+    "navAria": "Links",
+    "readme": "README",
+    "readmeHref": "README.md",
+    "privacy": "Privacy",
+    "privacyHref": "PRIVACY.md",
+    "license": "Licence",
+    "credit": "Sample card photographs via Unsplash (Unsplash License): @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting, and @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind, and @postpress_ext are invented sample accounts.",
+    "gpl": "GPL-3.0-or-later",
+    "legalSuffix": "X (Twitter) is a trademark of X Corp., not affiliated."
+  }
+}

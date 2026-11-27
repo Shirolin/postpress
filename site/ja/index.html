@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="ja" data-base=".." data-page-lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PostPress: X ポスト用クリーン・ツイートスクショツール</title>
+    <meta
+      name="description"
+      content="ワンクリックでツイートを画像に変換。X のポストやスレッドを 3× PNG カードとしてクリップボードへコピー。12 種類のテーマ、完全ローカル動作、ログイン不要。"
+    />
+    <meta name="google-site-verification" content="MU-E0FhsaY2ecGcnntckuE4LsM8GMd74kc0OJ6sNNnY" />
+    <meta name="theme-color" content="#0c0e11" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://shirolin.github.io/postpress/ja/" />
+    <meta property="og:title" content="PostPress: X ポスト用クリーン・ツイートスクショツール" />
+    <meta
+      property="og:description"
+      content="ワンクリックでツイートを画像に変換。X のポストやスレッドを 3× PNG カードとしてクリップボードへコピー。12 種類のテーマ、完全ローカル動作、ログイン不要。"
+    />
+    <meta property="og:site_name" content="PostPress" />
+    <meta property="og:image" content="https://shirolin.github.io/postpress/assets/cards/og-en.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="PostPress: X ポストを印刷品質の 3× カードとしてコピー" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PostPress: X ポスト用クリーン・ツイートスクショツール" />
+    <meta
+      name="twitter:description"
+      content="ワンクリックでツイートを画像に変換。X のポストやスレッドを 3× PNG カードとしてクリップボードへコピー。12 種類のテーマ、完全ローカル動作、ログイン不要。"
+    />
+    <meta name="twitter:image" content="https://shirolin.github.io/postpress/assets/cards/og-en.jpg" />
+    <meta name="twitter:image:alt" content="PostPress: X ポストを印刷品質の 3× カードとしてコピー" />
+    <link rel="canonical" href="https://shirolin.github.io/postpress/ja/" />
+    <link rel="alternate" hreflang="en" href="https://shirolin.github.io/postpress/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://shirolin.github.io/postpress/zh/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://shirolin.github.io/postpress/zh-tw/" />
+    <link rel="alternate" hreflang="ja" href="https://shirolin.github.io/postpress/ja/" />
+    <link rel="alternate" hreflang="ko" href="https://shirolin.github.io/postpress/ko/" />
+    <link rel="alternate" hreflang="de" href="https://shirolin.github.io/postpress/de/" />
+    <link rel="alternate" hreflang="fr" href="https://shirolin.github.io/postpress/fr/" />
+    <link rel="alternate" hreflang="es" href="https://shirolin.github.io/postpress/es/" />
+    <link rel="alternate" hreflang="it" href="https://shirolin.github.io/postpress/it/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://shirolin.github.io/postpress/pt-br/" />
+    <link rel="alternate" hreflang="ru" href="https://shirolin.github.io/postpress/ru/" />
+    <link rel="alternate" hreflang="tr" href="https://shirolin.github.io/postpress/tr/" />
+    <link rel="alternate" hreflang="uk" href="https://shirolin.github.io/postpress/uk/" />
+    <link rel="alternate" hreflang="id" href="https://shirolin.github.io/postpress/id/" />
+    <link rel="alternate" hreflang="x-default" href="https://shirolin.github.io/postpress/" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta property="og:locale:alternate" content="id_ID" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "PostPress",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Chrome, Edge",
+            "url": "https://shirolin.github.io/postpress/ja/",
+            "downloadUrl": "https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai",
+            "sameAs": "https://github.com/Shirolin/postpress",
+            "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+            "softwareVersion": "1.3.1",
+            "author": {
+              "@type": "Person",
+              "name": "Shirolin",
+              "url": "https://github.com/Shirolin"
+            },
+            "image": "https://shirolin.github.io/postpress/assets/cards/og-en.jpg",
+            "description": "ワンクリックでツイートを画像に変換。X のポストやスレッドを 3× PNG カードとしてクリップボードへコピー。12 種類のテーマ、完全ローカル動作、ログイン不要。",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "普通にスクリーンショットを撮るのではダメですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "手動のスクショではリプライを避けて切り抜いたり、長いスレッドを複数回に分けて繋ぎ合わせたりする必要があり、画面の DPI やブラウザの枠に左右されます。PostPress なら 1 クリックでテーマ規則に沿って組み直し、鮮明な 3× 画像を直接クリップボードへコピーできます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "縦に長いカードはタイムラインでぼやけませんか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "単体ポストは 3× で書き出します。非常に長いスレッドはサイズ上限内に収めるため既定で 2× になり、小さすぎて読みにくくなる場合はパネルが分割を促します。書き出し設定で常時 3× にすることも可能です。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "X へのログインや連携は必要ですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不要です。アカウント機能自体がなく、今開いているページにすでに描画された内容だけを読み取るため、認証情報には一切触れません。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "画像やテキストがどこかへアップロードされますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "されません。画像はクリップボードと端末のストレージにのみ書き出され、プレビューを閉じればメモリから解放されます。ポスト内容の保存も行いません。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "商用利用は可能ですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ソフトウェア自体は GPL-3.0-or-later であり商用利用できます。ただしカード内の文章や写真の著作権は元の投稿者に帰属するため、再配布時はご自身でご確認ください。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "どのブラウザで動作しますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Chrome 111 以降の Chrome と Edge（Manifest V3）に対応しています。Chromium の拡張機能 API を使用しているため、Firefox と Safari にはまだ対応していません。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "リプライを含めずにツイートだけをスクショするには？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "対象のポスト上にある PostPress カードボタンを押す（またはホバーして Alt + C を押す）だけです。そのポスト、または同一投稿者の連続スレッドだけを読み取り、広告や第三者のリプライを自動で除外します。スレッド内で不要なポストがあれば、コピー前に 1 クリックで除外できます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "ツイートを PNG 画像に変換できますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "はい。PostPress はブラウザ内でカードをローカル描画し、3× の PNG をそのままクリップボードへコピー（またはディスクへ PNG ファイルとして保存）します。非常に長いスレッドは上限対策として既定 2× になりますが、書き出し設定から 3× を選ぶこともできます。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <link rel="icon" href="../assets/favicon.png" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script>
+      (function () {
+        try {
+          var q = new URLSearchParams(location.search).get('theme');
+          var t = q === 'light' || q === 'dark' ? q : localStorage.getItem('pp-theme');
+          if (t === 'light') document.documentElement.dataset.theme = 'light';
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">本文へスキップ</a>
+
+    <div class="hero" id="top">
+      <div class="hero-left">
+        <header class="bar">
+          <a class="brand" href="#top" aria-label="PostPress">
+            <svg class="mark" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+              <rect x="3" y="3.75" width="18" height="10.5" rx="3" fill="#6CC59C" stroke="#1E5A44" stroke-width="1.5" />
+              <path d="M3.75 7.75V6.9A2.4 2.4 0 0 1 6.15 4.5H17.85A2.4 2.4 0 0 1 20.25 6.9V7.75Z" fill="#A6E2C6" />
+              <rect x="5.75" y="11" width="12.5" height="1.6" rx=".875" fill="#1E5A44" />
+              <g fill="#142019"><ellipse cx="9.5" cy="8.1" rx="1.4" ry="1.9" /><ellipse cx="14.5" cy="8.1" rx="1.4" ry="1.9" /></g>
+              <g fill="#fff"><circle cx="10" cy="7.25" r=".55" /><circle cx="15" cy="7.25" r=".55" /></g>
+              <path d="M7.5 11.75h9v7.5A1.75 1.75 0 0 1 14.75 21h-5.5A1.75 1.75 0 0 1 7.5 19.25Z" fill="#F8F8F5" stroke="#1E5A44" stroke-width="1.5" stroke-linejoin="round" />
+              <circle cx="10" cy="15.4" r="1.05" fill="#6CC59C" />
+              <g stroke="#6CC59C" stroke-width="1.3" stroke-linecap="round"><path d="M12.1 15.4h2.2" /><path d="M9.6 18.3h4.8" /></g>
+            </svg>
+            <span class="brand-name">PostPress</span>
+          </a>
+          <nav class="bar-nav" aria-label="ページナビゲーション">
+            <a href="#thread">スレッド</a>
+            <a href="#article">記事</a>
+            <a href="#privacy">プライバシー</a>
+            <a href="#install">導入</a>
+          </nav>
+          <button class="lang" id="theme" type="button" aria-label="ライト表示に切り替え">ライト</button>
+          <select class="lang lang-select" id="lang" aria-label="言語">
+            <option value="en" data-href="../">English</option>
+            <option value="zh" data-href="../zh/">简体中文</option>
+            <option value="zh-tw" data-href="../zh-tw/">繁體中文</option>
+            <option value="ja" data-href="../ja/" selected>日本語</option>
+            <option value="ko" data-href="../ko/">한국어</option>
+            <option value="de" data-href="../de/">Deutsch</option>
+            <option value="fr" data-href="../fr/">Français</option>
+            <option value="es" data-href="../es/">Español</option>
+            <option value="it" data-href="../it/">Italiano</option>
+            <option value="pt-br" data-href="../pt-br/">Português</option>
+            <option value="ru" data-href="../ru/">Русский</option>
+            <option value="tr" data-href="../tr/">Türkçe</option>
+            <option value="uk" data-href="../uk/">Українська</option>
+            <option value="id" data-href="../id/">Bahasa Indonesia</option>
+          </select>
+        </header>
+
+        <div class="hero-copy">
+          <h1>どんなポストも、カードとしてコピー。</h1>
+          <p class="hero-sub">
+            手作業のトリミングとスクリーンショットは不要です。ポスト上のボタンを押す（または Alt + C）だけで、単体ポストや同一投稿者のスレッドを鮮明な 3× カードとしてクリップボードへコピー。12 種類のテーマをすべて端末内で描画します。
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Chrome ウェブストアから追加</a>
+            <a class="link" href="https://github.com/Shirolin/postpress">ソースとドキュメント</a>
+          </div>
+          <p class="hero-meta">
+            無料・オープンソース · GPL-3.0-or-later · Chrome / Edge（Manifest V3、Chrome 111 以降）
+          </p>
+          <ul class="facts">
+            <li><b>12</b><span>種類のテーマ</span></li>
+            <li><b>4</b><span>種類のキャンバス比率</span></li>
+            <li><b>14</b><span>言語の UI</span></li>
+            <li><b>3×</b><span>高精細コピー</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-stage" id="studio">
+        <a class="repo" href="https://github.com/Shirolin/postpress">GitHub</a>
+        <div class="studio" data-ui>
+          <figure class="studio-card">
+            <img
+              id="specimen-img"
+              src="../assets/cards/midnight.webp"
+              alt="ミッドナイト テーマ：サンプルポストのカード描画例。"
+              width="1280"
+              height="1315"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </figure>
+          <div class="rack">
+            <p class="rack-label" id="rack-label">テーマを選ぶ</p>
+            <div class="rack-list" role="group" aria-labelledby="rack-label">
+              <button class="material" type="button" data-material="minimal" aria-pressed="false">
+                <img src="../assets/cards/thumb-minimal.webp" alt="" width="320" height="328" loading="lazy" decoding="async" /><span>ミニマル</span>
+              </button>
+              <button class="material" type="button" data-material="midnight" aria-pressed="true">
+                <img src="../assets/cards/thumb-midnight.webp" alt="" width="320" height="329" loading="lazy" decoding="async" /><span>ミッドナイト</span>
+              </button>
+              <button class="material" type="button" data-material="glass" aria-pressed="false">
+                <img src="../assets/cards/thumb-glass.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>リキッドグラス</span>
+              </button>
+              <button class="material" type="button" data-material="material" aria-pressed="false">
+                <img src="../assets/cards/thumb-material.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>マテリアル (MD3)</span>
+              </button>
+              <button class="material" type="button" data-material="gallery" aria-pressed="false">
+                <img src="../assets/cards/thumb-gallery.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>ギャラリー</span>
+              </button>
+              <button class="material" type="button" data-material="darkroom" aria-pressed="false">
+                <img src="../assets/cards/thumb-darkroom.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>暗室</span>
+              </button>
+              <button class="material" type="button" data-material="riso" aria-pressed="false">
+                <img src="../assets/cards/thumb-riso.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>リソ</span>
+              </button>
+              <button class="material" type="button" data-material="sumi" aria-pressed="false">
+                <img src="../assets/cards/thumb-sumi.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>墨絵</span>
+              </button>
+              <button class="material" type="button" data-material="clay" aria-pressed="false">
+                <img src="../assets/cards/thumb-clay.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>クレイ</span>
+              </button>
+              <button class="material" type="button" data-material="terminal" aria-pressed="false">
+                <img src="../assets/cards/thumb-terminal.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span>ターミナル</span>
+              </button>
+              <button class="material" type="button" data-material="receipt" aria-pressed="false">
+                <img src="../assets/cards/thumb-receipt.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span>レシート</span>
+              </button>
+              <button class="material" type="button" data-material="brutalist" aria-pressed="false">
+                <img src="../assets/cards/thumb-brutalist.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>ブルータリズム</span>
+              </button>
+            </div>
+          </div>
+          <p class="cap">
+            <span class="cap-name" id="cap-name">ミッドナイト</span>
+            <span class="cap-note" id="cap-note">深い黒地に淡い文字。夜間の閲覧にも目が疲れません。</span>
+            <span class="cap-tokens" aria-hidden="true">
+              <i style="background: #181b22"></i><!-- taste-skill-ignore material surface colour, not page theme -->
+              <i style="background: #f0f2f5"></i><i style="background: #7aa2ff"></i>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <main id="main">
+      <section class="sec thread" id="thread">
+        <div class="thread-text">
+          <h2>スレッドは自動でつながる。</h2>
+          <p>
+            同じスレッド内のポストは投稿者と時刻から自動で連結され、広告や無関係なリプライは除外されます。取得は 2 段階：まず X 本体の GraphQL キャッシュを読み、キャッシュがなければ描画済み DOM から取得します。外したいポストはワンクリックで除外できます。
+          </p>
+        </div>
+        <figure class="thread-figure">
+          <img
+            class="drift"
+            data-card="thread"
+            src="../assets/cards/thread-midnight.webp"
+            alt="サンプルカード：同一投稿者の 3 つのポスト（写真付き 2 件、引用付き 1 件）。"
+            width="900"
+            height="1745"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>同一投稿者の 3 件のポスト（1 件の引用を含む）をそのまま 1 枚のカードとして書き出し。</figcaption>
+        </figure>
+        <div class="thread-data">
+          <dl class="thread-stats">
+            <div><dt>ポスト</dt><dd>3</dd></div>
+            <div><dt>写真</dt><dd>2</dd></div>
+            <div><dt>引用</dt><dd>1</dd></div>
+            <div><dt>書き出し</dt><dd>1472 × 2854</dd></div>
+          </dl>
+          <ul class="ticks">
+            <li>同一投稿者の連続ポストを連結し、広告や第三者のリプライを除外</li>
+            <li>長いスレッドはサイズ上限を避けるため既定で 2× 書き出し</li>
+            <li>タイムライン幅で文字が小さくなりすぎる場合は書き出し前に警告</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="sec guide" id="screenshot-guide">
+        <div class="guide-content">
+          <h2>余計な表示なしでツイートをきれいにスクショする方法</h2>
+          <p class="guide-intro">
+            資料やニュースレター、チャットで共有しようとツイートをスクショしても、リプライ欄やサイドバー、にじんだ文字まで写り込みがちです。ツイートを画像化する主な方法は 3 つあり、それぞれ明確なトレードオフがあります。
+          </p>
+          <ol class="guide-methods">
+            <li>
+              <h3>スマホのスクリーンショット</h3>
+              <p>
+                iOS や Android の物理ボタンで撮影し、ステータスバーやナビゲーション、直下の最初のリプライを手で切り抜きます。単発の短いポストには手軽ですが、画面解像度以上に鮮明にならず、余白も不揃いで、長いスレッドは何枚も撮って手でつなぐ必要があります。
+              </p>
+            </li>
+            <li>
+              <h3>ブラウザの範囲選択キャプチャ</h3>
+              <p>
+                デスクトップで OS の切り取りツールやブラウザのショートカットを使い、ポストの周囲をドラッグして囲みます。スマホよりは構図を調整しやすいものの、モニターの DPI 依存やブラウザ枠・ホバー表示の映り込みは避けられず、引用カードや画像グリッドが画面端にあると毎回切り直しになります。
+              </p>
+            </li>
+            <li>
+              <h3>カードとして再描画する</h3>
+              <p>
+                画面のピクセルをそのまま撮るのではなく、テキスト・メディア・スレッド構造を読み取ってクリーンなキャンバス上に組み直します。ただしオンラインの Web ツールは、ツイート URL を外部サーバーへ送る必要があったり、API 制限や透かし、スレッド崩れに悩まされがちです。
+              </p>
+            </li>
+          </ol>
+          <p class="guide-outro">
+            PostPress は 3 番目の方法をブラウザ内だけで完結させます。任意の X ポストのカードボタンを押す（または Alt + C）だけで、テーマを選んで鮮明な 3× PNG をクリップボードへ直接コピー。リプライや広告を除外し、サーバー送信もログインも不要です。
+          </p>
+        </div>
+        <figure class="guide-figure">
+          <img
+            src="../assets/cards/midnight.webp"
+            alt="ミッドナイトテーマでローカル描画されたカード：ブラウザ枠や無関係なリプライなし。"
+            width="1280"
+            height="1315"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>ミッドナイトテーマでローカル描画したカード。ブラウザ枠も不要なリプライも入りません。</figcaption>
+        </figure>
+      </section>
+
+      <section class="sec article" id="article">
+        <div class="sec-head article-head">
+          <h2>記事・引用・画像グリッドもそのまま。</h2>
+        </div>
+        <div class="article-body">
+          <figure class="article-figure">
+            <div class="showcase-tabs" role="tablist" aria-label="レイアウトサンプル">
+              <button class="showcase-tab" type="button" role="tab" data-showcase="article" aria-selected="true">X 記事</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="quad" aria-selected="false">切り抜きなし 4 枚</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="grid20" aria-selected="false">20 枚グリッド</button>
+            </div>
+            <img
+              id="article-img"
+              class="drift"
+              data-card="article"
+              src="../assets/cards/article-midnight.webp"
+              alt="サンプルカード：カバー写真、キッカー、タイトル、リード文を備えた X 記事ポスト。"
+              width="1100"
+              height="1143"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="article-side">
+            <p class="article-lead">
+              X 記事はカバー画像とリード文を引き出し、引用ポストはテーマに合わせて塗りまたは枠線で表現。1〜20 枚の画像は比率を保ったままグリッド配置され、5 枚以上は 4 列で並びます（塗りつぶしモードでは正方形にトリミング）。
+            </p>
+            <p class="article-lede">「フィルターではない。紙と罫線と活字の比率だ。」</p>
+            <ul class="article-points">
+              <li>
+                <b>記事</b>
+                <span>カバー、キッカー、タイトル、冒頭文をまとめて美しく配置。</span>
+              </li>
+              <li>
+                <b>引用</b>
+                <span>塗りまたは枠線をテーマに合わせて切り替え。</span>
+              </li>
+              <li>
+                <b>画像</b>
+                <span>1〜20 枚まで元の縦横比を保って配置（5 枚以上は 4 列表示）。塗りつぶし指定時は正方形に整列。</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec switches" id="switches">
+        <div class="sec-head">
+          <h2>8 つのスイッチを、ひとつの Studio に。</h2>
+          <p class="lead">
+            テーマ、キャンバス比率、背景、フッター要素、投稿者ぼかし、書き出し解像度をすべてこの Studio モーダルに集約。変更すると左側のプレビューが即座に追従し、設定は保存されるため次回からは開いてコピーするだけです。
+          </p>
+        </div>
+        <div class="switches-body">
+          <figure class="panel-shot">
+            <img
+              data-card="panel"
+              src="../assets/cards/panel-midnight.webp"
+              alt="PostPress の実画面 Studio モーダル：左にライブプレビュー、右にテーマ・キャンバス・フッター・投稿者ぼかし・コピーの各操作。"
+              width="1280"
+              height="869"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>実際の Studio モーダル：左のプレビューと右のコントロールがリアルタイムに連動。</figcaption>
+          </figure>
+          <div class="switch-list">
+            <figure>
+              <img data-card="switch-full" src="../assets/cards/switch-full-midnight.webp" alt="サンプルカード：QR コード・数値・日時・クレジットをすべて表示。" width="900" height="523" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">全表示</span>
+                <span>QR、数値、日時、クレジット。</span>
+              </figcaption>
+            </figure>
+            <figure>
+              <img data-card="switch-plain" src="../assets/cards/switch-plain-midnight.webp" alt="サンプルカード：フッターをオフにし、本文のみを残した状態。" width="900" height="434" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">フッターなし</span>
+                <span>本文のみ。</span>
+              </figcaption>
+            </figure>
+            <figure>
+              <img data-card="switch-blur" src="../assets/cards/switch-blur-midnight.webp" alt="サンプルカード：投稿者と引用元の投稿者をぼかした状態。" width="900" height="434" loading="lazy" decoding="async" />
+              <figcaption>
+                <span class="tag">ぼかし有効</span>
+                <span>投稿者と引用元をまとめてぼかし。</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec privacy" id="privacy">
+        <div class="privacy-text">
+          <h2>最初から最後まで、すべてあなたの端末内で。</h2>
+          <p>
+            アカウント不要、サーバー不要、テレメトリ一切なし。組版は隔離された Shadow DOM 内で行われ、書き出しはブラウザ自身のキャンバスが描画します。カード内の画像を X の画像サーバーから取得する以外に、外部へ何も送信しません。
+          </p>
+          <p class="note">
+            タイムラインは読み取らず、X アカウントも X API も不要です。X Corp. とは無関係です。
+          </p>
+        </div>
+        <ul class="perms">
+          <li>
+            <code>clipboardWrite</code>
+            <span>「画像をコピー」を押したときだけ、生成した画像をクリップボードへ書き込みます。</span>
+          </li>
+          <li>
+            <code>storage</code>
+            <span>選んだテーマ、キャンバス、各スイッチをローカルに記憶します。</span>
+          </li>
+          <li>
+            <code>*.twimg.com</code>
+            <span>カード内の画像を取得します。これがないとキャンバスはクロスオリジン画像を読み込めません。</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="sec install" id="install">
+        <div class="sec-head">
+          <h2>ブラウザに導入する。</h2>
+          <p class="lead">
+            Chrome ウェブストアからワンクリックで追加できます。下の 3 ステップを開いてソースからビルドすることも可能です。
+          </p>
+        </div>
+        <div class="install-primary">
+          <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Chrome ウェブストアから追加</a>
+          <a class="link" href="https://github.com/Shirolin/postpress">GitHub リポジトリを開く</a>
+          <p class="note">GPL-3.0-or-later ライセンスで公開。改変して再配布する場合は同一ライセンスに従ってください。</p>
+        </div>
+        <details class="install-source">
+          <summary>開発者向け：ソースからビルド（3 ステップ）</summary>
+          <ol class="steps">
+            <li>
+              <h3>ビルド</h3>
+              <p>リポジトリをクローンし、依存関係をインストールしてビルドします。成果物は <code>dist/</code> に出力されます。</p>
+            </li>
+            <li>
+              <h3>読み込み</h3>
+              <p>
+                <code>chrome://extensions</code> を開き、デベロッパーモードを有効にして「パッケージ化されていない拡張機能を読み込む」から <code>dist/</code> を選択します。
+              </p>
+            </li>
+            <li>
+              <h3>使う</h3>
+              <p>任意のポストのカードボタンを押す（またはホバーして <kbd>Alt</kbd> + <kbd>C</kbd>）→「画像をコピー」をクリックしてどこにでも貼り付けられます。</p>
+            </li>
+          </ol>
+          <div class="install-code">
+            <pre><code>git clone https://github.com/Shirolin/postpress.git
+cd postpress
+pnpm install
+pnpm run build   <span class="c"># → dist/</span></code></pre>
+          </div>
+        </details>
+      </section>
+
+      <section class="sec faq" id="faq">
+        <div class="faq-row faq-head">
+          <h2>よくある質問</h2>
+          <p class="lead">8 つの実用的な質問と回答をまとめました。</p>
+        </div>
+        <div class="faq-row">
+          <h3>普通にスクリーンショットを撮るのではダメですか？</h3>
+          <p>
+            手動のスクショではリプライを避けて切り抜いたり、長いスレッドを複数回に分けて繋ぎ合わせたりする必要があり、画面の DPI やブラウザの枠に左右されます。PostPress なら 1 クリックでテーマ規則に沿って組み直し、鮮明な 3× 画像を直接クリップボードへコピーできます。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>縦に長いカードはタイムラインでぼやけませんか？</h3>
+          <p>
+            単体ポストは 3× で書き出します。非常に長いスレッドはサイズ上限内に収めるため既定で 2× になり、小さすぎて読みにくくなる場合はパネルが分割を促します。書き出し設定で常時 3× にすることも可能です。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>X へのログインや連携は必要ですか？</h3>
+          <p>
+            不要です。アカウント機能自体がなく、今開いているページにすでに描画された内容だけを読み取るため、認証情報には一切触れません。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>画像やテキストがどこかへアップロードされますか？</h3>
+          <p>
+            されません。画像はクリップボードと端末のストレージにのみ書き出され、プレビューを閉じればメモリから解放されます。ポスト内容の保存も行いません。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>商用利用は可能ですか？</h3>
+          <p>
+            ソフトウェア自体は GPL-3.0-or-later であり商用利用できます。ただしカード内の文章や写真の著作権は元の投稿者に帰属するため、再配布時はご自身でご確認ください。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>どのブラウザで動作しますか？</h3>
+          <p>
+            Chrome 111 以降の Chrome と Edge（Manifest V3）に対応しています。Chromium の拡張機能 API を使用しているため、Firefox と Safari にはまだ対応していません。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>リプライを含めずにツイートだけをスクショするには？</h3>
+          <p>
+            対象のポスト上にある PostPress カードボタンを押す（またはホバーして Alt + C を押す）だけです。そのポスト、または同一投稿者の連続スレッドだけを読み取り、広告や第三者のリプライを自動で除外します。スレッド内で不要なポストがあれば、コピー前に 1 クリックで除外できます。
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3>ツイートを PNG 画像に変換できますか？</h3>
+          <p>
+            はい。PostPress はブラウザ内でカードをローカル描画し、3× の PNG をそのままクリップボードへコピー（またはディスクへ PNG ファイルとして保存）します。非常に長いスレッドは上限対策として既定 2× になりますが、書き出し設定から 3× を選ぶこともできます。
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <section class="close" id="close">
+      <h2 class="close-line">次のポストを、紙に刷るように。</h2>
+      <div class="close-foot">
+        <p>一度入れれば、すべてのポストのアクションバーに待機。1 クリックでクリップボードへ、どこへでも貼り付けられます。</p>
+        <a class="btn btn-dark" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Chrome ウェブストアから追加</a>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="foot-top">
+        <p class="foot-brand">PostPress</p>
+        <nav aria-label="リンク">
+          <a href="https://github.com/Shirolin/postpress">GitHub</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/README.md">README</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/PRIVACY.md">プライバシー</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/LICENSE">ライセンス</a>
+        </nav>
+      </div>
+      <p class="foot-credit">
+        サンプルカード内の写真は Unsplash（Unsplash License）より使用：@declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting, @andrew_bright。@claranovak, @kenjisato_35mm, @marcusreid, @noralind, @postpress_ext は架空のサンプルアカウントです。
+      </p>
+      <p class="foot-legal">
+        <span>GPL-3.0-or-later</span> · X（Twitter）は X Corp. の商標であり、本プロジェクトとは無関係です。
+      </p>
+    </footer>
+
+    <script id="pp-i18n" type="application/json">{"lang":"ja","themeLabel":{"light":"ライト","dark":"ダーク"},"themeAria":{"light":"ライト表示に切り替え","dark":"ダーク表示に切り替え"},"specCardAltTemplate":"{name} テーマ：サンプルポストのカード描画例。","articleAlts":{"article":"サンプルカード：カバー写真、キッカー、タイトル、リード文を備えた X 記事ポスト。","quad":"サンプルカード：Gallery テーマの 3:2 建築写真 4 枚を、Fit モードで切り抜きなしに整列。","grid20":"サンプルカード：20 枚の画像を含むポストを 4 列バランスグリッドで配置。"},"materials":{"minimal":{"name":"ミニマル","note":"温かみのある白地、枠線なし、組版だけの静かな仕上がり。"},"midnight":{"name":"ミッドナイト","note":"深い黒地に淡い文字。夜間の閲覧にも目が疲れません。"},"glass":{"name":"リキッドグラス","note":"半透明のガラス板と、縁に沿う細い光沢。"},"material":{"name":"マテリアル (MD3)","note":"Material 3 の色面と丸みのある角。"},"gallery":{"name":"ギャラリー","note":"美術館のキャプションのような壁標と左側の罫線。"},"darkroom":{"name":"暗室","note":"コンタクトプリント風のコマ番号、余白、銀塩のグレー。"},"riso":{"name":"リソ","note":"蛍光インク、版ズレの重ね刷り、紙の質感。"},"sumi":{"name":"墨絵","note":"和紙の風合い、淡墨、朱の落款印。"},"clay":{"name":"クレイ","note":"手で丸めたような柔らかな質感と丸み。"},"terminal":{"name":"ターミナル","note":"等幅フォント、走査線、コンソールグリーン。"},"receipt":{"name":"レシート","note":"感熱紙、ミシン目、詰まった等幅文字。"},"brutalist":{"name":"ブルータリズム","note":"3px の硬い枠線と蛍光イエロー。実験的なスタイル。"}}}</script>
+    <script src="../app.js" defer></script>
+  </body>
+</html>

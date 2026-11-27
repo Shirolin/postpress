@@ -34,9 +34,33 @@
     <link rel="canonical" href="https://shirolin.github.io/postpress/" />
     <link rel="alternate" hreflang="en" href="https://shirolin.github.io/postpress/" />
     <link rel="alternate" hreflang="zh-CN" href="https://shirolin.github.io/postpress/zh/" />
+    <link rel="alternate" hreflang="zh-TW" href="https://shirolin.github.io/postpress/zh-tw/" />
+    <link rel="alternate" hreflang="ja" href="https://shirolin.github.io/postpress/ja/" />
+    <link rel="alternate" hreflang="ko" href="https://shirolin.github.io/postpress/ko/" />
+    <link rel="alternate" hreflang="de" href="https://shirolin.github.io/postpress/de/" />
+    <link rel="alternate" hreflang="fr" href="https://shirolin.github.io/postpress/fr/" />
+    <link rel="alternate" hreflang="es" href="https://shirolin.github.io/postpress/es/" />
+    <link rel="alternate" hreflang="it" href="https://shirolin.github.io/postpress/it/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://shirolin.github.io/postpress/pt-br/" />
+    <link rel="alternate" hreflang="ru" href="https://shirolin.github.io/postpress/ru/" />
+    <link rel="alternate" hreflang="tr" href="https://shirolin.github.io/postpress/tr/" />
+    <link rel="alternate" hreflang="uk" href="https://shirolin.github.io/postpress/uk/" />
+    <link rel="alternate" hreflang="id" href="https://shirolin.github.io/postpress/id/" />
     <link rel="alternate" hreflang="x-default" href="https://shirolin.github.io/postpress/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="it_IT" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+    <meta property="og:locale:alternate" content="uk_UA" />
+    <meta property="og:locale:alternate" content="id_ID" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -58,7 +82,11 @@
             },
             "image": "https://shirolin.github.io/postpress/assets/cards/og-en.jpg",
             "description": "Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login.",
-            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
           },
           {
             "@type": "FAQPage",
@@ -157,9 +185,9 @@
     </script>
   </head>
   <body>
-    <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <div class="hero">
+    <div class="hero" id="top">
       <div class="hero-left">
         <header class="bar">
           <a class="brand" href="#top" aria-label="PostPress">
@@ -176,32 +204,47 @@
             <span class="brand-name">PostPress</span>
           </a>
           <nav class="bar-nav" aria-label="Page navigation">
-            <a href="#thread" data-i18n="nav.thread">Threads</a>
-            <a href="#article" data-i18n="nav.article">Articles</a>
-            <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
-            <a href="#install" data-i18n="nav.install">Install</a>
+            <a href="#thread">Threads</a>
+            <a href="#article">Articles</a>
+            <a href="#privacy">Privacy</a>
+            <a href="#install">Install</a>
           </nav>
           <button class="lang" id="theme" type="button" aria-label="Switch to the light version">Light</button>
-          <button class="lang" id="lang" type="button" aria-label="切换到中文">中文</button>
+          <select class="lang lang-select" id="lang" aria-label="Language">
+            <option value="en" data-href="./" selected>English</option>
+            <option value="zh" data-href="./zh/">简体中文</option>
+            <option value="zh-tw" data-href="./zh-tw/">繁體中文</option>
+            <option value="ja" data-href="./ja/">日本語</option>
+            <option value="ko" data-href="./ko/">한국어</option>
+            <option value="de" data-href="./de/">Deutsch</option>
+            <option value="fr" data-href="./fr/">Français</option>
+            <option value="es" data-href="./es/">Español</option>
+            <option value="it" data-href="./it/">Italiano</option>
+            <option value="pt-br" data-href="./pt-br/">Português</option>
+            <option value="ru" data-href="./ru/">Русский</option>
+            <option value="tr" data-href="./tr/">Türkçe</option>
+            <option value="uk" data-href="./uk/">Українська</option>
+            <option value="id" data-href="./id/">Bahasa Indonesia</option>
+          </select>
         </header>
 
         <div class="hero-copy">
-          <h1 data-i18n="hero.h1">Copy any post as a card.</h1>
-          <p class="hero-sub" data-i18n="hero.sub">
+          <h1>Copy any post as a card.</h1>
+          <p class="hero-sub">
             Skip the manual crop-and-screenshot routine. Click the button on a post (or press Alt + C) to copy a single post or same-author thread as a crisp 3× card straight to your clipboard, ready to paste anywhere. Twelve materials, rendered entirely on your machine.
           </p>
           <div class="hero-actions">
-            <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai" data-i18n="cta.install">Add from Chrome Web Store</a>
-            <a class="link" href="https://github.com/Shirolin/postpress" data-i18n="cta.source">Source and docs</a>
+            <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Add from Chrome Web Store</a>
+            <a class="link" href="https://github.com/Shirolin/postpress">Source and docs</a>
           </div>
-          <p class="hero-meta" data-i18n="hero.meta">
+          <p class="hero-meta">
             Free and open source · GPL-3.0-or-later · Chrome / Edge (Manifest V3, Chrome 111 and later)
           </p>
           <ul class="facts">
-            <li><b>12</b><span data-i18n="facts.materials">materials</span></li>
-            <li><b>4</b><span data-i18n="facts.canvas">canvas shapes</span></li>
-            <li><b>14</b><span data-i18n="facts.locales">interface languages</span></li>
-            <li><b>3×</b><span data-i18n="facts.export">Retina copy</span></li>
+            <li><b>12</b><span>materials</span></li>
+            <li><b>4</b><span>canvas shapes</span></li>
+            <li><b>14</b><span>interface languages</span></li>
+            <li><b>3×</b><span>Retina copy</span></li>
           </ul>
         </div>
       </div>
@@ -221,43 +264,43 @@
             />
           </figure>
           <div class="rack">
-            <p class="rack-label" id="rack-label" data-i18n="spec.pick">Pick a material</p>
+            <p class="rack-label" id="rack-label">Pick a material</p>
             <div class="rack-list" role="group" aria-labelledby="rack-label">
               <button class="material" type="button" data-material="minimal" aria-pressed="false">
-                <img src="./assets/cards/thumb-minimal.webp" alt="" width="320" height="328" loading="lazy" decoding="async" /><span data-i18n="theme.minimal">Minimal</span>
+                <img src="./assets/cards/thumb-minimal.webp" alt="" width="320" height="328" loading="lazy" decoding="async" /><span>Minimal</span>
               </button>
               <button class="material" type="button" data-material="midnight" aria-pressed="true">
-                <img src="./assets/cards/thumb-midnight.webp" alt="" width="320" height="329" loading="lazy" decoding="async" /><span data-i18n="theme.midnight">Midnight</span>
+                <img src="./assets/cards/thumb-midnight.webp" alt="" width="320" height="329" loading="lazy" decoding="async" /><span>Midnight</span>
               </button>
               <button class="material" type="button" data-material="glass" aria-pressed="false">
-                <img src="./assets/cards/thumb-glass.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.glass">Liquid Glass</span>
+                <img src="./assets/cards/thumb-glass.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Liquid Glass</span>
               </button>
               <button class="material" type="button" data-material="material" aria-pressed="false">
-                <img src="./assets/cards/thumb-material.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.material">Material 3</span>
+                <img src="./assets/cards/thumb-material.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Material 3</span>
               </button>
               <button class="material" type="button" data-material="gallery" aria-pressed="false">
-                <img src="./assets/cards/thumb-gallery.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.gallery">Gallery</span>
+                <img src="./assets/cards/thumb-gallery.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Gallery</span>
               </button>
               <button class="material" type="button" data-material="darkroom" aria-pressed="false">
-                <img src="./assets/cards/thumb-darkroom.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.darkroom">Darkroom</span>
+                <img src="./assets/cards/thumb-darkroom.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Darkroom</span>
               </button>
               <button class="material" type="button" data-material="riso" aria-pressed="false">
-                <img src="./assets/cards/thumb-riso.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.riso">Riso</span>
+                <img src="./assets/cards/thumb-riso.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Riso</span>
               </button>
               <button class="material" type="button" data-material="sumi" aria-pressed="false">
-                <img src="./assets/cards/thumb-sumi.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.sumi">Sumi</span>
+                <img src="./assets/cards/thumb-sumi.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Sumi</span>
               </button>
               <button class="material" type="button" data-material="clay" aria-pressed="false">
-                <img src="./assets/cards/thumb-clay.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.clay">Clay</span>
+                <img src="./assets/cards/thumb-clay.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Clay</span>
               </button>
               <button class="material" type="button" data-material="terminal" aria-pressed="false">
-                <img src="./assets/cards/thumb-terminal.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span data-i18n="theme.terminal">Terminal</span>
+                <img src="./assets/cards/thumb-terminal.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span>Terminal</span>
               </button>
               <button class="material" type="button" data-material="receipt" aria-pressed="false">
-                <img src="./assets/cards/thumb-receipt.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span data-i18n="theme.receipt">Receipt</span>
+                <img src="./assets/cards/thumb-receipt.webp" alt="" width="320" height="300" loading="lazy" decoding="async" /><span>Receipt</span>
               </button>
               <button class="material" type="button" data-material="brutalist" aria-pressed="false">
-                <img src="./assets/cards/thumb-brutalist.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span data-i18n="theme.brutalist">Brutalist</span>
+                <img src="./assets/cards/thumb-brutalist.webp" alt="" width="320" height="330" loading="lazy" decoding="async" /><span>Brutalist</span>
               </button>
             </div>
           </div>
@@ -276,8 +319,8 @@
     <main id="main">
       <section class="sec thread" id="thread">
         <div class="thread-text">
-          <h2 data-i18n="thread.h2">Threads stitch themselves.</h2>
-          <p data-i18n="thread.body">
+          <h2>Threads stitch themselves.</h2>
+          <p>
             Posts in one thread are joined by author and time, with ads and stray replies filtered out. Two ways in: X's own GraphQL cache first, then the rendered DOM when nothing is cached. Any post you would rather not show comes off with one click.
           </p>
         </div>
@@ -292,50 +335,50 @@
             loading="lazy"
             decoding="async"
           />
-          <figcaption data-i18n="thread.cap">Three posts by one author, one of them quoting: the whole card as it exports.</figcaption>
+          <figcaption>Three posts by one author, one of them quoting: the whole card as it exports.</figcaption>
         </figure>
         <div class="thread-data">
           <dl class="thread-stats">
-            <div><dt data-i18n="thread.d1">Posts</dt><dd>3</dd></div>
-            <div><dt data-i18n="thread.d2">Photos</dt><dd>2</dd></div>
-            <div><dt data-i18n="thread.d3">Quote</dt><dd>1</dd></div>
-            <div><dt data-i18n="thread.d4">Export</dt><dd>1472 × 2854</dd></div>
+            <div><dt>Posts</dt><dd>3</dd></div>
+            <div><dt>Photos</dt><dd>2</dd></div>
+            <div><dt>Quote</dt><dd>1</dd></div>
+            <div><dt>Export</dt><dd>1472 × 2854</dd></div>
           </dl>
           <ul class="ticks">
-            <li data-i18n="thread.tick1">Consecutive posts by one author are joined; ads and third-party replies stay out</li>
-            <li data-i18n="thread.tick2">Long threads export at 2× by default, under the platform size ceiling</li>
-            <li data-i18n="thread.tick3">When a card would read too small in a feed, the panel says so before you export</li>
+            <li>Consecutive posts by one author are joined; ads and third-party replies stay out</li>
+            <li>Long threads export at 2× by default, under the platform size ceiling</li>
+            <li>When a card would read too small in a feed, the panel says so before you export</li>
           </ul>
         </div>
       </section>
 
       <section class="sec guide" id="screenshot-guide">
         <div class="guide-content">
-          <h2 data-i18n="guide.h2">How to screenshot a tweet without the clutter</h2>
-          <p class="guide-intro" data-i18n="guide.intro">
+          <h2>How to screenshot a tweet without the clutter</h2>
+          <p class="guide-intro">
             Most people grab a tweet screenshot to share an idea in a deck, newsletter, or group chat—only to end up with reply threads, sidebars, and soft text. There are three common ways to turn a tweet to image, and each carries a clear trade-off.
           </p>
           <ol class="guide-methods">
             <li>
-              <h3 data-i18n="guide.m1t">Phone screenshot</h3>
-              <p data-i18n="guide.m1">
+              <h3>Phone screenshot</h3>
+              <p>
                 Press the hardware buttons on iOS or Android, then crop out the status bar, navigation icons, and the first reply underneath. It is fast for a single short post, but the trade-off is fixed screen resolution, uneven margins, and no clean way to capture a multi-post thread without stitching several screenshots together by hand.
               </p>
             </li>
             <li>
-              <h3 data-i18n="guide.m2t">Browser region capture</h3>
-              <p data-i18n="guide.m2">
+              <h3>Browser region capture</h3>
+              <p>
                 Use the OS snipping tool or a browser screenshot shortcut to drag a rectangle around the post on desktop. You get slightly more control over framing than on a phone, yet the trade-off is still display DPI, visible browser chrome or hover states, and re-cropping every time a quote card or photo grid sits near the edge of the viewport.
               </p>
             </li>
             <li>
-              <h3 data-i18n="guide.m3t">Render the post as a card</h3>
-              <p data-i18n="guide.m3">
+              <h3>Render the post as a card</h3>
+              <p>
                 Instead of photographing pixels off the screen, parse the post’s text, media, and thread structure and lay them out fresh on a clean canvas. The trade-off is that hosted web tools usually ask you to paste a tweet URL into a third-party server, wait on rate-limited APIs, or live with watermarks and broken long threads.
               </p>
             </li>
           </ol>
-          <p class="guide-outro" data-i18n="guide.outro">
+          <p class="guide-outro">
             PostPress takes that third approach and runs it entirely inside your browser: click the card button on any X post (or press Alt + C), pick a material, and copy a crisp 3× PNG straight to your clipboard—with replies and ads filtered out, no server, and no login.
           </p>
         </div>
@@ -348,20 +391,20 @@
             loading="lazy"
             decoding="async"
           />
-          <figcaption data-i18n="guide.cap">A tweet rendered locally in the Midnight material—no browser chrome, no stray replies.</figcaption>
+          <figcaption>A tweet rendered locally in the Midnight material—no browser chrome, no stray replies.</figcaption>
         </figure>
       </section>
 
       <section class="sec article" id="article">
         <div class="sec-head article-head">
-          <h2 data-i18n="article.h2">Articles, quotes and image grids survive.</h2>
+          <h2>Articles, quotes and image grids survive.</h2>
         </div>
         <div class="article-body">
           <figure class="article-figure">
             <div class="showcase-tabs" role="tablist" aria-label="Layout specimens">
-              <button class="showcase-tab" type="button" role="tab" data-showcase="article" aria-selected="true" data-i18n="article.tab1">X Article</button>
-              <button class="showcase-tab" type="button" role="tab" data-showcase="quad" aria-selected="false" data-i18n="article.tab2">Zero-Crop Quad</button>
-              <button class="showcase-tab" type="button" role="tab" data-showcase="grid20" aria-selected="false" data-i18n="article.tab3">20-Image Grid</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="article" aria-selected="true">X Article</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="quad" aria-selected="false">Zero-Crop Quad</button>
+              <button class="showcase-tab" type="button" role="tab" data-showcase="grid20" aria-selected="false">20-Image Grid</button>
             </div>
             <img
               id="article-img"
@@ -376,22 +419,22 @@
             />
           </figure>
           <div class="article-side">
-            <p class="article-lead" data-i18n="article.lead">
+            <p class="article-lead">
               An X Article brings out its cover and lead; a quoted post is filled or outlined to suit the material; one to twenty pictures keep their own proportions in the grid, four to a row past the first four (fill crops them square).
             </p>
-            <p class="article-lede" data-i18n="article.lede">“Not a filter — paper, rule and type at the right ratio.”</p>
+            <p class="article-lede">“Not a filter — paper, rule and type at the right ratio.”</p>
             <ul class="article-points">
               <li>
-                <b data-i18n="article.s1t">Article</b>
-                <span data-i18n="article.s1">Cover, kicker, title and lead come through together.</span>
+                <b>Article</b>
+                <span>Cover, kicker, title and lead come through together.</span>
               </li>
               <li>
-                <b data-i18n="article.s2t">Quote</b>
-                <span data-i18n="article.s2">Filled or outlined, following the material.</span>
+                <b>Quote</b>
+                <span>Filled or outlined, following the material.</span>
               </li>
               <li>
-                <b data-i18n="article.s3t">Pictures</b>
-                <span data-i18n="article.s3">One to twenty keep their own proportions instead of being cropped square; four to a row past the first four, and fill crops them square.</span>
+                <b>Pictures</b>
+                <span>One to twenty keep their own proportions instead of being cropped square; four to a row past the first four, and fill crops them square.</span>
               </li>
             </ul>
           </div>
@@ -400,8 +443,8 @@
 
       <section class="sec switches" id="switches">
         <div class="sec-head">
-          <h2 data-i18n="switch.h2">Eight switches, one Studio.</h2>
-          <p class="lead" data-i18n="switch.lead">
+          <h2>Eight switches, one Studio.</h2>
+          <p class="lead">
             Material, canvas, background, footer details, author blur and export resolution all live on this one Studio modal; change one and the live preview follows. Your choices are remembered, so day to day you just open and hit Copy.
           </p>
         </div>
@@ -416,28 +459,28 @@
               loading="lazy"
               decoding="async"
             />
-            <figcaption data-i18n="switch.panelCap">The real Studio modal: left preview and right controls stay in sync live.</figcaption>
+            <figcaption>The real Studio modal: left preview and right controls stay in sync live.</figcaption>
           </figure>
           <div class="switch-list">
             <figure>
               <img data-card="switch-full" src="./assets/cards/switch-full-midnight.webp" alt="Sample card with QR code, counts, timestamp and credit enabled." width="900" height="523" loading="lazy" decoding="async" />
               <figcaption>
-                <span class="tag" data-i18n="switch.cap1">All on</span>
-                <span data-i18n="switch.cap1b">QR, counts, time, credit.</span>
+                <span class="tag">All on</span>
+                <span>QR, counts, time, credit.</span>
               </figcaption>
             </figure>
             <figure>
               <img data-card="switch-plain" src="./assets/cards/switch-plain-midnight.webp" alt="Sample card with footer turned off, keeping only the post body." width="900" height="434" loading="lazy" decoding="async" />
               <figcaption>
-                <span class="tag" data-i18n="switch.cap2">Footer off</span>
-                <span data-i18n="switch.cap2b">The body alone.</span>
+                <span class="tag">Footer off</span>
+                <span>The body alone.</span>
               </figcaption>
             </figure>
             <figure>
               <img data-card="switch-blur" src="./assets/cards/switch-blur-midnight.webp" alt="Sample card with author and quoted author blurred." width="900" height="434" loading="lazy" decoding="async" />
               <figcaption>
-                <span class="tag" data-i18n="switch.cap3">Blurred</span>
-                <span data-i18n="switch.cap3b">Author and quoted author together.</span>
+                <span class="tag">Blurred</span>
+                <span>Author and quoted author together.</span>
               </figcaption>
             </figure>
           </div>
@@ -446,58 +489,58 @@
 
       <section class="sec privacy" id="privacy">
         <div class="privacy-text">
-          <h2 data-i18n="privacy.h2">It runs on your machine, end to end.</h2>
-          <p data-i18n="privacy.body">
+          <h2>It runs on your machine, end to end.</h2>
+          <p>
             No account, no server, no telemetry. Typesetting happens inside an isolated Shadow DOM and the export is drawn by the browser's own canvas. Apart from fetching the pictures already in your card from X's image hosts, nothing leaves the machine.
           </p>
-          <p class="note" data-i18n="privacy.note">
+          <p class="note">
             It does not read your timeline, needs no X account and no X API. Not affiliated with X Corp.
           </p>
         </div>
         <ul class="perms">
           <li>
             <code>clipboardWrite</code>
-            <span data-i18n="privacy.p1">Puts the finished image on your clipboard, only when you press Copy.</span>
+            <span>Puts the finished image on your clipboard, only when you press Copy.</span>
           </li>
           <li>
             <code>storage</code>
-            <span data-i18n="privacy.p2">Remembers your material, canvas and switches; stored locally.</span>
+            <span>Remembers your material, canvas and switches; stored locally.</span>
           </li>
           <li>
             <code>*.twimg.com</code>
-            <span data-i18n="privacy.p3">Fetches the card's pictures. A canvas cannot read cross-origin images without it.</span>
+            <span>Fetches the card's pictures. A canvas cannot read cross-origin images without it.</span>
           </li>
         </ul>
       </section>
 
       <section class="sec install" id="install">
         <div class="sec-head">
-          <h2 data-i18n="install.h2">Into your browser.</h2>
-          <p class="lead" data-i18n="install.lead">
+          <h2>Into your browser.</h2>
+          <p class="lead">
             Install from the Chrome Web Store in one click; or expand the three-step build from source below.
           </p>
         </div>
         <div class="install-primary">
-          <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai" data-i18n="install.store">Add from Chrome Web Store</a>
-          <a class="link" href="https://github.com/Shirolin/postpress" data-i18n="install.cta">Open GitHub repository</a>
-          <p class="note" data-i18n="install.note">Released under GPL-3.0-or-later: redistribute your changes under the same licence.</p>
+          <a class="btn" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Add from Chrome Web Store</a>
+          <a class="link" href="https://github.com/Shirolin/postpress">Open GitHub repository</a>
+          <p class="note">Released under GPL-3.0-or-later: redistribute your changes under the same licence.</p>
         </div>
         <details class="install-source">
-          <summary data-i18n="install.sourceSummary">For developers: build from source (3 steps)</summary>
+          <summary>For developers: build from source (3 steps)</summary>
           <ol class="steps">
             <li>
-              <h3 data-i18n="install.s1t">Build</h3>
-              <p data-i18n="install.s1">Clone the source, install and build. The output lands in <code>dist/</code>.</p>
+              <h3>Build</h3>
+              <p>Clone the source, install and build. The output lands in <code>dist/</code>.</p>
             </li>
             <li>
-              <h3 data-i18n="install.s2t">Load</h3>
-              <p data-i18n="install.s2">
+              <h3>Load</h3>
+              <p>
                 Open <code>chrome://extensions</code>, turn on Developer mode, choose Load unpacked, and pick the <code>dist/</code> folder.
               </p>
             </li>
             <li>
-              <h3 data-i18n="install.s3t">Use</h3>
-              <p data-i18n="install.s3">Press the card button on any post (or hover and hit <kbd>Alt</kbd> + <kbd>C</kbd>), click Copy Image, and paste anywhere.</p>
+              <h3>Use</h3>
+              <p>Press the card button on any post (or hover and hit <kbd>Alt</kbd> + <kbd>C</kbd>), click Copy Image, and paste anywhere.</p>
             </li>
           </ol>
           <div class="install-code">
@@ -511,54 +554,54 @@ pnpm run build   <span class="c"># → dist/</span></code></pre>
 
       <section class="sec faq" id="faq">
         <div class="faq-row faq-head">
-          <h2 data-i18n="faq.h2">Asked most</h2>
-          <p class="lead" data-i18n="faq.lead">Eight real questions, answers on the right.</p>
+          <h2>Asked most</h2>
+          <p class="lead">Eight real questions, answers on the right.</p>
         </div>
         <div class="faq-row">
-          <h3 data-i18n="faq.q1">Why not just screenshot?</h3>
-          <p data-i18n="faq.a1">
+          <h3>Why not just screenshot?</h3>
+          <p>
             Cropping a screenshot by hand means dodging replies, stitching long threads across multiple captures, and settling for display DPI and browser chrome. One click on PostPress lays out the whole post or thread to the material's rules and puts a crisp 3× image straight on your clipboard, ready to paste.
           </p>
         </div>
         <div class="faq-row">
-          <h3 data-i18n="faq.q2">Does a long card blur in the feed?</h3>
-          <p data-i18n="faq.a2">
+          <h3>Does a long card blur in the feed?</h3>
+          <p>
             A single post exports at 3×. A very long thread defaults to 2× to stay under the size ceiling; when it would read too small, the panel warns and suggests splitting. A global 3× switch lives in the export settings.
           </p>
         </div>
         <div class="faq-row">
-          <h3 data-i18n="faq.q3">Do I need to log in or connect X?</h3>
-          <p data-i18n="faq.a3">
+          <h3>Do I need to log in or connect X?</h3>
+          <p>
             No. There is no account system: it reads only what the page in front of you has already rendered, and never touches a credential.
           </p>
         </div>
         <div class="faq-row">
-          <h3 data-i18n="faq.q4">Is anything uploaded?</h3>
-          <p data-i18n="faq.a4">
+          <h3>Is anything uploaded?</h3>
+          <p>
             No. The image goes to your clipboard and your disk; closing the preview releases the rest. No post content is stored.
           </p>
         </div>
         <div class="faq-row">
-          <h3 data-i18n="faq.q5">Can I use it commercially?</h3>
-          <p data-i18n="faq.a5">
+          <h3>Can I use it commercially?</h3>
+          <p>
             The software is GPL-3.0-or-later and free to use commercially. The words and pictures inside a card still belong to their author; check before you redistribute.
           </p>
         </div>
         <div class="faq-row">
-          <h3 data-i18n="faq.q6">Which browsers can run it?</h3>
-          <p data-i18n="faq.a6">
-            Chrome and Edge, from Chrome 111 (Manifest V3). Firefox and Safari are not supported yet: the extension is built on Chromium’s extension APIs.
+          <h3>Which browsers can run it?</h3>
+          <p>
+            Chrome and Edge, from Chrome 111 (Manifest V3). Firefox and Safari are not supported yet: the extension is built on Chromium's extension APIs.
           </p>
         </div>
         <div class="faq-row">
-          <h3 data-i18n="faq.q7">How do I screenshot a tweet without replies?</h3>
-          <p data-i18n="faq.a7">
+          <h3>How do I screenshot a tweet without replies?</h3>
+          <p>
             Click the PostPress card button on the post (or hover and press Alt + C). PostPress reads only that post—or consecutive posts by the same author in a thread—and automatically leaves out ads and third-party replies. If a thread includes a post you want to omit, click once to exclude it before copying.
           </p>
         </div>
         <div class="faq-row">
-          <h3 data-i18n="faq.q8">Can I turn a tweet into a PNG?</h3>
-          <p data-i18n="faq.a8">
+          <h3>Can I turn a tweet into a PNG?</h3>
+          <p>
             Yes. PostPress renders the card locally in your browser and copies a 3× PNG straight to your clipboard (or downloads the PNG file to your disk). Very long threads default to 2× to stay under the size ceiling, with an option in export settings for 3×.
           </p>
         </div>
@@ -566,10 +609,10 @@ pnpm run build   <span class="c"># → dist/</span></code></pre>
     </main>
 
     <section class="close" id="close">
-      <h2 class="close-line" data-i18n="close.h2">Your next post deserves paper.</h2>
+      <h2 class="close-line">Your next post deserves paper.</h2>
       <div class="close-foot">
-        <p data-i18n="close.sub">Install once, then it sits in the action bar of every post. One click to the clipboard, ready to paste anywhere.</p>
-        <a class="btn btn-dark" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai" data-i18n="cta.install2">Add from Chrome Web Store</a>
+        <p>Install once, then it sits in the action bar of every post. One click to the clipboard, ready to paste anywhere.</p>
+        <a class="btn btn-dark" href="https://chromewebstore.google.com/detail/mfmldbbkajimckojjgceehiackjpakai">Add from Chrome Web Store</a>
       </div>
     </section>
 
@@ -578,19 +621,20 @@ pnpm run build   <span class="c"># → dist/</span></code></pre>
         <p class="foot-brand">PostPress</p>
         <nav aria-label="Links">
           <a href="https://github.com/Shirolin/postpress">GitHub</a>
-          <a href="https://github.com/Shirolin/postpress/blob/main/README.md" data-i18n="foot.readme">README</a>
-          <a href="https://github.com/Shirolin/postpress/blob/main/PRIVACY.md" data-i18n="foot.privacy">Privacy</a>
-          <a href="https://github.com/Shirolin/postpress/blob/main/LICENSE" data-i18n="foot.license">Licence</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/README.md">README</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/PRIVACY.md">Privacy</a>
+          <a href="https://github.com/Shirolin/postpress/blob/main/LICENSE">Licence</a>
         </nav>
       </div>
-      <p class="foot-credit" data-i18n="foot.credit">
+      <p class="foot-credit">
         Sample card photographs via Unsplash (Unsplash License): @declansun, @xanderart, @parrish, @hngstrm, @dnevozhai, @kugedo6060, @nicolonimor, @peemaglama, @markusspiske, @hannynaibaho, @jakobowens1, @mitchures, @migueljoya, @kellysikkema, @bady, @egorghetto, @vonshnauzer, @kimonmaritz, @monadiform, @deconovo, @evstyle, @chatelp, @a7med7, @renjunn, @benchaccounting, and @andrew_bright. @claranovak, @kenjisato_35mm, @marcusreid, @noralind, and @postpress_ext are invented sample accounts.
       </p>
       <p class="foot-legal">
-        <span data-i18n="foot.gpl">GPL-3.0-or-later</span> · X (Twitter) is a trademark of X Corp., not affiliated.
+        <span>GPL-3.0-or-later</span> · X (Twitter) is a trademark of X Corp., not affiliated.
       </p>
     </footer>
 
+    <script id="pp-i18n" type="application/json">{"lang":"en","themeLabel":{"light":"Light","dark":"Dark"},"themeAria":{"light":"Switch to the light version","dark":"Switch to the dark version"},"specCardAltTemplate":"{name} material: sample post rendered as a card.","articleAlts":{"article":"Sample card: an X Article post with its cover photograph, kicker, title and opening line.","quad":"Sample card: four 3:2 architectural photographs mounted in Gallery with zero cropping in Fit mode.","grid20":"Sample card: a 20-image post laid out cleanly in 4-column balanced rows."},"materials":{"minimal":{"name":"Minimal","note":"Warm white, no frame, nothing but the typesetting."},"midnight":{"name":"Midnight","note":"A deep ground with pale type, easy at night."},"glass":{"name":"Liquid Glass","note":"A translucent pane with a thin lit edge."},"material":{"name":"Material 3","note":"Material 3 tonal blocks and corners."},"gallery":{"name":"Gallery","note":"A wall label and a mounting rule, like a museum caption."},"darkroom":{"name":"Darkroom","note":"A contact print: frame numbers, margins, silver grey."},"riso":{"name":"Riso","note":"Fluorescent inks, a misregistered pass, paper grain."},"sumi":{"name":"Sumi","note":"Rice paper, diluted ink, a cinnabar seal."},"clay":{"name":"Clay","note":"Rounded and soft, as if pressed by hand."},"terminal":{"name":"Terminal","note":"Monospace, scanlines, console green."},"receipt":{"name":"Receipt","note":"Thermal paper, dashed rules, tight monospace."},"brutalist":{"name":"Brutalist","note":"A 3px hard frame and fluorescent yellow. Experimental."}}}</script>
     <script src="./app.js" defer></script>
   </body>
 </html>
