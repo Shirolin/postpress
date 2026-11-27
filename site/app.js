@@ -146,6 +146,22 @@ const EN = {
   'thread.d2': 'Photos',
   'thread.d3': 'Quote',
   'thread.d4': 'Export',
+  'guide.h2': 'How to screenshot a tweet without the clutter',
+  'guide.intro':
+    'Most people grab a tweet screenshot to share an idea in a deck, newsletter, or group chat—only to end up with reply threads, sidebars, and soft text. There are three common ways to turn a tweet to image, and each carries a clear trade-off.',
+  'guide.m1t': 'Phone screenshot',
+  'guide.m1':
+    'Press the hardware buttons on iOS or Android, then crop out the status bar, navigation icons, and the first reply underneath. It is fast for a single short post, but the trade-off is fixed screen resolution, uneven margins, and no clean way to capture a multi-post thread without stitching several screenshots together by hand.',
+  'guide.m2t': 'Browser region capture',
+  'guide.m2':
+    'Use the OS snipping tool or a browser screenshot shortcut to drag a rectangle around the post on desktop. You get slightly more control over framing than on a phone, yet the trade-off is still display DPI, visible browser chrome or hover states, and re-cropping every time a quote card or photo grid sits near the edge of the viewport.',
+  'guide.m3t': 'Render the post as a card',
+  'guide.m3':
+    'Instead of photographing pixels off the screen, parse the post’s text, media, and thread structure and lay them out fresh on a clean canvas. The trade-off is that hosted web tools usually ask you to paste a tweet URL into a third-party server, wait on rate-limited APIs, or live with watermarks and broken long threads.',
+  'guide.outro':
+    'PostPress takes that third approach and runs it entirely inside your browser: click the card button on any X post (or press Alt + C), pick a material, and copy a crisp 3× PNG straight to your clipboard—with replies and ads filtered out, no server, and no login.',
+  'guide.cap':
+    'A tweet rendered locally in the Midnight material—no browser chrome, no stray replies.',
   'article.h2': 'Articles, quotes and image grids survive.',
   'article.tab1': 'X Article',
   'article.tab2': 'Zero-Crop Quad',
@@ -193,7 +209,7 @@ const EN = {
   'install.s3': 'Press the card button on any post (or hover and hit <kbd>Alt</kbd> + <kbd>C</kbd>), click Copy Image, and paste anywhere.',
   'install.note': 'Released under GPL-3.0-or-later: redistribute your changes under the same licence.',
   'faq.h2': 'Asked most',
-  'faq.lead': 'Six real questions, answers on the right.',
+  'faq.lead': 'Eight real questions, answers on the right.',
   'faq.q1': 'Why not just screenshot?',
   'faq.a1':
     "Cropping a screenshot by hand means dodging replies, stitching long threads across multiple captures, and settling for display DPI and browser chrome. One click on PostPress lays out the whole post or thread to the material's rules and puts a crisp 3× image straight on your clipboard, ready to paste.",
@@ -212,6 +228,12 @@ const EN = {
   'faq.q6': 'Which browsers can run it?',
   'faq.a6':
     'Chrome and Edge, from Chrome 111 (Manifest V3). Firefox and Safari are not supported yet: the extension is built on Chromium’s extension APIs.',
+  'faq.q7': 'How do I screenshot a tweet without replies?',
+  'faq.a7':
+    'Click the PostPress card button on the post (or hover and press Alt + C). PostPress reads only that post—or consecutive posts by the same author in a thread—and automatically leaves out ads and third-party replies. If a thread includes a post you want to omit, click once to exclude it before copying.',
+  'faq.q8': 'Can I turn a tweet into a PNG?',
+  'faq.a8':
+    'Yes. PostPress renders the card locally in your browser and copies a 3× PNG straight to your clipboard (or downloads the PNG file to your disk). Very long threads default to 2× to stay under the size ceiling, with an option in export settings for 3×.',
   'close.h2': 'Your next post deserves paper.',
   'close.sub': 'Install once, then it sits in the action bar of every post. One click to the clipboard, ready to paste anywhere.',
   'foot.readme': 'README',
@@ -264,6 +286,21 @@ const ZH = {
   'thread.d2': '配图',
   'thread.d3': '引用',
   'thread.d4': '导出',
+  'guide.h2': '如何把推文截得干净，不带页面杂讯',
+  'guide.intro':
+    '把推文转成图片放进文档、简报或群聊时，普通截屏往往会带进底下的评论、侧边栏和发虚的文字。把推文保存成图片常见有三种做法，各自都有明确代价。',
+  'guide.m1t': '手机自带截屏',
+  'guide.m1':
+    '按下手机截屏键，再手动裁掉状态栏、导航图标和下面露出来的第一条评论。单条短推文确实顺手，但代价是清晰度锁死在屏幕分辨率、留白参差不齐，遇到同作者长串只能滚动截好几张再手工拼接。',
+  'guide.m2t': '浏览器选区截屏',
+  'guide.m2':
+    '在桌面端用系统截图工具或浏览器快捷键框选推文区域。构图比手机稍微可控，但代价依然是跟着显示器 DPI 走，容易截进悬停态或滚动条，遇到带引用卡片或多图网格的推文，每次都得反复拉框重裁。',
+  'guide.m3t': '直接渲染成卡片',
+  'guide.m3':
+    '不再对着屏幕拍像素，而是读取推文的正文、配图与长串结构，在干净的画布上重新排版输出。代价是市面上的在线网页工具大多需要把链接粘给第三方服务器，受限于接口额度，还常带水印或长串断层。',
+  'guide.outro':
+    '印推（PostPress）采用的正是第三种做法，但全程留在你的浏览器本机完成：在任意 X 推文上点一下按钮（或按 Alt + C），选好材质就能把 3× 高清 PNG 直接复制进剪贴板——自动滤掉评论与广告，无需服务器，也无需登录。',
+  'guide.cap': '夜幕材质下的本机渲染卡片：没有浏览器边框，也没有多余评论。',
   'article.h2': '长文、引用、四宫格，都不丢。',
   'article.tab1': 'X 长文',
   'article.tab2': '四图无裁切',
@@ -308,7 +345,7 @@ const ZH = {
   'install.s3': '在任意推文的操作栏点卡片按钮（或悬停按 <kbd>Alt</kbd> + <kbd>C</kbd>），点「复制图片」，去别处直接粘贴。',
   'install.note': '以 GPL-3.0-or-later 发布：改完再分发请同样开源。',
   'faq.h2': '常被问到的',
-  'faq.lead': '六个真问题，答案就在右边。',
+  'faq.lead': '八个真问题，答案就在右边。',
   'faq.q1': '为什么不直接截屏？',
   'faq.a1':
     '截屏要手拉框选、躲开底下的评论，遇到长推文还得滚动截好几张；截出来的图跟着屏幕 DPI 走，还夹带浏览器界面。点一下印推，整条推文或长串直接按材质规范重新排成 3× 高清图写进剪贴板，随手就能粘贴，缩到信息流宽度依然锐利。',
@@ -324,6 +361,12 @@ const ZH = {
     '软件本身是 GPL-3.0-or-later，可以商用。卡片里的文字与配图仍属于原作者，公开可见不等于可以随意商用，分发前请自己确认。',
   'faq.q6': '能装在哪些浏览器上？',
   'faq.a6': 'Chrome 与 Edge，Chrome 111 起（Manifest V3）。Firefox 与 Safari 还没适配——扩展用的是 Chromium 的扩展接口。',
+  'faq.q7': '怎么只截推文正文、不把底下的评论截进去？',
+  'faq.a7':
+    '在目标推文上点一下印推卡片按钮（或悬停按 Alt + C）。印推只读取当前推文或同作者连续长串，自动过滤广告与第三方回复；如果长串里某一条不想展示，导出前点一下即可剔除。',
+  'faq.q8': '能把推文直接转成 PNG 图片吗？',
+  'faq.a8':
+    '可以。印推在浏览器本机渲染卡片，单条推文默认导出 3× 高清 PNG，一键复制到剪贴板或保存为本地 PNG 文件。超长串默认按 2× 输出以避开尺寸上限，也可以在导出设置里强制开启 3×。',
   'close.h2': '下一条推文，印出来。',
   'close.sub': '装一次，之后每条推文的操作栏里都有它。点一下进剪贴板，随处都能粘贴。',
   'foot.readme': 'README',
@@ -348,12 +391,12 @@ const ZH = {
 
 const TITLES = {
   zh: 'PostPress · 印推：把 X 推文复制成卡片',
-  en: 'PostPress: copy X posts as print-grade cards',
+  en: 'PostPress: Clean Tweet Screenshot Tool for X',
 };
 
 const DESCRIPTIONS = {
   zh: '不用手拉框选截屏。点一下按钮（或按 Alt + C），把 X 推文与同作者长串复制成 3× 高清卡片，随手粘贴到任何地方；十二套材质，纯本机渲染，不登录、不上传。',
-  en: 'Skip manual cropping and screenshots. Copy X posts and same-author threads as 3× print-grade cards straight to your clipboard: twelve materials, rendered entirely on your machine.',
+  en: 'Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login.',
 };
 
 const root = document.documentElement;
@@ -556,6 +599,9 @@ const ENTER_SELECTORS = [
   '.facts',
   '.thread-text > *',
   '.thread-figure',
+  '.guide-content > *',
+  '.guide-methods > li',
+  '.guide-figure',
   '.article-figure',
   '.article-lead',
   '.article-lede',

@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PostPress: copy X posts as print-grade cards</title>
+    <title>PostPress: Clean Tweet Screenshot Tool for X</title>
     <meta
       name="description"
-      content="Skip manual cropping and screenshots. Copy X posts and same-author threads as 3× print-grade cards straight to your clipboard: twelve materials, rendered entirely on your machine."
+      content="Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login."
     />
     <meta name="google-site-verification" content="MU-E0FhsaY2ecGcnntckuE4LsM8GMd74kc0OJ6sNNnY" />
     <meta name="theme-color" content="#0c0e11" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://shirolin.github.io/postpress/" />
-    <meta property="og:title" content="PostPress: copy X posts as print-grade cards" />
+    <meta property="og:title" content="PostPress: Clean Tweet Screenshot Tool for X" />
     <meta
       property="og:description"
-      content="Skip manual cropping and screenshots. Click once on any X post or thread to put a crisp 3× card straight on your clipboard, ready to paste anywhere."
+      content="Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login."
     />
     <meta property="og:site_name" content="PostPress" />
     <meta property="og:image" content="https://shirolin.github.io/postpress/assets/cards/og-en.jpg" />
@@ -24,10 +24,10 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:alt" content="PostPress: copy X posts as print-grade 3× cards" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="PostPress: copy X posts as print-grade cards" />
+    <meta name="twitter:title" content="PostPress: Clean Tweet Screenshot Tool for X" />
     <meta
       name="twitter:description"
-      content="Skip manual cropping and screenshots. Click once on any X post or thread to put a crisp 3× card straight on your clipboard, ready to paste anywhere."
+      content="Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login."
     />
     <meta name="twitter:image" content="https://shirolin.github.io/postpress/assets/cards/og-en.jpg" />
     <meta name="twitter:image:alt" content="PostPress: copy X posts as print-grade 3× cards" />
@@ -57,7 +57,7 @@
               "url": "https://github.com/Shirolin"
             },
             "image": "https://shirolin.github.io/postpress/assets/cards/og-en.jpg",
-            "description": "Skip manual cropping and screenshots. Copy X posts and same-author threads as 3× print-grade cards straight to your clipboard: twelve materials, rendered entirely on your machine.",
+            "description": "Turn any tweet to image in one click. Copy X posts and threads as 3× PNG cards to your clipboard—12 materials, 100% local, no login.",
             "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
           },
           {
@@ -109,6 +109,22 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Chrome and Edge, from Chrome 111 (Manifest V3). Firefox and Safari are not supported yet: the extension is built on Chromium's extension APIs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I screenshot a tweet without replies?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Click the PostPress card button on the post (or hover and press Alt + C). PostPress reads only that post—or consecutive posts by the same author in a thread—and automatically leaves out ads and third-party replies. If a thread includes a post you want to omit, click once to exclude it before copying."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I turn a tweet into a PNG?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. PostPress renders the card locally in your browser and copies a 3× PNG straight to your clipboard (or downloads the PNG file to your disk). Very long threads default to 2× to stay under the size ceiling, with an option in export settings for 3×."
                 }
               }
             ]
@@ -293,6 +309,49 @@
         </div>
       </section>
 
+      <section class="sec guide" id="screenshot-guide">
+        <div class="guide-content">
+          <h2 data-i18n="guide.h2">How to screenshot a tweet without the clutter</h2>
+          <p class="guide-intro" data-i18n="guide.intro">
+            Most people grab a tweet screenshot to share an idea in a deck, newsletter, or group chat—only to end up with reply threads, sidebars, and soft text. There are three common ways to turn a tweet to image, and each carries a clear trade-off.
+          </p>
+          <ol class="guide-methods">
+            <li>
+              <h3 data-i18n="guide.m1t">Phone screenshot</h3>
+              <p data-i18n="guide.m1">
+                Press the hardware buttons on iOS or Android, then crop out the status bar, navigation icons, and the first reply underneath. It is fast for a single short post, but the trade-off is fixed screen resolution, uneven margins, and no clean way to capture a multi-post thread without stitching several screenshots together by hand.
+              </p>
+            </li>
+            <li>
+              <h3 data-i18n="guide.m2t">Browser region capture</h3>
+              <p data-i18n="guide.m2">
+                Use the OS snipping tool or a browser screenshot shortcut to drag a rectangle around the post on desktop. You get slightly more control over framing than on a phone, yet the trade-off is still display DPI, visible browser chrome or hover states, and re-cropping every time a quote card or photo grid sits near the edge of the viewport.
+              </p>
+            </li>
+            <li>
+              <h3 data-i18n="guide.m3t">Render the post as a card</h3>
+              <p data-i18n="guide.m3">
+                Instead of photographing pixels off the screen, parse the post’s text, media, and thread structure and lay them out fresh on a clean canvas. The trade-off is that hosted web tools usually ask you to paste a tweet URL into a third-party server, wait on rate-limited APIs, or live with watermarks and broken long threads.
+              </p>
+            </li>
+          </ol>
+          <p class="guide-outro" data-i18n="guide.outro">
+            PostPress takes that third approach and runs it entirely inside your browser: click the card button on any X post (or press Alt + C), pick a material, and copy a crisp 3× PNG straight to your clipboard—with replies and ads filtered out, no server, and no login.
+          </p>
+        </div>
+        <figure class="guide-figure">
+          <img
+            src="./assets/cards/midnight.webp"
+            alt="A tweet rendered as a clean card in the Midnight material, without browser chrome or replies."
+            width="1280"
+            height="1315"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption data-i18n="guide.cap">A tweet rendered locally in the Midnight material—no browser chrome, no stray replies.</figcaption>
+        </figure>
+      </section>
+
       <section class="sec article" id="article">
         <div class="sec-head article-head">
           <h2 data-i18n="article.h2">Articles, quotes and image grids survive.</h2>
@@ -453,7 +512,7 @@ pnpm run build   <span class="c"># → dist/</span></code></pre>
       <section class="sec faq" id="faq">
         <div class="faq-row faq-head">
           <h2 data-i18n="faq.h2">Asked most</h2>
-          <p class="lead" data-i18n="faq.lead">Six real questions, answers on the right.</p>
+          <p class="lead" data-i18n="faq.lead">Eight real questions, answers on the right.</p>
         </div>
         <div class="faq-row">
           <h3 data-i18n="faq.q1">Why not just screenshot?</h3>
@@ -489,6 +548,18 @@ pnpm run build   <span class="c"># → dist/</span></code></pre>
           <h3 data-i18n="faq.q6">Which browsers can run it?</h3>
           <p data-i18n="faq.a6">
             Chrome and Edge, from Chrome 111 (Manifest V3). Firefox and Safari are not supported yet: the extension is built on Chromium’s extension APIs.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3 data-i18n="faq.q7">How do I screenshot a tweet without replies?</h3>
+          <p data-i18n="faq.a7">
+            Click the PostPress card button on the post (or hover and press Alt + C). PostPress reads only that post—or consecutive posts by the same author in a thread—and automatically leaves out ads and third-party replies. If a thread includes a post you want to omit, click once to exclude it before copying.
+          </p>
+        </div>
+        <div class="faq-row">
+          <h3 data-i18n="faq.q8">Can I turn a tweet into a PNG?</h3>
+          <p data-i18n="faq.a8">
+            Yes. PostPress renders the card locally in your browser and copies a 3× PNG straight to your clipboard (or downloads the PNG file to your disk). Very long threads default to 2× to stay under the size ceiling, with an option in export settings for 3×.
           </p>
         </div>
       </section>
